@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <properties>
+        <property name="LOG_HOME">c:/xerpLogs</property>
+        <property name="FILE_NAME">xerp_logs</property>
+        <property name="log.sql.level">info</property>
+    </properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %l - %msg%n" />
+        </Console>
+        <RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${LOG_HOME}/${FILE_NAME}.log" filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd HH-mm}-%i.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %l - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+        <!--写入数据库配置，在Logger中设置日志级别为error-->
+        <JDBC name="databaseAppender" tableName="tbl_sys_log">
+            <ConnectionFactory class="com.xerp.common.utils.ConnectionLog" method="getDataSourceConnection"/>
+            <Column name="log_file" pattern="%file"/>
+            <Column name="log_class" pattern="%c"/>
+            <Column name="log_method" pattern="%M"/>
+            <Column name="log_line" pattern="%line"/>
+            <Column name="log_thread" pattern="%thread"/>
+            <Column name="log_level" pattern="%level"/>
+            <Column name="log_message" pattern="%message"/>
+            <Column name="created_datetime" pattern="%d{yyyy-MM-dd HH:mm:ss}"/>
+        </JDBC>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingRandomAccessFile" />
+        </Root>
+        <Logger name="com.xerp" level="${log.sql.level}" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="databaseAppender"/>
+        </Logger>
+    </Loggers>
+</Configuration>

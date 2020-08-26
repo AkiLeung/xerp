@@ -1,0 +1,6 @@
+/**恢复数据表自增ID*/
+# 删除所有数据
+delete from tbl_sys_log;
+# 重置自增序列
+alter table tbl_sys_log auto_increment=1;
+

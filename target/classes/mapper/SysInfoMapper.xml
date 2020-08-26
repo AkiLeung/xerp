@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.core.dao.ISysInfoDAO">
+    <!--在mapper文件中引入缓存策略-->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <resultMap type="SysInfo" id="SystemResult">
+        <result property="uuid" column="uuid"/>
+        <result property="sysName" column="sysName"/>
+        <result property="sysMotto" column="sysMotto"/>
+        <result property="createdBy" column="createdBy"/>
+        <result property="createdDatetime" column="createdDatetime"/>
+        <result property="modifiedBy" column="modifiedBy"/>
+        <result property="modifiedDatetime" column="modifiedDatetime"/>
+    </resultMap>
+
+    <!-- 查找指定 -->
+    <select id="listByDefault" resultType="com.xerp.core.entity.SysInfo" resultMap="SystemResult">
+        select *  from tbl_sys_info limit 1
+    </select>
+
+    <!-- 新增 -->
+    <insert id="insertData">
+        insert into tbl_sys_info
+        (uuid,sys_name,sys_motto,created_by,created_datetime,modified_by,modified_datetime) values
+        (#{uuid},#{sysName},#{sysMotto},#{createdBy},#{createdDatetime},#{modifiedBy},#{modifiedDatetime})
+    </insert >
+
+    <!-- 更新 -->
+    <update id="updateData">
+        update tbl_sys_info set
+            sys_name = #{sysName},
+            sys_motto = #{sysMotto},
+            modified_by = #{modifiedBy},
+            modified_datetime = #{modifiedDatetime}
+        where uuid = #{uuid}
+	</update>
+
+</mapper>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.xerp</groupId>
+    <artifactId>xerp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>xerp</name>
+    <url>http://www.xerp.com</url>
+
+    <properties>
+        <!-- 强制编码 -->
+        <!-- 文件拷贝时的编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- 系統架構包 -->
+        <!-- j2ee 基礎包 -->
+        <junit.version>4.11</junit.version>
+        <javaee.version>5</javaee.version>
+        <javassist.version>3.17.1-GA</javassist.version>
+        <javax.servlet.jsp>2.0</javax.servlet.jsp>
+        <javax.servlet>3.1.0</javax.servlet>
+        <jstl.version>1.2</jstl.version>
+        <cglib.version>2.2.2</cglib.version>
+        <org.aspectj>1.9.4</org.aspectj>
+        <!-- spring版本号 -->
+        <spring.version>5.1.5.RELEASE</spring.version>
+        <!-- mybatis版本号 -->
+        <mybatis.version>3.3.1</mybatis.version>
+        <!-- mybatis-spring -->
+        <mybatis-spring>1.3.0</mybatis-spring>
+        <!-- mybatis-ehcache -->
+        <mybatis-ehcache>1.1.0</mybatis-ehcache>
+        <!-- mysql连接 -->
+        <mysql.version>8.0.15</mysql.version>
+        <!-- druid持久化 -->
+        <alibaba.druid.version>1.1.10</alibaba.druid.version>
+        <!-- xml & json -->
+        <alibaba.fastjson.version>1.2.58</alibaba.fastjson.version>
+        <!-- shiro安全框架 -->
+        <shiro.version>1.2.4</shiro.version>
+        <!-- lombok快速注解 -->
+        <lombok.version>1.18.6</lombok.version>
+        <!-- log4j日誌管理 -->
+        <log4j.version>2.6.2</log4j.version>
+        <slf4j-nop.version>1.7.2</slf4j-nop.version>
+        <!-- org.ehcache -->
+        <org.ehcache>3.4.0</org.ehcache>
+        <!-- ehcache-core -->
+        <ehcache-core>2.4.8</ehcache-core>
+    </properties>
+
+    <dependencies>
+        <!-- j2ee 基礎包 -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- servlet 系列的支持 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${org.aspectj}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javaee</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javaee.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${javassist.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <!--Spring家族包-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--导入Spring 整合 ehcache包  spring-context-support 包-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib.version}</version>
+        </dependency>
+
+        <!--数据库连接-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <!--mybatis架構包-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+        <!--mybatis-Spring整合架構包-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring}</version>
+        </dependency>
+
+        <!--mybatis-ehcache整合架構包-->
+        <dependency>
+            <groupId>org.mybatis.caches</groupId>
+            <artifactId>mybatis-ehcache</artifactId>
+            <version>${mybatis-ehcache}</version>
+        </dependency>
+
+        <!--druid持久連接包-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${alibaba.druid.version}</version>
+        </dependency>
+
+        <!-- jackJson包 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${alibaba.fastjson.version}</version>
+        </dependency>
+
+        <!--shiro安全框架-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-all</artifactId>
+            <version>${shiro.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.shiro</groupId>
+                    <artifactId>shiro-quartz</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Setter & getter注解-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 日志文件管理包 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${slf4j-nop.version}</version>
+        </dependency>
+
+        <!-- ehCahce缓存 -->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${org.ehcache}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcache-core}</version>
+        </dependency>
+
+        <!-- quartz 定时器 -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>xerp</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <!-- 使用aliyun镜像 -->
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+</project>

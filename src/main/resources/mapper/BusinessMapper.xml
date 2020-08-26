@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.core.dao.IBusinessDAO">
+    <resultMap type="Business" id="BusinessResult">
+        <result property="uuid" column="uuid"/>
+        <result property="businessCode" column="businessCode"/>
+        <result property="businessName" column="businessName"/>
+        <result property="supervisorCode" column="supervisorCode"/>
+        <result property="supervisorName" column="supervisorName"/>
+        <result property="comment" column="comment"/>
+        <result property="sort" column="sort"/>
+        <result property="status" column="status"/>
+        <result property="status" column="status"/>
+        <result property="createdBy" column="createdBy"/>
+        <result property="createdDatetime" column="createdDatetime"/>
+        <result property="modifiedBy" column="modifiedBy"/>
+        <result property="modifiedDatetime" column="modifiedDatetime"/>
+    </resultMap>
+
+    <resultMap type="TreeNode" id="ZTreeNodeResult">
+        <result property="id" column="uuid"/>
+        <result property="pid" column="business_code"/>
+        <result property="name" column="business_name"/>
+        <result property="code" column="business_code"/>
+        <result property="status" column="status"/>
+        <result property="iconSkin" column="sort"/>
+    </resultMap>
+
+    <!-- 查找所有 -->
+    <select id="listData" parameterType="com.xerp.core.entity.Business" resultMap="BusinessResult">
+        select * from tbl_hr_org_business  where 1 = 1 order by sort asc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="int">
+        select count(uuid) as total
+        from tbl_hr_org_business
+        where 1 = 1 order by sort asc
+    </select>
+
+    <!-- 查找指定 Uuid-->
+    <select id="listByUuid" parameterType="com.xerp.core.entity.Business" resultMap="BusinessResult">
+        select * from tbl_hr_org_business where uuid = #{uuid}
+    </select>
+
+    <!-- 查找指定 Code-->
+    <select id="listByCode" parameterType="com.xerp.core.entity.Business" resultMap="BusinessResult">
+        select * from tbl_hr_org_business where business_code = #{code}
+    </select>
+
+    <!-- 樹狀列表 -->
+    <select id="businessListZTree" parameterType="TreeNode" resultMap="ZTreeNodeResult">
+        select uuid,business_code,business_name,status from tbl_hr_org_business where 1 = 1 order by sort asc
+    </select>
+
+    <!-- 新增 -->
+    <insert id="insertData">
+        insert into tbl_hr_org_business
+        (uuid,status,business_code,business_name,
+        supervisor_code,supervisor_name,comment,sort,
+        created_by,created_datetime,modified_by,modified_datetime) values
+        (#{uuid},#{status},#{businessCode},#{businessName},
+        #{supervisorCode},#{supervisorName},#{comment},#{sort},
+        #{createdBy},#{createdDatetime},#{modifiedBy},#{modifiedDatetime})
+    </insert >
+
+    <!-- 更新 -->
+    <update id="updateData">
+        update tbl_hr_org_business set
+        business_code = #{businessCode},
+        business_name = #{businessName},
+        supervisor_code = #{supervisorCode},
+        supervisor_name = #{supervisorName},
+        comment = #{comment},
+        sort = #{sort},
+        status = #{status},
+        modified_by=#{modifiedBy},
+        modified_datetime=#{modifiedDatetime}
+        where uuid = #{uuid}
+	</update>
+
+    <!-- 刪除 -->
+    <delete id="deleteData">
+        delete from tbl_hr_org_business where uuid = #{uuid}
+    </delete>
+
+</mapper>

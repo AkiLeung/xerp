@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <description>spring-shiro</description>
+
+    <!-- 自定义Realm -->
+    <bean id="myShiroRealm" class="com.xerp.core.shiro.realm.UserRealm" >
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <!-- 加密算法的名称 -->
+                <property name="hashAlgorithmName" value="MD5"></property>
+                <!-- 配置加密的次数 -->
+                <property name="hashIterations" value="1024"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myShiroRealm"/>
+        <property name="rememberMeManager" ref="rememberMeManager"/>
+    </bean>
+
+    <!-- Shiro过滤器 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口,这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 身份认证失败，则跳转到登录页面的配置 -->
+        <property name="loginUrl" value="/login.action"/>
+        <property name="successUrl" value="/system.action" />
+        <!-- 权限认证失败，则跳转到指定页面 -->
+        <property name="unauthorizedUrl" value="/unAuthor.action"/>
+        <!-- Shiro连接约束配置,即过滤链的定义                  -->
+        <property name="filterChainDefinitions">
+            <value>
+                /static/** = anon
+                /login.action = anon
+                /logout.action = logout
+                /sysConfig/* = authc
+            </value>
+        </property>
+    </bean>
+
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- 会话ID生成器 -->
+    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
+
+    <bean id="rememberMeCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <constructor-arg value="rememberMe"/>
+        <property name="httpOnly" value="true"/>
+        <!-- 30天 -->
+        <property name="maxAge" value="2592000"/>
+        <property name="domain" value=""/>
+        <property name="path" value="/"/>
+    </bean>
+
+    <!-- rememberMe管理器 -->
+    <bean id="rememberMeManager" class="org.apache.shiro.web.mgt.CookieRememberMeManager">
+        <!-- rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度（128 256 512 位）-->
+        <property name="cipherKey"
+                  value="#{T(org.apache.shiro.codec.Base64).decode('4AvVhmFLUs0KTA3Kprsdag==')}"/>
+        <property name="cookie" ref="rememberMeCookie"/>
+    </bean>
+
+    <!-- 未授權頁面 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <!-- 未授权使用的异常 -->
+                <prop key="org.apache.shiro.authz.UnauthorizedException">/unAuthor.action</prop>
+                <prop key="org.apache.shiro.authz.UnauthenticatedException">/unAuthor.action</prop>
+                <!-- 其他 -->
+                <prop key="java.lang.Throwable">/unAuthor.action</prop>
+            </props>
+        </property>
+        <property name="defaultErrorView" value="/unAuthor.action"/>
+    </bean>
+
+</beans>
