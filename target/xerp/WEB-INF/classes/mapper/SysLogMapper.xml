@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.core.dao.ISysLogDAO">
+    <!--在mapper文件中引入缓存策略-->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <resultMap type="SysLog" id="SysLogResult">
+        <result property="logId" column="logId"  jdbcType="INTEGER"/>
+        <result property="logFile" column="logFile"/>
+        <result property="logClass" column="logClass"/>
+        <result property="logMethod" column="logMethod"/>
+        <result property="logLine" column="logLine"/>
+        <result property="logThread" column="logThread"/>
+        <result property="logLevel" column="logLevel"/>
+        <result property="logMessage" column="logMessage"/>
+        <result property="createdDatetime" column="createdDatetime"/>
+    </resultMap>
+
+    <!-- 查找所有 -->
+    <select id="listData" parameterType="com.xerp.core.entity.SysLog" resultMap="SysLogResult">
+        select * from tbl_sys_log where 1 = 1 order by created_datetime desc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 查找所有 -->
+    <select id="listCount" resultType="int">
+        select Count(log_id) from tbl_sys_log where 1 = 1 order by created_datetime asc
+    </select>
+
+    <!-- 查找指定 -->
+    <select id="listByLogId" resultType="com.xerp.core.entity.SysLog" resultMap="SysLogResult">
+        select * from tbl_sys_log where log_id = #{logId}
+    </select>
+
+</mapper>

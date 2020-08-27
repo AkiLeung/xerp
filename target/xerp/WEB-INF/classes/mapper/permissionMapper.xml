@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.core.dao.IPermissionDAO">
+    <resultMap type="Permission" id="PermissionResult">
+        <result property="uuid" column="uuid"/>
+        <result property="permissionCode" column="permission_code"/>
+        <result property="permissionName" column="permission_name"/>
+        <result property="permissionUrl" column="permission_url"/>
+        <result property="type" column="type"/>
+        <result property="icon" column="icon"/>
+        <result property="status" column="status"/>
+        <result property="comment" column="comment"/>
+    </resultMap>
+
+    <!-- 查找所有-->
+    <select id="listData" resultMap="PermissionResult">
+        select * from tbl_sys_permission where 1 = 1
+        <if test="condition01 != null">
+            and (
+                permission_code like concat('%',#{condition01},'%')
+             or permission_name like concat('%',#{condition01},'%')
+             or permission_url like concat('%',#{condition01},'%')
+              )
+        </if>
+        order by permission_code asc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="int">
+        select count(uuid) as total from tbl_sys_permission where 1 = 1
+        <if test="condition01 != null">
+            and (
+            permission_code like concat('%',#{condition01},'%')
+            or permission_name like concat('%',#{condition01},'%')
+            or permission_url like concat('%',#{condition01},'%')
+            )
+        </if>
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByUuid" resultType="com.xerp.core.entity.Permission" resultMap="PermissionResult">
+        select * from tbl_sys_permission where uuid = #{uuid}
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByCode" resultType="com.xerp.core.entity.Permission" resultMap="PermissionResult">
+        select * from tbl_sys_permission where permission_code = #{code}
+    </select>
+
+    <!-- 新增-->
+    <insert  id="insertData">
+        insert into tbl_sys_permission
+        (
+            uuid,
+            permission_code,
+            permission_name,
+            permission_url,
+            type,
+            icon,
+            status,
+            comment
+        ) values
+        (
+            #{uuid},
+            #{permissionCode},
+            #{permissionName},
+            #{permissionUrl},
+            #{type},#{icon}
+            #{status},
+            #{comment}
+        )
+    </insert >
+
+    <!-- 更新-->
+    <update id="updateData">
+        update tbl_sys_permission set
+            permission_code = #{permissionCode},
+            permission_name = #{permissionName},
+            permission_url = #{permissionUrl},
+            type = #{type},
+            icon = #{icon},
+            status = #{status},
+            comment = #{comment}
+        where uuid=#{uuid}
+	</update>
+
+    <!-- 刪除-->
+    <delete id="deleteData">
+        delete from tbl_sys_permission where uuid=#{uuid}
+    </delete>
+</mapper>
