@@ -236,7 +236,7 @@ public class SysConfigController extends BaseController {
     }
 
     /**
-     * 功能说明：后台配置-数据字段
+     * 功能说明：后台配置-数据字典
      * 修改说明：
      *
      * @return ModelAndView 頁面跳轉
@@ -249,6 +249,27 @@ public class SysConfigController extends BaseController {
         modelAndView = new ModelAndView();
         try {
             modelAndView.setViewName(UrlPathConst.STR_SYSTEM_CONFIG_DATA_KEY_VALUE);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+    /**
+     * 功能说明：后台配置-单号配置
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20181115
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "billNumber/configuration.action")
+    public ModelAndView configBillNumber() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_SYSTEM_CONFIG_BILL_NUMBER);
         } catch (Exception ex) {
             modelAndView.addObject("errorMessage", ex.toString());
             modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);

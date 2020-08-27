@@ -218,6 +218,15 @@ public class UrlPathConst {
      */
     public final static String STR_SYSTEM_CONFIG_DATA_KEY_VALUE_UPT = SYS_SERVER_PATH + "/sysConfig/sys_dataKeyValueUpdate.jsp";
     /**
+     *后台管理：单号配置-列表
+     */
+    public final static String STR_SYSTEM_CONFIG_BILL_NUMBER = SYS_SERVER_PATH + "/sysConfig/sys_billNumberList.jsp";
+    /**
+     *后台管理：单号配置-配置
+     */
+    public final static String STR_SYSTEM_CONFIG_BILL_NUMBER_CONF = SYS_SERVER_PATH + "/sysConfig/sys_billNumberConf.jsp";
+
+    /**
      *后台管理：系统日志
      */
     public final static String STR_SYSTEM_CONFIG_SYSTEM_LOG = SYS_SERVER_PATH + "/sysConfig/sys_systemLogList.jsp";

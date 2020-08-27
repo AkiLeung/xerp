@@ -129,6 +129,15 @@
             {
                 id: "node-07",
                 pId: "root-00",
+                name: "单号配置",
+                isParent: false,
+                iconSkin: "config",
+                ifrName: "configKeyValue",
+                mainPath: "<%=basePath %>sysConfig/billNumber/configuration.action"
+            },
+            {
+                id: "node-08",
+                pId: "root-00",
                 name: "系统日志",
                 isParent: false,
                 iconSkin: "config",
@@ -136,7 +145,7 @@
                 mainPath: "<%=basePath %>sysConfig/sysLog/configuration.action"
             },
             {
-                id: "node-08",
+                id: "node-09",
                 pId: "root-00",
                 name: "系统信息",
                 isParent: false,
