@@ -198,7 +198,7 @@
             </td>
             <td class="tblCell">
                 <input id="warehouse" name="warehouse" class="easyui-switchbutton" onText="true" offText="false">
-                (默認公司下無工廠)
+                (默認公司下無貨倉)
             </td>
         </tr>
         <tr>
