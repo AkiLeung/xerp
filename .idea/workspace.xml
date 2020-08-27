@@ -10,23 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/BillNumberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/IBillNumberDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/BillNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/IBillNumberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/BillNumberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/BillNumberMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberConf.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/common/consts/UrlPathConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/common/consts/UrlPathConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/SysConfigController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/SysConfigController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_configLeftMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_configLeftMenu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/common/consts/UrlPathConst.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/common/consts/UrlPathConst.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/SysConfigController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/SysConfigController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/common/consts/UrlPathConst.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/common/consts/UrlPathConst.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/core/controller/SysConfigController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/core/controller/SysConfigController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/webPage/sysConfig/sys_configLeftMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/webPage/sysConfig/sys_configLeftMenu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberConf.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberConf.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,20 +22,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="182" column="14" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="14" />
+            <state relative-caret-position="1231">
+              <caret line="181" column="17" lean-forward="true" selection-start-line="181" selection-start-column="17" selection-end-line="181" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberConf.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="153" column="60" selection-start-line="153" selection-start-column="60" selection-end-line="153" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowModuleList.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowModuleConf.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="161" selection-start-line="161" selection-end-line="171" selection-end-column="14" />
+            <state relative-caret-position="274">
+              <caret line="144" selection-start-line="144" selection-end-line="144" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -160,8 +153,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/BillNumber.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/BillNumberMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/BillNumberController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberConf.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberConf.jsp" />
       </list>
     </option>
   </component>
@@ -172,7 +165,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1912" />
     <option name="y" value="2" />
     <option name="width" value="1936" />
@@ -630,7 +623,7 @@
       <workItem from="1598344512395" duration="1694000" />
       <workItem from="1598484720353" duration="306000" />
       <workItem from="1598489025827" duration="1809000" />
-      <workItem from="1598506608478" duration="6750000" />
+      <workItem from="1598506608478" duration="6946000" />
     </task>
     <task id="LOCAL-00001" summary="update pom.xml 20200826">
       <created>1598489379653</created>
@@ -653,7 +646,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598490383213</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update 20200827">
+      <created>1598514301263</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1598514301263</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -680,7 +680,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="484824000" />
+    <option name="totallyTimeSpent" value="485020000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -705,7 +705,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41460794" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.06964091" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25680086" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26745436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -738,7 +738,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update pom.xml 20200826" />
     <MESSAGE value="update webPages 20200826" />
-    <option name="LAST_COMMIT_MESSAGE" value="update webPages 20200826" />
+    <MESSAGE value="update 20200827" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20200827" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowNode.java">
@@ -1109,13 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BillNumberMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/entity/BillNumber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -1134,20 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowModuleConf.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="23" column="2" lean-forward="true" selection-start-line="23" selection-start-column="2" selection-end-line="38" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberConf.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172">
-          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/BillNumberController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
@@ -1160,15 +1140,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowModuleList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="161" selection-start-line="161" selection-end-line="171" selection-end-column="14" />
+        <state relative-caret-position="250">
+          <caret line="163" column="43" lean-forward="true" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/BillNumberMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="69" column="29" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="182" column="14" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="14" />
+        <state relative-caret-position="1231">
+          <caret line="181" column="17" lean-forward="true" selection-start-line="181" selection-start-column="17" selection-end-line="181" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowModuleConf.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="144" selection-start-line="144" selection-end-line="144" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberConf.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="153" column="60" selection-start-line="153" selection-start-column="60" selection-end-line="153" selection-end-column="60" />
         </state>
       </provider>
     </entry>
