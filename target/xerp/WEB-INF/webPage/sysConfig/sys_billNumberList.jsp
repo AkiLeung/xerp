@@ -162,7 +162,7 @@
                 {field: 'currentRange', title: '当前范围', width: 100},
                 {field: 'currentValue', title: '当前单号', width: 100},
                 {
-                    field: 'currentNumber', title: '当前单号', width: 250,
+                    field: 'currentNumber', title: '完整单号', width: 250,
                     formatter: function (value, row, index) {
                         return row.preNumWord + ' ' + row.currentRange + '' + PrefixInteger(row.currentValue, row.defaultLength);
                     }

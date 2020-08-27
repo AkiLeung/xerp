@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xerp.core.dao.IBillNumberDAO">
-    <resultMap type="BillNumber" id="BillNumberResult">
+    <resultMap type="BillNumber" id="ResultSet">
         <result property="uuid" column="uuid"/>
         <result property="status" column="status"/>
         <result property="moduleCode" column="module_code"/>
@@ -18,7 +18,7 @@
     </resultMap>
 
     <!-- 查找所有-->
-    <select id="listData" resultMap="BillNumberResult">
+    <select id="listData" resultMap="ResultSet">
         select * from tbl_sys_config_number where 1 = 1 order by module_code asc
         <if test="startRow != null and  rows!= null">
             limit #{startRow},#{rows}
@@ -31,12 +31,12 @@
     </select>
 
     <!-- 查找指定-->
-    <select id="listByUuid" resultType="com.xerp.core.entity.BillNumber" resultMap="BillNumberResult">
+    <select id="listByUuid" resultType="com.xerp.core.entity.BillNumber" resultMap="ResultSet">
         select * from tbl_sys_config_number where uuid = #{uuid}
     </select>
 
     <!-- 查找指定-->
-    <select id="listByCode" resultType="com.xerp.core.entity.BillNumber" resultMap="BillNumberResult">
+    <select id="listByCode" resultType="com.xerp.core.entity.BillNumber" resultMap="ResultSet">
         select * from tbl_sys_config_number where module_code = #{code}
     </select>
 
@@ -81,4 +81,19 @@
     <delete id="deleteData">
         delete from tbl_sys_config_number where uuid=#{uuid}
     </delete>
+
+    <!-- 查询当前号码数据-->
+    <select id="queryCurrentNumber" resultMap="ResultSet">
+        select * from tbl_sys_config_number where module_code = #{moduleCode}
+    </select>
+
+    <!-- 更新号码数据 -->
+    <update id="updateCurrentNumber">
+        update tbl_sys_config_number set
+        current_range = #{currentRange},
+        current_value = #{currentValue},
+        updated_datetime = #{updatedDatetime}
+        where uuid = #{uuid}
+	</update>
+
 </mapper>

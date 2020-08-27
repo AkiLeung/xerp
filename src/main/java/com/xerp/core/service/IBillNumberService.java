@@ -68,4 +68,11 @@ public interface IBillNumberService {
      */
     int deleteDataBatch(String[] uuids);
 
+
+    /**
+     * 获取下一个单号
+     * @param moduleCode
+     * @return String 单号
+     */
+    BillNumber generateBillNumber(String moduleCode);
 }

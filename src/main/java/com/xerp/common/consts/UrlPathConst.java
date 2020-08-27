@@ -376,4 +376,14 @@ public class UrlPathConst {
     public final static String STR_SYSTEM_POPU_FLOW_NODE_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuFlowNodeTree.jsp";
     /********************************************End 弹窗管理***************************************************/
 
+
+
+
+    /********************************************Start前台流程***************************************************/
+    /**
+     * 请假申请：导航菜单
+     */
+    public final static String STR_FLOW_VACATION_MENU = SYS_SERVER_PATH + "/flwVacation/flw_optionLeftMenu.jsp";
+
+    /********************************************End前台流程***************************************************/
 }
