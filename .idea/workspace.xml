@@ -10,25 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowLeftMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_optionLeftMenu.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/common/consts/UrlPathConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/common/consts/UrlPathConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/IBillNumberDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/IBillNumberDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/IBillNumberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/IBillNumberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/BillNumberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/BillNumberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/BillNumberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/BillNumberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/common/consts/UrlPathConst.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/common/consts/UrlPathConst.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/dao/IBillNumberDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/dao/IBillNumberDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/service/IBillNumberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/service/IBillNumberService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/service/impl/BillNumberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/service/impl/BillNumberServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/BillNumberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/BillNumberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/common/consts/UrlPathConst.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/common/consts/UrlPathConst.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/core/dao/IBillNumberDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/core/dao/IBillNumberDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/core/service/IBillNumberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/core/service/IBillNumberService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/core/service/impl/BillNumberServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/com/xerp/core/service/impl/BillNumberServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/mapper/BillNumberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/classes/mapper/BillNumberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/xerp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/xerp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_optionLeftMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_optionLeftMenu.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,12 +22,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_optionLeftMenu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+            <state relative-caret-position="371">
+              <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -230,16 +213,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="xerp" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xerp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xerp" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -289,7 +262,7 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="webPage" type="462c0819:PsiDirectoryNode" />
-              <item name="sysConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="flwVacation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -614,7 +587,8 @@
       <workItem from="1598344512395" duration="1694000" />
       <workItem from="1598484720353" duration="306000" />
       <workItem from="1598489025827" duration="1809000" />
-      <workItem from="1598506608478" duration="12206000" />
+      <workItem from="1598506608478" duration="12551000" />
+      <workItem from="1598914975177" duration="1006000" />
     </task>
     <task id="LOCAL-00001" summary="update pom.xml 20200826">
       <created>1598489379653</created>
@@ -651,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598515382677</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update 20200827">
+      <created>1598521882216</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598521882216</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -678,7 +659,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="490280000" />
+    <option name="totallyTimeSpent" value="491631000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -693,7 +674,7 @@
     <frame x="1912" y="2" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2228145" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2249467" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -703,7 +684,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41460794" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2546246" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3492927" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26745436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1171,8 +1152,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_optionLeftMenu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="371">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
         </state>
       </provider>
     </entry>
