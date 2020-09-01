@@ -1,3 +1,4 @@
+<%@ page import="com.xerp.common.consts.ConfigConst" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
@@ -74,16 +75,16 @@
             if (data != null) {
                 nodesData = "";
                 for (var i = 0; i < data.rows.length; i++) {
-                    if (data.rows[i].nodeType == '00') {
+                    if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_START_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/start.png' /> "
                             + "<span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + " -> ";
-                    } else if (data.rows[i].nodeType == '01') {
+                    } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_TASK_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/node.png' /> "
                             + "<span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + " -> ";
-                    } else if (data.rows[i].nodeType == '02') {
+                    } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_NODE_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/node.png' /> "
                             + "<span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + " -> ";
-                    } else if (data.rows[i].nodeType == '99') {
+                    } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_END_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/finish.png' /> "
                             + "<span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>";
                     }
