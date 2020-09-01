@@ -9,27 +9,25 @@
     <title>Title</title>
     <jsp:include page="../include/common.jsp" flush="true"/>
     <script type="text/javascript">
-         $(document).ready(function () {
-             $(".div2").click(function () {
-                 $(this).next("div").slideToggle("slow")
-                     .siblings(".div3:visible").slideUp("slow");
-             });
-         });
+        $(document).ready(function () {
+            $(".div2").click(function () {
+                $(this).next("div").slideToggle("slow")
+                    .siblings(".div3:visible").slideUp("slow");
+            });
+        });
     </script>
     <style>
-        /*body {*/
-            /*margin: 0;*/
-            /*font-family: 微软雅黑;*/
-        /*}*/
-        .left {
-            width: 99.8%;
+        .navLeft {
+            width: 99.9%;
             height: 100%;
             border-right: 1px solid #CCCCCC;
             color: #000000;
             font-size: 14px;
             text-align: center;
         }
-
+        .left_top{
+            text-align: center;
+        }
         .div1 {
             text-align: center;
             width: 100%;
@@ -41,8 +39,10 @@
             line-height: 40px;
             cursor: pointer;
             font-size: 13px;
+            font-weight: bold;
             position: relative;
             border-bottom: #ccc 1px dotted;
+            background-color: #ededed;
         }
 
         .flowMenu {
@@ -54,35 +54,17 @@
             background: url('<%=basePath%>static/image/navmenu/1.png');
         }
 
-        <%--.xwzx {--%>
-            <%--position: absolute;--%>
-            <%--height: 20px;--%>
-            <%--width: 20px;--%>
-            <%--left: 40px;--%>
-            <%--top: 10px;--%>
-            <%--background: url('<%=basePath%>static/image/navmenu/2.png');--%>
-        <%--}--%>
-
-        <%--.zxcp {--%>
-            <%--position: absolute;--%>
-            <%--height: 20px;--%>
-            <%--width: 20px;--%>
-            <%--left: 40px;--%>
-            <%--top: 10px;--%>
-            <%--background: url('<%=basePath%>static/mage/navmenu/4.png');--%>
-        <%--}--%>
-
-        <%--.lmtj {--%>
-            <%--position: absolute;--%>
-            <%--height: 20px;--%>
-            <%--width: 20px;--%>
-            <%--left: 40px;--%>
-            <%--top: 10px;--%>
-            <%--background: url('<%=basePath%>static/image/navmenu/8.png');--%>
-        <%--}--%>
+        .flowData {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 40px;
+            top: 10px;
+            background: url('<%=basePath%>static/image/navmenu/2.png');
+        }
 
         .div3 {
-            display: block; /*none*/
+            display: block;
             cursor: pointer;
             font-size: 13px;
         }
@@ -102,17 +84,17 @@
     </style>
 </head>
 <body id="bg">
-<div class="left">
+<div class="navLeft">
     <div class="div1">
         <div class="left_top">
-            <img src="<%=basePath%>static/image/navmenu/bbb_01.jpg">
-            <img src="<%=basePath%>static/image/navmenu/bbb_02.jpg" id="2">
-            <img src="<%=basePath%>static/image/navmenu/bbb_03.jpg">
-            <img src="<%=basePath%>static/image/navmenu/bbb_04.jpg">
+            <img src="<%=basePath%>static/image/navmenu/bbb_01.jpg" width="30px" height="30px">
+            <img src="<%=basePath%>static/image/navmenu/bbb_02.jpg" width="30px" height="30px">
+            <img src="<%=basePath%>static/image/navmenu/bbb_03.jpg" width="30px" height="30px">
+            <img src="<%=basePath%>static/image/navmenu/bbb_04.jpg" width="30px" height="30px">
         </div>
         <div class="div2">
             <div class="flowMenu"></div>
-             流程申请
+            请假申请
         </div>
         <div class="div3">
             <ul>
@@ -123,38 +105,15 @@
                 <li> 所有的申请</li>
             </ul>
         </div>
-        <div class="div2" style="display: none">
-            <div class="xwzx"></div>
-            新闻中心
+        <div class="div2">
+            <div class="flowData"></div>
+            数据维护
         </div>
-        <div class="div3" style="display: none">
+        <div class="div3">
             <ul>
-                <li> 管理文章</li>
-                <li> 文章分类</li>
-                <li> 添加文章</li>
-            </ul>
-        </div>
-        <div class="div2" style="display: none">
-            <div class="zxcp"></div>
-            最新产品
-        </div>
-        <div class="div3" style="display: none">
-            <ul>
-                <li>图片管理</li>
-                <li> 图片分类</li>
-                <li> 添加图片</li>
-            </ul>
-        </div>
-        <div class="div2" style="display: none">
-            <div class="lmtj"></div>
-            栏目添加
-        </div>
-        <div class="div3" style="display: none">
-            <ul>
-                <li> 文章系统</li>
-                <li> 图片系统</li>
-                <li> 添加表单</li>
-                <li> 招聘系统</li>
+                <li> 数据维护1</li>
+                <li> 数据维护2</li>
+                <li> 数据维护3</li>
             </ul>
         </div>
     </div>
