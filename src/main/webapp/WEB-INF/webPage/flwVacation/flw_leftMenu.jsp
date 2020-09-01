@@ -27,13 +27,17 @@
         }
 
         .left_top {
+            height: 40px;
+            line-height: 40px;
             text-align: center;
+            background-color: #ededed;
+            border-bottom: #ccc 1px dotted;
         }
 
         .div1 {
             text-align: center;
             width: 100%;
-            padding-top: 10px;
+            padding-top: 0px;
         }
 
         .div2 {
