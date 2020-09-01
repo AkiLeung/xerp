@@ -20,7 +20,7 @@
         .navLeft {
             width: 99.9%;
             height: 100%;
-            border-right: 1px solid #CCCCCC;
+            border: 0px solid #CCCCCC;
             color: #000000;
             font-size: 14px;
             text-align: center;
@@ -102,10 +102,10 @@
             <ul>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/mainForm.action')">起草申请</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')">我的待办</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')">我的申请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')">所有申请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')"> 未完成申请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')">已完成申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/myApplyList.action')">我的申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/allApplyList.action')">所有申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/unFinishList.action')"> 未完成申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/isFinishList.action')">已完成申请</a></li>
             </ul>
         </div>
         <div class="div2">
@@ -114,9 +114,9 @@
         </div>
         <div class="div3">
             <ul>
-                <li> 数据维护1</li>
-                <li> 数据维护2</li>
-                <li> 数据维护3</li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/xxxxxxxxx.action')">数据维护1</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/xxxxxxxxx.action')">数据维护2</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/xxxxxxxxx.action')">数据维护3</a></li>
             </ul>
         </div>
     </div>
