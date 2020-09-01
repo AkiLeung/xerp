@@ -383,7 +383,11 @@ public class UrlPathConst {
     /**
      * 请假申请：导航菜单
      */
-    public final static String STR_FLOW_VACATION_MENU = SYS_SERVER_PATH + "/flwVacation/flw_optionLeftMenu.jsp";
+    public final static String STR_FLOW_VACATION_LEFT_MENU = SYS_SERVER_PATH + "/flwVacation/flw_leftMenu.jsp";
+    public final static String STR_FLOW_VACATION_MAIN_FORM = SYS_SERVER_PATH + "/flwVacation/flw_mainForm.jsp";
+    public final static String STR_FLOW_VACATION_TO_HANDLE = SYS_SERVER_PATH + "/flwVacation/flw_toHandleList.jsp";
+
+
 
     /********************************************End前台流程***************************************************/
 }

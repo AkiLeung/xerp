@@ -25,9 +25,11 @@
             font-size: 14px;
             text-align: center;
         }
-        .left_top{
+
+        .left_top {
             text-align: center;
         }
+
         .div1 {
             text-align: center;
             width: 100%;
@@ -74,7 +76,7 @@
             padding: 0;
         }
 
-        .div3 li {
+        .div3 li a {
             height: 30px;
             line-height: 30px;
             list-style: none;
@@ -98,11 +100,12 @@
         </div>
         <div class="div3">
             <ul>
-                <li> 起草申请</li>
-                <li> 我的申请</li>
-                <li> 未完成申请</li>
-                <li> 已完成申请</li>
-                <li> 所有的申请</li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/mainForm.action')">起草申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')">我的待办</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')">我的申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')">所有申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')"> 未完成申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>/vacation/toHandleList.action')">已完成申请</a></li>
             </ul>
         </div>
         <div class="div2">
@@ -120,3 +123,28 @@
 </div>
 </body>
 </html>
+<script>
+    //页面切换
+    function openFlowTabToUrl(paraUrl) {
+        if (paraUrl != "" && paraUrl != "null") {
+            var url = paraUrl;
+            if (url != "") {
+                var tabName = '请假申请';
+                var ifrName = '请假申请';
+                //判断选项卡是否重复打开
+                if (window.top.$('#workbench').tabs('exists', tabName)) {
+                    window.top.$('#workbench').tabs('select', tabName);
+                    window.top.frames[ifrName].location.href = paraUrl;
+                } else {
+                    window.top.$('#workbench').tabs('add', {
+                        id: tabName,
+                        title: tabName,
+                        content: '<iframe id="' + ifrName + '" name="' + ifrName + '" scrolling="no" frameborder="0"  ' +
+                            'src="' + url + '" style="width:100%;height:100%;"></iframe>',
+                        closable: true
+                    });
+                }
+            }
+        }
+    }
+</script>
