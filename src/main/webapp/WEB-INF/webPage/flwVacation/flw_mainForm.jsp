@@ -28,7 +28,12 @@
             flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
             flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
             flowVersion:<input value="" type="Text" name="flowVersion" id="flowVersion"/><br/>
-
+            docUuid:<input value="<%=request.getParameter("uuid")%>" type="Text" name="uuid" id="uuid"/><br/>
+            flowNodeType:<input value="" type="Text" name="flowNodeType" id="flowNodeType"/><br/>
+            flowNodeCode:<input value="" type="Text" name="flowNodeCode" id="flowNodeCode"/><br/>
+            flowNodeName:<input value="" type="Text" name="flowNodeName" id="flowNodeName"/><br/>
+            curHandlerNum:<input value="" type="Text" name="handlerNumber" id="curHandlerNum"/><br/>
+            curHandlerNam:<input value="" type="Text" name="handlerNumber" id="curHandlerNam"/><br/>
         </td>
     </tr>
     <tr>
@@ -47,6 +52,7 @@
 </body>
 </html>
 <script>
+    //获取配置流程信息
     var url = "<%=basePath %>flowData/getFlowByCode.action?flowCode=" + $("#flowCode").val();
     $.ajax({
         async: false,
@@ -64,12 +70,13 @@
         }
     });
 
+    //获取配置流程的所有节点信息
     var nodesData = "";
-    //var node = {};
+    url = '<%=basePath%>sysConfig/flowNode/listData.action?flowUuid=' + $("#flowUuid").val();
     $.ajax({
         async: false,
         type: 'get',
-        url: '<%=basePath%>sysConfig/flowNode/listData.action?flowUuid=' + $("#flowUuid").val(),
+        url: url,
         dataType: 'json',
         success: function (data) {
             if (data != null) {
@@ -91,6 +98,24 @@
                 }
                 $("#flowShow").html(nodesData);
             }
+        }
+    });
+
+    //获取当前文档的流程信息
+    url = "";
+    $.ajax({
+        async: false,
+        type: 'get',
+        url: url,
+        dataType: 'json',
+        success: function (data) {
+            $("#flowUuid").val(data[0].uuid);
+            $("#flowName").val(data[0].flowName);
+            $("#flowVersion").val(data[0].flowVersion);
+            $("#flowInfo").text(data[0].flowName + " - [ " + data[0].flowVersion + " ]");
+        },
+        error: function (data) {
+            alert("【" + url + "】JSON数据获取失败，请联系管理员！");
         }
     });
 

@@ -1,6 +1,6 @@
-package com.xerp.core.service;
+package com.xerp.module.service;
 
-import com.xerp.core.entity.BillNumber;
+import com.xerp.module.entity.Vacation;
 import com.xerp.core.entity.PageModel;
 
 import java.util.List;
@@ -11,14 +11,14 @@ import java.util.List;
  * @author Joseph
  * @date 20181108
  */
-public interface IBillNumberService {
+public interface IVacationService {
 
     /**
      * 查询所有
      * @param pager  分页信息
-     * @return List<BillNumber>
+     * @return List<Vacation>
      */
-    List<BillNumber> listData(PageModel pager);
+    List<Vacation> listData(PageModel pager);
 
     /**
      * 統計個數
@@ -29,30 +29,30 @@ public interface IBillNumberService {
     /**
      * 只查询一个，常用于修改
      * @param uuid
-     * @return BillNumber
+     * @return Vacation
      */
-    List<BillNumber> listByUuid(String uuid);
+    List<Vacation> listByUuid(String uuid);
 
     /**
      * 只查询一个，常用于校驗
      * @param code
-     * @return List<BillNumber>
+     * @return List<Vacation>
      */
-    List<BillNumber> listByCode(String code);
+    List<Vacation> listByCode(String code);
 
     /**
      * 增加，用实体作为参数
-     * @param entity of BillNumber
+     * @param entity of Vacation
      * @return int 影響行數
      */
-    int insertData(BillNumber entity);
+    int insertData(Vacation entity);
 
     /**
      * 修改，用实体作为参数
-     * @param entity of BillNumber
+     * @param entity of Vacation
      * @return int 影響行數
      */
-    int updateData(BillNumber entity);
+    int updateData(Vacation entity);
 
     /**
      * 按uuid删除
@@ -68,11 +68,4 @@ public interface IBillNumberService {
      */
     int deleteDataBatch(String[] uuids);
 
-
-    /**
-     * 获取下一个单号
-     * @param moduleCode
-     * @return String 单号
-     */
-    BillNumber generateBillNumber(String moduleCode);
 }
