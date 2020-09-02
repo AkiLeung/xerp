@@ -48,6 +48,23 @@ public interface IFlowNodeDAO {
     List<FlowNode> listByCode(String code);
 
     /**
+     * 樹結構
+     *
+     * @param flowUuid
+     * @return int 影響行數
+     */
+    List<TreeNode> flowNodeZTree(String flowUuid);
+
+    /**
+     * 获取指定环节
+     *
+     * @param flowUuid
+     * @return List<FlowNode>
+     */
+    List<FlowNode> getStartNodeByFlowUuid(String flowUuid);
+
+
+    /**
      * 增加，用实体作为参数
      *
      * @param entity of FlowNode
@@ -71,11 +88,5 @@ public interface IFlowNodeDAO {
      */
     int deleteData(String uuid);
 
-    /**
-     * 樹結構
-     *
-     * @param flowUuid
-     * @return int 影響行數
-     */
-    List<TreeNode> flowNodeZTree(String flowUuid);
+
 }

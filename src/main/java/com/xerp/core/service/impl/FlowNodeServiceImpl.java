@@ -42,6 +42,11 @@ public class FlowNodeServiceImpl implements IFlowNodeService {
     }
 
     @Override
+    public List<FlowNode> getStartNodeByFlowUuid(String flowUuid){
+        return daoObject.getStartNodeByFlowUuid(flowUuid);
+    }
+
+    @Override
     public int insertData(FlowNode entity) {
         return daoObject.insertData(entity);
     }

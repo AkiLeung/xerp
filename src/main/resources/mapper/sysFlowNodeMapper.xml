@@ -51,6 +51,12 @@
         select uuid,flow_uuid,node_code,node_name,status from tbl_sys_flow_node where flow_uuid = #{flowUuid} order by node_code asc
     </select>
 
+    <!-- 查找 节点-->
+    <select id="getStartNodeByFlowUuid" resultType="com.xerp.core.entity.FlowNode" resultMap="FlowNodeResult">
+        select uuid,flow_uuid,node_type,node_code,node_name,status from tbl_sys_flow_node where flow_uuid = #{flowUuid} and node_type = '00'
+    </select>
+
+
     <!-- 新增-->
     <insert id="insertData">
         insert into tbl_sys_flow_node

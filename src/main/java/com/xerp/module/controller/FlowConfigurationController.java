@@ -2,11 +2,14 @@ package com.xerp.module.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.xerp.base.BaseController;
 import com.xerp.common.consts.ConfigConst;
 import com.xerp.common.utils.StringUtils;
 import com.xerp.core.entity.FlowName;
+import com.xerp.core.entity.FlowNode;
 import com.xerp.core.service.IFlowNameService;
+import com.xerp.core.service.IFlowNodeService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
@@ -29,13 +33,19 @@ import java.util.List;
 public class FlowConfigurationController extends BaseController {
 
     /**
-     * Service操作對象 自動註解
+     * Service操作對象 自動註解:流程信息
      */
     @Autowired
     private IFlowNameService flowNameService;
 
     /**
-     * 功能说明：获取数据by Code
+     * Service操作對象 自動註解:环节信息
+     */
+    @Autowired
+    private IFlowNodeService flowNodeService;
+
+    /**
+     * 功能说明：获取数据by FlowCode
      * 修改说明：
      *
      * @return String ajax
@@ -64,4 +74,56 @@ public class FlowConfigurationController extends BaseController {
             return ConfigConst.STR_AJAX_ERROR;
         }
     }
+
+    /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "getNodesByFlowUuid.action")
+    @ResponseBody
+    public String getNodesByFlowUuid(HttpServletResponse response,
+                           HttpServletRequest request) {
+        try {
+            //流程uuid
+            String flowUuid = request.getParameter("flowUuid");
+            List<FlowNode> entityObject = flowNodeService.listData(flowUuid);
+            JSONObject result = new JSONObject();
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+            result.put("rows", jsonArray);
+            result.put("total", entityObject.size());
+            StringUtils.write(response, result);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
+
+
+    /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "getStartNodeByFlowUuid.action")
+    @ResponseBody
+    public String getStartNodeByFlowUuid(@RequestParam(value = "flowUuid") String flowUuid,
+                                     HttpServletResponse response) {
+        try {
+            //流程uuid
+            List<FlowNode> entityObject = flowNodeService.getStartNodeByFlowUuid(flowUuid);
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+            StringUtils.write(response, jsonArray);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
+
 }

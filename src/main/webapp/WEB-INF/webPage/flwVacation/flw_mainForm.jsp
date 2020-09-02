@@ -1,5 +1,7 @@
 <%@ page import="com.xerp.common.consts.ConfigConst" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -32,8 +34,8 @@
             flowNodeType:<input value="" type="Text" name="flowNodeType" id="flowNodeType"/><br/>
             flowNodeCode:<input value="" type="Text" name="flowNodeCode" id="flowNodeCode"/><br/>
             flowNodeName:<input value="" type="Text" name="flowNodeName" id="flowNodeName"/><br/>
-            curHandlerNum:<input value="" type="Text" name="handlerNumber" id="curHandlerNum"/><br/>
-            curHandlerNam:<input value="" type="Text" name="handlerNumber" id="curHandlerNam"/><br/>
+            curHandlerNum:<input value="" type="Text" name="curHandlerNum" id="curHandlerNum"/><br/>
+            curHandlerNam:<input value="" type="Text" name="curHandlerNam" id="curHandlerNam"/><br/>
         </td>
     </tr>
     <tr>
@@ -52,7 +54,7 @@
 </body>
 </html>
 <script>
-    //获取配置流程信息
+    //01 获取配置流程信息
     var url = "<%=basePath %>flowData/getFlowByCode.action?flowCode=" + $("#flowCode").val();
     $.ajax({
         async: false,
@@ -70,9 +72,49 @@
         }
     });
 
-    //获取配置流程的所有节点信息
+    //02 获取当前文档的流程信息
+    if ($("#uuid").val() != '' && $("#uuid").val() != 'null') {
+        url = "<%=basePath %>vacation/getDataByUuid.action?uuid=" + $("#uuid").val();
+        $.ajax({
+            async: false,
+            type: 'get',
+            url: url,
+            dataType: 'json',
+            success: function (data) {
+                $("#flowNodeType").val(data[0].flowNodeType);
+                $("#flowNodeCode").val(data[0].flowNodeCode);
+                $("#flowNodeName").val(data[0].flowNodeName);
+                $("#curHandlerNum").text(data[0].curHandlerNum);
+                $("#curHandlerNam").text(data[0].curHandlerNam);
+            },
+            error: function (data) {
+                alert("【" + url + "】JSON数据获取失败，请联系管理员！");
+            }
+        });
+    }else{
+        //默认流程为第一个环节
+        url = "<%=basePath %>flowData/getStartNodeByFlowUuid.action?flowUuid=" + $("#flowUuid").val();
+        $.ajax({
+            async: false,
+            type: 'get',
+            url: url,
+            dataType: 'json',
+            success: function (data) {
+                $("#flowNodeType").val(data[0].nodeType);
+                $("#flowNodeCode").val(data[0].nodeCode);
+                $("#flowNodeName").val(data[0].nodeName);
+                $("#curHandlerNum").val('<shiro:principal property="userCode"/>');
+                $("#curHandlerNam").val('<shiro:principal property="userName"/>');
+            },
+            error: function (data) {
+                alert("【" + url + "】JSON数据获取失败，请联系管理员！");
+            }
+        });
+    }
+
+    //03 获取配置流程的所有节点信息
     var nodesData = "";
-    url = '<%=basePath%>sysConfig/flowNode/listData.action?flowUuid=' + $("#flowUuid").val();
+    url = '<%=basePath%>flowData/getNodesByFlowUuid.action?flowUuid=' + $("#flowUuid").val();
     $.ajax({
         async: false,
         type: 'get',
@@ -81,19 +123,24 @@
         success: function (data) {
             if (data != null) {
                 nodesData = "";
+                var curHandlerName = "";
                 for (var i = 0; i < data.rows.length; i++) {
+                    curHandlerName = "";
+                    if($("#flowNodeCode").val() == data.rows[i].nodeCode){
+                        curHandlerName = "[<span style='font-weight: bold;color:#154b76'>"+ $("#curHandlerNam").val() +"</span>]";
+                    }
                     if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_START_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/start.png' /> "
-                            + "<span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + " -> ";
+                            + " <span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + curHandlerName + " -> ";
                     } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_TASK_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/node.png' /> "
-                            + "<span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + " -> ";
+                            + " <span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + curHandlerName + " -> ";
                     } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_NODE_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/node.png' /> "
-                            + "<span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + " -> ";
+                            + " <span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + curHandlerName + " -> ";
                     } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_END_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/finish.png' /> "
-                            + "<span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>";
+                            + " <span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + curHandlerName;
                     }
                 }
                 $("#flowShow").html(nodesData);
@@ -101,25 +148,7 @@
         }
     });
 
-    //获取当前文档的流程信息
-    url = "";
-    $.ajax({
-        async: false,
-        type: 'get',
-        url: url,
-        dataType: 'json',
-        success: function (data) {
-            $("#flowUuid").val(data[0].uuid);
-            $("#flowName").val(data[0].flowName);
-            $("#flowVersion").val(data[0].flowVersion);
-            $("#flowInfo").text(data[0].flowName + " - [ " + data[0].flowVersion + " ]");
-        },
-        error: function (data) {
-            alert("【" + url + "】JSON数据获取失败，请联系管理员！");
-        }
-    });
-
-    //預覽流程圖
+    //99 預覽流程圖
     function showFlowGraph() {
         var urlPath = "<%=basePath %>sysPopu/gotoFlowGraphPage.action?flowUuid=" + $("#flowUuid").val();
         window.ifrWorkFlow.location.href = urlPath;

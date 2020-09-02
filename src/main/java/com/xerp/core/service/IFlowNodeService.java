@@ -42,6 +42,13 @@ public interface IFlowNodeService {
     List<FlowNode> listByCode(String code);
 
     /**
+     * 只查询一个，按流程UUID和环节编码获取环节信息
+     * @param flowUuid
+     * @return List<FlowNode>
+     */
+    List<FlowNode> getStartNodeByFlowUuid(String flowUuid);
+
+    /**
      * 增加，用实体作为参数
      * @param entity of FlowNode
      * @return int 影響行數
