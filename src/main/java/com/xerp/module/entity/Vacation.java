@@ -29,6 +29,8 @@ public class Vacation extends BaseEntity {
 
     private String flowName;
 
+    private String flowNodeUuid;
+
     private String flowNodeType;
 
     private String flowNodeNum;
@@ -45,6 +47,6 @@ public class Vacation extends BaseEntity {
 
     private String createdDatetime;
 
-    private String  updatedDatetime;
+    private String updatedDatetime;
 
 }

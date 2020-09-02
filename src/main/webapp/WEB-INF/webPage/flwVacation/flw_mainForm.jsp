@@ -24,13 +24,14 @@
     <iframe id="ifrWorkFlow" name="ifrWorkFlow" src="" width="100%" height="100%" frameborder="0"></iframe>
 </div>
 <table class="tbl" style="width:100%;height:50px;">
-    <tr style="display: none">
+    <tr style="display: none11">
         <td class="tblCell" style="width: 100%" colspan="2">
             flowCode:<input value="flow00002" type="Text" name="flowCode" id="flowCode"/><br/>
             flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
             flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
             flowVersion:<input value="" type="Text" name="flowVersion" id="flowVersion"/><br/>
             docUuid:<input value="<%=request.getParameter("uuid")%>" type="Text" name="uuid" id="uuid"/><br/>
+            flowNodeUuid:<input value="" type="Text" name="flowNodeUuid" id="flowNodeUuid"/><br/>
             flowNodeType:<input value="" type="Text" name="flowNodeType" id="flowNodeType"/><br/>
             flowNodeCode:<input value="" type="Text" name="flowNodeCode" id="flowNodeCode"/><br/>
             flowNodeName:<input value="" type="Text" name="flowNodeName" id="flowNodeName"/><br/>
@@ -51,6 +52,29 @@
         </td>
     </tr>
 </table>
+<table class="tbl" style="width:100%;height:200px;">
+    <tr>
+        <td class="tblCell" style="width: 100%;height: 60px;text-align: center" colspan="2">
+            XXXXXX申请
+        </td>
+    </tr>
+    <tr>
+        <td class="tblTitle" style="width: 10%">
+           备注
+        </td>
+        <td class="tblCell" style="width: 90%">
+            <input class="easyui-textbox"  data-options="multiline:true" value="" name="message" type="text" id="message" style="width:80%;height: 99%"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tblTitle" style="width: 100%;height: 45px;" colspan="2">
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" style="width:100px">保存</a>
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" style="width:100px"
+            onclick="openFlowToNext('');">提交</a>
+        </td>
+    </tr>
+</table>
+<jsp:include page="../include/flowToNextNode.jsp" flush="true"/>
 </body>
 </html>
 <script>
@@ -81,6 +105,7 @@
             url: url,
             dataType: 'json',
             success: function (data) {
+                $("#flowNodeUuid").val(data[0].flowNodeUuid);
                 $("#flowNodeType").val(data[0].flowNodeType);
                 $("#flowNodeCode").val(data[0].flowNodeCode);
                 $("#flowNodeName").val(data[0].flowNodeName);
@@ -91,7 +116,7 @@
                 alert("【" + url + "】JSON数据获取失败，请联系管理员！");
             }
         });
-    }else{
+    } else {
         //默认流程为第一个环节
         url = "<%=basePath %>flowData/getStartNodeByFlowUuid.action?flowUuid=" + $("#flowUuid").val();
         $.ajax({
@@ -100,6 +125,7 @@
             url: url,
             dataType: 'json',
             success: function (data) {
+                $("#flowNodeUuid").val(data[0].uuid);
                 $("#flowNodeType").val(data[0].nodeType);
                 $("#flowNodeCode").val(data[0].nodeCode);
                 $("#flowNodeName").val(data[0].nodeName);
@@ -126,8 +152,8 @@
                 var curHandlerName = "";
                 for (var i = 0; i < data.rows.length; i++) {
                     curHandlerName = "";
-                    if($("#flowNodeCode").val() == data.rows[i].nodeCode){
-                        curHandlerName = "[<span style='font-weight: bold;color:#154b76'>"+ $("#curHandlerNam").val() +"</span>]";
+                    if ($("#flowNodeCode").val() == data.rows[i].nodeCode) {
+                        curHandlerName = "[<span style='font-weight: bold;'>" + $("#curHandlerNam").val() + "</span>]";
                     }
                     if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_START_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/start.png' /> "

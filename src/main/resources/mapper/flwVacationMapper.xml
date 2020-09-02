@@ -10,6 +10,7 @@
         <result property="message" column="message"/>
         <result property="flowUuid" column="flow_uuid"/>
         <result property="flowName" column="flow_name"/>
+        <result property="flowNodeUuid" column="flow_node_uuid"/>
         <result property="flowNodeType" column="flow_node_type"/>
         <result property="flowNodeNum" column="flow_node_num"/>
         <result property="flowNodeNam" column="flow_node_nam"/>
@@ -53,6 +54,7 @@
         message,
         flow_uuid,
         flow_name,
+        flow_node_uuid,
         flow_node_type,
         flow_node_num,
         flow_node_nam,
@@ -69,6 +71,7 @@
         #{message},
         #{flowUuid},
         #{flowName},
+        #{flowNodeUuid},
         #{flowNodeType},
         #{flowNodeNum},
         #{flowNodeNam},
@@ -84,6 +87,7 @@
     <update id="updateData">
         update tbl_hr_flw_vacation set
             message = #{message},
+            flow_node_uuid = #{flowNodeUuid},
             flow_node_type = #{flowNodeType},
             flow_node_num = #{flowNodeNum},
             flow_node_nam = #{flowNodeNam},
