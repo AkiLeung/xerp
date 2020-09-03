@@ -73,6 +73,7 @@
             display: block;
             cursor: pointer;
             font-size: 13px;
+
         }
 
         .div3 ul {
@@ -84,7 +85,7 @@
             height: 30px;
             line-height: 30px;
             list-style: none;
-            border-bottom: #ccc 1px dotted;
+            border-bottom: #ccc 2px dotted;
             text-align: center;
         }
     </style>
@@ -104,10 +105,10 @@
         </div>
         <div class="div3">
             <ul>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/mainForm.action')">起草申请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/toHandleList.action')">我的待办</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/myApplyList.action')">我的申请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/allApplyList.action')">所有申请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/mainForm.action')">起 草 申 请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/toHandleList.action')">我 的 待 办</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/myApplyList.action')">我 的 申 请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/allApplyList.action')">所有的申请</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/unFinishList.action')"> 未完成申请</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/isFinishList.action')">已完成申请</a></li>
             </ul>
