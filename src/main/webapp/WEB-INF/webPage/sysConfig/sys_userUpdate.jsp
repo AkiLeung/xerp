@@ -165,7 +165,7 @@
                 }
             }, "json");
         });
-    })
+    });
 
     //頁面加載時執行
     var webStatus = "<%=ConfigConst.STR_WS_UPDATE%>";
@@ -176,8 +176,8 @@
             url: "<%=basePath %>sysConfig/user/listByUuid.action?ws=" + webStatus + "&uuid=" + $("#uuid").val(),
             dataType: 'json',
             success: function (data) {
-                $('#userCode').textbox('textbox').attr('readonly', true);
-                $('#userCode').textbox('textbox').attr('disabled', true);
+                $("#userCode").textbox('textbox').attr('readonly', true);
+                $("#userCode").textbox('textbox').attr('disabled', true);
                 $("#userCode").textbox('setValue', data.userCode);
                 $("#userName").textbox('setValue', data.userName);
                 $("input[name='userType'][value ='" + data.userType + "']").attr("checked", "checked").parent().addClass('checked');

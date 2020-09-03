@@ -16,7 +16,9 @@
     <task:annotation-driven />
     <!-- 使用注解的包，包括子集 -->
     <context:component-scan base-package="com.xerp.core.controller"/>
+    <context:component-scan base-package="com.xerp.hrms.controller"/>
     <context:component-scan base-package="com.xerp.module.controller"/>
+
     <!-- 扫描任务 -->
     <context:component-scan base-package="com.xerp.scheduler" />
 

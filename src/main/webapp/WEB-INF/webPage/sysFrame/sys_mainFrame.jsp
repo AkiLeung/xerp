@@ -146,13 +146,13 @@
 <div data-options="region:'center',iconCls:'icon-tip',title:''">
     <div id="workbench" name="workbench" class="easyui-tabs" data-options="tools:'#tab-tools'"
          style="width: 100%;height: 100%">
-        <div id="myCalendar" name="myCalendar" title="我的日程">
+        <div id="myCalendar" name="myCalendar" title="我的待办">
             <iframe id="ifrSysCalendar" name="ifrSysCalendar"
-                    src="http://www.baidu.com" width="100%" height="100%" frameborder="0"></iframe>
+                    src="<%=basePath %>sysFrame/workDesk.action" width="100%" height="100%" frameborder="0"></iframe>
         </div>
         <div id="myDesk" name="myDesk" title="系统首页">
             <iframe id="ifrSysMain" name="ifrSysMain"
-                    src="<%=basePath %>sysFrame/workDesk.action" width="100%" height="100%" frameborder="0"></iframe>
+                    src="" width="100%" height="100%" frameborder="0"></iframe>
         </div>
     </div>
     <div id="tab-tools">

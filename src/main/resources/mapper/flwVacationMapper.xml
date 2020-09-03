@@ -24,7 +24,7 @@
 
     <!-- 查找所有-->
     <select id="listData" resultMap="ResultSet">
-        select * from tbl_hr_flw_vacation where 1 = 1 order by created_datetime desc
+        select * from tbl_flw_vacation where 1 = 1 order by created_datetime desc
         <if test="startRow != null and  rows!= null">
             limit #{startRow},#{rows}
         </if>
@@ -32,22 +32,22 @@
 
     <!-- 統計個數-->
     <select id="listCount" resultType="Integer">
-        select count(uuid) as total from tbl_hr_flw_vacation where 1 = 1 order by created_datetime desc
+        select count(uuid) as total from tbl_flw_vacation where 1 = 1 order by created_datetime desc
     </select>
 
     <!-- 查找指定-->
     <select id="listByUuid" resultType="com.xerp.module.entity.Vacation" resultMap="ResultSet">
-        select * from tbl_hr_flw_vacation where uuid = #{uuid}
+        select * from tbl_flw_vacation where uuid = #{uuid}
     </select>
 
     <!-- 查找指定-->
     <select id="listByCode" resultType="com.xerp.module.entity.Vacation" resultMap="ResultSet">
-        select * from tbl_hr_flw_vacation where bill_number = #{code}
+        select * from tbl_flw_vacation where bill_number = #{code}
     </select>
 
     <!-- 新增-->
     <insert id="insertData">
-        insert into tbl_hr_flw_vacation
+        insert into tbl_flw_vacation
         (uuid,
         bill_number,
         subject,
@@ -85,7 +85,7 @@
 
     <!-- 更新-->
     <update id="updateData">
-        update tbl_hr_flw_vacation set
+        update tbl_flw_vacation set
             message = #{message},
             flow_node_uuid = #{flowNodeUuid},
             flow_node_type = #{flowNodeType},
@@ -99,7 +99,7 @@
 
     <!-- 刪除 只有起草状态的流程才能够被删除 -->
     <delete id="deleteData">
-        delete from tbl_hr_flw_vacation where uuid=#{uuid} and flow_node_type = '00'
+        delete from tbl_flw_vacation where uuid=#{uuid} and flow_node_type = '00'
     </delete>
 
 </mapper>

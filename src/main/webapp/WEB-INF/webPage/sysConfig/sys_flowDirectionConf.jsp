@@ -148,9 +148,8 @@
                     }
                 }
             });
-        }
-        ;
-    })
+        };
+    });
 
     //頁面加載時執行
     var webStatus = "<%=ConfigConst.STR_WS_UPDATE%>";
