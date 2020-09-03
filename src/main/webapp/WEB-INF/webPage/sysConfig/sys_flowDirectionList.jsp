@@ -173,8 +173,7 @@
                     }
                 }
             });
-        }
-        ;
+        };
 
         $('#dataList').datagrid({
             url: '<%=basePath%>sysConfig/flowDirection/listData.action?flowUuid=<%=request.getParameter("flowUuid")%>&nodeUuid=<%=request.getParameter("nodeUuid")%>',

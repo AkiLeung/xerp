@@ -40,36 +40,34 @@
             xxxxxxxxxx
         </div>
         <div data-options="region:'south',split:true" style="height:80px;">
-            <input class="easyui-textbox"  data-options="multiline:true" value="" name="opinions" type="text" id="opinions" style="width:100%;height: 99%"/>
+            <input class="easyui-textbox" data-options="multiline:true" value="" name="opinions" type="text"
+                   id="opinions" style="width:100%;height: 99%"/>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    //dataGrid basic Setting
-    $(function () {
+    //選擇
+    function openFlowToNext() {
+        //dataGrid basic Setting:流向列表
+        var urlPath = '<%=basePath%>sysConfig/flowDirection/listData.action?flowUuid=' + $("#flowUuid").val() + '&nodeUuid=' + $("#flowNodeUuid").val();
         $('#dataList').datagrid({
-            url: '<%=basePath%>sysConfig/flowNode/listData.action?flowUuid=' + $("#flowUuid").val(),
+            url: urlPath,
             columns: [[
                 {field: 'cb', checkbox: 'true', width: 30},
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                {field: 'nodeName', title: '流向', width: 180},
+                {field: 'flowUuid', title: 'flowUuid', width: 100, hidden: true},
+                {field: 'nodeUuid', title: 'nodeUuid', width: 100, hidden: true},
+                {field: 'directionType', title: 'directionType', width: 50, hidden: true},
+                {field: 'directionCode', title: '流向編碼', width: 80, hidden: true},
+                {field: 'directionName', title: '流向名稱', width: 180},
+                {field: 'targetNodeName', title: '目標環節', width: 100, hidden: true}
             ]],
             onClickRow: function (rowIndex, rowData) {
-                //加载完毕后获取所有的checkbox遍历
-                $("input[type='checkbox']").each(function (index, el) {
-                    //如果当前的复选框不可选，则不让其选中
-                    if (el.disabled == true) {
-                        $('#dataList').datagrid('unselectRow', index - 1);
-                    }
-                })
+                //alert(rowData.targetNodeName);
             }
         });
-    });
 
-    //選擇
-    function openFlowToNext(urlPath) {
-        // window.ifrSysCompanySelectList.location.href = urlPath;
-         $('#popuFlowToNextNode').dialog('open');
+        $('#popuFlowToNextNode').dialog('open');
     }
 </script>
 

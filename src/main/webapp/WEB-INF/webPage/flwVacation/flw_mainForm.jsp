@@ -70,7 +70,7 @@
         <td class="tblTitle" style="width: 100%;height: 45px;" colspan="2">
             <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" style="width:100px">保存</a>
             <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" style="width:100px"
-            onclick="openFlowToNext('');">提交</a>
+            onclick="openFlowToNext();">提交</a>
         </td>
     </tr>
 </table>
