@@ -351,12 +351,19 @@ public class UrlPathConst {
     /********************************************End 组织架构***************************************************/
 
 
-    /********************************************Start人事管理***************************************************/
+    /********************************************Start档案管理***************************************************/
     /**
-     * 组织架构：配置菜单
+     * 档案管理：配置菜单
      */
     public final static String STR_SYSTEM_HRMS_LEFT_MENU = SYS_SERVER_PATH + "/sysHrms/sys_personLeftMenu.jsp";
-
+    /**
+     * 档案管理：人员档案列表
+     */
+    public final static String STR_SYSTEM_HRMS_PERSON_DOCS_LIST = SYS_SERVER_PATH + "/sysHrms/sys_personDocsList.jsp";
+    /**
+     * 档案管理：人员档案维护
+     */
+    public final static String STR_SYSTEM_HRMS_PERSON_DOCS_CONF = SYS_SERVER_PATH + "/sysHrms/sys_personDocsConf.jsp";
     /********************************************End 人事管理***************************************************/
 
 
