@@ -107,6 +107,80 @@
         </tr>
         <tr>
             <td class="tblTitle">
+                所属公司
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="cmpUuid" type="text"
+                                                  id="cmpUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="companyName" type="text"
+                       id="companyName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               openCompanySelect('<%=basePath %>sysPopu/companyTree.action?uuid=cmpUuid&name=companyName&type=1');
+				}}]"/>&nbsp;(必填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                所属部门
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="depUuid" type="text"
+                                                  id="depUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="departmentName" type="text"
+                       id="departmentName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               var url = '<%=basePath %>sysPopu/departmentTree.action?cmpUuid='+ $('#cmpUuid').val();
+                                   url = url + ' &uuid=depUuid&name=departmentName&type=1';
+                               openDepartmentSelect(url);
+				}}]"/>&nbsp;(必填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                事业部
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="busUuid" type="text"
+                                                  id="busUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="businessName" type="text"
+                       id="businessName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               openBusinessSelect('<%=basePath %>sysPopu/businessTree.action?uuid=busUuid&name=businessName&type=1');
+				}}]"/>&nbsp;(选填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                事业部-部门
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="portalUuid" type="text"
+                                                  id="busDepUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="busDepName" type="text"
+                       id="busDepName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=busDepUuid&name=busDepName&type=1');
+				}}]"/>&nbsp;(选填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
                 默认样式
             </td>
             <td class="tblCell">
@@ -158,6 +232,9 @@
         </tr>
     </table>
     <jsp:include page="../include/portalSelect01.jsp" flush="true"/>
+    <jsp:include page="../include/companySelect01.jsp" flush="true"/>
+    <jsp:include page="../include/departmentSelect01.jsp" flush="true"/>
+    <jsp:include page="../include/businessSelect01.jsp" flush="true"/>
 </form>
 </body>
 </html>

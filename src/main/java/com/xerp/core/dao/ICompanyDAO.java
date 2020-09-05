@@ -86,6 +86,13 @@ public interface ICompanyDAO {
     List<TreeNode> companyListZTree();
 
     /**
+     * 樹結構 列表
+     *
+     * @return List<TreeNode>
+     */
+    List<TreeNode> companyListZTreeByUuid(String uuid);
+
+    /**
      * 樹結構 工廠列表
      *
      * @return List<TreeNode>

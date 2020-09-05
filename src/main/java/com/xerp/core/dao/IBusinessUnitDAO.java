@@ -31,6 +31,14 @@ public interface IBusinessUnitDAO {
     List<BusinessUnit> listByUuid(String uuid);
 
     /**
+     * 只查询一个，常用于修改
+     *
+     * @param code
+     * @return List<BusinessUnit>
+     */
+    List<BusinessUnit> listByCode(String code);
+
+    /**
      * 按父UUID查詢
      *
      * @param parentUuid

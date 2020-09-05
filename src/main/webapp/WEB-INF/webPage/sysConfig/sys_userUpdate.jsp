@@ -96,6 +96,78 @@
         </tr>
         <tr>
             <td class="tblTitle">
+                所属公司
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="cmpUuid" type="text"
+                                                  id="cmpUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="companyName" type="text"
+                       id="companyName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=cmpUuid&name=companyName&type=1');
+				}}]"/>&nbsp;(必填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                所属部门
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="depUuid" type="text"
+                                                  id="depUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="departmentName" type="text"
+                       id="departmentName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=depUuid&name=departmentName&type=1');
+				}}]"/>&nbsp;(必填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                事业部
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="portalUuid" type="text"
+                                                  id="busUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="businessUnitName" type="text"
+                       id="businessUnitName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=busUuid&name=businessUnitName&type=1');
+				}}]"/>&nbsp;(选填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                事业部-部门
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="portalUuid" type="text"
+                                                  id="busDepUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="busDepName" type="text"
+                       id="busDepName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=busDepUuid&name=busDepName&type=1');
+				}}]"/>&nbsp;(选填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
                 默认样式
             </td>
             <td class="tblCell">
@@ -185,6 +257,8 @@
                 $("#portalUuid").textbox('setValue', data.portalUuid);
                 getPortalName(data.portalUuid, "portalName");
                 $('#portalName').textbox('textbox').attr('readonly', true);
+
+
                 $("#theme").textbox('setValue', data.theme);
                 $("#validFrom").textbox('setValue', data.validFrom);
                 $('#validFrom').textbox('textbox').attr('readonly', true);

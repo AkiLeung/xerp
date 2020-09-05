@@ -92,7 +92,7 @@ public class BusinessController extends BaseController {
     @RequestMapping(value = "listByUuid.action")
     @ResponseBody
     public String listByUuid(@RequestParam(value = "uuid") String uuid,
-                            HttpServletResponse response) {
+                             HttpServletResponse response) {
 
         JSONArray jsonArray = null;
         try {
@@ -202,6 +202,24 @@ public class BusinessController extends BaseController {
         return null;
     }
 
+
+    /**
+     * 功能说明：事業部樹結構分層
+     * 修改说明：
+     *
+     * @return String ajax JSON格式
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "getZTree.action")
+    @ResponseBody
+    public String getZTree(HttpServletResponse response) throws Exception {
+        List<TreeNode> nodeList = createBusinessTree("true");
+        JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(nodeList));
+        StringUtils.write(response, jsonArray);
+        return null;
+    }
+
     /**
      * 功能说明：事業部樹結構不分層
      * 修改说明：
@@ -210,9 +228,24 @@ public class BusinessController extends BaseController {
      * @author Joseph
      * @date 20181108
      */
-    @RequestMapping(value = "businessListZTree.action")
+    @RequestMapping(value = "getListZTree.action")
     @ResponseBody
-    public String businessListZTree(HttpServletResponse response, HttpServletRequest request) throws Exception {
+    public String getListZTree(HttpServletResponse response) throws Exception {
+        List<TreeNode> nodeList = createBusinessTree("false");
+        JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(nodeList));
+        StringUtils.write(response, jsonArray);
+        return null;
+    }
+
+    /**
+     * 功能说明：事業部樹結構
+     * 修改说明：
+     *
+     * @return String ajax JSON格式
+     * @author Joseph
+     * @date 20181108
+     */
+    private List<TreeNode> createBusinessTree(String isParent) {
         List<TreeNode> nodeList = new ArrayList<TreeNode>();
         try {
             nodeList = serviceObject.businessListZTree();
@@ -220,13 +253,10 @@ public class BusinessController extends BaseController {
             log.error("XERP Exception:" + ex.toString());
         }
 
-        //設置節點基礎信息
+        //設置節點基礎信息business
         nodeList = StringUtils.modifyNode(nodeList,
-                ConfigConst.STR_SYSTEM_ROOT_NODE_ID, "", "business", "true");
-
-        JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(nodeList));
-        StringUtils.write(response, jsonArray);
-        return null;
+                ConfigConst.STR_SYSTEM_ROOT_NODE_ID, "", "business", isParent);
+        return nodeList;
     }
 
     /**
@@ -260,32 +290,6 @@ public class BusinessController extends BaseController {
         return null;
     }
 
-    /**
-     * 功能说明：事業部樹結構不分層
-     * 修改说明：
-     *
-     * @return String ajax JSON格式
-     * @author Joseph
-     * @date 20181108
-     */
-    @RequestMapping(value = "getListZTree.action")
-    @ResponseBody
-    public String getListZTree(HttpServletResponse response) throws Exception {
-        List<TreeNode> nodeList = new ArrayList<TreeNode>();
-        try {
-            nodeList = serviceObject.businessListZTree();
-        } catch (Exception ex) {
-            log.error("XERP Exception:" + ex.toString());
-        }
-
-        //設置節點基礎信息business
-        nodeList = StringUtils.modifyNode(nodeList,
-                ConfigConst.STR_SYSTEM_ROOT_NODE_ID, "", "company", "true");
-
-        JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(nodeList));
-        StringUtils.write(response, jsonArray);
-        return null;
-    }
 
     /**
      * 功能说明：顯示頁面

@@ -40,6 +40,14 @@ public class User extends BaseEntity {
 
     private String portalUuid;
 
+    private String cmpUuid;
+
+    private String depUuid;
+
+    private String busUuid;
+
+    private String busDepUuid;
+
     private String validFrom;
 
     private String validTo;

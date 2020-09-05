@@ -27,6 +27,14 @@ public interface IBusinessUnitService {
     List<BusinessUnit> listByUuid(String uuid);
 
     /**
+     * 只查询一个，常用于修改
+     * @param uuid
+     * @return List<BusinessUnit>
+     */
+    List<BusinessUnit> listByCode(String uuid);
+
+
+    /**
      * 查詢當前事業部及旗下所有部門
      * @param parentUuid
      * @return List<BusinessUnit>

@@ -1,4 +1,3 @@
-<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page import="com.xerp.common.consts.ConfigConst" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
@@ -8,18 +7,19 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Business Unit Config</title>
+    <title></title>
     <jsp:include page="../include/common.jsp" flush="true"/>
     <script type="text/javascript" src="<%=basePath%>static/zTree/js/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>static/zTree/js/jquery.ztree.core.js"></script>
     <link rel="stylesheet" href="<%=basePath%>static/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="<%=basePath%>static/zTree/js/jquery.ztree.excheck.js"></script>
     <script type="text/javascript">
         //基礎設置
         var setting = {
             async: {
                 enable: true,
                 type: "get",
-                url: "<%=basePath%>sysOrg/businessUnit/getAsyncZTree.action",
+                url: "<%=basePath%>sysOrg/department/getAsyncZTree.action",
                 autoParam: ["id"],
                 dataFilter: filter
             },
@@ -52,8 +52,9 @@
 
         //初始化树
         function initZTree() {
+            var url = "<%=basePath %>sysOrg/company/getListZTreeByUuid.action?cmpUuid=<%=request.getParameter("cmpUuid")%>";
             $.ajax({
-                url: "<%=basePath %>sysOrg/business/getZTree.action",
+                url: url,
                 type: "post",
                 dataType: "json",
                 success: function (data) {
@@ -84,10 +85,18 @@
 <body style="text-align:left;">
 <form id="form1">
     <span style="display: none">
-        uuid:<input type="text" id="uuid" name="uuid"/><br>
-        parentUuid:<input type="text" id="parentUuid" name="parentUuid"/>
-        status:<input type="text" id="status" name="status"/><br>
+        uuid:<input type="text" id="uuid" name="uuid" style="width: 500px"/><br>
+        fieldCode:<input type="text" value="<%=request.getParameter("uuid")%>" id="fieldCode" name="fieldCode"><br>
+        fieldName:<input type="text" value="<%=request.getParameter("name")%>" id="fieldName" name="fieldName"><br>
+        type:<input type="text" value="<%=request.getParameter("type")%>" id="type" name="type"><br>
     </span>
+    <div class="easyui-panel" style="padding:5px;">
+        <a id="expandAllBtn" href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-unFold'"
+           onclick=" $.fn.zTree.getZTreeObj('zTree').expandAll(true);">expand All</a>
+        <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
+        <a id="collapseAllBtn" href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-fold'"
+           onclick=" $.fn.zTree.getZTreeObj('zTree').expandAll(false);">collapse All</a>
+    </div>
     <div>
         <ul id="zTree" class="ztree"></ul>
     </div>

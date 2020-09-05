@@ -79,6 +79,12 @@ public class CompanyServiceImpl implements ICompanyService {
     }
 
     @Override
+    public List<TreeNode> companyListZTreeByUuid(String uuid) {
+        List<TreeNode> TreeNode = daoObject.companyListZTreeByUuid(uuid);
+        return TreeNode;
+    }
+
+    @Override
     public List<TreeNode> companyFactoryZTree() {
         List<TreeNode> TreeNode = daoObject.companyFactoryZTree();
         return TreeNode;

@@ -21,8 +21,6 @@ public class BusinessUnit extends BaseEntity {
 
     private String parentUuid;
 
-    private String businessUuid;
-
     private String unitCode;
 
     private String unitName;

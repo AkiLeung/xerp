@@ -78,6 +78,34 @@ public class BusinessUnitController extends BaseController {
     }
 
     /**
+     * 功能说明：获取数据by Code
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "listByCode.action")
+    @ResponseBody
+    public String listByCode(@RequestParam(value = "code") String code,
+                             HttpServletResponse response) {
+        try {
+            //獲取指定的數據對象到JSON
+            JSONObject result = new JSONObject();
+            List<BusinessUnit> entityObject = serviceObject.listByCode(code);
+            if (entityObject.size() > 0) {
+                result.put(ConfigConst.STR_AJAX_SUCCESS, true);
+            } else {
+                result.put(ConfigConst.STR_AJAX_ERROR, false);
+            }
+            StringUtils.write(response, result);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
+
+    /**
      * 功能说明：保存数据
      * 修改说明：
      *
@@ -105,7 +133,6 @@ public class BusinessUnitController extends BaseController {
                 entityObject.setUuid(jsonData.getString("uuid"));
             }
             entityObject.setParentUuid(jsonData.getString("parentUuid"));
-            entityObject.setBusinessUuid("");
             entityObject.setStatus(jsonData.getString("status"));
             entityObject.setUnitCode(jsonData.getString("unitCode"));
             entityObject.setUnitName(jsonData.getString("unitName"));

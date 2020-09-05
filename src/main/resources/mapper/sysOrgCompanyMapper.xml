@@ -80,6 +80,14 @@
         where 1 = 1  order by sort asc
     </select>
 
+    <!-- 查找所有 不分層-->
+    <select id="companyListZTreeByUuid" parameterType="TreeNode" resultMap="ZTreeNodeResult">
+        select uuid, parent_uuid, company_code, company_name, status, sort
+        from tbl_hr_org_company
+        where uuid = #{uuid}  order by sort asc
+    </select>
+
+
     <!-- 查找所有 启用工厂 -->
     <select id="companyFactoryZTree" parameterType="TreeNode" resultMap="ZTreeNodeResult">
         select uuid, parent_uuid, company_code, company_name, status

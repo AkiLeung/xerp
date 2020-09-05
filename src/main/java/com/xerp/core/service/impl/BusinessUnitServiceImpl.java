@@ -32,6 +32,11 @@ public class BusinessUnitServiceImpl implements IBusinessUnitService {
     }
 
     @Override
+    public List<BusinessUnit> listByCode(String code) {
+        return daoObject.listByCode(code);
+    }
+
+    @Override
     public List<BusinessUnit> listByParentUuid(String parentUuid) {
         return daoObject.listByParentUuid(parentUuid);
     }

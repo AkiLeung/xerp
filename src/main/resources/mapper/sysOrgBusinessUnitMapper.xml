@@ -6,7 +6,6 @@
     <resultMap type="BusinessUnit" id="BusinessUnitResult">
         <result property="uuid" column="uuid"/>
         <result property="parentUuid" column="parentUuid"/>
-        <result property="businessUuid" column="businessUuid"/>
         <result property="unitCode" column="unitCode"/>
         <result property="unitName" column="unitName"/>
         <result property="supervisorCode" column="supervisorCode"/>
@@ -39,6 +38,11 @@
         select * from tbl_hr_org_business_unit where uuid = #{uuid}
     </select>
 
+    <!-- 查找指定 -->
+    <select id="listByCode" parameterType="com.xerp.core.entity.BusinessUnit" resultMap="BusinessUnitResult">
+        select * from tbl_hr_org_business_unit where unit_code = #{code}
+    </select>
+
     <!-- 查找指定ID的直屬下層 -->
     <select id="listByParentUuid" parameterType="com.xerp.core.entity.BusinessUnit" resultMap="BusinessUnitResult">
         select * from tbl_hr_org_business_unit where parent_uuid = #{parentUuid}
@@ -52,10 +56,10 @@
     <!-- 新增 -->
     <insert id="insertData">
         insert into tbl_hr_org_business_unit
-        (uuid,parent_uuid,business_uuid,status,unit_code,unit_name,
+        (uuid,parent_uuid,status,unit_code,unit_name,
         supervisor_code,supervisor_name,icon,sort,created_by,created_datetime,modified_by,
         modified_datetime) values
-        (#{uuid},#{parentUuid},#{businessUuid},#{status},#{unitCode},#{unitName},
+        (#{uuid},#{parentUuid},#{status},#{unitCode},#{unitName},
         #{supervisorCode},#{supervisorName},#{icon},#{sort},#{createdBy},#{createdDatetime},#{modifiedBy},
         #{modifiedDatetime})
     </insert >
@@ -64,7 +68,6 @@
     <update id="updateData">
         update tbl_hr_org_business_unit set
             parent_uuid = #{parentUuid},
-            business_uuid = #{businessUuid},
             unit_code = #{unitCode},
             unit_name = #{unitName},
             supervisor_code = #{supervisorCode},

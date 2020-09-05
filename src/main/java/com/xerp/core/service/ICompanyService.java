@@ -82,6 +82,12 @@ public interface ICompanyService {
     List<TreeNode> companyListZTree();
 
     /**
+     * 获取指定的公司樹結構
+     * @return List<TreeNode>
+     */
+    List<TreeNode> companyListZTreeByUuid(String uuid);
+
+    /**
      * 公司樹結構(不分層)
      * @return List<TreeNode>
      */
