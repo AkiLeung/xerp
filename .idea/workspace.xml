@@ -9,44 +9,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessSelect01.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/departmentSelect01.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuBusinessTree.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuDepartmentTree.jsp" afterDir="false" />
+    <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="update 20200904">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuBusinessUnitTree.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/common/consts/UrlPathConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/common/consts/UrlPathConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/BusinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/BusinessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/BusinessUnitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/BusinessUnitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/SysPopuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/SysPopuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/IBusinessUnitDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/IBusinessUnitDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/ICompanyDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/ICompanyDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/BusinessUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/BusinessUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/IBusinessUnitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/IBusinessUnitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/ICompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/ICompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/BusinessUnitServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/BusinessUnitServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/CompanyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/CompanyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sysOrgBusinessUnitMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sysOrgBusinessUnitMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sysOrgCompanyMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sysOrgCompanyMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgBusinessUnitTree.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgBusinessUnitTree.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/common/consts/UrlPathConst.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/common/consts/UrlPathConst.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/BusinessController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/BusinessController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/BusinessUnitController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/BusinessUnitController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/CompanyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/CompanyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/SysPopuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/SysPopuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/dao/IBusinessUnitDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/dao/IBusinessUnitDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/dao/ICompanyDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/dao/ICompanyDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/BusinessUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/BusinessUnit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/service/IBusinessUnitService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/service/IBusinessUnitService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/service/ICompanyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/service/ICompanyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/service/impl/BusinessUnitServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/service/impl/BusinessUnitServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/service/impl/CompanyServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/service/impl/CompanyServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,7 +23,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="54" column="31" lean-forward="true" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuBusinessUnitTree.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="54" column="56" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -112,8 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuFlowToNext.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/entity/Vacation.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_leftMenu.jsp" />
@@ -163,6 +146,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/IBusinessUnitDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/BusinessUnitServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/sysOrgBusinessUnitMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuBusinessUnitTree.jsp" />
       </list>
     </option>
   </component>
@@ -710,7 +695,7 @@
       <workItem from="1598506608478" duration="12551000" />
       <workItem from="1598914975177" duration="51379000" />
       <workItem from="1599096574624" duration="26092000" />
-      <workItem from="1599268280996" duration="12431000" />
+      <workItem from="1599268280996" duration="14411000" />
     </task>
     <task id="LOCAL-00001" summary="update pom.xml 20200826">
       <created>1598489379653</created>
@@ -852,7 +837,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599204468267</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="update 20200904">
+      <created>1599288207010</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1599288207010</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -879,7 +871,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="580527000" />
+    <option name="totallyTimeSpent" value="582507000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -892,8 +884,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1934" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23479189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23479189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -903,7 +896,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41458106" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.51648355" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.15164836" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26745436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -945,23 +938,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="update 20200904" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/hrms/dao/IPersonDocsDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/hrms/entity/PersonDocs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/PermissionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-260">
@@ -1379,6 +1355,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1959">
           <caret line="144" column="45" selection-start-line="144" selection-start-column="23" selection-end-line="144" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="54" column="31" lean-forward="true" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuBusinessUnitTree.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="54" column="56" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="56" />
         </state>
       </provider>
     </entry>
