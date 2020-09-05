@@ -71,4 +71,11 @@ public class BusinessServiceImpl implements IBusinessService {
         List<TreeNode> TreeNode = daoObject.businessListZTree();
         return TreeNode;
     }
+
+
+    @Override
+    public List<TreeNode> businessListZTreeByUuid(String uuid) {
+        List<TreeNode> TreeNode = daoObject.businessListZTreeByUuid(uuid);
+        return TreeNode;
+    }
 }

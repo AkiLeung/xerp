@@ -58,6 +58,11 @@
         select uuid,business_code,business_name,status from tbl_hr_org_business where 1 = 1 order by sort asc
     </select>
 
+    <!-- 樹狀列表 -->
+    <select id="businessListZTreeByUuid" parameterType="TreeNode" resultMap="ZTreeNodeResult">
+        select uuid,business_code,business_name,status from tbl_hr_org_business where uuid = #{uuid} order by sort asc
+    </select>
+
     <!-- 新增 -->
     <insert id="insertData">
         insert into tbl_hr_org_business

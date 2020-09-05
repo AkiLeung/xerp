@@ -76,5 +76,11 @@ public interface IBusinessService {
      */
     List<TreeNode> businessListZTree();
 
+    /**
+     * 事业部樹結構
+     * @return TreeNode
+     */
+    List<TreeNode> businessListZTreeByUuid(String uuid);
+
 }
 

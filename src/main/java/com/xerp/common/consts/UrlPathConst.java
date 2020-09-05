@@ -383,6 +383,11 @@ public class UrlPathConst {
     public final static String STR_SYSTEM_POPU_BUSINESS_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuBusinessTree.jsp";
 
     /**
+     *弹窗管理：部门架构
+     */
+    public final static String STR_SYSTEM_POPU_BUSINESS_UNIT_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuBusinessUnitTree.jsp";
+
+    /**
      *弹窗管理：门户列表
      */
     public final static String STR_SYSTEM_POPU_PORTAL_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuPortalTree.jsp";

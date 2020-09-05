@@ -24,7 +24,7 @@
                                 url: urlPath,
                                 dataType: 'json',
                                 success: function (data) {
-                                    $('#'+ifrSysBusinessUnitSelectList.$('#fieldName').val()).textbox('setValue',data[0].businessUnitName);
+                                    $('#'+ifrSysBusinessUnitSelectList.$('#fieldName').val()).textbox('setValue',data[0].unitName);
                                 },
                                 error: function (data) {
                                     alert('【'+urlPath+'】JSON数据获取失败，请联系管理员！');
@@ -56,6 +56,6 @@
     //選擇
     function openBusinessUnitSelect(urlPath) {
         window.ifrSysBusinessUnitSelectList.location.href = urlPath;
-        $('#popuBusinessSelectList').dialog('open');
+        $('#popuBusinessUnitSelectList').dialog('open');
     }
 </script>

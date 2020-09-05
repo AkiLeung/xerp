@@ -260,6 +260,35 @@ public class BusinessController extends BaseController {
     }
 
     /**
+     * 功能说明：公司樹結構不分層
+     * 修改说明：
+     *
+     * @return String ajax JSON格式
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "getListZTreeByUuid.action")
+    @ResponseBody
+    public String getListZTreeByCmpUuid(HttpServletResponse response,
+                                        HttpServletRequest request) throws Exception {
+        String busUuid = request.getParameter("busUuid");
+        List<TreeNode> nodeList = new ArrayList<TreeNode>();
+        try {
+            nodeList = serviceObject.businessListZTreeByUuid(busUuid);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+
+        //設置節點基礎信息
+        nodeList = StringUtils.modifyNode(nodeList,
+                ConfigConst.STR_SYSTEM_ROOT_NODE_ID, "", "business", "true");
+
+        JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(nodeList));
+        StringUtils.write(response, jsonArray);
+        return null;
+    }
+
+    /**
      * 功能说明：刪除数据
      * 修改说明：
      *

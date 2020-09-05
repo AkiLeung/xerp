@@ -62,7 +62,7 @@ public class SysPopuController extends BaseController {
     }
 
     /**
-     * 功能说明：彈窗-部门
+     * 功能说明：彈窗-事业部
      * 修改说明：
      *
      * @return ModelAndView 頁面跳轉
@@ -74,6 +74,28 @@ public class SysPopuController extends BaseController {
         modelAndView = new ModelAndView();
         try {
             String urlPath = UrlPathConst.STR_SYSTEM_POPU_BUSINESS_TREE ;
+            modelAndView.setViewName(urlPath);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+    /**
+     * 功能说明：彈窗-事业部-部门
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20181115
+     */
+    @RequestMapping(value = "businessUnitTree.action")
+    public ModelAndView businessUnitTree() {
+        modelAndView = new ModelAndView();
+        try {
+            String urlPath = UrlPathConst.STR_SYSTEM_POPU_BUSINESS_UNIT_TREE ;
             modelAndView.setViewName(urlPath);
         } catch (Exception ex) {
             log.error("XERP Exception:" + ex.toString());

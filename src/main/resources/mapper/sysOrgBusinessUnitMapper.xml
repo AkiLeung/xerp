@@ -53,6 +53,7 @@
         select uuid, parent_uuid,unit_code,unit_name,status,sort from tbl_hr_org_business_unit where parent_uuid = #{parentUuid} order by sort asc
     </select>
 
+
     <!-- 新增 -->
     <insert id="insertData">
         insert into tbl_hr_org_business_unit

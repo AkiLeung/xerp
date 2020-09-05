@@ -52,7 +52,7 @@
 
         //初始化树
         function initZTree() {
-            var url = "<%=basePath %>sysOrg/businessUnit/getListZTreeByUuid.action?cmpUuid=<%=request.getParameter("cmpUuid")%>";
+            var url = "<%=basePath %>sysOrg/business/getListZTreeByUuid.action?busUuid=<%=request.getParameter("busUuid")%>";
             $.ajax({
                 url: url,
                 type: "post",
@@ -71,8 +71,8 @@
             var zTree = $.fn.zTree.getZTreeObj("zTree");
             zTree.expandNode(TreeNode);
             $("#uuid").val(TreeNode.id);
-            $("#parentUuid").val(TreeNode.pid);
-            $("#status").val(TreeNode.status);
+            // $("#parentUuid").val(TreeNode.pid);
+            // $("#status").val(TreeNode.status);
             return false;
         }
 

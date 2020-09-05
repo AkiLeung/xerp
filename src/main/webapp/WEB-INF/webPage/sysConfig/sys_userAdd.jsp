@@ -166,16 +166,18 @@
                 事业部-部门
             </td>
             <td class="tblCell">
-                <span style="display:none"><input class="easyui-textbox" value="" name="portalUuid" type="text"
-                                                  id="busDepUuid" style="width:250px"/></span>
-                <input class="easyui-textbox" value="" name="busDepName" type="text"
-                       id="busDepName" style="width:250px" data-options="prompt: '請選擇..!',
+                <span style="display:none"><input class="easyui-textbox" value="" name="busUnitUuid" type="text"
+                                                  id="busUnitUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="busUnitName" type="text"
+                       id="busUnitName" style="width:250px" data-options="prompt: '請選擇..!',
                         iconWidth: 22,
                         icons: [{
                             iconCls:'icon-search',
                             handler: function(e){
                                //Execution
-                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=busDepUuid&name=busDepName&type=1');
+                               var url = '<%=basePath %>sysPopu/businessUnitTree.action?busUuid='+ $('#busUuid').val();
+                                   url = url + ' &uuid=busUnitUuid&name=busUnitName&type=1';
+                               openBusinessUnitSelect(url);
 				}}]"/>&nbsp;(选填)
             </td>
         </tr>
@@ -235,6 +237,7 @@
     <jsp:include page="../include/companySelect01.jsp" flush="true"/>
     <jsp:include page="../include/departmentSelect01.jsp" flush="true"/>
     <jsp:include page="../include/businessSelect01.jsp" flush="true"/>
+    <jsp:include page="../include/businessUnitSelect01.jsp" flush="true"/>
 </form>
 </body>
 </html>
@@ -253,6 +256,13 @@
                 }
             }, "json");
         });
+
+        //设置只读
+        $('#portalName').textbox('textbox').attr('disabled', true);
+        $('#companyName').textbox('textbox').attr('disabled', true);
+        $('#departmentName').textbox('textbox').attr('disabled', true);
+        $('#businessName').textbox('textbox').attr('disabled', true);
+        $('#busUnitName').textbox('textbox').attr('disabled', true);
     })
 
     //頁面加載時執行

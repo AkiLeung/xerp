@@ -77,4 +77,12 @@ public interface IBusinessDAO {
      * @return List<TreeNode>
      */
     List<TreeNode> businessListZTree();
+
+    /**
+     * 樹結構
+     *
+     * @return List<TreeNode>
+     */
+    List<TreeNode> businessListZTreeByUuid(String uuid);
+
 }
