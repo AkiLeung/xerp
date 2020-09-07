@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.core.dao.IUserDAO">
+    <!--在mapper文件中引入缓存策略-->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <resultMap type="User" id="UserResult">
+        <result property="uuid" column="uuid"/>
+        <result property="userCode" column="userCode"/>
+        <result property="userName" column="userName"/>
+        <result property="userType" column="userType"/>
+        <result property="password" column="password"/>
+        <result property="salt" column="salt"/>
+        <result property="status" column="status"/>
+        <result property="validFrom" column="validFrom"/>
+        <result property="validTo" column="validTo"/>
+        <result property="language" column="language"/>
+        <result property="theme" column="theme"/>
+        <result property="portalUuid" column="portalUuid"/>
+        <result property="cmp_uuid" column="cmpUuid"/>
+        <result property="dep_uuid" column="depUuid"/>
+        <result property="bus_uuid" column="busUuid"/>
+        <result property="bus_dep_uuid" column="busDepUuid"/>
+        <result property="createdBy" column="createdBy"/>
+        <result property="createdDatetime" column="createdDatetime"/>
+        <result property="modifiedBy" column="modifiedBy"/>
+        <result property="modifiedDatetime" column="modifiedDatetime"/>
+    </resultMap>
+
+    <!-- 查找所有 -->
+    <select id="listData" parameterType="com.xerp.core.entity.User" resultMap="UserResult">
+        select * from tbl_sys_user where 1 = 1
+        <if test="condition01 != null">
+            and (
+            user_code like concat('%',#{condition01},'%')
+            or user_name like concat('%',#{condition01},'%')
+            )
+        </if>
+        order by user_code asc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 查找所有 -->
+    <select id="listCount" resultType="int">
+        select Count(user_code) from tbl_sys_user where 1 = 1
+            and (
+            user_code like concat('%',#{search},'%')
+            or user_name like concat('%',#{search},'%')
+            )
+        order by user_code asc
+    </select>
+
+    <!-- 查找指定 -->
+    <select id="listByUuid" resultType="com.xerp.core.entity.User" resultMap="UserResult">
+        select * from tbl_sys_user where uuid = #{uuid}
+    </select>
+
+    <!-- 查找指定 -->
+    <select id="listByCode" resultType="com.xerp.core.entity.User" resultMap="UserResult">
+        select * from tbl_sys_user where user_code = #{code}
+    </select>
+
+    <!-- 新增 -->
+    <insert id="insertData">
+        insert into tbl_sys_user
+        (uuid,user_code,user_name,user_type,password,salt,status,
+        theme,portal_uuid,valid_from,valid_to,language,created_by,created_datetime,modified_by,modified_datetime)
+        values
+        (#{uuid},#{userCode},#{userName},#{userType},#{password},#{salt},#{status},
+        #{theme},#{portalUuid},#{validFrom},#{validTo},#{language},#{createdBy},#{createdDatetime},#{modifiedBy},#{modifiedDatetime})
+    </insert >
+
+    <!-- 更新 -->
+    <update id="updateData">
+        update tbl_sys_user set
+            status = #{status},
+            user_code = #{userCode},
+            user_name = #{userName},
+            user_type = #{userType},
+            theme = #{theme},
+            portal_uuid = #{portalUuid},
+            valid_from = #{validFrom},
+            valid_to = #{validTo},
+            language = #{language},
+            modified_by = #{modifiedBy},
+            modified_datetime = #{modifiedDatetime}
+        where uuid = #{uuid}
+	</update>
+
+    <!-- 更新 密码-->
+    <update id="updatePassword">
+        update tbl_sys_user set
+            password = #{password},
+            salt = #{salt},
+            modified_by = #{modifiedBy},
+            modified_datetime = #{modifiedDatetime}
+        where uuid = #{uuid}
+	</update>
+
+    <!-- 刪除 -->
+    <delete id="deleteData">
+        delete from tbl_sys_user where uuid=#{uuid}
+    </delete>
+
+</mapper>

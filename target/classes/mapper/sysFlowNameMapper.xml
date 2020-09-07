@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.core.dao.IFlowNameDAO">
+    <resultMap type="FlowName" id="FlowNameResult">
+        <result property="uuid" column="uuid"/>
+        <result property="module_code" column="moduleCode"/>
+        <result property="status" column="status"/>
+        <result property="flowCode" column="flowCode"/>
+        <result property="flowName" column="flowName"/>
+        <result property="flowVersion" column="flowVersion"/>
+        <result property="comment" column="comment"/>
+        <result property="createdBy" column="createdBy"/>
+        <result property="createdDatetime" column="createdDatetime"/>
+        <result property="modifiedBy" column="modifiedBy"/>
+        <result property="modifiedDatetime" column="modifiedDatetime"/>
+    </resultMap>
+
+    <!-- 查找所有-->
+    <select id="listData" resultMap="FlowNameResult">
+        select * from tbl_sys_flow_name where 1 = 1 order by flow_code asc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="Integer">
+        select count(uuid) as total from tbl_sys_flow_name where 1 = 1 order by flow_code asc
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByUuid" resultMap="FlowNameResult">
+        select * from tbl_sys_flow_name where uuid = #{uuid}
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByCode" resultMap="FlowNameResult">
+        select * from tbl_sys_flow_name where flow_code = #{code}
+    </select>
+
+    <!-- 新增-->
+    <insert id="insertData">
+        insert into tbl_sys_flow_name
+            (uuid,
+            module_code,
+            status,
+            flow_code,
+            flow_name,
+            flow_version,
+            comment,
+            created_by,
+            created_datetime,
+            modified_by,
+            modified_datetime)
+            values
+            (#{uuid},
+            #{moduleCode},
+            #{status},
+            #{flowCode},
+            #{flowName},
+            #{flowVersion},
+            #{comment},
+            #{createdBy},
+            #{createdDatetime},
+            #{modifiedBy},
+            #{modifiedDatetime})
+    </insert>
+
+    <!-- 更新-->
+    <update id="updateData">
+        update tbl_sys_flow_name set
+            module_code = #{moduleCode},
+            status = #{status},
+            flow_code = #{flowCode},
+            flow_name = #{flowName},
+            flow_version = #{flowVersion},
+            comment = #{comment},
+            modified_by = #{modifiedBy},
+            modified_datetime = #{modifiedDatetime}
+        where uuid = #{uuid}
+	</update>
+
+    <!-- 刪除-->
+    <delete id="deleteData">
+        delete from tbl_sys_flow_name where uuid = #{uuid}
+    </delete>
+</mapper>

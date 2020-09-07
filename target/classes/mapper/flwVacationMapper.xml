@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.module.dao.IVacationDAO">
+    <resultMap type="Vacation" id="ResultSet">
+        <result property="uuid" column="uuid"/>
+        <result property="billNumber" column="bill_number"/>
+        <result property="subject" column="subject"/>
+        <result property="message" column="message"/>
+        <result property="flowUuid" column="flow_uuid"/>
+        <result property="flowName" column="flow_name"/>
+        <result property="flowNodeUuid" column="flow_node_uuid"/>
+        <result property="flowNodeType" column="flow_node_type"/>
+        <result property="flowNodeNum" column="flow_node_num"/>
+        <result property="flowNodeNam" column="flow_node_nam"/>
+        <result property="flowCreatorNum" column="flow_creator_num"/>
+        <result property="flowCreatorNam" column="flow_creator_nam"/>
+        <result property="curHandlerNum" column="cur_handler_num"/>
+        <result property="curHandlerNam" column="cur_handler_nam"/>
+        <result property="createdDatetime" column="created_datetime"/>
+        <result property="updatedDatetime" column="updated_datetime"/>
+    </resultMap>
+
+    <!-- 查找所有-->
+    <select id="listData" resultMap="ResultSet">
+        select * from tbl_flw_vacation where 1 = 1 order by created_datetime desc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="Integer">
+        select count(uuid) as total from tbl_flw_vacation where 1 = 1 order by created_datetime desc
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByUuid" resultType="com.xerp.module.entity.Vacation" resultMap="ResultSet">
+        select * from tbl_flw_vacation where uuid = #{uuid}
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByCode" resultType="com.xerp.module.entity.Vacation" resultMap="ResultSet">
+        select * from tbl_flw_vacation where bill_number = #{code}
+    </select>
+
+    <!-- 新增-->
+    <insert id="insertData">
+        insert into tbl_flw_vacation
+        (uuid,
+        bill_number,
+        subject,
+        message,
+        flow_uuid,
+        flow_name,
+        flow_node_uuid,
+        flow_node_type,
+        flow_node_num,
+        flow_node_nam,
+        flow_creator_num,
+        flow_creator_nam,
+        cur_handler_num,
+        cur_handler_nam,
+        created_datetime,
+        updated_datetime)
+        values
+        (#{uuid},
+        #{billNumber},
+        #{subject},
+        #{message},
+        #{flowUuid},
+        #{flowName},
+        #{flowNodeUuid},
+        #{flowNodeType},
+        #{flowNodeNum},
+        #{flowNodeNam},
+        #{flowCreatorNum},
+        #{flowCreatorNam},
+        #{curHandlerNum},
+        #{curHandlerNam},
+        #{createdDatetime},
+        #{updatedDatetime})
+    </insert>
+
+    <!-- 更新-->
+    <update id="updateData">
+        update tbl_flw_vacation set
+            message = #{message},
+            flow_node_uuid = #{flowNodeUuid},
+            flow_node_type = #{flowNodeType},
+            flow_node_num = #{flowNodeNum},
+            flow_node_nam = #{flowNodeNam},
+            cur_handler_num = #{curHandlerNum},
+            cur_handler_nam = #{curHandlerNam},
+            updated_datetime = #{updatedDatetime}
+        where uuid=#{uuid}
+	</update>
+
+    <!-- 刪除 只有起草状态的流程才能够被删除 -->
+    <delete id="deleteData">
+        delete from tbl_flw_vacation where uuid=#{uuid} and flow_node_type = '00'
+    </delete>
+
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.core.dao.IBillNumberDAO">
+    <resultMap type="BillNumber" id="ResultSet">
+        <result property="uuid" column="uuid"/>
+        <result property="status" column="status"/>
+        <result property="moduleCode" column="module_code"/>
+        <result property="moduleName" column="module_name"/>
+        <result property="preNumWord" column="pre_num_word"/>
+        <result property="incrementRange" column="increment_range"/>
+        <result property="defaultLength" column="default_length"/>
+        <result property="currentRange" column="current_range"/>
+        <result property="currentValue" column="current_value"/>
+        <result property="createdDatetime" column="created_datetime"/>
+        <result property="updatedDatetime" column="updated_datetime"/>
+    </resultMap>
+
+    <!-- 查找所有-->
+    <select id="listData" resultMap="ResultSet">
+        select * from tbl_sys_config_number where 1 = 1 order by module_code asc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="Integer">
+        select count(uuid) as total from tbl_sys_config_number where 1 = 1 order by module_code asc
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByUuid" resultType="com.xerp.core.entity.BillNumber" resultMap="ResultSet">
+        select * from tbl_sys_config_number where uuid = #{uuid}
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByCode" resultType="com.xerp.core.entity.BillNumber" resultMap="ResultSet">
+        select * from tbl_sys_config_number where module_code = #{code}
+    </select>
+
+    <!-- 新增-->
+    <insert  id="insertData">
+        insert into tbl_sys_config_number
+        (uuid,
+        status,
+        module_code,
+        module_name,
+        pre_num_word,
+        increment_range,
+        default_length,
+        created_datetime,
+        updated_datetime)
+        values
+        (#{uuid},
+        #{status},
+        #{moduleCode},
+        #{moduleName},
+        #{preNumWord},
+        #{incrementRange},
+        #{defaultLength},
+        #{createdDatetime},
+        #{updatedDatetime})
+    </insert >
+
+    <!-- 更新-->
+    <update id="updateData">
+        update tbl_sys_config_number set
+            status = #{status},
+            module_code = #{moduleCode},
+            module_name = #{moduleName},
+            pre_num_word = #{preNumWord},
+            increment_range = #{incrementRange},
+            default_length = #{defaultLength},
+            updated_datetime = #{updatedDatetime}
+        where uuid=#{uuid}
+	</update>
+
+    <!-- 刪除-->
+    <delete id="deleteData">
+        delete from tbl_sys_config_number where uuid=#{uuid}
+    </delete>
+
+    <!-- 查询当前号码数据-->
+    <select id="queryCurrentNumber" resultMap="ResultSet">
+        select * from tbl_sys_config_number where module_code = #{moduleCode}
+    </select>
+
+    <!-- 更新号码数据 -->
+    <update id="updateCurrentNumber">
+        update tbl_sys_config_number set
+        current_range = #{currentRange},
+        current_value = #{currentValue},
+        updated_datetime = #{updatedDatetime}
+        where uuid = #{uuid}
+	</update>
+
+</mapper>
