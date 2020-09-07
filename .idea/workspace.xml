@@ -11,12 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/common/consts/UrlPathConst.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/common/consts/UrlPathConst.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/BusinessController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/BusinessController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/SysPopuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/SysPopuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/dao/IBusinessDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/dao/IBusinessDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/service/IBusinessService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/service/IBusinessService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/service/impl/BusinessServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/service/impl/BusinessServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessSelect01.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessSelect01.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/companySelect01.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/companySelect01.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/departmentSelect01.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/departmentSelect01.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,24 +30,42 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1772">
-              <caret line="250" column="49" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="49" />
+            <state relative-caret-position="493">
+              <caret line="267" column="13" lean-forward="true" selection-start-line="267" selection-start-column="13" selection-end-line="267" selection-end-column="13" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#td#1;n#tr#10;n#table#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#1;n#tr#9;n#table#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuDepartmentTree.jsp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="74" column="22" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="22" />
+            <state relative-caret-position="214">
+              <caret line="30" column="70" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/departmentSelect01.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="42" column="56" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/companySelect01.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -104,8 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowDirectionConf.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/flwVacationMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/PersonDocsController.java" />
@@ -124,10 +143,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysHrms/sys_personDocsConf.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/hrms/controller/PersonDocsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/departmentSelect01.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/service/ICompanyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/CompanyServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/CompanyController.java" />
@@ -136,7 +151,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuDepartmentTree.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/DepartmentController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/bussinessSelect01.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessSelect01.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuBusinessTree.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/BusinessUnit.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgBusinessUnitTree.jsp" />
@@ -152,9 +166,16 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapper/sysOrgBusinessMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/common/consts/UrlPathConst.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/SysPopuController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuBusinessUnitTree.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/departmentSelect01.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessSelect01.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/companySelect01.jsp" />
       </list>
     </option>
   </component>
@@ -703,6 +724,7 @@
       <workItem from="1598914975177" duration="51379000" />
       <workItem from="1599096574624" duration="26092000" />
       <workItem from="1599268280996" duration="17731000" />
+      <workItem from="1599446574121" duration="1711000" />
     </task>
     <task id="LOCAL-00001" summary="update pom.xml 20200826">
       <created>1598489379653</created>
@@ -892,7 +914,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="585827000" />
+    <option name="totallyTimeSpent" value="587538000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -905,8 +927,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1934" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23479189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23745997" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -916,7 +939,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41458106" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23296703" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.06813187" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26745436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -959,26 +982,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="update 20200905" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysFrame/sys_mainFrame.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="148" column="60" lean-forward="true" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgBusinessList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4200">
-          <caret line="168" column="21" lean-forward="true" selection-start-line="168" selection-start-column="21" selection-end-line="168" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/hrms/controller/HrmsPersonController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1072,36 +1075,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1313">
-          <caret line="34" column="39" lean-forward="true" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="42" column="26" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userList.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4102">
           <caret line="19" column="81" lean-forward="true" selection-start-line="19" selection-start-column="81" selection-end-line="19" selection-end-column="81" />
           <folding>
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="167" column="13" selection-start-line="167" selection-start-column="13" selection-end-line="167" selection-end-column="13" />
-          <folding>
-            <element signature="e#5282#5288#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1151,13 +1130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/departmentSelect01.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="48" column="63" selection-start-line="48" selection-start-column="63" selection-end-line="48" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/DepartmentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1193,16 +1165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-400">
           <caret line="61" column="40" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessSelect01.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-117">
-          <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1342,13 +1304,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="26" column="129" selection-start-line="26" selection-start-column="129" selection-end-line="26" selection-end-column="129" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuBusinessUnitTree.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
@@ -1366,20 +1321,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1772">
-          <caret line="250" column="49" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="49" />
+        <state relative-caret-position="175">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="744">
+          <caret line="48" column="30" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="173" column="61" selection-start-line="173" selection-start-column="56" selection-end-line="173" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="235" column="42" selection-start-line="235" selection-start-column="35" selection-end-line="235" selection-end-column="42" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#td#1;n#tr#10;n#table#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#1;n#tr#7;n#table#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuDepartmentTree.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
+        <state relative-caret-position="1100">
           <caret line="74" column="22" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="267" column="13" lean-forward="true" selection-start-line="267" selection-start-column="13" selection-end-line="267" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#td#1;n#tr#9;n#table#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessSelect01.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="30" column="66" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/businessUnitSelect01.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="30" column="70" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/departmentSelect01.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="42" column="56" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/companySelect01.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
         </state>
       </provider>
     </entry>

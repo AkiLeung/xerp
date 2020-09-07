@@ -27,6 +27,8 @@
                                     $('#'+ifrSysBusinessSelectList.$('#fieldName').val()).textbox('setValue',data[0].businessName);
                                 },
                                 error: function (data) {
+                                    $('#'+ifrSysBusinessSelectList.$('#fieldCode').val()).textbox('setValue','');
+                                    $('#'+ifrSysBusinessSelectList.$('#fieldName').val()).textbox('setValue','');
                                     alert('【'+urlPath+'】JSON数据获取失败，请联系管理员！');
                                 }
                                 });

@@ -167,6 +167,10 @@ public class UserController extends BaseController {
                 entityObject.setSalt(salt);
             }
             entityObject.setPortalUuid(request.getParameter("portalUuid"));
+            entityObject.setCmpUuid(request.getParameter("cmpUuid"));
+            entityObject.setDepUuid(request.getParameter("depUuid"));
+            entityObject.setBusUuid(request.getParameter("busUuid"));
+            entityObject.setBusUnitUuid(request.getParameter("busUnitUuid"));
             entityObject.setTheme(request.getParameter("theme"));
             entityObject.setLanguage(request.getParameter("language"));
             entityObject.setValidFrom(request.getParameter("validFrom"));

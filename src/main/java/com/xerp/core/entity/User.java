@@ -46,7 +46,7 @@ public class User extends BaseEntity {
 
     private String busUuid;
 
-    private String busDepUuid;
+    private String busUnitUuid;
 
     private String validFrom;
 

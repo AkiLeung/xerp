@@ -248,7 +248,7 @@
         $('#userCode').textbox().textbox('addClearBtn', 'icon-cancel');
         $("input", $("#userCode").next("span")).blur(function () {
             $.post("<%=basePath%>sysConfig/user/listByCode.action", {
-                userCode: document.getElementById("userCode").value
+                userCode: $("#userCode").val()
             }, function (result) {
                 if (result.success) {
                     $.messager.alert('Error', 'User Code already exist!', 'warning');
@@ -263,7 +263,7 @@
         $('#departmentName').textbox('textbox').attr('disabled', true);
         $('#businessName').textbox('textbox').attr('disabled', true);
         $('#busUnitName').textbox('textbox').attr('disabled', true);
-    })
+    });
 
     //頁面加載時執行
     var webStatus = "<%=ConfigConst.STR_WS_UPDATE%>";

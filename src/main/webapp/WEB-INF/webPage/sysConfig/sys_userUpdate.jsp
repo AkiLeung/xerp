@@ -78,24 +78,6 @@
         </tr>
         <tr>
             <td class="tblTitle">
-                默认门户
-            </td>
-            <td class="tblCell">
-                <span style="display:none"><input class="easyui-textbox" value="" name="portalUuid" type="text"
-                                                  id="portalUuid" style="width:250px"/></span>
-                <input class="easyui-textbox" value="" name="portalName" type="text"
-                       id="portalName" style="width:250px" data-options="prompt: '請選擇..!',
-                        iconWidth: 22,
-                        icons: [{
-                            iconCls:'icon-search',
-                            handler: function(e){
-                               //Execution
-                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=portalUuid&name=portalName&type=1');
-				}}]"/>&nbsp;(必填)
-            </td>
-        </tr>
-        <tr>
-            <td class="tblTitle">
                 所属公司
             </td>
             <td class="tblCell">
@@ -108,7 +90,7 @@
                             iconCls:'icon-search',
                             handler: function(e){
                                //Execution
-                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=cmpUuid&name=companyName&type=1');
+                               openCompanySelect('<%=basePath %>sysPopu/companyTree.action?uuid=cmpUuid&name=companyName&type=1');
 				}}]"/>&nbsp;(必填)
             </td>
         </tr>
@@ -126,7 +108,9 @@
                             iconCls:'icon-search',
                             handler: function(e){
                                //Execution
-                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=depUuid&name=departmentName&type=1');
+                               var url = '<%=basePath %>sysPopu/departmentTree.action?cmpUuid='+ $('#cmpUuid').val();
+                                   url = url + ' &uuid=depUuid&name=departmentName&type=1';
+                               openDepartmentSelect(url);
 				}}]"/>&nbsp;(必填)
             </td>
         </tr>
@@ -135,16 +119,16 @@
                 事业部
             </td>
             <td class="tblCell">
-                <span style="display:none"><input class="easyui-textbox" value="" name="portalUuid" type="text"
+                <span style="display:none"><input class="easyui-textbox" value="" name="busUuid" type="text"
                                                   id="busUuid" style="width:250px"/></span>
-                <input class="easyui-textbox" value="" name="businessUnitName" type="text"
-                       id="businessUnitName" style="width:250px" data-options="prompt: '請選擇..!',
+                <input class="easyui-textbox" value="" name="businessName" type="text"
+                       id="businessName" style="width:250px" data-options="prompt: '請選擇..!',
                         iconWidth: 22,
                         icons: [{
                             iconCls:'icon-search',
                             handler: function(e){
                                //Execution
-                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=busUuid&name=businessUnitName&type=1');
+                               openBusinessSelect('<%=basePath %>sysPopu/businessTree.action?uuid=busUuid&name=businessName&type=1');
 				}}]"/>&nbsp;(选填)
             </td>
         </tr>
@@ -153,16 +137,18 @@
                 事业部-部门
             </td>
             <td class="tblCell">
-                <span style="display:none"><input class="easyui-textbox" value="" name="portalUuid" type="text"
-                                                  id="busDepUuid" style="width:250px"/></span>
-                <input class="easyui-textbox" value="" name="busDepName" type="text"
-                       id="busDepName" style="width:250px" data-options="prompt: '請選擇..!',
+                <span style="display:none"><input class="easyui-textbox" value="" name="busUnitUuid" type="text"
+                                                  id="busUnitUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="busUnitName" type="text"
+                       id="busUnitName" style="width:250px" data-options="prompt: '請選擇..!',
                         iconWidth: 22,
                         icons: [{
                             iconCls:'icon-search',
                             handler: function(e){
                                //Execution
-                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=busDepUuid&name=busDepName&type=1');
+                               var url = '<%=basePath %>sysPopu/businessUnitTree.action?busUuid='+ $('#busUuid').val();
+                                   url = url + ' &uuid=busUnitUuid&name=busUnitName&type=1';
+                               openBusinessUnitSelect(url);
 				}}]"/>&nbsp;(选填)
             </td>
         </tr>
@@ -219,6 +205,10 @@
         </tr>
     </table>
     <jsp:include page="../include/portalSelect01.jsp" flush="true"/>
+    <jsp:include page="../include/companySelect01.jsp" flush="true"/>
+    <jsp:include page="../include/departmentSelect01.jsp" flush="true"/>
+    <jsp:include page="../include/businessSelect01.jsp" flush="true"/>
+    <jsp:include page="../include/businessUnitSelect01.jsp" flush="true"/>
 </form>
 </body>
 </html>
@@ -237,6 +227,13 @@
                 }
             }, "json");
         });
+
+        //设置只读
+        $('#portalName').textbox('textbox').attr('disabled', true);
+        $('#companyName').textbox('textbox').attr('disabled', true);
+        $('#departmentName').textbox('textbox').attr('disabled', true);
+        $('#businessName').textbox('textbox').attr('disabled', true);
+        $('#busUnitName').textbox('textbox').attr('disabled', true);
     });
 
     //頁面加載時執行
@@ -288,15 +285,15 @@
             return false;
         }
         //執行保存
-            $.post("<%=basePath %>sysConfig/user/saveData.action", $("#form1").serialize())
-                .done(function (result) {
-                    if ("success" == result) {
-                        parent.$('#dataList').datagrid('reload');
-                        parent.$('#userConfig').dialog('close');
-                    }
-                }).fail(function (result) {
-                alert("添加时出现异常" + result.toLocaleString());
-            });
+        $.post("<%=basePath %>sysConfig/user/saveData.action", $("#form1").serialize())
+            .done(function (result) {
+                if ("success" == result) {
+                    parent.$('#dataList').datagrid('reload');
+                    parent.$('#userConfig').dialog('close');
+                }
+            }).fail(function (result) {
+            alert("添加时出现异常" + result.toLocaleString());
+        });
     }
 
     //默認門戶
