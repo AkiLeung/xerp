@@ -253,7 +253,9 @@
                 $("input[name='status'][value ='" + data.status + "']").attr("checked", "checked").parent().addClass('checked');
                 $("#portalUuid").textbox('setValue', data.portalUuid);
                 getPortalName(data.portalUuid, "portalName");
-                $('#portalName').textbox('textbox').attr('readonly', true);
+
+                $("#cmpUuid").textbox('setValue', data.cmpUuid);
+                getCompanyName(data.cmpUuid, "companyName");
 
 
                 $("#theme").textbox('setValue', data.theme);
@@ -306,6 +308,25 @@
                 dataType: 'json',
                 success: function (data) {
                     $('#' + field).textbox('setValue', data.portalName);
+                },
+                error: function (data) {
+                    alert('JSON数据获取失败，请联系管理员！');
+                }
+            });
+        }
+    }
+
+    //获取公司名称
+    function getCompanyName(uuid, field) {
+        if (uuid != '') {
+            alert();
+            $.ajax({
+                async: true,
+                type: 'get',
+                url: '<%=basePath%>sysOrg/company/listByUuid.action?uuid=' + uuid,
+                dataType: 'json',
+                success: function (data) {
+                    $('#' + field).textbox('setValue', data[0].companyName);
                 },
                 error: function (data) {
                     alert('JSON数据获取失败，请联系管理员！');

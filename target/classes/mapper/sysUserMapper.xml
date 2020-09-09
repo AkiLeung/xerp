@@ -22,7 +22,7 @@
         <result property="cmp_uuid" column="cmpUuid"/>
         <result property="dep_uuid" column="depUuid"/>
         <result property="bus_uuid" column="busUuid"/>
-        <result property="bus_dep_uuid" column="busDepUuid"/>
+        <result property="bus_unit_uuid" column="busUnitUuid"/>
         <result property="createdBy" column="createdBy"/>
         <result property="createdDatetime" column="createdDatetime"/>
         <result property="modifiedBy" column="modifiedBy"/>
@@ -68,10 +68,12 @@
     <insert id="insertData">
         insert into tbl_sys_user
         (uuid,user_code,user_name,user_type,password,salt,status,
-        theme,portal_uuid,valid_from,valid_to,language,created_by,created_datetime,modified_by,modified_datetime)
+        theme,portal_uuid,cmp_uuid,dep_uuid,bus_uuid,bus_unit_uuid,
+        valid_from,valid_to,language,created_by,created_datetime,modified_by,modified_datetime)
         values
         (#{uuid},#{userCode},#{userName},#{userType},#{password},#{salt},#{status},
-        #{theme},#{portalUuid},#{validFrom},#{validTo},#{language},#{createdBy},#{createdDatetime},#{modifiedBy},#{modifiedDatetime})
+        #{theme},#{portalUuid},#{cmpUuid},#{depUuid},#{busUuid},#{busUnitUuid},
+        #{validFrom},#{validTo},#{language},#{createdBy},#{createdDatetime},#{modifiedBy},#{modifiedDatetime})
     </insert >
 
     <!-- 更新 -->
@@ -83,6 +85,10 @@
             user_type = #{userType},
             theme = #{theme},
             portal_uuid = #{portalUuid},
+            cmp_uuid = #{cmpUuid},
+            dep_uuid = #{depUuid},
+            bus_uuid = #{busUuid},
+            bus_unit_uuid = #{busUnitUuid},
             valid_from = #{validFrom},
             valid_to = #{validTo},
             language = #{language},
@@ -103,7 +109,7 @@
 
     <!-- 刪除 -->
     <delete id="deleteData">
-        delete from tbl_sys_user where uuid=#{uuid}
+        delete from tbl_sys_user where uuid = #{uuid}
     </delete>
 
 </mapper>
