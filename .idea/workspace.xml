@@ -12,9 +12,6 @@
     <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/sysUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/sysUserMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="8150">
               <caret line="326" selection-start-line="326" selection-end-line="342" selection-end-column="5" />
             </state>
           </provider>
@@ -38,8 +35,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="324" column="41" selection-start-line="324" selection-start-column="41" selection-end-line="324" selection-end-column="41" />
+            <state relative-caret-position="483">
+              <caret line="326" column="42" lean-forward="true" selection-start-line="326" selection-start-column="42" selection-end-line="326" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/CompanyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="97" column="20" lean-forward="true" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+              <folding>
+                <element signature="e#9939#9949#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/entity/Company.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -173,7 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -384,6 +401,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -710,7 +728,8 @@
       <workItem from="1599268280996" duration="17731000" />
       <workItem from="1599446574121" duration="2391000" />
       <workItem from="1599549504823" duration="601000" />
-      <workItem from="1599608924167" duration="662000" />
+      <workItem from="1599608924167" duration="1179000" />
+      <workItem from="1599612113321" duration="1268000" />
     </task>
     <task id="LOCAL-00001" summary="update pom.xml 20200826">
       <created>1598489379653</created>
@@ -880,7 +899,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599456081048</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update 20200908">
+      <created>1599609927443</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1599609927444</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -907,7 +933,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="589481000" />
+    <option name="totallyTimeSpent" value="591266000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -919,10 +945,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1934" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="1934" height="1047" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24279615" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24546425" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -932,7 +958,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41458106" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36043957" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42637363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26745436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -973,19 +999,10 @@
     <MESSAGE value="update 20200904" />
     <MESSAGE value="update 20200905" />
     <MESSAGE value="update 20200906" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20200906" />
+    <MESSAGE value="update 20200908" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20200908" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/hrms/controller/HrmsPersonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgBusinessConf.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -1218,16 +1235,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/CompanyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="297" selection-start-line="297" selection-end-line="324" selection-end-column="5" />
-          <folding>
-            <element signature="e#9939#9949#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/BusinessServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -1373,15 +1380,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="8150">
           <caret line="326" selection-start-line="326" selection-end-line="342" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/CompanyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="97" column="20" lean-forward="true" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+          <folding>
+            <element signature="e#9939#9949#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/entity/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userUpdate.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="324" column="41" selection-start-line="324" selection-start-column="41" selection-end-line="324" selection-end-column="41" />
+        <state relative-caret-position="483">
+          <caret line="326" column="42" lean-forward="true" selection-start-line="326" selection-start-column="42" selection-end-line="326" selection-end-column="42" />
         </state>
       </provider>
     </entry>

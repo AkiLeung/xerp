@@ -241,12 +241,13 @@
     if ($("#ws").val() == webStatus) {
         $.ajax({
             async: true,
-            type: 'get',//get是获取数据，post是带数据的向服务器发送请求
+            type: 'get', //get是获取数据，post是带数据的向服务器发送请求
             url: "<%=basePath %>sysConfig/user/listByUuid.action?ws=" + webStatus + "&uuid=" + $("#uuid").val(),
             dataType: 'json',
             success: function (data) {
                 $("#userCode").textbox('textbox').attr('readonly', true);
                 $("#userCode").textbox('textbox').attr('disabled', true);
+
                 $("#userCode").textbox('setValue', data.userCode);
                 $("#userName").textbox('setValue', data.userName);
                 $("input[name='userType'][value ='" + data.userType + "']").attr("checked", "checked").parent().addClass('checked');
@@ -256,7 +257,6 @@
 
                 $("#cmpUuid").textbox('setValue', data.cmpUuid);
                 getCompanyName(data.cmpUuid, "companyName");
-
 
                 $("#theme").textbox('setValue', data.theme);
                 $("#validFrom").textbox('setValue', data.validFrom);
@@ -319,7 +319,6 @@
     //获取公司名称
     function getCompanyName(uuid, field) {
         if (uuid != '') {
-            alert();
             $.ajax({
                 async: true,
                 type: 'get',
