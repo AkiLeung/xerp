@@ -10,11 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/module/controller/FlowConfigurationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/module/controller/FlowConfigurationController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="193" column="50" selection-start-line="193" selection-start-column="50" selection-end-line="193" selection-end-column="50" />
+            <state relative-caret-position="417">
+              <caret line="194" column="17" lean-forward="true" selection-start-line="194" selection-start-column="17" selection-end-line="194" selection-end-column="17" />
               <folding>
                 <element signature="e#5506#5519#0" expanded="true" />
               </folding>
@@ -729,7 +725,7 @@
       <workItem from="1599612113321" duration="1268000" />
       <workItem from="1599778758455" duration="1211000" />
       <workItem from="1599865747942" duration="471000" />
-      <workItem from="1599870684118" duration="13528000" />
+      <workItem from="1599870684118" duration="14718000" />
     </task>
     <task id="LOCAL-00001" summary="update pom.xml 20200826">
       <created>1598489379653</created>
@@ -934,7 +930,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599901300862</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="update 20200912">
+      <created>1599903534325</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1599903534325</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -961,7 +964,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="606476000" />
+    <option name="totallyTimeSpent" value="607666000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -974,7 +977,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2531983" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -986,7 +988,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41458106" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32535365" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17410229" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26745436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1407,8 +1409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="193" column="50" selection-start-line="193" selection-start-column="50" selection-end-line="193" selection-end-column="50" />
+        <state relative-caret-position="417">
+          <caret line="194" column="17" lean-forward="true" selection-start-line="194" selection-start-column="17" selection-end-line="194" selection-end-column="17" />
           <folding>
             <element signature="e#5506#5519#0" expanded="true" />
           </folding>

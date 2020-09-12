@@ -11,7 +11,7 @@
  Target Server Version : 50716
  File Encoding         : 65001
 
- Date: 11/09/2020 23:47:36
+ Date: 12/09/2020 02:55:27
 */
 
 SET NAMES utf8mb4;
@@ -529,7 +529,7 @@ INSERT INTO `tbl_sys_flow_node` VALUES ('229120748b7349e09c10bd08082f60e4', 'cd4
 INSERT INTO `tbl_sys_flow_node` VALUES ('2ea477ac103a4225a5c4778dda63bacd', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 99, '完成', '99', NULL, NULL, NULL, NULL, NULL, NULL, 'end', '1180', '500', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:56', '系统管理员', '2020-01-22 21:54:56');
 INSERT INTO `tbl_sys_flow_node` VALUES ('3', '47f3837a02744a61bed31021d4c26525', '01', 99, '完成', '99', NULL, NULL, NULL, NULL, NULL, NULL, 'end', '138', '330', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
 INSERT INTO `tbl_sys_flow_node` VALUES ('54fffcec08be4efca9cf02640d921877', '47f3837a02744a61bed31021d4c26525', '01', 2, '报销', '02', NULL, NULL, NULL, NULL, NULL, NULL, 'node', '138', '230', '100', '24', NULL, '', '系统管理员', '2020-01-22 16:21:23', '系统管理员', '2020-01-22 16:21:23');
-INSERT INTO `tbl_sys_flow_node` VALUES ('6180c859b90e4d758387c2da6861fb1e', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 3, '归档', '02', '办理角色	', '办理字段	', 'admin', '系统管理员', '编辑字段', '流向公式', 'node', '138', '320', '100', '24', NULL, '備註信息	', '系统管理员', '2020-01-22 21:54:50', '系统管理员', '2020-09-11 23:36:59');
+INSERT INTO `tbl_sys_flow_node` VALUES ('6180c859b90e4d758387c2da6861fb1e', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 3, '归档', '02', '办理角色	', '办理字段	', 'admin', '系统管理员', '编辑字段', '流向公式', 'node', '138', '320', '100', '24', 'true', '備註信息	', '系统管理员', '2020-01-22 21:54:50', '系统管理员', '2020-09-11 23:36:59');
 INSERT INTO `tbl_sys_flow_node` VALUES ('ba7ed00664fa44848601c3b8c2749403', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 0, '起草', '00', NULL, NULL, NULL, NULL, NULL, NULL, 'start', '138', '20', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:17', '系统管理员', '2020-09-02 01:12:24');
 
 -- ----------------------------
@@ -567,7 +567,7 @@ CREATE TABLE `tbl_sys_log`  (
   `log_message` varchar(5000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `created_datetime` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1001 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1006 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_sys_log
@@ -793,6 +793,11 @@ INSERT INTO `tbl_sys_log` VALUES (997, 'UserLoginController.java', 'com.xerp.cor
 INSERT INTO `tbl_sys_log` VALUES (998, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:15:45');
 INSERT INTO `tbl_sys_log` VALUES (999, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:22:40');
 INSERT INTO `tbl_sys_log` VALUES (1000, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:31:44');
+INSERT INTO `tbl_sys_log` VALUES (1001, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:49:35');
+INSERT INTO `tbl_sys_log` VALUES (1002, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-2', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 01:26:10');
+INSERT INTO `tbl_sys_log` VALUES (1003, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 01:55:07');
+INSERT INTO `tbl_sys_log` VALUES (1004, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 02:31:33');
+INSERT INTO `tbl_sys_log` VALUES (1005, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 02:35:11');
 
 -- ----------------------------
 -- Table structure for tbl_sys_menu_module
