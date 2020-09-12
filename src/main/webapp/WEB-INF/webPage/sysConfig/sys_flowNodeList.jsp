@@ -73,7 +73,7 @@
                    toolbar:toolbar">
         </table>
     </div>
-    <div id="flowNodeConfig" class="easyui-dialog" style="width:900px;height:325px"
+    <div id="flowNodeConfig" class="easyui-dialog" style="width:900px;height:650px"
          data-options="
          iconCls:'icon-setting',
          title:'环节配置',

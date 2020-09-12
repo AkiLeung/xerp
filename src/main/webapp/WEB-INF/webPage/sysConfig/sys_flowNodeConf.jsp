@@ -77,7 +77,8 @@
             <td class="tblCell">
                 <input class="easyui-textbox" value="" name="nodeName" type="text" id="nodeName"
                        style="width:350px"
-                       data-options="prompt:'Enter Node name.',required:true,validType:'length[2,50]'"/></td>
+                       data-options="prompt:'Enter User name.',required:true,validType:'length[2,50]'"/>
+            </td>
         </tr>
         <tr>
             <td class="tblTitle">
@@ -86,6 +87,53 @@
             <td class="tblCell">
                 <input class="easyui-textbox" value="" name="comment" type="text" id="comment" style="width:350px"/>
             </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                办理角色
+            </td>
+            <td class="tblCell">
+                <input class="easyui-textbox" value="" name="handlerRole" type="text" id="handlerRole" style="width:350px"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                办理字段
+            </td>
+            <td class="tblCell">
+                <input class="easyui-textbox" value="" name="handlerField" type="text" id="handlerField" style="width:350px"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                办理人员
+            </td>
+            <td class="tblCell">
+                <input class="easyui-textbox" value="" name="handlerName" type="text" id="handlerName"
+                       style="width:350px"
+                       data-options="prompt:'Enter User name.',validType:'length[2,50]'"/>
+                <input class="easyui-textbox" value="" name="handlerCode" type="text" id="handlerCode"
+                       style="width:100px"
+                       data-options=""/>
+               </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                编辑字段
+            </td>
+            <td class="tblCell">
+                <input class="easyui-textbox" value="" name="editField" type="text" id="editField"
+                       style="width:99%;height: 125px"
+                       data-options="multiline:true"/></td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                流向公式
+            </td>
+            <td class="tblCell">
+                <input class="easyui-textbox" value="" name="nodeFormula" type="text" id="nodeFormula"
+                       style="width:99%;height: 145px"
+                       data-options="multiline:true"/></td>
         </tr>
         <tr style="display:none">
             <td class="tblTitle">
@@ -127,6 +175,12 @@
                 $("#nodeCode").textbox('setValue', data[0].nodeCode);
                 $("#nodeName").textbox('setValue', data[0].nodeName);
                 $("#comment").textbox('setValue', data[0].comment);
+                $("#handlerRole").textbox('setValue', data[0].handlerRole);
+                $("#handlerField").textbox('setValue', data[0].handlerField);
+                $("#handlerCode").textbox('setValue', data[0].handlerCode);
+                $("#handlerName").textbox('setValue', data[0].handlerName);
+                $("#editField").textbox('setValue', data[0].editField);
+                $("#nodeFormula").textbox('setValue', data[0].nodeFormula);
                 $("#gooflowType").textbox('setValue', data[0].gooflowType);
                 $("#gooflowLeft").textbox('setValue', data[0].gooflowLeft);
                 $("#gooflowTop").textbox('setValue', data[0].gooflowTop);
@@ -170,6 +224,12 @@
             nodeCode: $("#nodeCode").val(),
             nodeName: $("#nodeName").val(),
             nodeType:  $('input[name="nodeType"]:checked').val(),
+            handlerRole: $("#handlerRole").val(),
+            handlerField: $("#handlerField").val(),
+            handlerCode: $("#handlerCode").val(),
+            handlerName: $("#handlerName").val(),
+            editField: $("#editField").val(),
+            nodeFormula: $("#nodeFormula").val(),
             gooflowType: $("#gooflowType").val(),
             gooflowLeft: $("#gooflowLeft").val(),
             gooflowTop: $("#gooflowTop").val(),
