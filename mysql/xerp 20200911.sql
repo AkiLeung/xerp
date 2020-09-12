@@ -11,7 +11,7 @@
  Target Server Version : 50716
  File Encoding         : 65001
 
- Date: 11/09/2020 16:09:12
+ Date: 11/09/2020 23:47:36
 */
 
 SET NAMES utf8mb4;
@@ -499,6 +499,11 @@ CREATE TABLE `tbl_sys_flow_node`  (
   `node_code` int(4) NULL DEFAULT NULL,
   `node_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `node_type` varchar(2) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_role` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_field` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `edit_field` varchar(500) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `node_formula` varchar(150) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `gooflow_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `gooflow_left` varchar(10) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
@@ -517,15 +522,15 @@ CREATE TABLE `tbl_sys_flow_node`  (
 -- ----------------------------
 -- Records of tbl_sys_flow_node
 -- ----------------------------
-INSERT INTO `tbl_sys_flow_node` VALUES ('1', '47f3837a02744a61bed31021d4c26525', '01', 0, '起草', '00', NULL, 'start', '138', '30', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
-INSERT INTO `tbl_sys_flow_node` VALUES ('13c55654274641aaadce70edd3205c3a', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 2, '复审', '01', NULL, 'task', '138', '220', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:37', '系统管理员', '2020-01-22 21:55:21');
-INSERT INTO `tbl_sys_flow_node` VALUES ('2', '47f3837a02744a61bed31021d4c26525', '01', 1, '审批', '01', NULL, 'task', '138', '130', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
-INSERT INTO `tbl_sys_flow_node` VALUES ('229120748b7349e09c10bd08082f60e4', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 1, '初审', '01', NULL, 'task', '138', '120', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:28', '系统管理员', '2020-01-22 21:55:24');
-INSERT INTO `tbl_sys_flow_node` VALUES ('2ea477ac103a4225a5c4778dda63bacd', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 99, '完成', '99', NULL, 'end', '1180', '500', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:56', '系统管理员', '2020-01-22 21:54:56');
-INSERT INTO `tbl_sys_flow_node` VALUES ('3', '47f3837a02744a61bed31021d4c26525', '01', 99, '完成', '99', NULL, 'end', '138', '330', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
-INSERT INTO `tbl_sys_flow_node` VALUES ('54fffcec08be4efca9cf02640d921877', '47f3837a02744a61bed31021d4c26525', '01', 2, '报销', '02', NULL, 'node', '138', '230', '100', '24', NULL, '', '系统管理员', '2020-01-22 16:21:23', '系统管理员', '2020-01-22 16:21:23');
-INSERT INTO `tbl_sys_flow_node` VALUES ('6180c859b90e4d758387c2da6861fb1e', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 3, '归档', '02', NULL, 'node', '138', '320', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:50', '系统管理员', '2020-01-22 21:54:50');
-INSERT INTO `tbl_sys_flow_node` VALUES ('ba7ed00664fa44848601c3b8c2749403', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 0, '起草', '00', NULL, 'start', '138', '20', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:17', '系统管理员', '2020-09-02 01:12:24');
+INSERT INTO `tbl_sys_flow_node` VALUES ('1', '47f3837a02744a61bed31021d4c26525', '01', 0, '起草', '00', NULL, NULL, NULL, NULL, NULL, NULL, 'start', '138', '30', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
+INSERT INTO `tbl_sys_flow_node` VALUES ('13c55654274641aaadce70edd3205c3a', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 2, '复审', '01', NULL, NULL, NULL, NULL, NULL, NULL, 'task', '138', '220', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:37', '系统管理员', '2020-01-22 21:55:21');
+INSERT INTO `tbl_sys_flow_node` VALUES ('2', '47f3837a02744a61bed31021d4c26525', '01', 1, '审批', '01', NULL, NULL, NULL, NULL, NULL, NULL, 'task', '138', '130', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
+INSERT INTO `tbl_sys_flow_node` VALUES ('229120748b7349e09c10bd08082f60e4', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 1, '初审', '01', NULL, NULL, NULL, NULL, NULL, NULL, 'task', '138', '120', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:28', '系统管理员', '2020-01-22 21:55:24');
+INSERT INTO `tbl_sys_flow_node` VALUES ('2ea477ac103a4225a5c4778dda63bacd', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 99, '完成', '99', NULL, NULL, NULL, NULL, NULL, NULL, 'end', '1180', '500', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:56', '系统管理员', '2020-01-22 21:54:56');
+INSERT INTO `tbl_sys_flow_node` VALUES ('3', '47f3837a02744a61bed31021d4c26525', '01', 99, '完成', '99', NULL, NULL, NULL, NULL, NULL, NULL, 'end', '138', '330', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
+INSERT INTO `tbl_sys_flow_node` VALUES ('54fffcec08be4efca9cf02640d921877', '47f3837a02744a61bed31021d4c26525', '01', 2, '报销', '02', NULL, NULL, NULL, NULL, NULL, NULL, 'node', '138', '230', '100', '24', NULL, '', '系统管理员', '2020-01-22 16:21:23', '系统管理员', '2020-01-22 16:21:23');
+INSERT INTO `tbl_sys_flow_node` VALUES ('6180c859b90e4d758387c2da6861fb1e', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 3, '归档', '02', '办理角色	', '办理字段	', 'admin', '系统管理员', '编辑字段', '流向公式', 'node', '138', '320', '100', '24', NULL, '備註信息	', '系统管理员', '2020-01-22 21:54:50', '系统管理员', '2020-09-11 23:36:59');
+INSERT INTO `tbl_sys_flow_node` VALUES ('ba7ed00664fa44848601c3b8c2749403', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 0, '起草', '00', NULL, NULL, NULL, NULL, NULL, NULL, 'start', '138', '20', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:17', '系统管理员', '2020-09-02 01:12:24');
 
 -- ----------------------------
 -- Table structure for tbl_sys_info
@@ -562,7 +567,7 @@ CREATE TABLE `tbl_sys_log`  (
   `log_message` varchar(5000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `created_datetime` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 981 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1001 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_sys_log
@@ -768,6 +773,26 @@ INSERT INTO `tbl_sys_log` VALUES (977, 'UserLoginController.java', 'com.xerp.cor
 INSERT INTO `tbl_sys_log` VALUES (978, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-06 19:57:24');
 INSERT INTO `tbl_sys_log` VALUES (979, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-2', 'ERROR', 'java.lang.NullPointerException', '2020-09-06 19:58:04');
 INSERT INTO `tbl_sys_log` VALUES (980, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-08 16:56:32');
+INSERT INTO `tbl_sys_log` VALUES (981, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-1', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 17:37:23');
+INSERT INTO `tbl_sys_log` VALUES (982, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-1', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:38:42');
+INSERT INTO `tbl_sys_log` VALUES (983, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-7', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:38:44');
+INSERT INTO `tbl_sys_log` VALUES (984, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-5', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:42:51');
+INSERT INTO `tbl_sys_log` VALUES (985, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-9', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:43:00');
+INSERT INTO `tbl_sys_log` VALUES (986, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-4', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:43:19');
+INSERT INTO `tbl_sys_log` VALUES (987, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-8', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:43:33');
+INSERT INTO `tbl_sys_log` VALUES (988, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-8', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:45:16');
+INSERT INTO `tbl_sys_log` VALUES (989, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-10', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:56:30');
+INSERT INTO `tbl_sys_log` VALUES (990, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-1', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:56:40');
+INSERT INTO `tbl_sys_log` VALUES (991, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-11 17:56:43');
+INSERT INTO `tbl_sys_log` VALUES (992, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-7', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:56:44');
+INSERT INTO `tbl_sys_log` VALUES (993, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-10', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:56:44');
+INSERT INTO `tbl_sys_log` VALUES (994, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-2', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 18:02:36');
+INSERT INTO `tbl_sys_log` VALUES (995, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 22:29:11');
+INSERT INTO `tbl_sys_log` VALUES (996, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 22:45:30');
+INSERT INTO `tbl_sys_log` VALUES (997, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-3', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:09:34');
+INSERT INTO `tbl_sys_log` VALUES (998, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:15:45');
+INSERT INTO `tbl_sys_log` VALUES (999, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:22:40');
+INSERT INTO `tbl_sys_log` VALUES (1000, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:31:44');
 
 -- ----------------------------
 -- Table structure for tbl_sys_menu_module
@@ -1026,7 +1051,8 @@ CREATE TABLE `tbl_sys_user`  (
 -- ----------------------------
 -- Records of tbl_sys_user
 -- ----------------------------
-INSERT INTO `tbl_sys_user` VALUES ('c3456d81f63145eb88f30c38fd1093fd', NULL, 'admin', '系统管理员', '*', 'a370744c3bec2286f4855b41e0d744f2', '3d665ec984a447d4abbb6db6cab3f988', '01', 'default', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', 'ec8fa583237c459abbdd6c77cfc0a94f', 'eaeabcb1217549498e5d1e8dabfce635', '6f7ce001db4b4bdd8c3d6d799e72389e', '6f7ce001db4b4bdd8c3d6d799e72389e', '2017-01-01', '2999-12-31', '', '系统管理员', '2019-10-30 01:54:56', '系统管理员', '2020-09-06 19:58:04');
+INSERT INTO `tbl_sys_user` VALUES ('965272d24d6e43bca500db14997f2a73', NULL, '000002', '张三', '00', 'fe09f6c7abef3433e13af49cfd4a74a5', '7929cb8c15a3405ca0d25303c3c7fc13', '01', 'default', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', 'c858f352ec4642c98e4a192b7d72f632', '96e455b757a54414857dcc969618d885', '', '', '2017-01-01', '2999-12-31', 'zh_CN', '系统管理员', '2020-09-11 17:38:33', '系统管理员', '2020-09-11 17:38:33');
+INSERT INTO `tbl_sys_user` VALUES ('c3456d81f63145eb88f30c38fd1093fd', NULL, 'admin', '系统管理员', '*', 'a370744c3bec2286f4855b41e0d744f2', '3d665ec984a447d4abbb6db6cab3f988', '01', 'cupertino', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', 'ec8fa583237c459abbdd6c77cfc0a94f', '', '', '', '2017-01-01', '2999-12-31', 'zh_CN', '系统管理员', '2019-10-30 01:54:56', '系统管理员', '2020-09-11 17:56:40');
 INSERT INTO `tbl_sys_user` VALUES ('df39efd176754e3e8ffe1945aa981880', NULL, '000001', 'CEO-总经理', '00', 'a34fe9c57a82038546655f2602a9b0d2', '828addf8579b4df99c825044d5f0b216', '01', 'bootstrap', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', NULL, NULL, NULL, NULL, '2017-01-03', '2999-12-31', 'en_US', '系统管理员', '2020-01-09 21:40:20', '系统管理员', '2020-09-03 00:30:52');
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -10,6 +10,12 @@
         <result property="nodeCode" column="nodeCode"/>
         <result property="nodeName" column="nodeName"/>
         <result property="nodeType" column="nodeType"/>
+        <result property="handlerRole" column="handlerRole"/>
+        <result property="handlerField" column="handlerField"/>
+        <result property="handlerCode" column="handlerCode"/>
+        <result property="handlerName" column="handlerName"/>
+        <result property="editField" column="editField"/>
+        <result property="nodeFormula" column="nodeFormula"/>
         <result property="gooflowType" column="gooflowType"/>
         <result property="gooflowLeft" column="gooflowLeft"/>
         <result property="gooflowTop" column="gooflowTop"/>
@@ -66,6 +72,12 @@
             node_code,
             node_name,
             node_type,
+            handler_role,
+            handler_field,
+            handler_code,
+            handler_name,
+            edit_field,
+            node_formula,
             gooflow_type,
             gooflow_left,
             gooflow_top,
@@ -83,6 +95,12 @@
             #{nodeCode},
             #{nodeName},
             #{nodeType},
+            #{handlerRole},
+            #{handlerField},
+            #{handlerCode},
+            #{handlerName},
+            #{editField},
+            #{nodeFormula},
             #{gooflowType},
             #{gooflowLeft},
             #{gooflowTop},
@@ -104,6 +122,12 @@
             node_code = #{nodeCode},
             node_name = #{nodeName},
             node_type = #{nodeType},
+            handler_role = #{handlerRole},
+            handler_field = #{handlerField},
+            handler_code = #{handlerCode},
+            handler_name = #{handlerName},
+            edit_field = #{editField},
+            node_formula = #{nodeFormula},
             gooflow_type = #{gooflowType},
             gooflow_left = #{gooflowLeft},
             gooflow_top = #{gooflowTop},
