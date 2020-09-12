@@ -65,36 +65,34 @@
         $('#nodeList').datagrid({
             url: urlPath1,
             columns: [[
-                {field: 'cb', checkbox: 'true', width: 30, hidden: true},
+                {field: 'cb', checkbox: 'true', width: 30, hidden: false},
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
                 {field: 'flowUuid', title: 'flowUuid', width: 100, hidden: true},
                 {field: 'nodeUuid', title: 'nodeUuid', width: 100, hidden: true},
                 {field: 'directionType', title: 'directionType', width: 50, hidden: true},
                 {field: 'directionCode', title: '流向編碼', width: 80, hidden: true},
-                {field: 'directionName', title: '流向名稱', width: 180},
+                {field: 'directionName', title: '流向名稱', width: 180, hidden: false},
+                {field: 'targetNodeUuid', title: '目標環節', width: 100, hidden: true},
                 {field: 'targetNodeName', title: '目標環節', width: 100, hidden: true}
             ]],
             onClickRow: function (rowIndex, rowData) {
-                alert(rowData.uuid);
+                urlPath2 = '<%=basePath%>flowData/flowHandler.action?nodeUuid=' + rowData.targetNodeUuid;
+                $('#handlerList').datagrid({
+                    url: urlPath2,
+                    columns: [[
+                        {field: 'cb', checkbox: 'true', width: 30},
+                        {field: 'uuid', title: 'uuid', width: 100, hidden: true},
+                        {field: 'handlerCode', title: '办理人编号', width: 180, hidden: true},
+                        {field: 'handlerName', title: '办理人名称', width: 180, hidden: false}
+                    ]],
+                    onClickRow: function (rowIndex, rowData) {
+                        //alert(rowData.targetNodeName);
+                    }
+                });
             }
         });
 
-        $('#handlerList').datagrid({
-            url: urlPath2,
-            columns: [[
-                {field: 'cb', checkbox: 'true', width: 30},
-                {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                {field: 'flowUuid', title: 'flowUuid', width: 100, hidden: true},
-                {field: 'nodeUuid', title: 'nodeUuid', width: 100, hidden: true},
-                {field: 'directionType', title: 'directionType', width: 50, hidden: true},
-                {field: 'directionCode', title: '流向編碼', width: 80, hidden: true},
-                {field: 'directionName', title: '流向名稱', width: 180},
-                {field: 'targetNodeName', title: '目標環節', width: 100, hidden: true}
-            ]],
-            onClickRow: function (rowIndex, rowData) {
-                //alert(rowData.targetNodeName);
-            }
-        });
+
         $('#popuFlowToNextNode').dialog('open');
     };
 </script>

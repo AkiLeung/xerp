@@ -7,6 +7,7 @@ import com.xerp.base.BaseController;
 import com.xerp.common.consts.ConfigConst;
 import com.xerp.common.utils.StringUtils;
 import com.xerp.core.entity.FlowDirection;
+import com.xerp.core.entity.FlowHandler;
 import com.xerp.core.entity.FlowName;
 import com.xerp.core.entity.FlowNode;
 import com.xerp.core.service.IFlowDirectionService;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -94,7 +96,7 @@ public class FlowConfigurationController extends BaseController {
     @RequestMapping(value = "getNodesByFlowUuid.action")
     @ResponseBody
     public String getNodesByFlowUuid(HttpServletResponse response,
-                           HttpServletRequest request) {
+                                     HttpServletRequest request) {
         try {
             //流程uuid
             String flowUuid = request.getParameter("flowUuid");
@@ -122,7 +124,7 @@ public class FlowConfigurationController extends BaseController {
     @RequestMapping(value = "getStartNodeByFlowUuid.action")
     @ResponseBody
     public String getStartNodeByFlowUuid(@RequestParam(value = "flowUuid") String flowUuid,
-                                     HttpServletResponse response) {
+                                         HttpServletResponse response) {
         try {
             //流程uuid
             List<FlowNode> entityObject = flowNodeService.getStartNodeByFlowUuid(flowUuid);
@@ -147,7 +149,7 @@ public class FlowConfigurationController extends BaseController {
     @ResponseBody
     public String flowDirection(@RequestParam(value = "flowUuid") String flowUuid,
                                 @RequestParam(value = "nodeUuid") String nodeUuid,
-                                         HttpServletResponse response) {
+                                HttpServletResponse response) {
         try {
             List<FlowDirection> entityObject = flowDirectionService.listData(flowUuid, nodeUuid);
             JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
@@ -169,11 +171,32 @@ public class FlowConfigurationController extends BaseController {
     @RequestMapping(value = "flowHandler.action")
     @ResponseBody
     public String flowHandler(@RequestParam(value = "nodeUuid") String nodeUuid,
-                                HttpServletResponse response) {
+                              HttpServletResponse response) {
         try {
-//            List<FlowDirection> entityObject = flowDirectionService.listData(flowUuid, nodeUuid);
-//            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
-//            StringUtils.write(response, jsonArray);
+            List<FlowNode> flowNodes = flowNodeService.listByUuid(nodeUuid);
+            List<FlowHandler> flowHandlers = new ArrayList<FlowHandler>();
+            if (flowNodes != null) {
+                FlowNode flowNode = flowNodes.get(0);
+                //指定页面办理人
+                if (flowNode.getHandlerField() != "") {
+
+                }
+                //指定角色办理人
+                if (flowNode.getHandlerRole() != "") {
+
+                }
+                //指定办理人
+                if (flowNode.getHandlerCode() != "") {
+                    FlowHandler flowHandler = new FlowHandler();
+                    flowHandler.setUuid(StringUtils.createUUID());
+                    flowHandler.setHandlerCode(flowNode.getHandlerCode());
+                    flowHandler.setHandlerName(flowNode.getHandlerName());
+                    flowHandlers.add(flowHandler);
+                }
+            }
+
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(flowHandlers));
+            StringUtils.write(response, jsonArray);
         } catch (Exception ex) {
             log.error("XERP Exception：" + ex.toString());
         }

@@ -10,10 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/FlowNodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/FlowNodeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/FlowNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/FlowNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/sysFlowNodeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/sysFlowNodeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/module/controller/FlowConfigurationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/module/controller/FlowConfigurationController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,7 +25,37 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="85" column="88" selection-start-line="85" selection-start-column="83" selection-end-line="85" selection-end-column="88" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="193" column="50" selection-start-line="193" selection-start-column="50" selection-end-line="193" selection-end-column="50" />
+              <folding>
+                <element signature="e#5506#5519#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -38,7 +69,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>locationZTree</find>
       <find>warehouseZTree</find>
       <find>getAsyncZTree</find>
       <find>openPortalSelect</find>
@@ -68,6 +98,7 @@
       <find>password</find>
       <find>getPortalName</find>
       <find>portalName</find>
+      <find>flowDirection</find>
     </findStrings>
     <dirStrings>
       <dir>C:\JOSEPH\JavaDev\xerp\src</dir>
@@ -79,9 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/hrms/service/impl/PersionDocsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/hrms/service/IPersonDocsService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/hrms/controller/HrmsConfigurationController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-config.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysFrame/sys_mainFrame.jsp" />
@@ -130,6 +158,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowNode.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java" />
       </list>
     </option>
   </component>
@@ -141,8 +172,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1853" />
-    <option name="y" value="75" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1934" />
     <option name="height" value="1047" />
   </component>
@@ -216,6 +247,25 @@
               <item name="xerp" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
@@ -365,8 +415,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.xerp.base" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xerp.core.entity" />
+      <recent name="com.xerp.hrms.controller" />
+      <recent name="com.xerp.hrms.service.impl" />
+      <recent name="com.xerp.hrms.service" />
+      <recent name="com.xerp.hrms.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\webapp\WEB-INF\webPage\sysPopu" />
@@ -374,16 +434,6 @@
       <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\webapp\WEB-INF\webPage\sysHrms" />
       <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\resources\mapper" />
       <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\webapp\static\image" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xerp.hrms.controller" />
-      <recent name="com.xerp.hrms.service.impl" />
-      <recent name="com.xerp.hrms.service" />
-      <recent name="com.xerp.hrms.dao" />
-      <recent name="com.xerp.hrms.entity" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.xerp.base" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -679,7 +729,7 @@
       <workItem from="1599612113321" duration="1268000" />
       <workItem from="1599778758455" duration="1211000" />
       <workItem from="1599865747942" duration="471000" />
-      <workItem from="1599870684118" duration="7596000" />
+      <workItem from="1599870684118" duration="13528000" />
     </task>
     <task id="LOCAL-00001" summary="update pom.xml 20200826">
       <created>1598489379653</created>
@@ -877,7 +927,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599892911203</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="update 20200912">
+      <created>1599901300862</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1599901300862</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -904,7 +961,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="600544000" />
+    <option name="totallyTimeSpent" value="606476000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -916,7 +973,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="2" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2531983" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -928,7 +986,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41458106" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14145811" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32535365" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26745436" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -938,7 +996,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.52309346" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.079434164" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.297062" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32975295" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.23406594" />
@@ -972,44 +1030,10 @@
     <MESSAGE value="update 20200908" />
     <MESSAGE value="update 20200910" />
     <MESSAGE value="update 20200911" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20200911" />
+    <MESSAGE value="update 20200912" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20200912" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/service/ICompanyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="87" column="41" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/DepartmentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgDepartmentTree.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="14" selection-start-line="14" selection-end-line="80" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/DepartmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="272" column="5" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuCompanyTree.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="64" column="13" lean-forward="true" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/entity/Business.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -1341,6 +1365,52 @@
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#7;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#10;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#11;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/FlowDirectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="33" selection-start-line="33" selection-end-line="37" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/service/IFlowNodeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="27" column="35" lean-forward="true" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="85" column="88" selection-start-line="85" selection-start-column="83" selection-end-line="85" selection-end-column="88" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="193" column="50" selection-start-line="193" selection-start-column="50" selection-end-line="193" selection-end-column="50" />
+          <folding>
+            <element signature="e#5506#5519#0" expanded="true" />
           </folding>
         </state>
       </provider>
