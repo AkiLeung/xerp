@@ -6,8 +6,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.xerp.base.BaseController;
 import com.xerp.common.consts.ConfigConst;
 import com.xerp.common.utils.StringUtils;
+import com.xerp.core.entity.FlowDirection;
 import com.xerp.core.entity.FlowName;
 import com.xerp.core.entity.FlowNode;
+import com.xerp.core.service.IFlowDirectionService;
 import com.xerp.core.service.IFlowNameService;
 import com.xerp.core.service.IFlowNodeService;
 import lombok.extern.log4j.Log4j2;
@@ -43,6 +45,12 @@ public class FlowConfigurationController extends BaseController {
      */
     @Autowired
     private IFlowNodeService flowNodeService;
+
+    /**
+     * Service操作對象 自動註解:流向信息
+     */
+    @Autowired
+    private IFlowDirectionService flowDirectionService;
 
     /**
      * 功能说明：获取数据by FlowCode
@@ -122,6 +130,52 @@ public class FlowConfigurationController extends BaseController {
             StringUtils.write(response, jsonArray);
         } catch (Exception ex) {
             log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
+
+
+    /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20201108
+     */
+    @RequestMapping(value = "flowDirection.action")
+    @ResponseBody
+    public String flowDirection(@RequestParam(value = "flowUuid") String flowUuid,
+                                @RequestParam(value = "nodeUuid") String nodeUuid,
+                                         HttpServletResponse response) {
+        try {
+            List<FlowDirection> entityObject = flowDirectionService.listData(flowUuid, nodeUuid);
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+            StringUtils.write(response, jsonArray);
+        } catch (Exception ex) {
+            log.error("XERP Exception：" + ex.toString());
+        }
+        return null;
+    }
+
+    /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20201108
+     */
+    @RequestMapping(value = "flowHandler.action")
+    @ResponseBody
+    public String flowHandler(@RequestParam(value = "nodeUuid") String nodeUuid,
+                                HttpServletResponse response) {
+        try {
+//            List<FlowDirection> entityObject = flowDirectionService.listData(flowUuid, nodeUuid);
+//            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+//            StringUtils.write(response, jsonArray);
+        } catch (Exception ex) {
+            log.error("XERP Exception：" + ex.toString());
         }
         return null;
     }
