@@ -78,6 +78,24 @@
         </tr>
         <tr>
             <td class="tblTitle">
+                默认门户
+            </td>
+            <td class="tblCell">
+                <span style="display:none"><input class="easyui-textbox" value="" name="portalUuid" type="text"
+                                                  id="portalUuid" style="width:250px"/></span>
+                <input class="easyui-textbox" value="" name="portalName" type="text"
+                       id="portalName" style="width:250px" data-options="prompt: '請選擇..!',
+                        iconWidth: 22,
+                        icons: [{
+                            iconCls:'icon-search',
+                            handler: function(e){
+                               //Execution
+                               openPortalSelect('<%=basePath %>sysPopu/portalTree.action?uuid=portalUuid&name=portalName&type=1');
+				}}]"/>&nbsp;(必填)
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
                 所属公司
             </td>
             <td class="tblCell">
@@ -215,20 +233,8 @@
 <script>
     //用戶編碼自動校驗重複
     $(function () {
-        $('#password').textbox('textbox').attr('maxlength', 10);
-        $('#userCode').textbox().textbox('addClearBtn', 'icon-cancel');
-        $("input", $("#userCode").next("span")).blur(function () {
-            $.post("<%=basePath%>sysConfig/user/listByCode.action", {
-                userCode: document.getElementById("userCode").value
-            }, function (result) {
-                if (result.success) {
-                    $.messager.alert('Error', 'User Code already exist!', 'warning');
-                    $("#userCode").textbox('setValue', "");
-                }
-            }, "json");
-        });
-
         //设置只读
+        $("#userCode").textbox('textbox').attr('disabled', true);
         $('#portalName').textbox('textbox').attr('disabled', true);
         $('#companyName').textbox('textbox').attr('disabled', true);
         $('#departmentName').textbox('textbox').attr('disabled', true);
@@ -245,16 +251,12 @@
             url: "<%=basePath %>sysConfig/user/listByUuid.action?ws=" + webStatus + "&uuid=" + $("#uuid").val(),
             dataType: 'json',
             success: function (data) {
-                $("#userCode").textbox('textbox').attr('readonly', true);
-                $("#userCode").textbox('textbox').attr('disabled', true);
-
                 $("#userCode").textbox('setValue', data.userCode);
                 $("#userName").textbox('setValue', data.userName);
                 $("input[name='userType'][value ='" + data.userType + "']").attr("checked", "checked").parent().addClass('checked');
                 $("input[name='status'][value ='" + data.status + "']").attr("checked", "checked").parent().addClass('checked');
                 $("#portalUuid").textbox('setValue', data.portalUuid);
                 getPortalName(data.portalUuid, "portalName");
-
                 $("#cmpUuid").textbox('setValue', data.cmpUuid);
                 getCompanyName(data.cmpUuid, "companyName");
 

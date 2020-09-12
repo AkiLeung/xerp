@@ -244,7 +244,6 @@
 <script>
     //用戶編碼自動校驗重複
     $(function () {
-        $('#password').textbox('textbox').attr('maxlength', 10);
         $('#userCode').textbox().textbox('addClearBtn', 'icon-cancel');
         $("input", $("#userCode").next("span")).blur(function () {
             $.post("<%=basePath%>sysConfig/user/listByCode.action", {
@@ -264,38 +263,6 @@
         $('#businessName').textbox('textbox').attr('disabled', true);
         $('#busUnitName').textbox('textbox').attr('disabled', true);
     });
-
-    //頁面加載時執行
-    var webStatus = "<%=ConfigConst.STR_WS_UPDATE%>";
-    if ($("#ws").val() == webStatus) {
-        $.ajax({
-            async: true,
-            type: 'get',//get是获取数据，post是带数据的向服务器发送请求
-            url: "<%=basePath %>sysConfig/user/listByUuid.action?ws=" + webStatus + "&uuid=" + $("#uuid").val(),
-            dataType: 'json',
-            success: function (data) {
-                $('#userCode').textbox('textbox').attr('readonly', true);
-                $('#userCode').textbox('textbox').attr('disabled', true);
-                $("#userCode").textbox('setValue', data.userCode);
-                $("#userName").textbox('setValue', data.userName);
-                $("input[name='userType'][value ='" + data.userType + "']").attr("checked", "checked").parent().addClass('checked');
-                $("#password").textbox('setValue', data.password);
-                $("input[name='status'][value ='" + data.status + "']").attr("checked", "checked").parent().addClass('checked');
-                $("#portalUuid").textbox('setValue', data.portalUuid);
-                getPortalName(data.portalUuid, "portalName");
-                $('#portalName').textbox('textbox').attr('readonly', true);
-                $("#theme").textbox('setValue', data.theme);
-                $("#validFrom").textbox('setValue', data.validFrom);
-                $('#validFrom').textbox('textbox').attr('readonly', true);
-                $("#validTo").textbox('setValue', data.validTo);
-                $('#validTo').textbox('textbox').attr('readonly', true);
-                $("#language").textbox('setValue', data.language);
-            },
-            error: function (data) {
-                alert("JSON数据获取失败，请联系管理员！");
-            }
-        });
-    }
 
     //保存提交時執行
     function saveData() {
@@ -322,23 +289,5 @@
             }).fail(function (result) {
             alert("添加时出现异常" + result.toLocaleString());
         });
-    }
-
-    //默認門戶
-    function getPortalName(uuid, field) {
-        if (uuid != '') {
-            $.ajax({
-                async: true,
-                type: 'get',
-                url: '<%=basePath%>sysConfig/portal/listByUuid.action?uuid=' + uuid,
-                dataType: 'json',
-                success: function (data) {
-                    $('#' + field).textbox('setValue', data.portalName);
-                },
-                error: function (data) {
-                    alert('JSON数据获取失败，请联系管理员！');
-                }
-            });
-        }
     }
 </script>

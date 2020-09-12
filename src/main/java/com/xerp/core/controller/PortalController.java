@@ -169,7 +169,7 @@ public class PortalController extends BaseController {
     public String saveData(HttpServletRequest request) {
         //获取当前用户
         User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
-        int int_return = 0;
+        int intReturn = 0;
         try {
             //獲取網頁狀態
             String webStatus = request.getParameter("ws");
@@ -195,15 +195,15 @@ public class PortalController extends BaseController {
 
             //判斷網頁狀態執行不同的方法
             if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
-                int_return = serviceObject.insertData(entityObject);
+                intReturn = serviceObject.insertData(entityObject);
             } else if (webStatus.equals(ConfigConst.STR_WS_UPDATE)) {
-                int_return = serviceObject.updateData(entityObject);
+                intReturn = serviceObject.updateData(entityObject);
             }
         } catch (Exception ex) {
             log.error(ex.toString());
         }
         //返回狀態
-        if (int_return > 0) {
+        if (intReturn > 0) {
             return ConfigConst.STR_AJAX_SUCCESS;
         } else {
             return ConfigConst.STR_AJAX_ERROR;
@@ -223,12 +223,12 @@ public class PortalController extends BaseController {
     public String deleteData(@RequestParam(value = "uuids") String uuids,
                              HttpServletResponse response) {
         JSONObject result = new JSONObject();
-        int int_return = 0;
+        int intReturn = 0;
         try {
             String arrUuids[] = uuids.split(",");
-            int_return = serviceObject.deleteDataBatch(arrUuids);
+            intReturn = serviceObject.deleteDataBatch(arrUuids);
             //返回狀態
-            if (int_return > 0) {
+            if (intReturn > 0) {
                 result.put(ConfigConst.STR_AJAX_SUCCESS, true);
             } else {
                 result.put(ConfigConst.STR_AJAX_ERROR, false);
