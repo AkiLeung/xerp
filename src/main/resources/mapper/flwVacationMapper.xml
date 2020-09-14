@@ -5,21 +5,21 @@
 <mapper namespace="com.xerp.module.dao.IVacationDAO">
     <resultMap type="Vacation" id="ResultSet">
         <result property="uuid" column="uuid"/>
-        <result property="billNumber" column="bill_number"/>
+        <result property="billNumber" column="billNumber"/>
         <result property="subject" column="subject"/>
         <result property="message" column="message"/>
-        <result property="flowUuid" column="flow_uuid"/>
-        <result property="flowName" column="flow_name"/>
-        <result property="flowNodeUuid" column="flow_node_uuid"/>
-        <result property="flowNodeType" column="flow_node_type"/>
-        <result property="flowNodeNum" column="flow_node_num"/>
-        <result property="flowNodeNam" column="flow_node_nam"/>
-        <result property="flowCreatorNum" column="flow_creator_num"/>
-        <result property="flowCreatorNam" column="flow_creator_nam"/>
-        <result property="curHandlerNum" column="cur_handler_num"/>
-        <result property="curHandlerNam" column="cur_handler_nam"/>
-        <result property="createdDatetime" column="created_datetime"/>
-        <result property="updatedDatetime" column="updated_datetime"/>
+        <result property="flowUuid" column="flowUuid"/>
+        <result property="flowName" column="flowName"/>
+        <result property="flowNodeUuid" column="flowNodeUuid"/>
+        <result property="flowNodeType" column="flowNodeType"/>
+        <result property="flowNodeNum" column="flowNodeNum"/>
+        <result property="flowNodeNam" column="flowNodeNam"/>
+        <result property="flowCreatorNum" column="flowCreatorNum"/>
+        <result property="flowCreatorNam" column="flowCreatorNam"/>
+        <result property="curHandlerNum" column="curHandlerNum"/>
+        <result property="curHandlerNam" column="curHandlerNam"/>
+        <result property="createdDatetime" column="createdDatetime"/>
+        <result property="updatedDatetime" column="updatedDatetime"/>
     </resultMap>
 
     <!-- 查找所有-->

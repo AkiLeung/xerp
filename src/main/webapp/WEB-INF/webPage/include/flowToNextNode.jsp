@@ -6,7 +6,8 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div style="display: none">
+<div style="display: none1">
+    <%--当前信息--%>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
     flowVersion:<input value="" type="Text" name="flowVersion" id="flowVersion"/><br/>
@@ -17,9 +18,16 @@
     flowNodeName:<input value="" type="Text" name="flowNodeName" id="flowNodeName"/><br/>
     curHandlerNum:<input value="" type="Text" name="curHandlerNum" id="curHandlerNum"/><br/>
     curHandlerNam:<input value="" type="Text" name="curHandlerNam" id="curHandlerNam"/><br/>
+    <%--目标信息--%>
+    targetNodeUuid:<input value="" type="Text" name="flowNodeUuid" id="targetNodeUuid"/><br/>
+    targetNodeType:<input value="" type="Text" name="flowNodeType" id="targetNodeType"/><br/>
+    targetNodeCode:<input value="" type="Text" name="targetNodeCode" id="targetNodeCode"/><br/>
+    targetNodeName:<input value="" type="Text" name="targetNodeName" id="targetNodeName"/><br/>
+    targetHandlerNum:<input value="" type="Text" name="curHandlerNum" id="targetHandlerNum"/><br/>
+    targetHandlerNam:<input value="" type="Text" name="curHandlerNam" id="targetHandlerNam"/><br/>
 </div>
 <div id="popuFlowToNextNode" class="easyui-dialog" title="Please select ....."
-     style="width:500px;height:450px;padding:1px"
+     style="width:1500px;height:450px;padding:1px"
      data-options="
 				iconCls: 'icon-more',
 				closed:true,
@@ -42,7 +50,7 @@
             <table id="nodeList" class="easyui-datagrid" style="width:100%;" fit="true"
                    data-options="
                    singleSelect:true,
-                   showHeader:false,
+                   showHeader:true,
                    rownumbers:true,
                    idField:'uuid',
                    nowarp:false,
@@ -188,9 +196,12 @@
                 {field: 'nodeUuid', title: 'nodeUuid', width: 100, hidden: true},
                 {field: 'directionType', title: 'directionType', width: 50, hidden: true},
                 {field: 'directionCode', title: '流向編碼', width: 80, hidden: true},
+
                 {field: 'directionName', title: '流向名稱', width: 180, hidden: false},
-                {field: 'targetNodeUuid', title: '目標環節', width: 100, hidden: true},
-                {field: 'targetNodeName', title: '目標環節', width: 100, hidden: true}
+                {field: 'targetNodeType', title: '目標環節-Type', width: 100, hidden: false},
+                {field: 'targetNodeUuid', title: '目標環節-Uuid', width: 100, hidden: false},
+                {field: 'targetNodeCode', title: '目標環節-Code', width: 100, hidden: false},
+                {field: 'targetNodeName', title: '目標環節-Name', width: 100, hidden: false},
             ]],
             onClickRow: function (rowIndex, rowData) {
                 var urlPath2 = '<%=basePath%>flowData/flowHandler.action?nodeUuid=' + rowData.targetNodeUuid;
@@ -232,18 +243,22 @@
             $.messager.alert('Message', 'Please Next Node First！');
             return;
         }
-        var arrayNodeList = [];
-        for (var i = 0; i < selectedNodeRows.length; i++) {
-            arrayNodeList.push(selectedNodeRows[i].uuid);
-        }
         var selectedHandlerRows = $('#handlerList').datagrid('getSelections');
         if (selectedHandlerRows.length == 0) {
             $.messager.alert('Message', 'Please Handler First！');
             return;
         }
-        var arrayHandlerList = [];
-        for (var i = 0; i < selectedHandlerRows.length; i++) {
-            arrayHandlerList.push(selectedHandlerRows[i].uuid);
-        }
+
+        //目标字段赋值
+        $("#targetNodeUuid").val(selectedNodeRows[0].targetNodeUuid);
+        $("#targetNodeType").val(selectedNodeRows[0].targetNodeType);
+        $("#targetNodeCode").val(selectedNodeRows[0].targetNodeCode);
+        $("#targetNodeName").val(selectedNodeRows[0].targetNodeName);
+        $("#targetHandlerNum").val(selectedHandlerRows[0].handlerCode);
+        $("#targetHandlerNam").val(selectedHandlerRows[0].handlerName);
+        //关闭窗口
+        $('#popuFlowToNextNode').dialog('close');
+        //保存文档
+        saveDocument();
     }
 </script>

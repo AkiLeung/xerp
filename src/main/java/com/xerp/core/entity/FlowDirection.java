@@ -33,6 +33,10 @@ public class FlowDirection extends BaseEntity {
 
     private String targetNodeUuid;
 
+    private String targetNodeType;
+
+    private String targetNodeCode;
+
     private String targetNodeName;
 
     private String gooflowType;

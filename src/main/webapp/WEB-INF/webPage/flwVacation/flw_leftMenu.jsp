@@ -105,7 +105,7 @@
         </div>
         <div class="div3">
             <ul>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/mainForm.action')">起 草 申 请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/draftDocument.action')">起 草 申 请</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/toHandleList.action')">我 的 待 办</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/myApplyList.action')">我 的 申 请</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/allApplyList.action')">所有的申请</a></li>
@@ -119,7 +119,7 @@
         </div>
         <div class="div3">
             <ul>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/xxxxxxxxx.action')">数据维护1</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/mainForm.action')">数据维护1</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/xxxxxxxxx.action')">数据维护2</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/xxxxxxxxx.action')">数据维护3</a></li>
             </ul>

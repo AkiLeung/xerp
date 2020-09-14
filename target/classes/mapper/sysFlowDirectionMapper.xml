@@ -11,6 +11,8 @@
         <result property="directionCode" column="directionCode"/>
         <result property="directionName" column="directionName"/>
         <result property="targetNodeUuid" column="targetNodeUuid"/>
+        <result property="targetNodeType" column="targetNodeType"/>
+        <result property="targetNodeCode" column="targetNodeCode"/>
         <result property="targetNodeName" column="targetNodeName"/>
         <result property="gooflowType" column="gooflowType"/>
         <result property="gooflowM" column="gooflowM"/>
@@ -23,9 +25,12 @@
         <result property="modifiedDatetime" column="modifiedDatetime"/>
     </resultMap>
 
-    <!-- 查找所有-->
+    <!-- 查找所有 select * from tbl_sys_flow_direction where flow_uuid = #{0} and node_uuid = #{1} order by sort asc -->
     <select id="listData" resultMap="FlowDirectionResult">
-        select * from tbl_sys_flow_direction where flow_uuid = #{0} and node_uuid = #{1} order by sort asc
+           select a.*,b.node_type as target_node_type,b.node_code as target_node_code
+               from tbl_sys_flow_direction as a
+               left join tbl_sys_flow_node as b on a.target_node_uuid = b.uuid
+               where a.flow_uuid = #{0} and a.node_uuid = #{1} order by sort asc
     </select>
 
     <!-- 統計個數-->
@@ -35,7 +40,7 @@
 
     <!-- 查找指定-->
     <select id="listByUuid" parameterType="com.xerp.core.entity.FlowDirection"  resultMap="FlowDirectionResult">
-        select * from tbl_sys_flow_direction where uuid = #{uuid}
+        select * from tbl_sys_flow_direction  where a.uuid = #{uuid}
     </select>
 
     <!-- 查找Flow下的流向-->
