@@ -1,8 +1,23 @@
+<%@ page import="com.xerp.common.consts.ConfigConst" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+<div style="display: none">
+    flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
+    flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
+    flowVersion:<input value="" type="Text" name="flowVersion" id="flowVersion"/><br/>
+    docUuid:<input value="<%=request.getParameter("uuid")%>" type="Text" name="uuid" id="uuid"/><br/>
+    flowNodeUuid:<input value="" type="Text" name="flowNodeUuid" id="flowNodeUuid"/><br/>
+    flowNodeType:<input value="" type="Text" name="flowNodeType" id="flowNodeType"/><br/>
+    flowNodeCode:<input value="" type="Text" name="flowNodeCode" id="flowNodeCode"/><br/>
+    flowNodeName:<input value="" type="Text" name="flowNodeName" id="flowNodeName"/><br/>
+    curHandlerNum:<input value="" type="Text" name="curHandlerNum" id="curHandlerNum"/><br/>
+    curHandlerNam:<input value="" type="Text" name="curHandlerNam" id="curHandlerNam"/><br/>
+</div>
 <div id="popuFlowToNextNode" class="easyui-dialog" title="Please select ....."
      style="width:500px;height:450px;padding:1px"
      data-options="
@@ -55,8 +70,111 @@
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
+    //01 获取配置流程信息
+    var url = "<%=basePath %>flowData/getFlowByCode.action?flowCode=" + $("#flowCode").val();
+    $.ajax({
+        async: false,
+        type: 'get',
+        url: url,
+        dataType: 'json',
+        success: function (data) {
+            $("#flowUuid").val(data[0].uuid);
+            $("#flowName").val(data[0].flowName);
+            $("#flowVersion").val(data[0].flowVersion);
+            $("#flowInfo").text(data[0].flowName + " - [ " + data[0].flowVersion + " ]");
+        },
+        error: function (data) {
+            alert("【" + url + "】JSON数据获取失败，请联系管理员！");
+        }
+    });
+
+    //02 获取当前文档的流程信息
+    if ($("#uuid").val() != '' && $("#uuid").val() != 'null') {
+        url = "<%=basePath %>" + $("#flowModule").val() + "/getDataByUuid.action?uuid=" + $("#uuid").val();
+        $.ajax({
+            async: false,
+            type: 'get',
+            url: url,
+            dataType: 'json',
+            success: function (data) {
+                $("#flowNodeUuid").val(data[0].flowNodeUuid);
+                $("#flowNodeType").val(data[0].flowNodeType);
+                $("#flowNodeCode").val(data[0].flowNodeCode);
+                $("#flowNodeName").val(data[0].flowNodeName);
+                $("#curHandlerNum").text(data[0].curHandlerNum);
+                $("#curHandlerNam").text(data[0].curHandlerNam);
+            },
+            error: function (data) {
+                alert("【" + url + "】JSON数据获取失败，请联系管理员！");
+            }
+        });
+    } else {
+        //默认流程为第一个环节
+        url = "<%=basePath %>flowData/getStartNodeByFlowUuid.action?flowUuid=" + $("#flowUuid").val();
+        $.ajax({
+            async: false,
+            type: 'get',
+            url: url,
+            dataType: 'json',
+            success: function (data) {
+                $("#flowNodeUuid").val(data[0].uuid);
+                $("#flowNodeType").val(data[0].nodeType);
+                $("#flowNodeCode").val(data[0].nodeCode);
+                $("#flowNodeName").val(data[0].nodeName);
+                $("#curHandlerNum").val('<shiro:principal property="userCode"/>');
+                $("#curHandlerNam").val('<shiro:principal property="userName"/>');
+            },
+            error: function (data) {
+                alert("【" + url + "】JSON数据获取失败，请联系管理员！");
+            }
+        });
+    }
+    ;
+
+    //03 获取配置流程的所有节点信息
+    var nodesData = "";
+    url = '<%=basePath%>flowData/getNodesByFlowUuid.action?flowUuid=' + $("#flowUuid").val();
+    $.ajax({
+        async: false,
+        type: 'get',
+        url: url,
+        dataType: 'json',
+        success: function (data) {
+            if (data != null) {
+                nodesData = "";
+                var curHandlerName = "";
+                for (var i = 0; i < data.rows.length; i++) {
+                    curHandlerName = "";
+                    if ($("#flowNodeCode").val() == data.rows[i].nodeCode) {
+                        curHandlerName = "[<span style='font-weight: bold;'>" + $("#curHandlerNam").val() + "</span>]";
+                    }
+                    if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_START_NUM%>') {
+                        nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/start.png' /> "
+                            + " <span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + curHandlerName + " -> ";
+                    } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_TASK_NUM%>') {
+                        nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/node.png' /> "
+                            + " <span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + curHandlerName + " -> ";
+                    } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_NODE_NUM%>') {
+                        nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/node.png' /> "
+                            + " <span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + curHandlerName + " -> ";
+                    } else if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_END_NUM%>') {
+                        nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/finish.png' /> "
+                            + " <span id='" + data.rows[i].uuid + "' name = '" + data.rows[i].nodeCode + "'>" + data.rows[i].nodeName + "</span>" + curHandlerName;
+                    }
+                }
+                $("#flowShow").html(nodesData);
+            }
+        }
+    });
+
+    //99 預覽流程圖
+    function showFlowGraph() {
+        var urlPath = "<%=basePath %>sysPopu/gotoFlowGraphPage.action?flowUuid=" + $("#flowUuid").val();
+        window.ifrWorkFlow.location.href = urlPath;
+        $('#winWorkFlow').window('open');
+    }
+
     //選擇
     function openFlowToNext() {
         //dataGrid basic Setting:流向列表
@@ -87,7 +205,11 @@
                     onLoadSuccess: function (data) {
                         if (data.total == 0) {
                             //添加一个新数据行，第一列的值为你需要的提示信息，然后将其他列合并到第一列来，注意修改colspan参数为你columns配置的总列数
-                            $(this).datagrid('appendRow', { handlerName: '<div style="text-align:center;color:red">没有相关办理人！</div>' }).datagrid('mergeCells', { index: 0, field: 'handlerName', colspan: 2 })
+                            $(this).datagrid('appendRow', {handlerName: '<div style="text-align:center;color:red">没有相关办理人！</div>'}).datagrid('mergeCells', {
+                                index: 0,
+                                field: 'handlerName',
+                                colspan: 2
+                            })
                             //隐藏分页导航条，这个需要熟悉datagrid的html结构，直接用jquery操作DOM对象，easyui datagrid没有提供相关方法隐藏导航条
                             $(this).closest('div.datagrid-wrap').find('div.datagrid-pager').hide();
                         }
@@ -100,7 +222,6 @@
                 });
             }
         });
-
         $('#popuFlowToNextNode').dialog('open');
     };
 </script>

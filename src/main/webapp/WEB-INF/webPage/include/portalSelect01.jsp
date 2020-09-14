@@ -16,8 +16,7 @@
 					    var uuid = $('#ifrSysPortalSelectList').contents().find('#uuid').val();
 					    $('#'+ifrSysPortalSelectList.$('#fieldCode').val()).textbox('setValue',uuid);
 					    $('#popuPortalSelectList').dialog('close');
-					    if(uuid !='')
-					    {
+					    if(uuid !=''){
 					        $.ajax({
                                 async: true,
                                 type: 'get',
