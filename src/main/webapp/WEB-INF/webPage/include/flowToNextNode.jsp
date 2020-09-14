@@ -28,7 +28,7 @@
 					text:'Confirm',
 					iconCls:'icon-tip',
 					handler:function(){
-					  alert(132123);
+                        submitCheck();
 					}
 				},{
 					text:'Close',
@@ -224,4 +224,26 @@
         });
         $('#popuFlowToNextNode').dialog('open');
     };
+
+    //提交前检查
+    function  submitCheck() {
+        var selectedNodeRows = $('#nodeList').datagrid('getSelections');
+        if (selectedNodeRows.length == 0) {
+            $.messager.alert('Message', 'Please Next Node First！');
+            return;
+        }
+        var arrayNodeList = [];
+        for (var i = 0; i < selectedNodeRows.length; i++) {
+            arrayNodeList.push(selectedNodeRows[i].uuid);
+        }
+        var selectedHandlerRows = $('#handlerList').datagrid('getSelections');
+        if (selectedHandlerRows.length == 0) {
+            $.messager.alert('Message', 'Please Handler First！');
+            return;
+        }
+        var arrayHandlerList = [];
+        for (var i = 0; i < selectedHandlerRows.length; i++) {
+            arrayHandlerList.push(selectedHandlerRows[i].uuid);
+        }
+    }
 </script>
