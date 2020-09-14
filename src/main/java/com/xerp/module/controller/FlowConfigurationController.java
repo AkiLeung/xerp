@@ -178,15 +178,15 @@ public class FlowConfigurationController extends BaseController {
             if (flowNodes != null) {
                 FlowNode flowNode = flowNodes.get(0);
                 //指定页面办理人
-                if (flowNode.getHandlerField() != "") {
+                if (flowNode.getHandlerField() != null && flowNode.getHandlerField() != "") {
 
                 }
                 //指定角色办理人
-                if (flowNode.getHandlerRole() != "") {
+                if (flowNode.getHandlerRole() != null && flowNode.getHandlerRole() != "") {
 
                 }
                 //指定办理人
-                if (flowNode.getHandlerCode() != "") {
+                if (flowNode.getHandlerCode() != null && flowNode.getHandlerCode() != "") {
                     FlowHandler flowHandler = new FlowHandler();
                     flowHandler.setUuid(StringUtils.createUUID());
                     flowHandler.setHandlerCode(flowNode.getHandlerCode());
