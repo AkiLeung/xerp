@@ -11,11 +11,25 @@
  Target Server Version : 50716
  File Encoding         : 65001
 
- Date: 12/09/2020 02:55:27
+ Date: 13/09/2020 23:12:17
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for tbl_flw_opinions
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_flw_opinions`;
+CREATE TABLE `tbl_flw_opinions`  (
+  `uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `doc_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `user_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `opinions` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `created_datetime` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`uuid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tbl_flw_vacation
@@ -567,7 +581,7 @@ CREATE TABLE `tbl_sys_log`  (
   `log_message` varchar(5000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `created_datetime` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1006 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1043 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_sys_log
@@ -798,6 +812,43 @@ INSERT INTO `tbl_sys_log` VALUES (1002, 'UserLoginController.java', 'com.xerp.co
 INSERT INTO `tbl_sys_log` VALUES (1003, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 01:55:07');
 INSERT INTO `tbl_sys_log` VALUES (1004, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 02:31:33');
 INSERT INTO `tbl_sys_log` VALUES (1005, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 02:35:11');
+INSERT INTO `tbl_sys_log` VALUES (1006, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:10:44');
+INSERT INTO `tbl_sys_log` VALUES (1007, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:16:46');
+INSERT INTO `tbl_sys_log` VALUES (1008, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-10', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:53');
+INSERT INTO `tbl_sys_log` VALUES (1009, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-1', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:54');
+INSERT INTO `tbl_sys_log` VALUES (1010, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-2', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:54');
+INSERT INTO `tbl_sys_log` VALUES (1011, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-3', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:54');
+INSERT INTO `tbl_sys_log` VALUES (1012, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:54');
+INSERT INTO `tbl_sys_log` VALUES (1013, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-5', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:55');
+INSERT INTO `tbl_sys_log` VALUES (1014, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-6', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:55');
+INSERT INTO `tbl_sys_log` VALUES (1015, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-7', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1016, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-8', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1017, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-9', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1018, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-10', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1019, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-1', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1020, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-2', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:57');
+INSERT INTO `tbl_sys_log` VALUES (1021, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-3', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:17:02');
+INSERT INTO `tbl_sys_log` VALUES (1022, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:17:02');
+INSERT INTO `tbl_sys_log` VALUES (1023, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-5', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:17:03');
+INSERT INTO `tbl_sys_log` VALUES (1024, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-6', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:17:03');
+INSERT INTO `tbl_sys_log` VALUES (1025, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:18:34');
+INSERT INTO `tbl_sys_log` VALUES (1026, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:19:39');
+INSERT INTO `tbl_sys_log` VALUES (1027, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:23:55');
+INSERT INTO `tbl_sys_log` VALUES (1028, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:50:47');
+INSERT INTO `tbl_sys_log` VALUES (1029, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:56:34');
+INSERT INTO `tbl_sys_log` VALUES (1030, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:58:15');
+INSERT INTO `tbl_sys_log` VALUES (1031, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '206', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:58:36');
+INSERT INTO `tbl_sys_log` VALUES (1032, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '206', 'http-nio-8080-exec-8', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:58:38');
+INSERT INTO `tbl_sys_log` VALUES (1033, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '206', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:59:04');
+INSERT INTO `tbl_sys_log` VALUES (1034, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 17:01:04');
+INSERT INTO `tbl_sys_log` VALUES (1035, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 17:25:32');
+INSERT INTO `tbl_sys_log` VALUES (1036, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 17:29:41');
+INSERT INTO `tbl_sys_log` VALUES (1037, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-10', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 17:39:32');
+INSERT INTO `tbl_sys_log` VALUES (1038, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 18:17:10');
+INSERT INTO `tbl_sys_log` VALUES (1039, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 18:19:39');
+INSERT INTO `tbl_sys_log` VALUES (1040, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 18:24:00');
+INSERT INTO `tbl_sys_log` VALUES (1041, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '91', 'http-nio-8080-exec-9', 'ERROR', 'com.xerp.core.controller.UserLoginController-UnknownAccountException:org.apache.shiro.authc.UnknownAccountException', '2020-09-13 23:00:25');
+INSERT INTO `tbl_sys_log` VALUES (1042, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-1', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 23:00:28');
 
 -- ----------------------------
 -- Table structure for tbl_sys_menu_module
