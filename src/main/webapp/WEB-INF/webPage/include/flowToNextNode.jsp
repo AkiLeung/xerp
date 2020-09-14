@@ -28,7 +28,7 @@
 					text:'Confirm',
 					iconCls:'icon-tip',
 					handler:function(){
-                        submitCheck();
+                        submitToNextNode();
 					}
 				},{
 					text:'Close',
@@ -225,8 +225,8 @@
         $('#popuFlowToNextNode').dialog('open');
     };
 
-    //提交前检查
-    function  submitCheck() {
+    //提交
+    function  submitToNextNode() {
         var selectedNodeRows = $('#nodeList').datagrid('getSelections');
         if (selectedNodeRows.length == 0) {
             $.messager.alert('Message', 'Please Next Node First！');
