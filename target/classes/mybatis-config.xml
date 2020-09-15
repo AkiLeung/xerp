@@ -15,6 +15,7 @@
     <typeAliases>
         <package name="com.xerp.core.entity"/>
         <package name="com.xerp.module.entity"/>
+        <package name="com.xerp.hrms.entity"/>
         <package name="com.xerp.common.utils"/>
     </typeAliases>
 </configuration>

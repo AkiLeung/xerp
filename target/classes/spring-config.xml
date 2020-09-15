@@ -22,6 +22,7 @@
     <context:annotation-config/>
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.xerp.core"/>
+    <context:component-scan base-package="com.xerp.hrms"/>
     <context:component-scan base-package="com.xerp.module"/>
     <context:component-scan base-package="com.xerp.common"/>
     <!--自动扫描该包，使SpringMVC认为包下用了@service注解的类是邏輯控制-->
@@ -50,7 +51,7 @@
         <property name="basename" value="classpath:i18n/messages"/>
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="cacheSeconds" value="10"/>
-        <property name="useCodeAsDefaultMessage" value="true"/>
+        <property name="useCodeAsDefaultMessage" value="true" />
         <property name="fallbackToSystemLocale" value="false" />
     </bean>
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
@@ -83,8 +84,7 @@
         <property name="testOnReturn" value="${druid.testOnReturn}"/>
         <!-- 打开PSCache，并且指定每个连接上PSCache的大小  如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。-->
         <property name="poolPreparedStatements" value="${druid.poolPreparedStatements}"/>
-        <property name="maxPoolPreparedStatementPerConnectionSize"
-                  value="${druid.maxPoolPreparedStatementPerConnectionSize}"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="${druid.maxPoolPreparedStatementPerConnectionSize}"/>
         <!-- 配置监控统计拦截的filters -->
         <property name="filters" value="${druid.filters}"/>
     </bean>

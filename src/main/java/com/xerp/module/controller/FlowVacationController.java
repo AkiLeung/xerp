@@ -156,13 +156,15 @@ public class FlowVacationController extends BaseController {
             //uuid
             if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
                 entityObject.setUuid(StringUtils.createUUID());
+                entityObject.setBillNumber("草稿");
                 entityObject.setSubject("请假流程");
-                entityObject.setFlowUuid("");
-                entityObject.setFlowName("");
-                entityObject.setFlowNodeUuid("");
-                entityObject.setFlowNodeType("");
-                entityObject.setFlowNodeNum("");
-                entityObject.setFlowNodeNam("");
+                entityObject.setMessage("");
+                entityObject.setFlowUuid("1");
+                entityObject.setFlowName("2");
+                entityObject.setFlowNodeUuid("3");
+                entityObject.setFlowNodeType("4");
+                entityObject.setFlowNodeNum("5");
+                entityObject.setFlowNodeNam("6");
                 entityObject.setFlowCreatorNum(currentUser.getUserCode());
                 entityObject.setFlowCreatorNam(currentUser.getUserName());
                 entityObject.setCurHandlerNum(currentUser.getUserCode());
