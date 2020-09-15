@@ -147,11 +147,11 @@ public class FlowVacationController extends BaseController {
         try {
             //獲取頁面傳輸的String Json
 //            JSONObject jsonData = JSONObject.parseObject(strJson);
-//            //獲取網頁狀態
+            //獲取網頁狀態
             String webStatus = ConfigConst.STR_WS_CREATE; //jsonData.getString("ws");
 //            //流程编码
 //            String flowCode = jsonData.getString("flowCode");
-//            //操作對象
+            //操作對象
             Vacation entityObject = new Vacation();
             //uuid
             if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
@@ -177,11 +177,11 @@ public class FlowVacationController extends BaseController {
             }
             System.out.println("新增结果：" + intReturn);
             //返回狀態
-            if (intReturn > 0) {
-                modelAndView = new ModelAndView();
-                modelAndView.addObject("docUuid", entityObject.getUuid());
-                modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_MAIN_FORM);
-            }
+            //if (intReturn > 0) {
+            modelAndView = new ModelAndView();
+            modelAndView.addObject("docUuid", entityObject.getUuid());
+            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_MAIN_FORM);
+            //}
         } catch (Exception ex) {
             log.error("XERP Exception:" + ex.toString());
         }
