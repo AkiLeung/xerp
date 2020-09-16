@@ -24,8 +24,9 @@
     <iframe id="ifrWorkFlow" name="ifrWorkFlow" src="" width="100%" height="100%" frameborder="0"></iframe>
 </div>
 <table class="tbl" style="width:100%;height:50px;">
-    <tr style="display: none">
+    <tr style="display: none1">
         <td class="tblCell" style="width: 100%" colspan="2">
+            docUuid:<input value="${docUuid}" type="Text" name="uuid" id="uuid"/><br/>
             flowCode:<input value="flow00002" type="Text" name="flowCode" id="flowCode"/><br/>
             flowModule:<input value="vacation" type="Text" name="flowModule" id="flowModule"/><br/>
         </td>
@@ -71,8 +72,30 @@
 </html>
 
 <script>
+    //頁面加載時執行
+    $.ajax({
+        async: true,
+        type: "get",//get是获取数据，post是带数据的向服务器发送请求
+        url: "<%=basePath %>sysConfig/dataType/listByTypeCode.action?code=<%=request.getParameter("code")%>",
+        dataType: 'json',
+        success: function (data) {
+            $('#typeCode').textbox('textbox').attr('readonly', true);
+            $('#typeCode').textbox('textbox').attr('disabled', true);
+
+            $("#uuid").textbox('setValue', data.uuid);
+            $("input[name='status'][value ='" + data.status + "']").attr("checked", "checked").parent().addClass('checked');
+            $("#typeCode").textbox('setValue', data.typeCode);
+            $("#typeName").textbox('setValue', data.typeName);
+            $("#sort").textbox('setValue', data.sort);
+        },
+        error: function (data) {
+            alert("JSON数据获取失败，请联系管理员！");
+        }
+    });
+
+
     //保存文档
-    function  saveDocument() {
+    function saveDocument() {
         alert("Save Document");
     }
 </script>

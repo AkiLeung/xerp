@@ -11,7 +11,6 @@
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
     flowVersion:<input value="" type="Text" name="flowVersion" id="flowVersion"/><br/>
-    docUuid:<input value="<%=request.getParameter("uuid")%>" type="Text" name="uuid" id="uuid"/><br/>
     flowNodeUuid:<input value="" type="Text" name="flowNodeUuid" id="flowNodeUuid"/><br/>
     flowNodeType:<input value="" type="Text" name="flowNodeType" id="flowNodeType"/><br/>
     flowNodeCode:<input value="" type="Text" name="flowNodeCode" id="flowNodeCode"/><br/>
