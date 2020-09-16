@@ -97,26 +97,26 @@
     });
 
     //02 获取当前文档的流程信息
-    if ($("#uuid").val() != '' && $("#uuid").val() != 'null') {
-        url = "<%=basePath %>" + $("#flowModule").val() + "/getDataByUuid.action?uuid=" + $("#uuid").val();
-        $.ajax({
-            async: false,
-            type: 'get',
-            url: url,
-            dataType: 'json',
-            success: function (data) {
-                $("#flowNodeUuid").val(data[0].flowNodeUuid);
-                $("#flowNodeType").val(data[0].flowNodeType);
-                $("#flowNodeCode").val(data[0].flowNodeCode);
-                $("#flowNodeName").val(data[0].flowNodeName);
-                $("#curHandlerNum").text(data[0].curHandlerNum);
-                $("#curHandlerNam").text(data[0].curHandlerNam);
-            },
-            error: function (data) {
-                alert("【" + url + "】JSON数据获取失败，请联系管理员！");
-            }
-        });
-    } else {
+    <%--if ($("#uuid").val() != '' && $("#uuid").val() != 'null') {--%>
+        <%--url = "<%=basePath %>" + $("#flowModule").val() + "/getDataByUuid.action?uuid=" + $("#uuid").val();--%>
+        <%--$.ajax({--%>
+            <%--async: false,--%>
+            <%--type: 'get',--%>
+            <%--url: url,--%>
+            <%--dataType: 'json',--%>
+            <%--success: function (data) {--%>
+                <%--$("#flowNodeUuid").val(data[0].flowNodeUuid);--%>
+                <%--$("#flowNodeType").val(data[0].flowNodeType);--%>
+                <%--$("#flowNodeCode").val(data[0].flowNodeCode);--%>
+                <%--$("#flowNodeName").val(data[0].flowNodeName);--%>
+                <%--$("#curHandlerNum").text(data[0].curHandlerNum);--%>
+                <%--$("#curHandlerNam").text(data[0].curHandlerNam);--%>
+            <%--},--%>
+            <%--error: function (data) {--%>
+                <%--alert("【" + url + "】JSON数据获取失败，请联系管理员！");--%>
+            <%--}--%>
+        <%--});--%>
+    <%--} else {--%>
         //默认流程为第一个环节
         url = "<%=basePath %>flowData/getStartNodeByFlowUuid.action?flowUuid=" + $("#flowUuid").val();
         $.ajax({
@@ -136,8 +136,7 @@
                 alert("【" + url + "】JSON数据获取失败，请联系管理员！");
             }
         });
-    }
-    ;
+    // };
 
     //03 获取配置流程的所有节点信息
     var nodesData = "";

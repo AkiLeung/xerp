@@ -76,17 +76,17 @@
     $.ajax({
         async: true,
         type: "get",//get是获取数据，post是带数据的向服务器发送请求
-        url: "<%=basePath %>sysConfig/dataType/listByTypeCode.action?code=<%=request.getParameter("code")%>",
+        url: "<%=basePath %>vacation/getDataByUuid.action?uuid="+("#docUuid").val(),
         dataType: 'json',
         success: function (data) {
-            $('#typeCode').textbox('textbox').attr('readonly', true);
-            $('#typeCode').textbox('textbox').attr('disabled', true);
-
-            $("#uuid").textbox('setValue', data.uuid);
-            $("input[name='status'][value ='" + data.status + "']").attr("checked", "checked").parent().addClass('checked');
-            $("#typeCode").textbox('setValue', data.typeCode);
-            $("#typeName").textbox('setValue', data.typeName);
-            $("#sort").textbox('setValue', data.sort);
+            $("#flowNodeUuid").val(data[0].flowNodeUuid);
+            $("#flowNodeType").val(data[0].flowNodeType);
+            $("#flowNodeCode").val(data[0].flowNodeCode);
+            $("#flowNodeName").val(data[0].flowNodeName);
+            $("#curHandlerNum").text(data[0].curHandlerNum);
+            $("#curHandlerNam").text(data[0].curHandlerNam);
+            //内容
+            $("#message").textbox('setValue', data[0].message);
         },
         error: function (data) {
             alert("JSON数据获取失败，请联系管理员！");

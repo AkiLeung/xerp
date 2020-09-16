@@ -145,26 +145,23 @@ public class FlowVacationController extends BaseController {
                                       HttpServletRequest request) {
         User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         try {
-            //獲取頁面傳輸的String Json
-//            JSONObject jsonData = JSONObject.parseObject(strJson);
             //獲取網頁狀態
-            String webStatus = ConfigConst.STR_WS_CREATE; //jsonData.getString("ws");
+            String webStatus = ConfigConst.STR_WS_CREATE;
 //            //流程编码
 //            String flowCode = jsonData.getString("flowCode");
             //操作對象
             Vacation entityObject = new Vacation();
-            //uuid
             if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
                 entityObject.setUuid(StringUtils.createUUID());
                 entityObject.setBillNumber("草稿");
                 entityObject.setSubject("请假流程");
-                entityObject.setMessage("");
-                entityObject.setFlowUuid("1");
-                entityObject.setFlowName("2");
-                entityObject.setFlowNodeUuid("3");
-                entityObject.setFlowNodeType("4");
-                entityObject.setFlowNodeNum("5");
-                entityObject.setFlowNodeNam("6");
+//                entityObject.setMessage("");
+//                entityObject.setFlowUuid("1");
+//                entityObject.setFlowName("2");
+//                entityObject.setFlowNodeUuid("3");
+//                entityObject.setFlowNodeType("4");
+//                entityObject.setFlowNodeNum("5");
+//                entityObject.setFlowNodeNam("6");
                 entityObject.setFlowCreatorNum(currentUser.getUserCode());
                 entityObject.setFlowCreatorNam(currentUser.getUserName());
                 entityObject.setCurHandlerNum(currentUser.getUserCode());
