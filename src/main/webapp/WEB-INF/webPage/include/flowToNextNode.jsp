@@ -8,6 +8,7 @@
 %>
 <div style="display: none1">
     <%--当前信息--%>
+    flowCode:<input value="${flowCode}" type="Text" name="flowCode" id="flowCode"/><br/>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
     flowVersion:<input value="" type="Text" name="flowVersion" id="flowVersion"/><br/>
@@ -26,7 +27,7 @@
     targetHandlerNam:<input value="" type="Text" name="curHandlerNam" id="targetHandlerNam"/><br/>
 </div>
 <div id="popuFlowToNextNode" class="easyui-dialog" title="Please select ....."
-     style="width:1500px;height:450px;padding:1px"
+     style="width:550px;height:450px;padding:1px"
      data-options="
 				iconCls: 'icon-more',
 				closed:true,
@@ -49,7 +50,7 @@
             <table id="nodeList" class="easyui-datagrid" style="width:100%;" fit="true"
                    data-options="
                    singleSelect:true,
-                   showHeader:true,
+                   showHeader:false,
                    rownumbers:true,
                    idField:'uuid',
                    nowarp:false,
@@ -71,7 +72,7 @@
                    method:'get'">
             </table>
         </div>
-        <div data-options="region:'south',split:true" style="height:80px;">
+        <div data-options="region:'south',split:true" style="height:130px;">
             <input class="easyui-textbox" data-options="multiline:true" value="" name="opinions" type="text"
                    id="opinions" style="width:100%;height: 99%"/>
         </div>
@@ -97,46 +98,26 @@
     });
 
     //02 获取当前文档的流程信息
-    <%--if ($("#uuid").val() != '' && $("#uuid").val() != 'null') {--%>
-        <%--url = "<%=basePath %>" + $("#flowModule").val() + "/getDataByUuid.action?uuid=" + $("#uuid").val();--%>
-        <%--$.ajax({--%>
-            <%--async: false,--%>
-            <%--type: 'get',--%>
-            <%--url: url,--%>
-            <%--dataType: 'json',--%>
-            <%--success: function (data) {--%>
-                <%--$("#flowNodeUuid").val(data[0].flowNodeUuid);--%>
-                <%--$("#flowNodeType").val(data[0].flowNodeType);--%>
-                <%--$("#flowNodeCode").val(data[0].flowNodeCode);--%>
-                <%--$("#flowNodeName").val(data[0].flowNodeName);--%>
-                <%--$("#curHandlerNum").text(data[0].curHandlerNum);--%>
-                <%--$("#curHandlerNam").text(data[0].curHandlerNam);--%>
-            <%--},--%>
-            <%--error: function (data) {--%>
-                <%--alert("【" + url + "】JSON数据获取失败，请联系管理员！");--%>
-            <%--}--%>
-        <%--});--%>
-    <%--} else {--%>
-        //默认流程为第一个环节
-        url = "<%=basePath %>flowData/getStartNodeByFlowUuid.action?flowUuid=" + $("#flowUuid").val();
+    if ($("#uuid").val() != '' && $("#uuid").val() != 'null') {
+        url = "<%=basePath %>" + $("#flowModule").val() + "/getDataByUuid.action?uuid=" + $("#uuid").val();
         $.ajax({
             async: false,
             type: 'get',
             url: url,
             dataType: 'json',
             success: function (data) {
-                $("#flowNodeUuid").val(data[0].uuid);
-                $("#flowNodeType").val(data[0].nodeType);
-                $("#flowNodeCode").val(data[0].nodeCode);
-                $("#flowNodeName").val(data[0].nodeName);
-                $("#curHandlerNum").val('<shiro:principal property="userCode"/>');
-                $("#curHandlerNam").val('<shiro:principal property="userName"/>');
+                $("#flowNodeUuid").val(data[0].flowNodeUuid);
+                $("#flowNodeType").val(data[0].flowNodeType);
+                $("#flowNodeCode").val(data[0].flowNodeNum);
+                $("#flowNodeName").val(data[0].flowNodeNam);
+                $("#curHandlerNum").val(data[0].curHandlerNum);
+                $("#curHandlerNam").val(data[0].curHandlerNam);
             },
             error: function (data) {
                 alert("【" + url + "】JSON数据获取失败，请联系管理员！");
             }
         });
-    // };
+    }
 
     //03 获取配置流程的所有节点信息
     var nodesData = "";
@@ -194,12 +175,11 @@
                 {field: 'nodeUuid', title: 'nodeUuid', width: 100, hidden: true},
                 {field: 'directionType', title: 'directionType', width: 50, hidden: true},
                 {field: 'directionCode', title: '流向編碼', width: 80, hidden: true},
-
                 {field: 'directionName', title: '流向名稱', width: 180, hidden: false},
-                {field: 'targetNodeType', title: '目標環節-Type', width: 100, hidden: false},
-                {field: 'targetNodeUuid', title: '目標環節-Uuid', width: 100, hidden: false},
-                {field: 'targetNodeCode', title: '目標環節-Code', width: 100, hidden: false},
-                {field: 'targetNodeName', title: '目標環節-Name', width: 100, hidden: false},
+                {field: 'targetNodeType', title: '目標環節-Type', width: 100, hidden: true},
+                {field: 'targetNodeUuid', title: '目標環節-Uuid', width: 100, hidden: true},
+                {field: 'targetNodeCode', title: '目標環節-Code', width: 100, hidden: true},
+                {field: 'targetNodeName', title: '目標環節-Name', width: 100, hidden: true},
             ]],
             onClickRow: function (rowIndex, rowData) {
                 var urlPath2 = '<%=basePath%>flowData/flowHandler.action?nodeUuid=' + rowData.targetNodeUuid;
@@ -235,7 +215,7 @@
     };
 
     //提交
-    function  submitToNextNode() {
+    function submitToNextNode() {
         var selectedNodeRows = $('#nodeList').datagrid('getSelections');
         if (selectedNodeRows.length == 0) {
             $.messager.alert('Message', 'Please Next Node First！');

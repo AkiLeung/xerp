@@ -7,7 +7,11 @@ import com.xerp.base.BaseController;
 import com.xerp.common.consts.ConfigConst;
 import com.xerp.common.consts.UrlPathConst;
 import com.xerp.common.utils.StringUtils;
+import com.xerp.core.entity.FlowName;
+import com.xerp.core.entity.FlowNode;
 import com.xerp.core.entity.User;
+import com.xerp.core.service.IFlowNameService;
+import com.xerp.core.service.IFlowNodeService;
 import com.xerp.module.entity.Vacation;
 import com.xerp.module.service.IVacationService;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +41,17 @@ public class FlowVacationController extends BaseController {
     @Autowired
     private IVacationService vacationService;
 
+    /**
+     * Service操作對象 自動註解:流程信息
+     */
+    @Autowired
+    private IFlowNameService flowNameService;
+
+    /**
+     * Service操作對象 自動註解:环节信息
+     */
+    @Autowired
+    private IFlowNodeService flowNodeService;
 
     /**
      * 功能说明：请假流程-菜单
@@ -147,21 +162,25 @@ public class FlowVacationController extends BaseController {
         try {
             //獲取網頁狀態
             String webStatus = ConfigConst.STR_WS_CREATE;
-//            //流程编码
-//            String flowCode = jsonData.getString("flowCode");
+            //流程编码
+            String flowCode = request.getParameter("flowCode");
+            List<FlowName> arrFList = flowNameService.listByCode(flowCode);
+
             //操作對象
             Vacation entityObject = new Vacation();
             if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
                 entityObject.setUuid(StringUtils.createUUID());
                 entityObject.setBillNumber("草稿");
-                entityObject.setSubject("请假流程");
-//                entityObject.setMessage("");
-//                entityObject.setFlowUuid("1");
-//                entityObject.setFlowName("2");
-//                entityObject.setFlowNodeUuid("3");
-//                entityObject.setFlowNodeType("4");
-//                entityObject.setFlowNodeNum("5");
-//                entityObject.setFlowNodeNam("6");
+                FlowName flowName = arrFList.get(0);
+                entityObject.setFlowUuid(flowName.getUuid());
+                entityObject.setFlowName(flowName.getFlowName());
+                entityObject.setSubject(flowName.getFlowName());
+                List<FlowNode> arrNList = flowNodeService.getStartNodeByFlowUuid(flowName.getUuid());
+                FlowNode flowNode = arrNList.get(0);
+                entityObject.setFlowNodeUuid(flowNode.getFlowUuid());
+                entityObject.setFlowNodeType(flowNode.getNodeType());
+                entityObject.setFlowNodeNum(flowNode.getNodeCode());
+                entityObject.setFlowNodeNam(flowNode.getNodeName());
                 entityObject.setFlowCreatorNum(currentUser.getUserCode());
                 entityObject.setFlowCreatorNam(currentUser.getUserName());
                 entityObject.setCurHandlerNum(currentUser.getUserCode());
@@ -174,13 +193,13 @@ public class FlowVacationController extends BaseController {
             if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
                 intReturn = vacationService.insertData(entityObject);
             }
-            System.out.println("新增结果：" + intReturn);
             //返回狀態
-            //if (intReturn > 0) {
+            if (intReturn > 0) {
             modelAndView = new ModelAndView();
             modelAndView.addObject("docUuid", entityObject.getUuid());
+                modelAndView.addObject("flowCode", flowCode);
             modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_MAIN_FORM);
-            //}
+            }
         } catch (Exception ex) {
             log.error("XERP Exception:" + ex.toString());
         }

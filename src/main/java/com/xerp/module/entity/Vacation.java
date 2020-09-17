@@ -33,7 +33,7 @@ public class Vacation extends BaseEntity {
 
     private String flowNodeType;
 
-    private String flowNodeNum;
+    private int flowNodeNum;
 
     private String flowNodeNam;
 

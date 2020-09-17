@@ -1,4 +1,3 @@
-<%@ page import="com.xerp.common.consts.ConfigConst" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
@@ -27,7 +26,6 @@
     <tr style="display: none1">
         <td class="tblCell" style="width: 100%" colspan="2">
             docUuid:<input value="${docUuid}" type="Text" name="uuid" id="uuid"/><br/>
-            flowCode:<input value="flow00002" type="Text" name="flowCode" id="flowCode"/><br/>
             flowModule:<input value="vacation" type="Text" name="flowModule" id="flowModule"/><br/>
         </td>
     </tr>
@@ -61,7 +59,8 @@
     </tr>
     <tr>
         <td class="tblTitle" style="width: 100%;height: 45px;" colspan="2">
-            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" style="width:100px">保存</a>
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" style="width:100px"
+               onclick="saveDocument();">保存</a>
             <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" style="width:100px"
                onclick="openFlowToNext();">提交</a>
         </td>
@@ -70,21 +69,20 @@
 <jsp:include page="../include/flowToNextNode.jsp" flush="true"/>
 </body>
 </html>
-
-<script>
+<script type="text/javascript">
     //頁面加載時執行
     $.ajax({
         async: true,
         type: "get",//get是获取数据，post是带数据的向服务器发送请求
-        url: "<%=basePath %>vacation/getDataByUuid.action?uuid="+("#docUuid").val(),
+        url: "<%=basePath %>vacation/getDataByUuid.action?uuid=${docUuid}",
         dataType: 'json',
         success: function (data) {
-            $("#flowNodeUuid").val(data[0].flowNodeUuid);
-            $("#flowNodeType").val(data[0].flowNodeType);
-            $("#flowNodeCode").val(data[0].flowNodeCode);
-            $("#flowNodeName").val(data[0].flowNodeName);
-            $("#curHandlerNum").text(data[0].curHandlerNum);
-            $("#curHandlerNam").text(data[0].curHandlerNam);
+            // $("#flowNodeUuid").val(data[0].flowNodeUuid);
+            // $("#flowNodeType").val(data[0].flowNodeType);
+            // $("#flowNodeCode").val(data[0].flowNodeNum);
+            // $("#flowNodeName").val(data[0].flowNodeNam);
+            // $("#curHandlerNum").val(data[0].curHandlerNum);
+            // $("#curHandlerNam").val(data[0].curHandlerNam);
             //内容
             $("#message").textbox('setValue', data[0].message);
         },
@@ -92,7 +90,6 @@
             alert("JSON数据获取失败，请联系管理员！");
         }
     });
-
 
     //保存文档
     function saveDocument() {
