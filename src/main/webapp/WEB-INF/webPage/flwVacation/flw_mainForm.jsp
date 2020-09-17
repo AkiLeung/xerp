@@ -77,12 +77,6 @@
         url: "<%=basePath %>vacation/getDataByUuid.action?uuid=${docUuid}",
         dataType: 'json',
         success: function (data) {
-            // $("#flowNodeUuid").val(data[0].flowNodeUuid);
-            // $("#flowNodeType").val(data[0].flowNodeType);
-            // $("#flowNodeCode").val(data[0].flowNodeNum);
-            // $("#flowNodeName").val(data[0].flowNodeNam);
-            // $("#curHandlerNum").val(data[0].curHandlerNum);
-            // $("#curHandlerNam").val(data[0].curHandlerNam);
             //内容
             $("#message").textbox('setValue', data[0].message);
         },
@@ -93,6 +87,32 @@
 
     //保存文档
     function saveDocument() {
-        alert("Save Document");
+        //執行保存
+        var objData = {
+            uuid:$("#uuid").val(),
+            message: $("#message").val(),
+            flowNodeUuid: $("#targetNodeUuid").val(),
+            flowNodeType: $("#targetNodeType").val(),
+            flowNodeCode: $("#targetNodeCode").val(),
+            flowNodeName: $("#targetNodeName").val(),
+            curHandlerNum: $("#targetHandlerNum").val(),
+            curHandlerNam: $("#targetHandlerNam").val()
+        };
+        var jsonData = JSON.stringify(objData);
+        //执行保存
+        $.ajax({
+            type: "POST",
+            url: "<%=basePath %>vacation/submitFlowData.action",
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
+            async: false,
+            data: jsonData,
+            success: function (data) {
+                alert("Save Document");
+            },
+            error: function (data) {
+                alert("添加时出现异常");
+            },
+        });
     }
 </script>

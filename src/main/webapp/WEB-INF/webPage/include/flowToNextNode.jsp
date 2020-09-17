@@ -108,8 +108,8 @@
             success: function (data) {
                 $("#flowNodeUuid").val(data[0].flowNodeUuid);
                 $("#flowNodeType").val(data[0].flowNodeType);
-                $("#flowNodeCode").val(data[0].flowNodeNum);
-                $("#flowNodeName").val(data[0].flowNodeNam);
+                $("#flowNodeCode").val(data[0].flowNodeCode);
+                $("#flowNodeName").val(data[0].flowNodeName);
                 $("#curHandlerNum").val(data[0].curHandlerNum);
                 $("#curHandlerNam").val(data[0].curHandlerNam);
             },

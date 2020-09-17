@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.xerp.common.consts.ConfigConst" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -105,7 +106,7 @@
         </div>
         <div class="div3">
             <ul>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/draftDocument.action?flowCode=flow00002')">起 草 申 请</a></li>
+                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/draftDocument.action?flowCode=flow00002&ws=<%=ConfigConst.STR_WS_CREATE%>')">起 草 申 请</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/toHandleList.action')">我 的 待 办</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/myApplyList.action')">我 的 申 请</a></li>
                 <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/allApplyList.action')">所有的申请</a></li>

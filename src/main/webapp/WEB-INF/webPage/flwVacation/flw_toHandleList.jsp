@@ -43,12 +43,6 @@
                collapsible:true,
                method:'get',
                rowStyler: function(index,row){
-                if(row.status=='<%=ConfigConst.STR_STATUS_ACTIVE_NUM%>'){row.statusTxt = '<%=ConfigConst.STR_STATUS_ACTIVE_TXT%>';}
-                if(row.status=='<%=ConfigConst.STR_STATUS_BLOCK_NUM%>'){row.statusTxt = '<b><%=ConfigConst.STR_STATUS_BLOCK_TXT%><b>';}
-                if(row.status=='<%=ConfigConst.STR_STATUS_DELETE_NUM%>'){row.statusTxt = '<b><%=ConfigConst.STR_STATUS_DELETE_TXT%><b>';}
-                if(row.userType=='<%=ConfigConst.STR_USER_TYPE_NUM_USER%>'){row.userType = '<%=ConfigConst.STR_USER_TYPE_TXT_USER%>';}
-                if(row.userType=='<%=ConfigConst.STR_USER_TYPE_NUM_MANAGER%>'){row.userType = '<%=ConfigConst.STR_USER_TYPE_TXT_MANAGER%>';}
-                if(row.userType=='<%=ConfigConst.STR_USER_TYPE_NUM_ADMIN%>'){row.userType = '<%=ConfigConst.STR_USER_TYPE_TXT_ADMIN%>';}
            },
            toolbar:toolbar">
         </table>
@@ -69,28 +63,22 @@
     //dataGrid basic Setting
     $(function () {
         $('#dataList').datagrid({
-            url: '<%=basePath%>sysConfig/user/listData.action',
+            url: '<%=basePath%>vacation/listDataToHandler.action',
             columns: [[
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                {field: 'status', title: '狀態', width: 20, hidden: true},
-                {field: 'statusTxt', title: '狀態', width: 50},
+                {field: 'billNumber', title: '单号', width: 50},
                 {
-                    field: 'userCode', title: '用戶編碼', width: 80,
+                    field: 'subject', title: '待办项目', width: 80,
                     formatter: function (value, row, index) {
-                        return '<a style="color:blue" href="#" onclick=showDialogWin("ifrUserConfig","userConfig","<%=basePath %>sysConfig/user/gotoUpdatePage.action?ws=update&uuid=' + row.uuid + '")>' + row.userCode + '</a>';
+                        return '<a style="color:blue" href="<%=basePath %>vacation/mainForm.action?uuid=' + row.uuid + '&flowCode=flow00002")>' + row.subject + '</a>';
                     }
                 },
-                {field: 'userName', title: '用戶名稱', width: 150},
-                {field: 'userType', title: '用戶类型', width: 80},
-                {field: 'theme', title: '主题', width: 100},
-                {field: 'portalUuid', title: '门户', width: 30, hidden: true},
-                {field: 'validFrom', title: '有效时间-起', width: 100},
-                {field: 'validTo', title: '有效时间-止', width: 100},
-                {field: 'language', title: '语言', width: 80},
-                {field: 'createdBy', title: '创建人', width: 100},
+                {field: 'flowName', title: '待办流程', width: 150},
+                {field: 'flowNodeName', title: '待办环节', width: 150},
+                {field: 'curHandlerNam', title: '待办人', width: 150},
+                {field: 'flowCreatorNam', title: '创建人', width: 150},
                 {field: 'createdDatetime', title: '创建时间', width: 150},
-                {field: 'modifiedBy', title: '最后修改人', width: 80},
-                {field: 'modifiedDatetime', title: '最后修改时间', width: 150},
+                {field: 'updatedDatetime', title: '最后修改时间', width: 150},
             ]]
         });
     });

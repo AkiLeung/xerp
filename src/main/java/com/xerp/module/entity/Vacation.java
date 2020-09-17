@@ -33,9 +33,9 @@ public class Vacation extends BaseEntity {
 
     private String flowNodeType;
 
-    private int flowNodeNum;
+    private int flowNodeCode;
 
-    private String flowNodeNam;
+    private String flowNodeName;
 
     private String flowCreatorNum;
 

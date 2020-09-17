@@ -9,6 +9,7 @@ import com.xerp.common.consts.UrlPathConst;
 import com.xerp.common.utils.StringUtils;
 import com.xerp.core.entity.FlowName;
 import com.xerp.core.entity.FlowNode;
+import com.xerp.core.entity.PageModel;
 import com.xerp.core.entity.User;
 import com.xerp.core.service.IFlowNameService;
 import com.xerp.core.service.IFlowNodeService;
@@ -84,9 +85,15 @@ public class FlowVacationController extends BaseController {
      */
     //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
     @RequestMapping(value = "mainForm.action")
-    public ModelAndView mainForm() {
+    public ModelAndView mainForm(HttpServletRequest request) {
         modelAndView = new ModelAndView();
         try {
+            //流程编码
+            String docUuid = request.getParameter("uuid");
+            String flowCode = request.getParameter("flowCode");
+            modelAndView.addObject("docUuid", docUuid);
+            modelAndView.addObject("flowCode", flowCode);
+            modelAndView.addObject("ws", ConfigConst.STR_WS_UPDATE);
             modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_MAIN_FORM);
         } catch (Exception ex) {
             modelAndView.addObject("errorMessage", ex.toString());
@@ -116,6 +123,44 @@ public class FlowVacationController extends BaseController {
         return modelAndView;
     }
 
+    /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_CONFIG_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "listDataToHandler.action")
+    @ResponseBody
+    public String listDataToHandler(HttpServletResponse response,
+                           HttpServletRequest request) {
+        try {
+            //獲取分頁情況
+            int page = Integer.parseInt(request.getParameter("page"));
+            int rows = Integer.parseInt(request.getParameter("rows"));
+            int startRow = 0;
+            if (page > 1) {
+                startRow = (page - 1) * rows;
+            }
+            PageModel pager = new PageModel();
+            pager.setStartRow(startRow);
+            pager.setRows(rows);
+            pager.setTotal(vacationService.listCount());
+
+            //查詢數據
+            List<Vacation> entityObject = vacationService.listData(pager);
+            JSONObject result = new JSONObject();
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+            result.put("rows", jsonArray);
+            result.put("total", pager.getTotal());
+            StringUtils.write(response, result);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
 
     /**
      * 功能说明：获取数据by uuid
@@ -161,7 +206,7 @@ public class FlowVacationController extends BaseController {
         User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         try {
             //獲取網頁狀態
-            String webStatus = ConfigConst.STR_WS_CREATE;
+            String webStatus = request.getParameter("ws");
             //流程编码
             String flowCode = request.getParameter("flowCode");
             List<FlowName> arrFList = flowNameService.listByCode(flowCode);
@@ -177,10 +222,10 @@ public class FlowVacationController extends BaseController {
                 entityObject.setSubject(flowName.getFlowName());
                 List<FlowNode> arrNList = flowNodeService.getStartNodeByFlowUuid(flowName.getUuid());
                 FlowNode flowNode = arrNList.get(0);
-                entityObject.setFlowNodeUuid(flowNode.getFlowUuid());
+                entityObject.setFlowNodeUuid(flowNode.getUuid());
                 entityObject.setFlowNodeType(flowNode.getNodeType());
-                entityObject.setFlowNodeNum(flowNode.getNodeCode());
-                entityObject.setFlowNodeNam(flowNode.getNodeName());
+                entityObject.setFlowNodeCode(flowNode.getNodeCode());
+                entityObject.setFlowNodeName(flowNode.getNodeName());
                 entityObject.setFlowCreatorNum(currentUser.getUserCode());
                 entityObject.setFlowCreatorNam(currentUser.getUserName());
                 entityObject.setCurHandlerNum(currentUser.getUserCode());
@@ -195,10 +240,11 @@ public class FlowVacationController extends BaseController {
             }
             //返回狀態
             if (intReturn > 0) {
-            modelAndView = new ModelAndView();
-            modelAndView.addObject("docUuid", entityObject.getUuid());
+                modelAndView = new ModelAndView();
+                modelAndView.addObject("docUuid", entityObject.getUuid());
                 modelAndView.addObject("flowCode", flowCode);
-            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_MAIN_FORM);
+                modelAndView.addObject("ws", ConfigConst.STR_WS_UPDATE);
+                modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_MAIN_FORM);
             }
         } catch (Exception ex) {
             log.error("XERP Exception:" + ex.toString());
@@ -214,50 +260,30 @@ public class FlowVacationController extends BaseController {
      * @author Joseph
      * @date 20181108
      */
-    @RequestMapping(value = "saveDocument.action", method = RequestMethod.POST)
+    @RequestMapping(value = "submitFlowData.action", method = RequestMethod.POST)
     @ResponseBody
-    public String saveDocument(@RequestBody String strJson,
-                               HttpServletResponse response,
-                               HttpServletRequest request) {
+    public String submitFlowData(@RequestBody String strJson,
+                             HttpServletResponse response,
+                             HttpServletRequest request) {
         User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         try {
             //獲取頁面傳輸的String Json
             JSONObject jsonData = JSONObject.parseObject(strJson);
-            //獲取網頁狀態
-            String webStatus = jsonData.getString("ws");
-
             //操作對象
             Vacation entityObject = new Vacation();
             //uuid
-            if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
-                entityObject.setUuid(StringUtils.createUUID());
+            entityObject.setUuid(jsonData.getString("uuid"));
+            entityObject.setMessage(jsonData.getString("message"));
+            //流程控制参数
+            entityObject.setFlowNodeUuid(jsonData.getString("flowNodeUuid"));
+            entityObject.setFlowNodeType(jsonData.getString("flowNodeType"));
+            entityObject.setFlowNodeCode(Integer.valueOf(jsonData.getString("flowNodeCode")));
+            entityObject.setFlowNodeName(jsonData.getString("flowNodeName"));
+            entityObject.setCurHandlerNum(jsonData.getString("curHandlerNum"));
+            entityObject.setCurHandlerNam(jsonData.getString("curHandlerNam"));
+            entityObject.setUpdatedDatetime(StringUtils.getDatetime());
 
-            } else if (webStatus.equals(ConfigConst.STR_WS_UPDATE)) {
-                entityObject.setUuid(jsonData.getString("uuid"));
-            }
-//            entityObject.setParentUuid(jsonData.getString("parentUuid"));
-//            entityObject.setStatus(jsonData.getString("status"));
-//            entityObject.setUnitCode(jsonData.getString("unitCode"));
-//            entityObject.setUnitName(jsonData.getString("unitName"));
-//            entityObject.setSupervisorCode(jsonData.getString("supervisorCode"));
-//            entityObject.setSupervisorName(jsonData.getString("supervisorName"));
-//            entityObject.setIcon("");
-//            entityObject.setSort(Integer.valueOf(jsonData.getString("sort")));
-//            if (str_webStatus.equals(ConfigConst.STR_WS_CREATE)) {
-//                entityObject.setCreatedBy(currentUser.getUserName());
-//                entityObject.setCreatedDatetime(StringUtils.getDatetime());
-//            }
-//            entityObject.setModifiedBy(currentUser.getUserName());
-//            entityObject.setModifiedDatetime(StringUtils.getDatetime());
-//
-//            //判斷網頁狀態執行不同的方法
-            int intReturn = 0;
-//            if (str_webStatus.equals(ConfigConst.STR_WS_CREATE)) {
-//                int_return = vacationService.insertData(entityObject);
-//            } else if (str_webStatus.equals(ConfigConst.STR_WS_UPDATE)) {
-//                int_return = vacationService.updateData(entityObject);
-//            }
-
+            int intReturn = vacationService.updateData(entityObject);
             JSONObject result = new JSONObject();
             //返回狀態
             if (intReturn > 0) {

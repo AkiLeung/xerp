@@ -12,8 +12,8 @@
         <result property="flowName" column="flowName"/>
         <result property="flowNodeUuid" column="flowNodeUuid"/>
         <result property="flowNodeType" column="flowNodeType"/>
-        <result property="flowNodeNum" column="flowNodeNum"/>
-        <result property="flowNodeNam" column="flowNodeNam"/>
+        <result property="flowNodeCode" column="flowNodeCode"/>
+        <result property="flowNodeName" column="flowNodeName"/>
         <result property="flowCreatorNum" column="flowCreatorNum"/>
         <result property="flowCreatorNam" column="flowCreatorNam"/>
         <result property="curHandlerNum" column="curHandlerNum"/>
@@ -56,8 +56,8 @@
         flow_name,
         flow_node_uuid,
         flow_node_type,
-        flow_node_num,
-        flow_node_nam,
+        flow_node_code,
+        flow_node_name,
         flow_creator_num,
         flow_creator_nam,
         cur_handler_num,
@@ -73,8 +73,8 @@
         #{flowName},
         #{flowNodeUuid},
         #{flowNodeType},
-        #{flowNodeNum},
-        #{flowNodeNam},
+        #{flowNodeCode},
+        #{flowNodeName},
         #{flowCreatorNum},
         #{flowCreatorNam},
         #{curHandlerNum},
@@ -89,8 +89,8 @@
             message = #{message},
             flow_node_uuid = #{flowNodeUuid},
             flow_node_type = #{flowNodeType},
-            flow_node_num = #{flowNodeNum},
-            flow_node_nam = #{flowNodeNam},
+            flow_node_code = #{flowNodeCode},
+            flow_node_name = #{flowNodeName},
             cur_handler_num = #{curHandlerNum},
             cur_handler_nam = #{curHandlerNam},
             updated_datetime = #{updatedDatetime}
