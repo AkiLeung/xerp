@@ -137,6 +137,7 @@ public class FlowVacationController extends BaseController {
     public String listDataToHandler(HttpServletResponse response,
                            HttpServletRequest request) {
         try {
+            User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
             //獲取分頁情況
             int page = Integer.parseInt(request.getParameter("page"));
             int rows = Integer.parseInt(request.getParameter("rows"));
@@ -147,10 +148,10 @@ public class FlowVacationController extends BaseController {
             PageModel pager = new PageModel();
             pager.setStartRow(startRow);
             pager.setRows(rows);
-            pager.setTotal(vacationService.listCount());
+            pager.setTotal(vacationService.listCountToHandler(currentUser.getUserCode()));
 
             //查詢數據
-            List<Vacation> entityObject = vacationService.listData(pager);
+            List<Vacation> entityObject = vacationService.listDataToHandler(currentUser.getUserCode(),pager);
             JSONObject result = new JSONObject();
             JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
             result.put("rows", jsonArray);

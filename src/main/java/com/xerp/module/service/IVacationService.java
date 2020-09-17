@@ -21,10 +21,26 @@ public interface IVacationService {
     List<Vacation> listData(PageModel pager);
 
     /**
+     * 查询所有
+     * @param curHandlerNum
+     * @param pager  分页信息
+     * @return List<Vacation>
+     */
+    List<Vacation> listDataToHandler(String curHandlerNum,PageModel pager);
+
+
+    /**
      * 統計個數
      * @return int 統計個數
      */
     int listCount();
+
+    /**
+     * 統計個數
+     * @param curHandlerNum
+     * @return int 統計個數
+     */
+    int listCountToHandler(String curHandlerNum);
 
     /**
      * 只查询一个，常用于修改

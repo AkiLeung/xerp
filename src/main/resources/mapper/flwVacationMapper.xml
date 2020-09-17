@@ -24,6 +24,14 @@
 
     <!-- 查找所有-->
     <select id="listData" resultMap="ResultSet">
+        select * from tbl_flw_vacation where 1 = 1  order by created_datetime desc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 查找所有-->
+    <select id="listDataToHandler" resultMap="ResultSet">
         select * from tbl_flw_vacation where 1 = 1 order by created_datetime desc
         <if test="startRow != null and  rows!= null">
             limit #{startRow},#{rows}
@@ -33,6 +41,11 @@
     <!-- 統計個數-->
     <select id="listCount" resultType="Integer">
         select count(uuid) as total from tbl_flw_vacation where 1 = 1 order by created_datetime desc
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCountToHandler" resultType="Integer">
+        select count(uuid) as total from tbl_flw_vacation where cur_handler_num = #{curHandlerNum} order by created_datetime desc
     </select>
 
     <!-- 查找指定-->
