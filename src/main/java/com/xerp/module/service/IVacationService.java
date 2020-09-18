@@ -22,11 +22,10 @@ public interface IVacationService {
 
     /**
      * 查询所有
-     * @param curHandlerNum
      * @param pager  分页信息
      * @return List<Vacation>
      */
-    List<Vacation> listDataToHandler(String curHandlerNum,PageModel pager);
+    List<Vacation> listDataToHandler(PageModel pager);
 
 
     /**

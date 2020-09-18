@@ -30,9 +30,9 @@
         </if>
     </select>
 
-    <!-- 查找所有-->
+    <!-- 待办列表-->
     <select id="listDataToHandler" resultMap="ResultSet">
-        select * from tbl_flw_vacation where 1 = 1 order by created_datetime desc
+        select * from tbl_flw_vacation where cur_handler_num = #{condition01} order by created_datetime desc
         <if test="startRow != null and  rows!= null">
             limit #{startRow},#{rows}
         </if>

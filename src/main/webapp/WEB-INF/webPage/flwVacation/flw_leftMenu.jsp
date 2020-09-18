@@ -106,12 +106,21 @@
         </div>
         <div class="div3">
             <ul>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/draftDocument.action?flowCode=flow00002&ws=<%=ConfigConst.STR_WS_CREATE%>')">起 草 申 请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/toHandleList.action')">我 的 待 办</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/myApplyList.action')">我 的 申 请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/allApplyList.action')">所有的申请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/unFinishList.action')"> 未完成申请</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/isFinishList.action')">已完成申请</a></li>
+                <li>
+                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/draftDocument.action?flowCode=flow00002&ws=<%=ConfigConst.STR_WS_CREATE%>')">起
+                        草 申 请</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toHandleList.action')">我 的 待
+                    办</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/myApplyList.action')">我 的 申
+                    请</a></li>
+                <li>
+                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/allApplyList.action')">所有的申请</a>
+                </li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/unFinishList.action')">
+                    未完成申请</a></li>
+                <li>
+                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/isFinishList.action')">已完成申请</a>
+                </li>
             </ul>
         </div>
         <div class="div2">
@@ -120,9 +129,12 @@
         </div>
         <div class="div3">
             <ul>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/mainForm.action')">数据维护1</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/xxxxxxxxx.action')">数据维护2</a></li>
-                <li><a onclick="openFlowTabToUrl('<%=basePath%>vacation/xxxxxxxxx.action')">数据维护3</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','vacation','<%=basePath%>vacation/mainForm.action')">数据维护1</a>
+                </li>
+                <li><a onclick="openFlowTabToUrl('请假申请','vacation','<%=basePath%>vacation/xxxxxxxxx.action')">数据维护2</a>
+                </li>
+                <li><a onclick="openFlowTabToUrl('请假申请','vacation','<%=basePath%>vacation/xxxxxxxxx.action')">数据维护3</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -130,26 +142,21 @@
 </body>
 </html>
 <script>
-    //页面切换
-    function openFlowTabToUrl(paraUrl) {
+    /**流程Tab撤换******************/
+    function openFlowTabToUrl(tabName, ifrName, paraUrl) {
         if (paraUrl != "" && paraUrl != "null") {
-            var url = paraUrl;
-            if (url != "") {
-                var tabName = '请假申请';
-                var ifrName = '请假申请';
-                //判断选项卡是否重复打开
-                if (window.top.$('#workbench').tabs('exists', tabName)) {
-                    window.top.$('#workbench').tabs('select', tabName);
-                    window.top.frames[ifrName].location.href = paraUrl;
-                } else {
-                    window.top.$('#workbench').tabs('add', {
-                        id: tabName,
-                        title: tabName,
-                        content: '<iframe id="' + ifrName + '" name="' + ifrName + '" scrolling="no" frameborder="0"  ' +
-                            'src="' + url + '" style="width:100%;height:100%;"></iframe>',
-                        closable: true
-                    });
-                }
+            //判断选项卡是否重复打开
+            if (window.top.$('#workbench').tabs('exists', tabName)) {
+                window.top.$('#workbench').tabs('select', tabName);
+                window.top.frames[ifrName].location.href = paraUrl;
+            } else {
+                window.top.$('#workbench').tabs('add', {
+                    id: tabName,
+                    title: tabName,
+                    content: '<iframe id="' + ifrName + '" name="' + ifrName + '" scrolling="no" frameborder="0"  ' +
+                        'src="' + url + '" style="width:100%;height:100%;"></iframe>',
+                    closable: true
+                });
             }
         }
     }

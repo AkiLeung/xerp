@@ -29,7 +29,7 @@ public interface IVacationDAO {
      * @param pager 分頁信息
      * @return List<Vacation>
      */
-    List<Vacation> listDataToHandler(String curHandlerNum,PageModel pager);
+    List<Vacation> listDataToHandler(PageModel pager);
 
     /**
      * 統計個數

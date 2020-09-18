@@ -9,6 +9,29 @@ function showDialogWin(ifrName,dialogId, urlPath) {
     $('#' + dialogId).dialog('open');
 }
 
+
+/**流程Tab撤换******************/
+// function openFlowTabToUrl(tabName,ifrName,paraUrl) {
+//     if (paraUrl != "" && paraUrl != "null") {
+//         var url = paraUrl;
+//         if (url != "") {
+//             //判断选项卡是否重复打开
+//             if (window.top.$('#workbench').tabs('exists', tabName)) {
+//                 window.top.$('#workbench').tabs('select', tabName);
+//                 window.top.frames[ifrName].location.href = paraUrl;
+//             } else {
+//                 window.top.$('#workbench').tabs('add', {
+//                     id: tabName,
+//                     title: tabName,
+//                     content: '<iframe id="' + ifrName + '" name="' + ifrName + '" scrolling="no" frameborder="0"  ' +
+//                         'src="' + url + '" style="width:100%;height:100%;"></iframe>',
+//                     closable: true
+//                 });
+//             }
+//         }
+//     }
+// }
+
 /**over write easyui datetime format**/
 function myformatter(date){
     var y = date.getFullYear();

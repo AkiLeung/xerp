@@ -28,9 +28,8 @@ public class VacationServiceImpl implements IVacationService {
     }
 
     @Override
-    public List<Vacation> listDataToHandler(String curHandlerNum,PageModel pager) {
-        //return daoObject.listDataToHandler(curHandlerNum,pager);
-        return daoObject.listData(pager);
+    public List<Vacation> listDataToHandler(PageModel pager) {
+        return daoObject.listDataToHandler(pager);
     }
 
     @Override

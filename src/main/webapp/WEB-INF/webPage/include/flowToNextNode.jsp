@@ -237,6 +237,6 @@
         //关闭窗口
         $('#popuFlowToNextNode').dialog('close');
         //保存文档
-        saveDocument();
+        documentFlowToNext();
     }
 </script>

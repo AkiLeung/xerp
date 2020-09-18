@@ -23,7 +23,7 @@
     <iframe id="ifrWorkFlow" name="ifrWorkFlow" src="" width="100%" height="100%" frameborder="0"></iframe>
 </div>
 <table class="tbl" style="width:100%;height:50px;">
-    <tr style="display: none1">
+    <tr style="display: none">
         <td class="tblCell" style="width: 100%" colspan="2">
             docUuid:<input value="${docUuid}" type="Text" name="uuid" id="uuid"/><br/>
             flowModule:<input value="vacation" type="Text" name="flowModule" id="flowModule"/><br/>
@@ -60,7 +60,7 @@
     <tr>
         <td class="tblTitle" style="width: 100%;height: 45px;" colspan="2">
             <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" style="width:100px"
-               onclick="saveDocument();">保存</a>
+               onclick="documentSave();">保存</a>
             <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" style="width:100px"
                onclick="openFlowToNext();">提交</a>
         </td>
@@ -86,7 +86,11 @@
     });
 
     //保存文档
-    function saveDocument() {
+    function documentSave() {
+
+    }
+    //提交文档
+    function documentFlowToNext() {
         //執行保存
         var objData = {
             uuid:$("#uuid").val(),
@@ -109,6 +113,7 @@
             data: jsonData,
             success: function (data) {
                 alert("Save Document");
+                window.location.href = '<%=basePath %>vacation/toHandleList.action';
             },
             error: function (data) {
                 alert("添加时出现异常");

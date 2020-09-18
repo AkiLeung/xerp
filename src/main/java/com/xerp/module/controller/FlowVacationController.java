@@ -149,9 +149,9 @@ public class FlowVacationController extends BaseController {
             pager.setStartRow(startRow);
             pager.setRows(rows);
             pager.setTotal(vacationService.listCountToHandler(currentUser.getUserCode()));
-
+            pager.setCondition01(currentUser.getUserCode());
             //查詢數據
-            List<Vacation> entityObject = vacationService.listDataToHandler(currentUser.getUserCode(),pager);
+            List<Vacation> entityObject = vacationService.listDataToHandler(pager);
             JSONObject result = new JSONObject();
             JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
             result.put("rows", jsonArray);
@@ -254,7 +254,7 @@ public class FlowVacationController extends BaseController {
     }
 
     /**
-     * 功能说明：保存数据
+     * 功能说明：提交流程
      * 修改说明：
      *
      * @return String ajax
