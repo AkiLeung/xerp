@@ -11,6 +11,7 @@ import com.xerp.core.entity.FlowName;
 import com.xerp.core.entity.FlowNode;
 import com.xerp.core.entity.PageModel;
 import com.xerp.core.entity.User;
+import com.xerp.core.service.IBillNumberService;
 import com.xerp.core.service.IFlowNameService;
 import com.xerp.core.service.IFlowNodeService;
 import com.xerp.module.entity.Vacation;
@@ -41,6 +42,12 @@ public class FlowVacationController extends BaseController {
      */
     @Autowired
     private IVacationService vacationService;
+
+    /**
+     * Service操作對象 单号
+     */
+    @Autowired
+    private IBillNumberService billNumberService;
 
     /**
      * Service操作對象 自動註解:流程信息
@@ -135,7 +142,7 @@ public class FlowVacationController extends BaseController {
     @RequestMapping(value = "listDataToHandler.action")
     @ResponseBody
     public String listDataToHandler(HttpServletResponse response,
-                           HttpServletRequest request) {
+                                    HttpServletRequest request) {
         try {
             User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
             //獲取分頁情況
@@ -202,8 +209,7 @@ public class FlowVacationController extends BaseController {
      * @date 20181108
      */
     @RequestMapping(value = "draftDocument.action")
-    public ModelAndView draftDocument(HttpServletResponse response,
-                                      HttpServletRequest request) {
+    public ModelAndView draftDocument(HttpServletRequest request) {
         User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         try {
             //獲取網頁狀態
@@ -264,8 +270,8 @@ public class FlowVacationController extends BaseController {
     @RequestMapping(value = "submitFlowData.action", method = RequestMethod.POST)
     @ResponseBody
     public String submitFlowData(@RequestBody String strJson,
-                             HttpServletResponse response,
-                             HttpServletRequest request) {
+                                 HttpServletResponse response,
+                                 HttpServletRequest request) {
         User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         try {
             //獲取頁面傳輸的String Json
@@ -274,10 +280,18 @@ public class FlowVacationController extends BaseController {
             Vacation entityObject = new Vacation();
             //uuid
             entityObject.setUuid(jsonData.getString("uuid"));
+            String curFlowNodeType = jsonData.getString("flowNodeTypeC");
+            String tagFlowNodeType = jsonData.getString("flowNodeTypeN");
+//            if (    tagFlowNodeType != curFlowNodeType && (
+//                    tagFlowNodeType == ConfigConst.STR_FLOW_TASK_NUM
+//                            || tagFlowNodeType == ConfigConst.STR_FLOW_NODE_NUM) {
+            String billNumber = billNumberService.generateBillNumber("HR-FLW-000001");
+            entityObject.setBillNumber(billNumber);
+//            }
             entityObject.setMessage(jsonData.getString("message"));
             //流程控制参数
             entityObject.setFlowNodeUuid(jsonData.getString("flowNodeUuid"));
-            entityObject.setFlowNodeType(jsonData.getString("flowNodeType"));
+            entityObject.setFlowNodeType(jsonData.getString("flowNodeTypeN"));
             entityObject.setFlowNodeCode(Integer.valueOf(jsonData.getString("flowNodeCode")));
             entityObject.setFlowNodeName(jsonData.getString("flowNodeName"));
             entityObject.setCurHandlerNum(jsonData.getString("curHandlerNum"));

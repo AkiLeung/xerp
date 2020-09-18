@@ -74,5 +74,5 @@ public interface IBillNumberService {
      * @param moduleCode
      * @return String 单号
      */
-    BillNumber generateBillNumber(String moduleCode);
+    String generateBillNumber(String moduleCode);
 }

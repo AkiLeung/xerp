@@ -71,8 +71,9 @@ public class BillNumberServiceImpl implements IBillNumberService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public BillNumber generateBillNumber(String moduleCode) {
-        BillNumber targetNumber = null;
+    public String generateBillNumber(String moduleCode) {
+        String numberFormat;
+        String targetNumber = "Number Error";
         //设置日期格式
         SimpleDateFormat dateFormat;
         Date date = new Date();
@@ -103,9 +104,26 @@ public class BillNumberServiceImpl implements IBillNumberService {
         int update = daoObject.updateCurrentNumber(currentNumber);
         //获取更新后的号码
         if (update > 0) {
-            targetNumber = currentNumber;
-            return targetNumber;
+            targetNumber = "";
+            //获取成功，串写号码
+            if (null != currentNumber) {
+                //默认位数补0
+                numberFormat = "%0" + currentNumber.getDefaultLength() + "d";
+                //串写号码
+                if ("" != currentNumber.getCurrentRange()) {
+                    if (!StringUtils.isEmpty(currentNumber.getPreNumWord())) {
+                        targetNumber += currentNumber.getPreNumWord() + "-";
+                    }
+                    targetNumber += currentNumber.getCurrentRange() + "-"
+                            + String.format(numberFormat, currentNumber.getCurrentValue());
+                } else {
+                    if (!StringUtils.isEmpty(currentNumber.getPreNumWord())) {
+                        targetNumber += currentNumber.getPreNumWord() + "-";
+                    }
+                    targetNumber += String.format(numberFormat, currentNumber.getCurrentValue());
+                }
+            }
         }
-        return null;
+        return targetNumber;
     }
 }

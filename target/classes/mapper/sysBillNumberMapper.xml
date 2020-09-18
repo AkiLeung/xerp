@@ -6,15 +6,15 @@
     <resultMap type="BillNumber" id="ResultSet">
         <result property="uuid" column="uuid"/>
         <result property="status" column="status"/>
-        <result property="moduleCode" column="module_code"/>
-        <result property="moduleName" column="module_name"/>
-        <result property="preNumWord" column="pre_num_word"/>
-        <result property="incrementRange" column="increment_range"/>
-        <result property="defaultLength" column="default_length"/>
-        <result property="currentRange" column="current_range"/>
-        <result property="currentValue" column="current_value"/>
-        <result property="createdDatetime" column="created_datetime"/>
-        <result property="updatedDatetime" column="updated_datetime"/>
+        <result property="moduleCode" column="moduleCode"/>
+        <result property="moduleName" column="moduleName"/>
+        <result property="preNumWord" column="preNumWord"/>
+        <result property="incrementRange" column="incrementRange"/>
+        <result property="defaultLength" column="defaultLength"/>
+        <result property="currentRange" column="currentRange"/>
+        <result property="currentValue" column="currentValue"/>
+        <result property="createdDatetime" column="createdDatetime"/>
+        <result property="updatedDatetime" column="updatedDatetime"/>
     </resultMap>
 
     <!-- 查找所有-->

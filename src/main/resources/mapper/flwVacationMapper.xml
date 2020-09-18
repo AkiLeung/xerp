@@ -99,6 +99,7 @@
     <!-- 更新-->
     <update id="updateData">
         update tbl_flw_vacation set
+            bill_number = #{billNumber},
             message = #{message},
             flow_node_uuid = #{flowNodeUuid},
             flow_node_type = #{flowNodeType},
@@ -107,7 +108,7 @@
             cur_handler_num = #{curHandlerNum},
             cur_handler_nam = #{curHandlerNam},
             updated_datetime = #{updatedDatetime}
-        where uuid=#{uuid}
+        where uuid = #{uuid}
 	</update>
 
     <!-- 刪除 只有起草状态的流程才能够被删除 -->
