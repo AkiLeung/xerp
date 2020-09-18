@@ -23,10 +23,11 @@
     <iframe id="ifrWorkFlow" name="ifrWorkFlow" src="" width="100%" height="100%" frameborder="0"></iframe>
 </div>
 <table class="tbl" style="width:100%;height:50px;">
-    <tr style="display: none">
+    <tr style="display: none1">
         <td class="tblCell" style="width: 100%" colspan="2">
             docUuid:<input value="${docUuid}" type="Text" name="uuid" id="uuid"/><br/>
             flowModule:<input value="vacation" type="Text" name="flowModule" id="flowModule"/><br/>
+            billNumber:<input class="easyui-textbox" value="" type="Text" name="billNumber" id="billNumber"/><br/>
         </td>
     </tr>
     <tr>
@@ -77,6 +78,7 @@
         url: "<%=basePath %>vacation/getDataByUuid.action?uuid=${docUuid}",
         dataType: 'json',
         success: function (data) {
+            $("#billNumber").textbox('setValue', data[0].billNumber);
             //内容
             $("#message").textbox('setValue', data[0].message);
         },
@@ -94,6 +96,7 @@
         //執行保存
         var objData = {
             uuid:$("#uuid").val(),
+            billNumber:$("#billNumber").val(),
             message: $("#message").val(),
             flowNodeUuid: $("#targetNodeUuid").val(),
             flowNodeTypeC: $("#flowNodeType").val(),

@@ -66,7 +66,11 @@
             url: '<%=basePath%>vacation/listDataToHandler.action',
             columns: [[
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                {field: 'billNumber', title: '单号', width: 50},
+                {field: 'billNumber', title: '单号', width: 150,
+                    formatter: function (value, row, index) {
+                        return '<a style="color:blue" href="<%=basePath %>vacation/mainForm.action?uuid=' + row.uuid + '&flowCode=flow00002")>' + row.billNumber + '</a>';
+                    }
+                },
                 {
                     field: 'subject', title: '待办项目', width: 80,
                     formatter: function (value, row, index) {

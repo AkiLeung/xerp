@@ -99,7 +99,9 @@
     <!-- 更新-->
     <update id="updateData">
         update tbl_flw_vacation set
-            bill_number = #{billNumber},
+            <if test="billNumber != null">
+                bill_number = #{billNumber},
+            </if>
             message = #{message},
             flow_node_uuid = #{flowNodeUuid},
             flow_node_type = #{flowNodeType},

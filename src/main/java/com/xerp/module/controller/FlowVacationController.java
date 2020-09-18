@@ -282,12 +282,15 @@ public class FlowVacationController extends BaseController {
             entityObject.setUuid(jsonData.getString("uuid"));
             String curFlowNodeType = jsonData.getString("flowNodeTypeC");
             String tagFlowNodeType = jsonData.getString("flowNodeTypeN");
-//            if (    tagFlowNodeType != curFlowNodeType && (
-//                    tagFlowNodeType == ConfigConst.STR_FLOW_TASK_NUM
-//                            || tagFlowNodeType == ConfigConst.STR_FLOW_NODE_NUM) {
-            String billNumber = billNumberService.generateBillNumber("HR-FLW-000001");
-            entityObject.setBillNumber(billNumber);
-//            }
+            if (!tagFlowNodeType.equals(curFlowNodeType) ) {
+                if (tagFlowNodeType.equals(ConfigConst.STR_FLOW_TASK_NUM)
+                        ||  tagFlowNodeType.equals(ConfigConst.STR_FLOW_NODE_NUM)) {
+                    String billNumber = billNumberService.generateBillNumber("HR-FLW-000001");
+                    entityObject.setBillNumber(billNumber);
+                }
+            } else {
+                entityObject.setMessage(jsonData.getString("billNumber"));
+            }
             entityObject.setMessage(jsonData.getString("message"));
             //流程控制参数
             entityObject.setFlowNodeUuid(jsonData.getString("flowNodeUuid"));
