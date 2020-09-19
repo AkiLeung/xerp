@@ -112,6 +112,29 @@ public class FlowConfigurationController extends BaseController {
         return null;
     }
 
+    /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "getNodeByNodeUuid.action")
+    @ResponseBody
+    public String getNodeByNodeUuid(HttpServletResponse response,
+                                     HttpServletRequest request) {
+        try {
+            //流程uuid
+            String nodeUuid = request.getParameter("nodeUuid");
+            List<FlowNode> entityObject = flowNodeService.listByUuid(nodeUuid);
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+            StringUtils.write(response, jsonArray);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
 
     /**
      * 功能说明：获取数据
@@ -168,15 +191,19 @@ public class FlowConfigurationController extends BaseController {
      * @author Joseph
      * @date 20201108
      */
-    @RequestMapping(value = "flowHandler.action")
+    @RequestMapping(value = "flowHandlerByNode.action")
     @ResponseBody
-    public String flowHandler(@RequestParam(value = "nodeUuid") String nodeUuid,
+    public String flowHandlerByNode(@RequestParam(value = "nodeUuid") String nodeUuid,
                               HttpServletResponse response) {
         try {
             List<FlowNode> flowNodes = flowNodeService.listByUuid(nodeUuid);
             List<FlowHandler> flowHandlers = new ArrayList<FlowHandler>();
             if (flowNodes != null) {
                 FlowNode flowNode = flowNodes.get(0);
+                FlowHandler flowHandler;
+                //退回起草
+
+
                 //指定页面办理人
                 if (flowNode.getHandlerField() != null && flowNode.getHandlerField() != "") {
 
@@ -187,7 +214,7 @@ public class FlowConfigurationController extends BaseController {
                 }
                 //指定办理人
                 if (flowNode.getHandlerCode() != null && flowNode.getHandlerCode() != "") {
-                    FlowHandler flowHandler = new FlowHandler();
+                    flowHandler = new FlowHandler();
                     flowHandler.setUuid(StringUtils.createUUID());
                     flowHandler.setHandlerCode(flowNode.getHandlerCode());
                     flowHandler.setHandlerName(flowNode.getHandlerName());

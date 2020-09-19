@@ -37,13 +37,13 @@ public class Vacation extends BaseEntity {
 
     private String flowNodeName;
 
-    private String flowCreatorNum;
+    private String flowCreatorCode;
 
-    private String flowCreatorNam;
+    private String flowCreatorName;
 
-    private String curHandlerNum;
+    private String curHandlerCode;
 
-    private String curHandlerNam;
+    private String curHandlerName;
 
     private String createdDatetime;
 

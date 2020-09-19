@@ -27,6 +27,7 @@
         <td class="tblCell" style="width: 100%" colspan="2">
             docUuid:<input value="${docUuid}" type="Text" name="uuid" id="uuid"/><br/>
             flowModule:<input value="vacation" type="Text" name="flowModule" id="flowModule"/><br/>
+            flowCode:<input value="${flowCode}" type="Text" name="flowCode" id="flowCode"/><br/>
             billNumber:<input class="easyui-textbox" value="" type="Text" name="billNumber" id="billNumber"/><br/>
         </td>
     </tr>
@@ -47,6 +48,17 @@
     <tr>
         <td class="tblCell" style="width: 100%;height: 60px;text-align: center" colspan="2">
             XXXXXX申请
+        </td>
+    </tr>
+    <tr>
+        <td class="tblTitle" style="width: 10%">
+            创建人
+        </td>
+        <td class="tblCell" style="width: 90%">
+            <input class="easyui-textbox" value="" name="flowCreatorCode" type="text" id="flowCreatorCode"
+                   style="width:150px;"/>
+            <input class="easyui-textbox"  value="" name="flowCreatorName" type="text" id="flowCreatorName"
+                   style="width:150px;"/>
         </td>
     </tr>
     <tr>
@@ -79,6 +91,8 @@
         dataType: 'json',
         success: function (data) {
             $("#billNumber").textbox('setValue', data[0].billNumber);
+            $("#flowCreatorCode").textbox('setValue', data[0].flowCreatorCode);
+            $("#flowCreatorName").textbox('setValue', data[0].flowCreatorName);
             //内容
             $("#message").textbox('setValue', data[0].message);
         },
@@ -103,8 +117,8 @@
             flowNodeTypeN: $("#targetNodeType").val(),
             flowNodeCode: $("#targetNodeCode").val(),
             flowNodeName: $("#targetNodeName").val(),
-            curHandlerNum: $("#targetHandlerNum").val(),
-            curHandlerNam: $("#targetHandlerNam").val()
+            curHandlerCode: $("#targetHandlerCode").val(),
+            curHandlerName: $("#targetHandlerName").val()
         };
         var jsonData = JSON.stringify(objData);
         //执行保存

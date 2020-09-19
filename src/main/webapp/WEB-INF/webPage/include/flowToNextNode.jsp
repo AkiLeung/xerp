@@ -7,8 +7,7 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <div style="display: none1">
-    <%--当前信息--%>
-    flowCode:<input value="${flowCode}" type="Text" name="flowCode" id="flowCode"/><br/>
+    <%--当前记录信息--%>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
     flowVersion:<input value="" type="Text" name="flowVersion" id="flowVersion"/><br/>
@@ -16,9 +15,12 @@
     flowNodeType:<input value="" type="Text" name="flowNodeType" id="flowNodeType"/><br/>
     flowNodeCode:<input value="" type="Text" name="flowNodeCode" id="flowNodeCode"/><br/>
     flowNodeName:<input value="" type="Text" name="flowNodeName" id="flowNodeName"/><br/>
-    curHandlerNum:<input value="" type="Text" name="curHandlerNum" id="curHandlerNum"/><br/>
-    curHandlerNam:<input value="" type="Text" name="curHandlerNam" id="curHandlerNam"/><br/>
-    <%--目标信息--%>
+    curHandlerCode:<input value="" type="Text" name="curHandlerCode" id="curHandlerCode"/><br/>
+    curHandlerName:<input value="" type="Text" name="curHandlerName" id="curHandlerName"/><br/>
+    <%--当前环节信息--%>
+    curNodeHandlerRole:<input value="" type="Text" name="handlerRole" id="handlerRole"/><br/>
+    curNodeHandlerField:<input value="" type="Text" name="handlerField" id="handlerField"/><br/>
+    <%--目标流程信息--%>
     targetNodeUuid:<input value="" type="Text" name="flowNodeUuid" id="targetNodeUuid"/><br/>
     targetNodeType:<input value="" type="Text" name="flowNodeType" id="targetNodeType"/><br/>
     targetNodeCode:<input value="" type="Text" name="targetNodeCode" id="targetNodeCode"/><br/>
@@ -70,6 +72,14 @@
                    border:false,
                    collapsible:true,
                    method:'get'">
+                <thead>
+                <tr>
+                    <th data-options="field:'cb',width:30,checkbox: 'true'"></th>
+                    <th data-options="field:'uuid',width:100,hidden:true">uuid</th>
+                    <th data-options="field:'handlerCode',width:80,hidden:true">办理人编号</th>
+                    <th data-options="field:'handlerName',width:180">办理人名称</th>
+                </tr>
+                </thead>
             </table>
         </div>
         <div data-options="region:'south',split:true" style="height:130px;">
@@ -110,8 +120,8 @@
                 $("#flowNodeType").val(data[0].flowNodeType);
                 $("#flowNodeCode").val(data[0].flowNodeCode);
                 $("#flowNodeName").val(data[0].flowNodeName);
-                $("#curHandlerNum").val(data[0].curHandlerNum);
-                $("#curHandlerNam").val(data[0].curHandlerNam);
+                $("#curHandlerCode").val(data[0].curHandlerCode);
+                $("#curHandlerName").val(data[0].curHandlerName);
             },
             error: function (data) {
                 alert("【" + url + "】JSON数据获取失败，请联系管理员！");
@@ -134,7 +144,7 @@
                 for (var i = 0; i < data.rows.length; i++) {
                     curHandlerName = "";
                     if ($("#flowNodeCode").val() == data.rows[i].nodeCode) {
-                        curHandlerName = "[<span style='font-weight: bold;'>" + $("#curHandlerNam").val() + "</span>]";
+                        curHandlerName = "[<span style='font-weight: bold;'>" + $("#curHandlerName").val() + "</span>]";
                     }
                     if (data.rows[i].nodeType == '<%=ConfigConst.STR_FLOW_START_NUM%>') {
                         nodesData = nodesData + "<img src='<%=basePath%>static/image/flow/start.png' /> "
@@ -182,33 +192,53 @@
                 {field: 'targetNodeName', title: '目標環節-Name', width: 100, hidden: true},
             ]],
             onClickRow: function (rowIndex, rowData) {
-                var urlPath2 = '<%=basePath%>flowData/flowHandler.action?nodeUuid=' + rowData.targetNodeUuid;
-                $('#handlerList').datagrid({
+                var urlPath2 = '';
+                //读取指定页面办理人
+                urlPath2 = '<%=basePath%>flowData/getNodeByNodeUuid.action?nodeUuid=' + rowData.targetNodeUuid;
+                $.ajax({
+                    async: false,
+                    type: 'get',
                     url: urlPath2,
-                    columns: [[
-                        {field: 'cb', checkbox: 'true', width: 30},
-                        {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                        {field: 'handlerCode', title: '办理人编号', width: 180, hidden: true},
-                        {field: 'handlerName', title: '办理人名称', width: 180, hidden: false}
-                    ]],
-                    onLoadSuccess: function (data) {
-                        if (data.total == 0) {
-                            //添加一个新数据行，第一列的值为你需要的提示信息，然后将其他列合并到第一列来，注意修改colspan参数为你columns配置的总列数
-                            $(this).datagrid('appendRow', {handlerName: '<div style="text-align:center;color:red">没有相关办理人！</div>'}).datagrid('mergeCells', {
-                                index: 0,
-                                field: 'handlerName',
-                                colspan: 2
-                            })
-                            //隐藏分页导航条，这个需要熟悉datagrid的html结构，直接用jquery操作DOM对象，easyui datagrid没有提供相关方法隐藏导航条
-                            $(this).closest('div.datagrid-wrap').find('div.datagrid-pager').hide();
-                        }
-                        //如果通过调用reload方法重新加载数据有数据时显示出分页导航容器
-                        else $(this).closest('div.datagrid-wrap').find('div.datagrid-pager').show();
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#handlerRole").val(data[0].handlerRole);
+                        $("#handlerField").val(data[0].handlerField);
                     },
-                    onClickRow: function (rowIndex, rowData) {
-                        //alert(rowData.targetNodeName);
+                    error: function (data) {
+                        alert("【" + url + "】JSON数据获取失败，请联系管理员！");
                     }
                 });
+
+                //读取节点维护的办理人
+                urlPath2 = '<%=basePath%>flowData/flowHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
+                $('#handlerList').datagrid({
+                    url: urlPath2,
+                    // columns: [[
+                    //     {field: 'cb', checkbox: 'true', width: 30},
+                    //     {field: 'uuid', title: 'uuid', width: 100, hidden: true},
+                    //     {field: 'handlerCode', title: '办理人编号', width: 180, hidden: true},
+                    //     {field: 'handlerName', title: '办理人名称', width: 180, hidden: false}
+                    // ]]
+                });
+
+                //读取角色办理人
+                if ($("#handlerRole").val() != "") {
+                    //alert($("#handlerRole").val());
+                    $('#handlerList').datagrid('appendRow', {
+                        uuid: '123465789',
+                        handlerCode: '132456',
+                        handlerName: 'test'
+                    });
+                    // $('#handlerList').datagrid('insertRow',{
+                    //     index: 1,
+                    //     row:{
+                    //         ck:'',
+                    //         uuid: '132456',
+                    //         handlerCode: "1123",
+                    //         handlerName: "TEST"
+                    //     }
+                    // });
+                }
             }
         });
         $('#popuFlowToNextNode').dialog('open');
@@ -232,8 +262,8 @@
         $("#targetNodeType").val(selectedNodeRows[0].targetNodeType);
         $("#targetNodeCode").val(selectedNodeRows[0].targetNodeCode);
         $("#targetNodeName").val(selectedNodeRows[0].targetNodeName);
-        $("#targetHandlerNum").val(selectedHandlerRows[0].handlerCode);
-        $("#targetHandlerNam").val(selectedHandlerRows[0].handlerName);
+        $("#targetHandlerCode").val(selectedHandlerRows[0].handlerCode);
+        $("#targetHandlerName").val(selectedHandlerRows[0].handlerName);
         //关闭窗口
         $('#popuFlowToNextNode').dialog('close');
         //保存文档

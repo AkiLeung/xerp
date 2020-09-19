@@ -233,10 +233,10 @@ public class FlowVacationController extends BaseController {
                 entityObject.setFlowNodeType(flowNode.getNodeType());
                 entityObject.setFlowNodeCode(flowNode.getNodeCode());
                 entityObject.setFlowNodeName(flowNode.getNodeName());
-                entityObject.setFlowCreatorNum(currentUser.getUserCode());
-                entityObject.setFlowCreatorNam(currentUser.getUserName());
-                entityObject.setCurHandlerNum(currentUser.getUserCode());
-                entityObject.setCurHandlerNam(currentUser.getUserName());
+                entityObject.setFlowCreatorCode(currentUser.getUserCode());
+                entityObject.setFlowCreatorName(currentUser.getUserName());
+                entityObject.setCurHandlerCode(currentUser.getUserCode());
+                entityObject.setCurHandlerName(currentUser.getUserName());
                 entityObject.setCreatedDatetime(StringUtils.getDatetime());
                 entityObject.setUpdatedDatetime(StringUtils.getDatetime());
             }
@@ -270,8 +270,7 @@ public class FlowVacationController extends BaseController {
     @RequestMapping(value = "submitFlowData.action", method = RequestMethod.POST)
     @ResponseBody
     public String submitFlowData(@RequestBody String strJson,
-                                 HttpServletResponse response,
-                                 HttpServletRequest request) {
+                                 HttpServletResponse response) {
         User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         try {
             //獲取頁面傳輸的String Json
@@ -297,8 +296,8 @@ public class FlowVacationController extends BaseController {
             entityObject.setFlowNodeType(jsonData.getString("flowNodeTypeN"));
             entityObject.setFlowNodeCode(Integer.valueOf(jsonData.getString("flowNodeCode")));
             entityObject.setFlowNodeName(jsonData.getString("flowNodeName"));
-            entityObject.setCurHandlerNum(jsonData.getString("curHandlerNum"));
-            entityObject.setCurHandlerNam(jsonData.getString("curHandlerNam"));
+            entityObject.setCurHandlerCode(jsonData.getString("curHandlerCode"));
+            entityObject.setCurHandlerName(jsonData.getString("curHandlerName"));
             entityObject.setUpdatedDatetime(StringUtils.getDatetime());
 
             int intReturn = vacationService.updateData(entityObject);

@@ -14,10 +14,10 @@
         <result property="flowNodeType" column="flowNodeType"/>
         <result property="flowNodeCode" column="flowNodeCode"/>
         <result property="flowNodeName" column="flowNodeName"/>
-        <result property="flowCreatorNum" column="flowCreatorNum"/>
-        <result property="flowCreatorNam" column="flowCreatorNam"/>
-        <result property="curHandlerNum" column="curHandlerNum"/>
-        <result property="curHandlerNam" column="curHandlerNam"/>
+        <result property="flowCreatorCode" column="flowCreatorCode"/>
+        <result property="flowCreatorName" column="flowCreatorName"/>
+        <result property="curHandlerCode" column="curHandlerCode"/>
+        <result property="curHandlerName" column="curHandlerName"/>
         <result property="createdDatetime" column="createdDatetime"/>
         <result property="updatedDatetime" column="updatedDatetime"/>
     </resultMap>
@@ -32,7 +32,7 @@
 
     <!-- 待办列表-->
     <select id="listDataToHandler" resultMap="ResultSet">
-        select * from tbl_flw_vacation where cur_handler_num = #{condition01} order by created_datetime desc
+        select * from tbl_flw_vacation where cur_handler_Code = #{condition01} order by created_datetime desc
         <if test="startRow != null and  rows!= null">
             limit #{startRow},#{rows}
         </if>
@@ -45,7 +45,7 @@
 
     <!-- 統計個數-->
     <select id="listCountToHandler" resultType="Integer">
-        select count(uuid) as total from tbl_flw_vacation where cur_handler_num = #{curHandlerNum} order by created_datetime desc
+        select count(uuid) as total from tbl_flw_vacation where cur_handler_Code = #{curHandlerCode} order by created_datetime desc
     </select>
 
     <!-- 查找指定-->
@@ -71,10 +71,10 @@
         flow_node_type,
         flow_node_code,
         flow_node_name,
-        flow_creator_num,
-        flow_creator_nam,
-        cur_handler_num,
-        cur_handler_nam,
+        flow_creator_code,
+        flow_creator_name,
+        cur_handler_code,
+        cur_handler_name,
         created_datetime,
         updated_datetime)
         values
@@ -88,10 +88,10 @@
         #{flowNodeType},
         #{flowNodeCode},
         #{flowNodeName},
-        #{flowCreatorNum},
-        #{flowCreatorNam},
-        #{curHandlerNum},
-        #{curHandlerNam},
+        #{flowCreatorCode},
+        #{flowCreatorName},
+        #{curHandlerCode},
+        #{curHandlerName},
         #{createdDatetime},
         #{updatedDatetime})
     </insert>
@@ -107,8 +107,8 @@
             flow_node_type = #{flowNodeType},
             flow_node_code = #{flowNodeCode},
             flow_node_name = #{flowNodeName},
-            cur_handler_num = #{curHandlerNum},
-            cur_handler_nam = #{curHandlerNam},
+            cur_handler_code = #{curHandlerCode},
+            cur_handler_name = #{curHandlerName},
             updated_datetime = #{updatedDatetime}
         where uuid = #{uuid}
 	</update>
