@@ -213,26 +213,27 @@
                 urlPath2 = '<%=basePath%>flowData/flowHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
                 $('#handlerList').datagrid({
                     url: urlPath2,
-                    // columns: [[
-                    //     {field: 'cb', checkbox: 'true', width: 30},
-                    //     {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                    //     {field: 'handlerCode', title: '办理人编号', width: 180, hidden: true},
-                    //     {field: 'handlerName', title: '办理人名称', width: 180, hidden: false}
-                    // ]]
                 });
 
-                //读取角色办理人
-                if ($("#handlerRole").val() != "") {
-                    //alert($("#handlerRole").val());
-                    $('#handlerList').datagrid('appendRow', {
-                        uuid: '123465789',
-                        handlerCode: '132456',
-                        handlerName: 'test'
+                //读取页面选定办理人
+                if ($("#handlerField").val() != "") {
+                    $('#handlerList').datagrid({
+                        onLoadSuccess: function (data) {
+                            $(this).datagrid('appendRow', {handlerName: '<div style="text-align:center;color:red">123456789！</div>'}).datagrid('mergeCells', {
+                                index: 0,
+                                field: 'handlerName',
+                                colspan: 3
+                            });
+                        }
                     });
-                    // $('#handlerList').datagrid('insertRow',{
-                    //     index: 1,
-                    //     row:{
-                    //         ck:'',
+                    // $('#handlerList').datagrid('appendRow', {
+                    //     uuid: '123465789',
+                    //     handlerCode: '132456',
+                    //     handlerName: 'test'
+                    // });
+                    // $('#handlerList').datagrid('insertRow', {
+                    //     index: 0,
+                    //     row: {
                     //         uuid: '132456',
                     //         handlerCode: "1123",
                     //         handlerName: "TEST"
