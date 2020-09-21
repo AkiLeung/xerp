@@ -31,7 +31,7 @@
     targetHandlerNam:<input value="" type="Text" name="targetHandlerName" id="targetHandlerName"/><br/>
 </div>
 <div id="popuFlowToNextNode" class="easyui-dialog" title="Please select ....."
-     style="width:550px;height:450px;padding:1px"
+     style="width:850px;height:450px;padding:1px"
      data-options="
 				iconCls: 'icon-more',
 				closed:true,
@@ -191,6 +191,12 @@
 
     //選擇
     function openFlowToNext() {
+        //导入空数据
+        $('#nodeList').datagrid('loadData',{total:0,rows:[]});
+        $('#handlerList').datagrid('loadData',{total:0,rows:[]});
+        $("#nodeList").datagrid("reload");
+        $("#handlerList").datagrid("reload");
+
         //dataGrid basic Setting:流向列表
         var urlPath1 = '<%=basePath%>flowData/flowDirection.action?flowUuid=' + $("#flowUuid").val() + '&nodeUuid=' + $("#flowNodeUuid").val();
         $('#nodeList').datagrid({
@@ -206,8 +212,10 @@
                     url: urlPath2,
                     dataType: 'json',
                     success: function (data) {
+                        //会签人员
                         $("#handlerRoleCode").val(data[0].handlerRoleCode);
                         $("#handlerRoleName").val(data[0].handlerRoleName);
+                        //办理设置控制
                         $("#handlerFieldCode").val(data[0].handlerFieldCode);
                         $("#handlerFieldName").val(data[0].handlerFieldName);
                     },
@@ -217,23 +225,45 @@
                 });
 
                 //读取节点维护的办理人
-                urlPath2 = '<%=basePath%>flowData/flowHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
+                urlPath2 = '<%=basePath%>flowData/flowMultipleHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
                 $('#handlerList').datagrid({
                     url: urlPath2,
                     onLoadSuccess: function (data) {
                         var lvHandlerCode = "";
                         var lvHandlerName = "";
+
+                        //读取独立办理人列表
+                        urlPath2 = '<%=basePath%>flowData/flowSingleHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
+                        $.ajax({
+                            async: false,
+                            type: 'get',
+                            url: urlPath2,
+                            dataType: 'json',
+                            success: function (data) {
+                                var intRows = data.length;
+                                for(var i = 0;i < intRows;i++){
+                                    // alert(data[i].handlerCode);
+                                    // $(this).datagrid('appendRow', {
+                                    //     uuid: uuid(),
+                                    //     handlerCode: data[i].handlerCode,
+                                    //     handlerName: data[i].handlerName
+                                    // });
+                                }
+                            }
+                        });
+
                         //读取页面选定办理人
                         if ($("#handlerFieldCode").val().trim() != "") {
                             lvHandlerCode = $('#' + $("#handlerFieldCode").val()).val().trim();
                             lvHandlerName = $('#' + $("#handlerFieldName").val()).val().trim();
-                            $(this).datagrid('appendRow', {
-                                uuid: uuid(),
-                                handlerCode: lvHandlerCode,
-                                handlerName: lvHandlerName
-                            });
+                            if (lvHandlerCode != "" && lvHandlerName != "") {
+                                $(this).datagrid('appendRow', {
+                                    uuid: uuid(),
+                                    handlerCode: lvHandlerCode,
+                                    handlerName: lvHandlerName
+                                });
+                            }
                         }
-
                         //读取节点维护的角色
                         if ($("#handlerRoleCode").val().trim() != "") {
 
@@ -241,10 +271,12 @@
                     }
                 });
             }
-        });
+        })
+        ;
         //弹出提交窗口
         $('#popuFlowToNextNode').dialog('open');
-    };
+    }
+    ;
 
     //提交
     function submitToNextNode() {

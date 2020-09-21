@@ -12,6 +12,7 @@ import com.xerp.core.entity.FlowName;
 import com.xerp.core.entity.FlowNode;
 import com.xerp.core.service.IFlowDirectionService;
 import com.xerp.core.service.IFlowNameService;
+import com.xerp.core.service.IFlowNodeHandlerService;
 import com.xerp.core.service.IFlowNodeService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,12 @@ public class FlowConfigurationController extends BaseController {
      */
     @Autowired
     private IFlowNodeService flowNodeService;
+
+    /**
+     * Service操作對象 自動註解:环节信息
+     */
+    @Autowired
+    private IFlowNodeHandlerService flowNodeHandlerService;
 
     /**
      * Service操作對象 自動註解:流向信息
@@ -184,36 +191,25 @@ public class FlowConfigurationController extends BaseController {
     }
 
     /**
-     * 功能说明：获取数据
+     * 功能说明：获取数据-多人会签
      * 修改说明：
      *
      * @return String ajax
      * @author Joseph
      * @date 20201108
      */
-    @RequestMapping(value = "flowHandlerByNode.action")
+    @RequestMapping(value = "flowMultipleHandlerByNode.action")
     @ResponseBody
-    public String flowHandlerByNode(@RequestParam(value = "nodeUuid") String nodeUuid,
+    public String flowMultipleHandlerByNode(@RequestParam(value = "nodeUuid") String nodeUuid,
                               HttpServletResponse response) {
         try {
-            List<FlowNode> flowNodes = flowNodeService.listByUuid(nodeUuid);
             List<FlowNodeHandler> flowNodeHandlers = new ArrayList<FlowNodeHandler>();
+            List<FlowNode> flowNodes = flowNodeService.listByUuid(nodeUuid);
             if (flowNodes != null) {
                 FlowNode flowNode = flowNodes.get(0);
                 FlowNodeHandler flowNodeHandler;
-                //退回起草
-
-
-                //指定页面办理人
-                if (flowNode.getHandlerFieldCode() != null && flowNode.getHandlerFieldCode() != "") {
-
-                }
-                //指定角色办理人
-                if (flowNode.getHandlerRoleCode() != null && flowNode.getHandlerRoleCode() != "") {
-
-                }
                 //指定办理人
-                if (flowNode.getHandlerCode() != null && flowNode.getHandlerCode() != "") {
+                if (flowNode.getHandlerCode() != null && !flowNode.getHandlerCode().trim().equals("")) {
                     flowNodeHandler = new FlowNodeHandler();
                     flowNodeHandler.setUuid(StringUtils.createUUID());
                     flowNodeHandler.setHandlerCode(flowNode.getHandlerCode());
@@ -222,6 +218,28 @@ public class FlowConfigurationController extends BaseController {
                 }
             }
 
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(flowNodeHandlers));
+            StringUtils.write(response, jsonArray);
+        } catch (Exception ex) {
+            log.error("XERP Exception：" + ex.toString());
+        }
+        return null;
+    }
+
+    /**
+     * 功能说明：获取数据-多人会签
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20201108
+     */
+    @RequestMapping(value = "flowSingleHandlerByNode.action")
+    @ResponseBody
+    public String flowSingleHandlerByNode(@RequestParam(value = "nodeUuid") String nodeUuid,
+                                            HttpServletResponse response) {
+        try {
+            List<FlowNodeHandler> flowNodeHandlers = flowNodeHandlerService.listData(nodeUuid);
             JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(flowNodeHandlers));
             StringUtils.write(response, jsonArray);
         } catch (Exception ex) {
