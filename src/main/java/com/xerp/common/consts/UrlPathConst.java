@@ -160,6 +160,10 @@ public class UrlPathConst {
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_NODE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_flowNodeConf.jsp";
     /**
+     *后台管理：流程節點-办理人-配置
+     */
+    public final static String STR_SYSTEM_CONFIG_FLOW_NODE_HANDLER_CONF = SYS_SERVER_PATH + "/sysConfig/sys_flowNodeHandlerConf.jsp";
+    /**
      *后台管理：流程流向-列表
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_DIRECTION = SYS_SERVER_PATH + "/sysConfig/sys_flowDirectionList.jsp";

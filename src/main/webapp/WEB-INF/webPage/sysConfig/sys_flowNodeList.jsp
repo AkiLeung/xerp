@@ -73,7 +73,7 @@
                    toolbar:toolbar">
         </table>
     </div>
-    <div id="flowNodeConfig" class="easyui-dialog" style="width:900px;height:650px"
+    <div id="flowNodeConfig" class="easyui-dialog" style="width:900px;height:750px"
          data-options="
          iconCls:'icon-setting',
          title:'环节配置',
@@ -90,7 +90,7 @@
 					handler:function(){
                         $('#ifrFlowNodeConfig')[0].contentWindow.saveData();
                         $('#flowNodeConfig').dialog('close');
-                        $('#datalist').datagrid('reload');
+                        $('#dataList').datagrid('reload');
 					}
 				},{
 					text:'Close',

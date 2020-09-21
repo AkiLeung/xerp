@@ -197,8 +197,8 @@
             url: urlPath1,
             //单击时：读取办理人信息
             onClickRow: function (rowIndex, rowData) {
-                var urlPath2 = '';
-                //读取指定页面办理人
+                var urlPath2;
+                //读取节点指定页面办理人
                 urlPath2 = '<%=basePath%>flowData/getNodeByNodeUuid.action?nodeUuid=' + rowData.targetNodeUuid;
                 $.ajax({
                     async: false,
@@ -220,28 +220,26 @@
                 urlPath2 = '<%=basePath%>flowData/flowHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
                 $('#handlerList').datagrid({
                     url: urlPath2,
-                });
-
-                //读取节点维护的角色
-                <%--urlPath2 = '<%=basePath%>flowData/flowHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;--%>
-                <%--$('#handlerList').datagrid({--%>
-                <%--url: urlPath2,--%>
-                <%--});--%>
-
-                //读取页面选定办理人
-                if ($("#handlerField").val() != "") {
-                    var lvHandlerCode = $('#' + $("#handlerFieldCode").val()).val();
-                    var lvHandlerName = $('#' + $("#handlerFieldName").val()).val();
-                    $('#handlerList').datagrid({
-                        onLoadSuccess: function (data) {
+                    onLoadSuccess: function (data) {
+                        var lvHandlerCode = "";
+                        var lvHandlerName = "";
+                        //读取页面选定办理人
+                        if ($("#handlerFieldCode").val().trim() != "") {
+                            lvHandlerCode = $('#' + $("#handlerFieldCode").val()).val().trim();
+                            lvHandlerName = $('#' + $("#handlerFieldName").val()).val().trim();
                             $(this).datagrid('appendRow', {
                                 uuid: uuid(),
                                 handlerCode: lvHandlerCode,
                                 handlerName: lvHandlerName
                             });
                         }
-                    });
-                }
+
+                        //读取节点维护的角色
+                        if ($("#handlerRoleCode").val().trim() != "") {
+
+                        }
+                    }
+                });
             }
         });
         //弹出提交窗口

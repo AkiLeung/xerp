@@ -7,7 +7,7 @@ import com.xerp.base.BaseController;
 import com.xerp.common.consts.ConfigConst;
 import com.xerp.common.utils.StringUtils;
 import com.xerp.core.entity.FlowDirection;
-import com.xerp.core.entity.FlowHandler;
+import com.xerp.core.entity.FlowNodeHandler;
 import com.xerp.core.entity.FlowName;
 import com.xerp.core.entity.FlowNode;
 import com.xerp.core.service.IFlowDirectionService;
@@ -197,10 +197,10 @@ public class FlowConfigurationController extends BaseController {
                               HttpServletResponse response) {
         try {
             List<FlowNode> flowNodes = flowNodeService.listByUuid(nodeUuid);
-            List<FlowHandler> flowHandlers = new ArrayList<FlowHandler>();
+            List<FlowNodeHandler> flowNodeHandlers = new ArrayList<FlowNodeHandler>();
             if (flowNodes != null) {
                 FlowNode flowNode = flowNodes.get(0);
-                FlowHandler flowHandler;
+                FlowNodeHandler flowNodeHandler;
                 //退回起草
 
 
@@ -214,15 +214,15 @@ public class FlowConfigurationController extends BaseController {
                 }
                 //指定办理人
                 if (flowNode.getHandlerCode() != null && flowNode.getHandlerCode() != "") {
-                    flowHandler = new FlowHandler();
-                    flowHandler.setUuid(StringUtils.createUUID());
-                    flowHandler.setHandlerCode(flowNode.getHandlerCode());
-                    flowHandler.setHandlerName(flowNode.getHandlerName());
-                    flowHandlers.add(flowHandler);
+                    flowNodeHandler = new FlowNodeHandler();
+                    flowNodeHandler.setUuid(StringUtils.createUUID());
+                    flowNodeHandler.setHandlerCode(flowNode.getHandlerCode());
+                    flowNodeHandler.setHandlerName(flowNode.getHandlerName());
+                    flowNodeHandlers.add(flowNodeHandler);
                 }
             }
 
-            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(flowHandlers));
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(flowNodeHandlers));
             StringUtils.write(response, jsonArray);
         } catch (Exception ex) {
             log.error("XERP Exception：" + ex.toString());

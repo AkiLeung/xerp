@@ -20,7 +20,8 @@
             <td class="tblCell">
                 <input value="<%=request.getParameter("ws")%>" name="ws" type="hidden" id="ws"/>
                 <input value="<%=request.getParameter("uuid")%>" name="uuid" type="hidden" id="uuid"/>
-                <input class="easyui-textbox" value="<%=request.getParameter("flowUuid")%>" name="flowUuid" type="hidden" id="flowUuid"/>
+                <input class="easyui-textbox" value="<%=request.getParameter("flowUuid")%>" name="flowUuid"
+                       type="hidden" id="flowUuid"/>
             </td>
         </tr>
         <tr>
@@ -49,25 +50,31 @@
                 環節類型
             </td>
             <td class="tblCell" style="width: 750px">
-                <label style="cursor: pointer"><input type="radio" name="nodeType" onclick="javascript:setNodeValue('0','<%=ConfigConst.STR_FLOW_START_TXT%>');"
+                <label style="cursor: pointer"><input type="radio" name="nodeType"
+                                                      onclick="javascript:setNodeValue('0','<%=ConfigConst.STR_FLOW_START_TXT%>');"
                                                       value="<%=ConfigConst.STR_FLOW_START_NUM%>"><%=ConfigConst.STR_FLOW_START_TXT%>
                 </label>
-                <label style="cursor: pointer"><input type="radio" name="nodeType" checked onclick="javascript:setNodeValue('1','<%=ConfigConst.STR_FLOW_TASK_TXT%>');"
+                <label style="cursor: pointer"><input type="radio" name="nodeType" checked
+                                                      onclick="javascript:setNodeValue('1','<%=ConfigConst.STR_FLOW_TASK_TXT%>');"
                                                       value="<%=ConfigConst.STR_FLOW_TASK_NUM%>"><%=ConfigConst.STR_FLOW_TASK_TXT%>
                 </label>
-                <label style="cursor: pointer"><input type="radio" name="nodeType" onclick="javascript:setNodeValue('2','<%=ConfigConst.STR_FLOW_NODE_TXT%>');"
+                <label style="cursor: pointer"><input type="radio" name="nodeType"
+                                                      onclick="javascript:setNodeValue('2','<%=ConfigConst.STR_FLOW_NODE_TXT%>');"
                                                       value="<%=ConfigConst.STR_FLOW_NODE_NUM%>"><%=ConfigConst.STR_FLOW_NODE_TXT%>
                 </label>
-                <label style="cursor: pointer"><input type="radio" name="nodeType" onclick="javascript:setNodeValue('99','<%=ConfigConst.STR_FLOW_END_TXT%>');"
+                <label style="cursor: pointer"><input type="radio" name="nodeType"
+                                                      onclick="javascript:setNodeValue('99','<%=ConfigConst.STR_FLOW_END_TXT%>');"
                                                       value="<%=ConfigConst.STR_FLOW_END_NUM%>"><%=ConfigConst.STR_FLOW_END_TXT%>
                 </label>
             </td>
         </tr>
         <tr>
             <td class="tblTitle">
-                環節编号</td>
+                環節编号
+            </td>
             <td class="tblCell">
-                <input class="easyui-numberspinner" value="1"  name="nodeCode" id="nodeCode"  data-options="increment:1,min:0,max:99,required:true" style="width:250px;" />
+                <input class="easyui-numberspinner" value="1" name="nodeCode" id="nodeCode"
+                       data-options="increment:1,min:0,max:99,required:true" style="width:250px;"/>
             </td>
         </tr>
         <tr>
@@ -93,8 +100,10 @@
                 办理角色
             </td>
             <td class="tblCell">
-                <input class="easyui-textbox" value="" name="handlerRoleCode" type="text" id="handlerRoleCode" style="width:350px"/>
-                <input class="easyui-textbox" value="" name="handlerRoleName" type="text" id="handlerRoleName" style="width:350px"/>
+                <input class="easyui-textbox" value="" name="handlerRoleCode" type="text" id="handlerRoleCode"
+                       style="width:350px"/>
+                <input class="easyui-textbox" value="" name="handlerRoleName" type="text" id="handlerRoleName"
+                       style="width:350px"/>
             </td>
         </tr>
         <tr>
@@ -102,13 +111,15 @@
                 办理字段
             </td>
             <td class="tblCell">
-                <input class="easyui-textbox" value="" name="handlerFieldCode" type="text" id="handlerFieldCode" style="width:350px"/>
-                <input class="easyui-textbox" value="" name="handlerFieldName" type="text" id="handlerFieldName" style="width:350px"/>
+                <input class="easyui-textbox" value="" name="handlerFieldCode" type="text" id="handlerFieldCode"
+                       style="width:173px" data-options="prompt:'user code filed'"/>
+                <input class="easyui-textbox" value="" name="handlerFieldName" type="text" id="handlerFieldName"
+                       style="width:173px" data-options="prompt:'user name filed'"/>
             </td>
         </tr>
         <tr>
             <td class="tblTitle">
-                办理人员
+                (会签)办理人员
             </td>
             <td class="tblCell">
                 <input class="easyui-textbox" value="" name="handlerName" type="text" id="handlerName"
@@ -117,7 +128,34 @@
                 <input class="easyui-textbox" value="" name="handlerCode" type="text" id="handlerCode"
                        style="width:100px"
                        data-options=""/>
-               </td>
+            </td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                办理人员
+            </td>
+            <td  class="tblCellContent" height="208px">
+                <table id="handlerList" class="easyui-datagrid" style="width:100%;height: 200px" fit="true"
+                       data-options="
+                               singleSelect:false,
+                               rownumbers:true,
+                               idField:'uuid',
+                               nowarp:false,
+                               border:false,
+                               collapsible:true,
+                               method:'get',
+                               toolbar:toolbar">
+                    <thead>
+                    <tr>
+                        <th data-options="field:'cb',width:30,checkbox: 'true'"></th>
+                        <th data-options="field:'uuid',width:100,hidden:true">uuid</th>
+                        <th data-options="field:'nodeUuid',width:100,hidden:true">nodeUuid</th>
+                        <th data-options="field:'handlerCode',width:80,hidden:false">办理人编号</th>
+                        <th data-options="field:'handlerName',width:200,hidden:false">办理人名称</th>
+                    </tr>
+                    </thead>
+                </table>
+            </td>
         </tr>
         <tr>
             <td class="tblTitle">
@@ -125,7 +163,7 @@
             </td>
             <td class="tblCell">
                 <input class="easyui-textbox" value="" name="editField" type="text" id="editField"
-                       style="width:99%;height: 125px"
+                       style="width:99%;height: 100px"
                        data-options="multiline:true"/></td>
         </tr>
         <tr>
@@ -134,7 +172,7 @@
             </td>
             <td class="tblCell">
                 <input class="easyui-textbox" value="" name="nodeFormula" type="text" id="nodeFormula"
-                       style="width:99%;height: 145px"
+                       style="width:99%;height: 120px"
                        data-options="multiline:true"/></td>
         </tr>
         <tr style="display:none">
@@ -142,24 +180,108 @@
                 GooFlow參數
             </td>
             <td class="tblCell">
-                gooflow_type：<input class="easyui-textbox" value="task" name="gooflowType" type="text" id="gooflowType" style="width:50px"/><br>
-                gooflow_left：<input class="easyui-textbox" value="88" name="gooflowLeft" type="text" id="gooflowLeft" style="width:50px"/><br>
-                gooflow_top：<input class="easyui-textbox" value="20" name="gooflowTop" type="text" id="gooflowTop" style="width:50px"/><br>
-                gooflow_width：<input class="easyui-textbox" value="100" name="gooflowWidth" type="text" id="gooflowWidth" style="width:50px"/><br>
-                gooflow_height：<input class="easyui-textbox" value="24" name="gooflowHeight" type="text" id="gooflowHeight" style="width:50px"/><br>
-                gooflow_alt：<input class="easyui-textbox" value="true" name="gooflowAlt" type="text" id="gooflowAlt" style="width:50px"/><br>
+                gooflow_type：<input class="easyui-textbox" value="task" name="gooflowType" type="text" id="gooflowType"
+                                    style="width:50px"/><br>
+                gooflow_left：<input class="easyui-textbox" value="88" name="gooflowLeft" type="text" id="gooflowLeft"
+                                    style="width:50px"/><br>
+                gooflow_top：<input class="easyui-textbox" value="20" name="gooflowTop" type="text" id="gooflowTop"
+                                   style="width:50px"/><br>
+                gooflow_width：<input class="easyui-textbox" value="100" name="gooflowWidth" type="text"
+                                     id="gooflowWidth" style="width:50px"/><br>
+                gooflow_height：<input class="easyui-textbox" value="24" name="gooflowHeight" type="text"
+                                      id="gooflowHeight" style="width:50px"/><br>
+                gooflow_alt：<input class="easyui-textbox" value="true" name="gooflowAlt" type="text" id="gooflowAlt"
+                                   style="width:50px"/><br>
             </td>
         </tr>
     </table>
+    <div id="flowNodeHandlerConfig" class="easyui-dialog" style="width:650px;height:200px"
+         data-options="
+         iconCls:'icon-setting',
+         title:'办理人配置',
+         closed:true,
+         modal:true,
+         collapsible:true,
+         minimizable:false,
+         maximizable:false,
+         draggable:true,
+         resizable:false,
+         buttons: [{
+					text:'Save',
+					iconCls:'icon-save',
+					handler:function(){
+                        $('#ifrFlowNodeHandlerConfig')[0].contentWindow.saveData();
+                        $('#flowNodeHandlerConfig').dialog('close');
+                        $('#dataList').datagrid('reload');
+					}
+				},{
+					text:'Close',
+					iconCls:'icon-close',
+					handler:function(){
+						$('#flowNodeHandlerConfig').dialog('close');
+					}
+				}],cls:'c8'">
+        <iframe id="ifrFlowNodeHandlerConfig" name="ifrFlowNodeHandlerConfig" src="" width="100%" height="100%"
+                frameborder="0"></iframe>
+    </div>
 </form>
 </body>
 </html>
 <script>
+    //Toolbar
+    var toolbar = [{
+        text: '新增',
+        iconCls: 'icon-add',
+        handler: function () {
+            showDialogWin('ifrFlowNodeHandlerConfig', 'flowNodeHandlerConfig',
+                '<%=basePath %>sysConfig/flowNodeHandler/gotoConfPage.action?ws=<%=ConfigConst.STR_WS_CREATE%>&nodeUuid=<%=request.getParameter("uuid")%>');
+        }
+    }, '-', {
+        text: '删除',
+        iconCls: 'icon-remove',
+        handler: function () {
+            var selectedRows = $("#handlerList").datagrid('getSelections');
+            if (selectedRows.length == 0) {
+                $.messager.alert("Message", "Please Choose Data First！");
+                return;
+            }
+            var array = [];
+            for (var i = 0; i < selectedRows.length; i++) {
+                array.push(selectedRows[i].uuid);
+            }
+            var uuids = array.join(",");
+            $.messager.confirm("Message", "Are Sure to this option?", function (r) {
+                if (r) {
+                    $.post("<%=basePath%>sysConfig/flowNodeHandler/deleteData.action", {
+                        uuids: uuids
+                    }, function (result) {
+                        if (result.success) {
+                            $("#handlerList").datagrid("reload");
+                        } else {
+                            $.messager.error("Error", "Please contact system administrator！");
+                        }
+                    }, "json");
+                }
+            });
+        }
+    }, '-', {
+        text: '刷新',
+        iconCls: 'icon-reload',
+        handler: function () {
+            $("#handlerList").datagrid("reload");
+        }
+    }];
+
     //Default Execution or Setting
     $(function () {
         $('#nodeCode').textbox('textbox').attr('maxlength', 20);
         $('#nodeName').textbox('textbox').attr('maxlength', 50);
         $('#comment').textbox('textbox').attr('maxlength', 150);
+
+        //dataGrid basic Setting
+        $('#handlerList').datagrid({
+            url: '<%=basePath%>sysConfig/flowNodeHandler/listData.action?nodeUuid=<%=request.getParameter("uuid")%>'
+        });
     });
 
     //頁面加載時執行
@@ -210,24 +332,24 @@
             return false;
         }
         //設置環節top位置
-        var positionLeft = 0 ;
+        var positionLeft = 0;
         parseInt($("#nodeCode").val()) < 90 ? positionLeft = 138 : positionLeft = 1180;
-        $("#gooflowLeft").textbox('setValue',positionLeft);
+        $("#gooflowLeft").textbox('setValue', positionLeft);
 
         //設置環節top位置
-        var positionTop = 0 ;
-        parseInt($("#nodeCode").val()) < 90 ? positionTop = 20 + ($("#nodeCode").val() * 100): positionTop = 500;
-        $("#gooflowTop").textbox('setValue',positionTop);
+        var positionTop = 0;
+        parseInt($("#nodeCode").val()) < 90 ? positionTop = 20 + ($("#nodeCode").val() * 100) : positionTop = 500;
+        $("#gooflowTop").textbox('setValue', positionTop);
 
         //執行保存
         var objData = {
             ws: $("#ws").val(),
-            uuid:$("#uuid").val(),
-            flowUuid:$("#flowUuid").val(),
+            uuid: $("#uuid").val(),
+            flowUuid: $("#flowUuid").val(),
             status: $('input[name="status"]:checked').val(),
             nodeCode: $("#nodeCode").val(),
             nodeName: $("#nodeName").val(),
-            nodeType:  $('input[name="nodeType"]:checked').val(),
+            nodeType: $('input[name="nodeType"]:checked').val(),
             handlerRoleCode: $("#handlerRoleCode").val(),
             handlerRoleName: $("#handlerRoleName").val(),
             handlerFieldCode: $("#handlerFieldCode").val(),
@@ -264,7 +386,7 @@
     }
 
     //設置環節信息
-    function setNodeValue(nodeCode,nodeType){
+    function setNodeValue(nodeCode, nodeType) {
         $('#nodeCode').textbox('setValue', nodeCode);
         $('#gooflowType').textbox('setValue', nodeType);
     }
