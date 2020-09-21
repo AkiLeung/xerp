@@ -26,6 +26,17 @@
         </if>
     </select>
 
+    <!-- 查找所有-->
+    <select id="listDataByCode" resultMap="RoleUserResult">
+        select
+        tbl_sys_role_user.*,
+        tbl_sys_user.user_name
+        from tbl_sys_role_user
+        left join tbl_sys_user on tbl_sys_role_user.user_code = tbl_sys_user.user_code
+        where tbl_sys_role_user.role_code = #{roleCode}
+        order by tbl_sys_role_user.user_code asc
+    </select>
+
     <!-- 統計個數-->
     <select id="listCount" resultType="int">
         select count(uuid) as total from tbl_sys_role_user where role_code = #{roleCode}

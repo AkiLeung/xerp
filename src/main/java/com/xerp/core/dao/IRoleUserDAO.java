@@ -19,9 +19,18 @@ public interface IRoleUserDAO {
      * 查询所有
      * @param
      * @param pager 分頁信息 roleCode String roleCode,
-     * @return List<RolePermission>
+     * @return List<RoleUser>
      */
     List<RoleUser> listData(PageModel pager);
+
+    /**
+     * 查询所有
+     * @param
+     * @param  roleCode
+     * @return List<RoleUser>
+     */
+    List<RoleUser> listDataByCode(String roleCode);
+
 
     /**
      * 統計個數

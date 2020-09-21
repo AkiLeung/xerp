@@ -23,6 +23,13 @@ public interface IRoleUserService {
     /**
      * 統計個數
      * @param roleCode
+     * @return List<RoleUser>
+     */
+    List<RoleUser> listDataByCode(String roleCode);
+
+    /**
+     * 統計個數
+     * @param roleCode
      * @return int 統計個數
      */
     int listCount(String roleCode);

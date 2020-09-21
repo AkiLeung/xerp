@@ -6,14 +6,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.xerp.base.BaseController;
 import com.xerp.common.consts.ConfigConst;
 import com.xerp.common.utils.StringUtils;
-import com.xerp.core.entity.FlowDirection;
-import com.xerp.core.entity.FlowNodeHandler;
-import com.xerp.core.entity.FlowName;
-import com.xerp.core.entity.FlowNode;
-import com.xerp.core.service.IFlowDirectionService;
-import com.xerp.core.service.IFlowNameService;
-import com.xerp.core.service.IFlowNodeHandlerService;
-import com.xerp.core.service.IFlowNodeService;
+import com.xerp.core.entity.*;
+import com.xerp.core.service.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +54,12 @@ public class FlowConfigurationController extends BaseController {
      */
     @Autowired
     private IFlowDirectionService flowDirectionService;
+
+    /**
+     * Service操作對象 自動註解:角色人员
+     */
+    @Autowired
+    private IRoleUserService roleUserService;
 
     /**
      * 功能说明：获取数据by FlowCode
@@ -130,7 +130,7 @@ public class FlowConfigurationController extends BaseController {
     @RequestMapping(value = "getNodeByNodeUuid.action")
     @ResponseBody
     public String getNodeByNodeUuid(HttpServletResponse response,
-                                     HttpServletRequest request) {
+                                    HttpServletRequest request) {
         try {
             //流程uuid
             String nodeUuid = request.getParameter("nodeUuid");
@@ -201,7 +201,7 @@ public class FlowConfigurationController extends BaseController {
     @RequestMapping(value = "flowMultipleHandlerByNode.action")
     @ResponseBody
     public String flowMultipleHandlerByNode(@RequestParam(value = "nodeUuid") String nodeUuid,
-                              HttpServletResponse response) {
+                                            HttpServletResponse response) {
         try {
             List<FlowNodeHandler> flowNodeHandlers = new ArrayList<FlowNodeHandler>();
             List<FlowNode> flowNodes = flowNodeService.listByUuid(nodeUuid);
@@ -227,7 +227,7 @@ public class FlowConfigurationController extends BaseController {
     }
 
     /**
-     * 功能说明：获取数据-多人会签
+     * 功能说明：获取数据-独立办理人
      * 修改说明：
      *
      * @return String ajax
@@ -237,7 +237,7 @@ public class FlowConfigurationController extends BaseController {
     @RequestMapping(value = "flowSingleHandlerByNode.action")
     @ResponseBody
     public String flowSingleHandlerByNode(@RequestParam(value = "nodeUuid") String nodeUuid,
-                                            HttpServletResponse response) {
+                                          HttpServletResponse response) {
         try {
             List<FlowNodeHandler> flowNodeHandlers = flowNodeHandlerService.listData(nodeUuid);
             JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(flowNodeHandlers));
@@ -248,4 +248,36 @@ public class FlowConfigurationController extends BaseController {
         return null;
     }
 
+    /**
+     * 功能说明：获取数据-角色办理人
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20201108
+     */
+    @RequestMapping(value = "flowRoleHandlerByCode.action")
+    @ResponseBody
+    public String flowRoleHandlerByCode(@RequestParam(value = "roleCode") String roleCode,
+                                        HttpServletResponse response) {
+        try {
+            List<FlowNodeHandler> flowNodeHandlers = new ArrayList<FlowNodeHandler>();
+            List<RoleUser> roleUsers = roleUserService.listDataByCode(roleCode);
+            if (roleUsers.size() > 0) {
+                FlowNodeHandler flowNodeHandler;
+                for (RoleUser roleUser : roleUsers) {
+                    flowNodeHandler = new FlowNodeHandler();
+                    flowNodeHandler.setUuid(StringUtils.createUUID());
+                    flowNodeHandler.setHandlerCode(roleUser.getUserCode());
+                    flowNodeHandler.setHandlerName(roleUser.getUserName());
+                    flowNodeHandlers.add(flowNodeHandler);
+                }
+            }
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(flowNodeHandlers));
+            StringUtils.write(response, jsonArray);
+        } catch (Exception ex) {
+            log.error("XERP Exception：" + ex.toString());
+        }
+        return null;
+    }
 }

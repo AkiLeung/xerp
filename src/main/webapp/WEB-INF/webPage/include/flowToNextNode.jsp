@@ -254,8 +254,26 @@
                         });
 
                         //读取节点维护的角色
+                        var handlerRole;
                         if ($("#handlerRoleCode").val().trim() != "") {
-
+                            urlPath2 = '<%=basePath%>flowData/flowRoleHandlerByCode.action?roleCode=' + $("#handlerRoleCode").val().trim();
+                            $.ajax({
+                                async: false,
+                                type: 'get',
+                                url: urlPath2,
+                                dataType: 'json',
+                                success: function (role) {
+                                    handlerRole = role;
+                                }
+                            });
+                        };
+                        for (var i = 0; i < handlerRole.length; i++) {
+                            //添加角色人员
+                            $(this).datagrid('appendRow', {
+                                uuid: uuid(),
+                                handlerCode: handlerRole[i].handlerCode,
+                                handlerName: handlerRole[i].handlerName
+                            });
                         }
 
                         //读取页面选定办理人
@@ -272,15 +290,11 @@
                         }
                     }
                 });
-
-
             }
-        })
-        ;
+        });
         //弹出提交窗口
         $('#popuFlowToNextNode').dialog('open');
-    }
-    ;
+    };
 
     //提交
     function submitToNextNode() {

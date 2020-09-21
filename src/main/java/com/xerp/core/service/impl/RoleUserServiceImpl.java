@@ -27,6 +27,11 @@ public class RoleUserServiceImpl implements IRoleUserService {
     }
 
     @Override
+    public List<RoleUser> listDataByCode(String roleCode) {
+        return daoObject.listDataByCode(roleCode);
+    }
+
+    @Override
     public int listCount(String roleCode) {
         return daoObject.listCount(roleCode);
     }
