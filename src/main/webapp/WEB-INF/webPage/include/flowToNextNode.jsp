@@ -212,7 +212,7 @@
                     url: urlPath2,
                     dataType: 'json',
                     success: function (data) {
-                        //会签人员
+                        //办理角色
                         $("#handlerRoleCode").val(data[0].handlerRoleCode);
                         $("#handlerRoleName").val(data[0].handlerRoleName);
                         //办理设置控制
@@ -224,32 +224,39 @@
                     }
                 });
 
-                //读取节点维护的办理人
-                urlPath2 = '<%=basePath%>flowData/flowMultipleHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
+                //读取节点维护的办理人（独立办理人）
+                urlPath2 = '<%=basePath%>flowData/flowSingleHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
                 $('#handlerList').datagrid({
                     url: urlPath2,
                     onLoadSuccess: function (data) {
                         var lvHandlerCode = "";
                         var lvHandlerName = "";
 
-                        //读取独立办理人列表
-                        urlPath2 = '<%=basePath%>flowData/flowSingleHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
+                        //读取独立办理人(会签人员)
+                        urlPath2 = '<%=basePath%>flowData/flowMultipleHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
                         $.ajax({
                             async: false,
                             type: 'get',
                             url: urlPath2,
                             dataType: 'json',
-                            success: function (data) {
-                                var intRows = data.length;
-                                for (var i = 0; i < intRows; i++) {
-                                    // $(this).datagrid('appendRow', {
-                                    //     uuid: uuid(),
-                                    //     handlerCode: data[0].handlerCode,
-                                    //     handlerName: data[0].handlerName
-                                    // });
+                            success: function (handler) {
+                                if (handler.length > 0) {
+                                    lvHandlerCode = handler[0].handlerCode;
+                                    lvHandlerName = handler[0].handlerName;
                                 }
                             }
                         });
+                        //添加会签人员
+                        $(this).datagrid('appendRow', {
+                            uuid: uuid(),
+                            handlerCode: lvHandlerCode,
+                            handlerName: lvHandlerName
+                        });
+
+                        //读取节点维护的角色
+                        if ($("#handlerRoleCode").val().trim() != "") {
+
+                        }
 
                         //读取页面选定办理人
                         if ($("#handlerFieldCode").val().trim() != "") {
@@ -263,12 +270,10 @@
                                 });
                             }
                         }
-                        //读取节点维护的角色
-                        if ($("#handlerRoleCode").val().trim() != "") {
-
-                        }
                     }
                 });
+
+
             }
         })
         ;
