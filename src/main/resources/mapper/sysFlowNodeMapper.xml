@@ -10,8 +10,10 @@
         <result property="nodeCode" column="nodeCode"/>
         <result property="nodeName" column="nodeName"/>
         <result property="nodeType" column="nodeType"/>
-        <result property="handlerRole" column="handlerRole"/>
-        <result property="handlerField" column="handlerField"/>
+        <result property="handlerRoleCode" column="handlerRoleCode"/>
+        <result property="handlerRoleName" column="handlerRoleName"/>
+        <result property="handlerFieldCode" column="handlerFieldCode"/>
+        <result property="handlerFieldName" column="handlerFieldName"/>
         <result property="handlerCode" column="handlerCode"/>
         <result property="handlerName" column="handlerName"/>
         <result property="editField" column="editField"/>
@@ -72,8 +74,10 @@
             node_code,
             node_name,
             node_type,
-            handler_role,
-            handler_field,
+            handler_role_code,
+            handler_role_name,
+            handler_field_code,
+            handler_field_name,
             handler_code,
             handler_name,
             edit_field,
@@ -95,8 +99,10 @@
             #{nodeCode},
             #{nodeName},
             #{nodeType},
-            #{handlerRole},
-            #{handlerField},
+            #{handlerRoleCode},
+            #{handlerRoleName},
+            #{handlerFieldCode},
+            #{handlerFieldName},
             #{handlerCode},
             #{handlerName},
             #{editField},
@@ -122,8 +128,10 @@
             node_code = #{nodeCode},
             node_name = #{nodeName},
             node_type = #{nodeType},
-            handler_role = #{handlerRole},
-            handler_field = #{handlerField},
+            handler_role_code = #{handlerRoleCode},
+            handler_role_name = #{handlerRoleName},
+            handler_field_code = #{handlerFieldCode},
+            handler_field_name = #{handlerFieldName},
             handler_code = #{handlerCode},
             handler_name = #{handlerName},
             edit_field = #{editField},

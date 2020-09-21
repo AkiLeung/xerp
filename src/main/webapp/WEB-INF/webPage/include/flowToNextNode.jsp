@@ -18,15 +18,17 @@
     curHandlerCode:<input value="" type="Text" name="curHandlerCode" id="curHandlerCode"/><br/>
     curHandlerName:<input value="" type="Text" name="curHandlerName" id="curHandlerName"/><br/>
     <%--当前环节信息--%>
-    curNodeHandlerRole:<input value="" type="Text" name="handlerRole" id="handlerRole"/><br/>
-    curNodeHandlerField:<input value="" type="Text" name="handlerField" id="handlerField"/><br/>
+    curNodeHandlerRoleCode:<input value="" type="Text" name="handlerRoleCode" id="handlerRoleCode"/><br/>
+    curNodeHandlerRoleName:<input value="" type="Text" name="handlerRoleName" id="handlerRoleName"/><br/>
+    curNodeHandlerFieldCode:<input value="" type="Text" name="handlerFieldCode" id="handlerFieldCode"/><br/>
+    curNodeHandlerFieldName:<input value="" type="Text" name="handlerFieldName" id="handlerFieldName"/><br/>
     <%--目标流程信息--%>
     targetNodeUuid:<input value="" type="Text" name="flowNodeUuid" id="targetNodeUuid"/><br/>
     targetNodeType:<input value="" type="Text" name="flowNodeType" id="targetNodeType"/><br/>
     targetNodeCode:<input value="" type="Text" name="targetNodeCode" id="targetNodeCode"/><br/>
     targetNodeName:<input value="" type="Text" name="targetNodeName" id="targetNodeName"/><br/>
-    targetHandlerNum:<input value="" type="Text" name="curHandlerNum" id="targetHandlerNum"/><br/>
-    targetHandlerNam:<input value="" type="Text" name="curHandlerNam" id="targetHandlerNam"/><br/>
+    targetHandlerNum:<input value="" type="Text" name="targetHandlerCode" id="targetHandlerCode"/><br/>
+    targetHandlerNam:<input value="" type="Text" name="targetHandlerName" id="targetHandlerName"/><br/>
 </div>
 <div id="popuFlowToNextNode" class="easyui-dialog" title="Please select ....."
      style="width:550px;height:450px;padding:1px"
@@ -59,6 +61,21 @@
                    border:false,
                    collapsible:true,
                    method:'get'">
+                <thead>
+                <tr>
+                    <th data-options="field:'cb',width:30,checkbox: 'true'"></th>
+                    <th data-options="field:'uuid',width:100,hidden:true">uuid</th>
+                    <th data-options="field:'flowUuid',width:80,hidden:true">flowUuid</th>
+                    <th data-options="field:'nodeUuid',width:80,hidden:true">nodeUuid</th>
+                    <th data-options="field:'directionType',width:80,hidden:true">directionType</th>
+                    <th data-options="field:'targetNodeType',width:80,hidden:true">目標環節-Type</th>
+                    <th data-options="field:'targetNodeUuid',width:80,hidden:true">目標環節-Uuid</th>
+                    <th data-options="field:'targetNodeCode',width:80,hidden:true">目標環節-Code</th>
+                    <th data-options="field:'targetNodeName',width:80,hidden:true">目標環節-Code</th>
+                    <th data-options="field:'directionCode',width:80,hidden:true">流向編碼</th>
+                    <th data-options="field:'directionName',width:200,hidden:false">流向名稱</th>
+                </tr>
+                </thead>
             </table>
         </div>
         <div data-options="region:'east',split:true,title:'办理人',collapsible:false" style="width:50%;">
@@ -76,8 +93,8 @@
                 <tr>
                     <th data-options="field:'cb',width:30,checkbox: 'true'"></th>
                     <th data-options="field:'uuid',width:100,hidden:true">uuid</th>
-                    <th data-options="field:'handlerCode',width:80,hidden:true">办理人编号</th>
-                    <th data-options="field:'handlerName',width:180">办理人名称</th>
+                    <th data-options="field:'handlerCode',width:80,hidden:false">办理人编号</th>
+                    <th data-options="field:'handlerName',width:200,hidden:false">办理人名称</th>
                 </tr>
                 </thead>
             </table>
@@ -178,19 +195,7 @@
         var urlPath1 = '<%=basePath%>flowData/flowDirection.action?flowUuid=' + $("#flowUuid").val() + '&nodeUuid=' + $("#flowNodeUuid").val();
         $('#nodeList').datagrid({
             url: urlPath1,
-            columns: [[
-                {field: 'cb', checkbox: 'true', width: 30, hidden: false},
-                {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                {field: 'flowUuid', title: 'flowUuid', width: 100, hidden: true},
-                {field: 'nodeUuid', title: 'nodeUuid', width: 100, hidden: true},
-                {field: 'directionType', title: 'directionType', width: 50, hidden: true},
-                {field: 'directionCode', title: '流向編碼', width: 80, hidden: true},
-                {field: 'directionName', title: '流向名稱', width: 180, hidden: false},
-                {field: 'targetNodeType', title: '目標環節-Type', width: 100, hidden: true},
-                {field: 'targetNodeUuid', title: '目標環節-Uuid', width: 100, hidden: true},
-                {field: 'targetNodeCode', title: '目標環節-Code', width: 100, hidden: true},
-                {field: 'targetNodeName', title: '目標環節-Name', width: 100, hidden: true},
-            ]],
+            //单击时：读取办理人信息
             onClickRow: function (rowIndex, rowData) {
                 var urlPath2 = '';
                 //读取指定页面办理人
@@ -201,8 +206,10 @@
                     url: urlPath2,
                     dataType: 'json',
                     success: function (data) {
-                        $("#handlerRole").val(data[0].handlerRole);
-                        $("#handlerField").val(data[0].handlerField);
+                        $("#handlerRoleCode").val(data[0].handlerRoleCode);
+                        $("#handlerRoleName").val(data[0].handlerRoleName);
+                        $("#handlerFieldCode").val(data[0].handlerFieldCode);
+                        $("#handlerFieldName").val(data[0].handlerFieldName);
                     },
                     error: function (data) {
                         alert("【" + url + "】JSON数据获取失败，请联系管理员！");
@@ -215,33 +222,29 @@
                     url: urlPath2,
                 });
 
+                //读取节点维护的角色
+                <%--urlPath2 = '<%=basePath%>flowData/flowHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;--%>
+                <%--$('#handlerList').datagrid({--%>
+                <%--url: urlPath2,--%>
+                <%--});--%>
+
                 //读取页面选定办理人
                 if ($("#handlerField").val() != "") {
+                    var lvHandlerCode = $('#' + $("#handlerFieldCode").val()).val();
+                    var lvHandlerName = $('#' + $("#handlerFieldName").val()).val();
                     $('#handlerList').datagrid({
                         onLoadSuccess: function (data) {
-                            $(this).datagrid('appendRow', {handlerName: '<div style="text-align:center;color:red">123456789！</div>'}).datagrid('mergeCells', {
-                                index: 0,
-                                field: 'handlerName',
-                                colspan: 3
+                            $(this).datagrid('appendRow', {
+                                uuid: uuid(),
+                                handlerCode: lvHandlerCode,
+                                handlerName: lvHandlerName
                             });
                         }
                     });
-                    // $('#handlerList').datagrid('appendRow', {
-                    //     uuid: '123465789',
-                    //     handlerCode: '132456',
-                    //     handlerName: 'test'
-                    // });
-                    // $('#handlerList').datagrid('insertRow', {
-                    //     index: 0,
-                    //     row: {
-                    //         uuid: '132456',
-                    //         handlerCode: "1123",
-                    //         handlerName: "TEST"
-                    //     }
-                    // });
                 }
             }
         });
+        //弹出提交窗口
         $('#popuFlowToNextNode').dialog('open');
     };
 
@@ -263,11 +266,15 @@
         $("#targetNodeType").val(selectedNodeRows[0].targetNodeType);
         $("#targetNodeCode").val(selectedNodeRows[0].targetNodeCode);
         $("#targetNodeName").val(selectedNodeRows[0].targetNodeName);
+
+        //办理人
         $("#targetHandlerCode").val(selectedHandlerRows[0].handlerCode);
         $("#targetHandlerName").val(selectedHandlerRows[0].handlerName);
+
         //关闭窗口
         $('#popuFlowToNextNode').dialog('close');
+
         //保存文档
-        documentFlowToNext();
+        //documentFlowToNext();
     }
 </script>

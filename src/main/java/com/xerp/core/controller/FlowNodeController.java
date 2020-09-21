@@ -155,8 +155,10 @@ public class FlowNodeController extends BaseController {
             entityObject.setNodeCode(Integer.valueOf(jsonData.getString("nodeCode")));
             entityObject.setNodeName(jsonData.getString("nodeName"));
             entityObject.setNodeType(jsonData.getString("nodeType"));
-            entityObject.setHandlerRole(jsonData.getString("handlerRole"));
-            entityObject.setHandlerField(jsonData.getString("handlerField"));
+            entityObject.setHandlerRoleCode(jsonData.getString("handlerRoleCode"));
+            entityObject.setHandlerRoleName(jsonData.getString("handlerRoleName"));
+            entityObject.setHandlerFieldCode(jsonData.getString("handlerFieldCode"));
+            entityObject.setHandlerFieldName(jsonData.getString("handlerFieldName"));
             entityObject.setHandlerCode(jsonData.getString("handlerCode"));
             entityObject.setHandlerName(jsonData.getString("handlerName"));
             entityObject.setEditField(jsonData.getString("editField"));

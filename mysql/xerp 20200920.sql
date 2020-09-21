@@ -11,11 +11,62 @@
  Target Server Version : 50716
  File Encoding         : 65001
 
- Date: 25/08/2020 02:02:50
+ Date: 20/09/2020 19:55:13
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for tbl_flw_opinions
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_flw_opinions`;
+CREATE TABLE `tbl_flw_opinions`  (
+  `uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `doc_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `user_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `opinions` varchar(250) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `created_datetime` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`uuid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tbl_flw_vacation
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_flw_vacation`;
+CREATE TABLE `tbl_flw_vacation`  (
+  `uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `bill_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `subject` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `message` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_node_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_node_type` varchar(2) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_node_code` int(4) NULL DEFAULT NULL,
+  `flow_node_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_creator_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_creator_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `cur_handler_code` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `cur_handler_name` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `created_datetime` datetime(0) NULL DEFAULT NULL,
+  `updated_datetime` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`uuid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_flw_vacation
+-- ----------------------------
+INSERT INTO `tbl_flw_vacation` VALUES ('0e06d274512a4222bde19a3af1fda565', '草稿', '请假流程', '', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', '229120748b7349e09c10bd08082f60e4', '01', 1, '初审', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 01:28:05', '2020-09-18 01:28:10');
+INSERT INTO `tbl_flw_vacation` VALUES ('1066e0eec9b74728bee50ae655cd5b09', '草稿', '请假流程', NULL, 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', 'ba7ed00664fa44848601c3b8c2749403', '00', 0, '起草', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 23:33:37', '2020-09-18 23:33:37');
+INSERT INTO `tbl_flw_vacation` VALUES ('51257d5a41804f44ab3205a10d757d56', '草稿', '请假流程', '', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', '229120748b7349e09c10bd08082f60e4', '01', 1, '初审', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 01:30:10', '2020-09-18 01:31:00');
+INSERT INTO `tbl_flw_vacation` VALUES ('5e0a3e7b5e2b4aeaa32fb1e71bad65b4', '草稿', '请假流程', NULL, 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', 'ba7ed00664fa44848601c3b8c2749403', '00', 0, '起草', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 22:16:46', '2020-09-18 22:16:46');
+INSERT INTO `tbl_flw_vacation` VALUES ('64533e6fc7b64c19810cdd98a07b8061', '202009-019', '请假流程', '', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', '229120748b7349e09c10bd08082f60e4', '01', 1, '初审', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 01:33:28', '2020-09-18 01:33:55');
+INSERT INTO `tbl_flw_vacation` VALUES ('922534349e6d41d59b9abd4d16c4da3d', '草稿', '请假流程', NULL, 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', 'ba7ed00664fa44848601c3b8c2749403', '00', 0, '起草', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 23:21:37', '2020-09-18 23:21:37');
+INSERT INTO `tbl_flw_vacation` VALUES ('c67bb6bd93cf44fc9dcf6e8b4f8a5d15', '草稿', '请假流程', NULL, 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', 'ba7ed00664fa44848601c3b8c2749403', '00', 0, '起草', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 19:52:59', '2020-09-18 19:52:59');
+INSERT INTO `tbl_flw_vacation` VALUES ('c9cf5f4868db4f04b01a421e65b1bf10', '草稿', '请假流程', NULL, 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', 'ba7ed00664fa44848601c3b8c2749403', '00', 0, '起草', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 23:32:54', '2020-09-18 23:32:54');
+INSERT INTO `tbl_flw_vacation` VALUES ('d820296045eb48af8bcbe1497e0e39a0', '草稿', '请假流程', '', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '请假流程', '229120748b7349e09c10bd08082f60e4', '01', 1, '初审', 'admin', '系统管理员', 'admin', '系统管理员', '2020-09-18 01:31:33', '2020-09-18 01:32:05');
 
 -- ----------------------------
 -- Table structure for tbl_hr_org_business
@@ -52,7 +103,6 @@ DROP TABLE IF EXISTS `tbl_hr_org_business_unit`;
 CREATE TABLE `tbl_hr_org_business_unit`  (
   `uuid` varchar(36) CHARACTER SET utf8 COLLATE utf8_czech_ci NOT NULL,
   `parent_uuid` varchar(36) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
-  `business_uuid` varchar(36) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `unit_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `unit_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `supervisor_code` varchar(10) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
@@ -66,6 +116,12 @@ CREATE TABLE `tbl_hr_org_business_unit`  (
   `modified_datetime` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`uuid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_czech_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_hr_org_business_unit
+-- ----------------------------
+INSERT INTO `tbl_hr_org_business_unit` VALUES ('17d5787cf2a74aa1972ca65f9c575182', '91b007a9e28342c0a7d059e9a4eab691', 'BS-D0001', '采购组A', '', '', '', 1, '01', '系统管理员', '2020-09-04 22:54:46', '系统管理员', '2020-09-04 22:54:46');
+INSERT INTO `tbl_hr_org_business_unit` VALUES ('6dee8a02502746edbb044c193e63c7fe', '91b007a9e28342c0a7d059e9a4eab691', 'BS-D0002', '采购组B', '', '', '', 1, '99', '系统管理员', '2020-09-04 23:19:57', '系统管理员', '2020-09-04 23:33:33');
 
 -- ----------------------------
 -- Table structure for tbl_hr_org_company
@@ -262,11 +318,39 @@ CREATE TABLE `tbl_hr_org_warehouse_factory`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_czech_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Table structure for tbl_hr_person_docs
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_hr_person_docs`;
+CREATE TABLE `tbl_hr_person_docs`  (
+  `uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `person_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `person_name1` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `person_name2` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `person_name3` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `identity_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `identity_number` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `sex` varchar(2) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `country` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `region` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `city` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `address` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `job_position` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `cellphone` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `join_date` datetime(0) NULL DEFAULT NULL,
+  `cmp_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `dep_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `status` varchar(2) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  PRIMARY KEY (`uuid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for tbl_sys_config_number
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_sys_config_number`;
 CREATE TABLE `tbl_sys_config_number`  (
-  `id` int(4) NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `status` varchar(2) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `module_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `module_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `pre_num_word` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
@@ -276,16 +360,17 @@ CREATE TABLE `tbl_sys_config_number`  (
   `current_value` int(4) NULL DEFAULT NULL,
   `created_datetime` datetime(0) NULL DEFAULT NULL,
   `updated_datetime` datetime(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`uuid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_sys_config_number
 -- ----------------------------
-INSERT INTO `tbl_sys_config_number` VALUES (1, 'Test0001', '测试1', 'ORD', '', 10, '', 98, '2020-06-03 22:27:34', '2020-06-07 18:17:51');
-INSERT INTO `tbl_sys_config_number` VALUES (2, 'Test0002', '测试2', 'ORD-Y', 'YYYY', 3, '2020', 65, '2020-06-04 00:26:57', '2020-06-07 18:18:04');
-INSERT INTO `tbl_sys_config_number` VALUES (3, 'Test0003', '测试3', 'ORD-M', 'YYYYMM', 3, '202006', 14, '2020-06-04 00:26:57', '2020-06-07 18:17:59');
-INSERT INTO `tbl_sys_config_number` VALUES (4, 'Test0004', '测试4', 'ORD-D', 'YYYYMMdd', 3, '20200607', 5, '2020-06-04 00:26:57', '2020-06-07 18:18:02');
+INSERT INTO `tbl_sys_config_number` VALUES ('1', '01', 'Test0001', '测试1', 'ORD', '', 10, '', 98, '2020-06-03 22:27:34', '2020-08-27 00:47:08');
+INSERT INTO `tbl_sys_config_number` VALUES ('2', '01', 'Test0002', '测试2', 'ORD-Y', 'YYYY', 3, '2020', 65, '2020-06-04 00:26:57', '2020-08-27 00:37:02');
+INSERT INTO `tbl_sys_config_number` VALUES ('3', '01', 'Test0003', '测试3', 'ORD-M', 'YYYYMM', 3, '202006', 14, '2020-06-04 00:26:57', '2020-06-07 18:17:59');
+INSERT INTO `tbl_sys_config_number` VALUES ('4', '01', 'Test0004', '测试4', 'ORD-D', 'YYYYMMdd', 3, '20200607', 5, '2020-06-04 00:26:57', '2020-06-07 18:18:02');
+INSERT INTO `tbl_sys_config_number` VALUES ('7af3395d5d8f4d9f899e7661afdc4d71', '01', 'HR-FLW-000001', '请假申请', '', 'YYYYMM', 3, '202009', 19, '2020-09-17 19:24:13', '2020-09-18 01:33:33');
 
 -- ----------------------------
 -- Table structure for tbl_sys_data_key_type
@@ -363,8 +448,10 @@ CREATE TABLE `tbl_sys_flow_direction`  (
 -- ----------------------------
 INSERT INTO `tbl_sys_flow_direction` VALUES ('22164d4015044c8db93b4a7c9ba37684', '47f3837a02744a61bed31021d4c26525', '54fffcec08be4efca9cf02640d921877', '01', '1', '完成', '3', '完成', '', 'true', '', 'sl', 1, '系统管理员', '2020-01-22 17:43:47', '系统管理员', '2020-01-22 17:43:47');
 INSERT INTO `tbl_sys_flow_direction` VALUES ('2b8bacf3fac8464d84ca21cff4a881f7', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '13c55654274641aaadce70edd3205c3a', '02', '99', '退回【起草】', 'ba7ed00664fa44848601c3b8c2749403', '起草', '', 'true', '', 'sl', 99, '系统管理员', '2020-01-22 21:58:28', '系统管理员', '2020-01-22 21:58:28');
+INSERT INTO `tbl_sys_flow_direction` VALUES ('4024aed8b03a4ddebf7bf15781c0e848', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', 'ba7ed00664fa44848601c3b8c2749403', '01', '3', '转交【归档】', '6180c859b90e4d758387c2da6861fb1e', '归档', '', 'true', 'TEST2', 'sl', 3, '系统管理员', '2020-09-02 23:29:18', '系统管理员', '2020-09-02 23:29:18');
 INSERT INTO `tbl_sys_flow_direction` VALUES ('47b1ff3834d6441c83c7b11cfd401efb', '47f3837a02744a61bed31021d4c26525', '54fffcec08be4efca9cf02640d921877', '02', '98', '退回【审批】', '2', '审批', '', 'true', '', 'sl', 98, '系统管理员', '2020-01-22 17:44:32', '系统管理员', '2020-01-22 17:44:32');
 INSERT INTO `tbl_sys_flow_direction` VALUES ('51710160dd0e4f70af9fd4b4ac524ec0', '47f3837a02744a61bed31021d4c26525', '1', '01', '1', '呈交【审批】', '2', '审批', 'sl', '', 'true', 'sl', 1, '系统管理员', '2020-01-22 17:33:04', '系统管理员', '2020-01-22 17:42:39');
+INSERT INTO `tbl_sys_flow_direction` VALUES ('5b6e6c37977f448ea5011758ef8a01fe', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', 'ba7ed00664fa44848601c3b8c2749403', '01', '2', '提交【复审】', '13c55654274641aaadce70edd3205c3a', '复审', '', 'true', 'TEST', 'sl', 2, '系统管理员', '2020-09-02 23:28:56', '系统管理员', '2020-09-02 23:28:56');
 INSERT INTO `tbl_sys_flow_direction` VALUES ('64c4ec4de1c44ca5b7a8b59e2cebe0f1', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '13c55654274641aaadce70edd3205c3a', '02', '2', '退回【初审】', '229120748b7349e09c10bd08082f60e4', '初审', '', 'true', '', 'sl', 2, '系统管理员', '2020-01-22 21:58:10', '系统管理员', '2020-01-22 21:58:10');
 INSERT INTO `tbl_sys_flow_direction` VALUES ('8448bbe106ea491ca38f185015a38279', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '13c55654274641aaadce70edd3205c3a', '01', '1', '归档', '6180c859b90e4d758387c2da6861fb1e', '归档', '', 'true', '', 'sl', 1, '系统管理员', '2020-01-22 21:57:55', '系统管理员', '2020-01-22 21:57:55');
 INSERT INTO `tbl_sys_flow_direction` VALUES ('866d06157af149098b24df5984c42bbb', '47f3837a02744a61bed31021d4c26525', '54fffcec08be4efca9cf02640d921877', '02', '99', '退回【起草】', '1', '起草', 'sl', '', 'true', 'sl', 99, '系统管理员', '2020-01-22 17:44:09', '系统管理员', '2020-01-22 17:44:17');
@@ -440,6 +527,14 @@ CREATE TABLE `tbl_sys_flow_node`  (
   `node_code` int(4) NULL DEFAULT NULL,
   `node_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `node_type` varchar(2) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_role_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_role_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_field_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_field_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `handler_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `edit_field` varchar(500) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
+  `node_formula` varchar(150) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `gooflow_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `gooflow_left` varchar(10) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
   `gooflow_top` varchar(10) CHARACTER SET utf8 COLLATE utf8_czech_ci NULL DEFAULT NULL,
@@ -457,15 +552,15 @@ CREATE TABLE `tbl_sys_flow_node`  (
 -- ----------------------------
 -- Records of tbl_sys_flow_node
 -- ----------------------------
-INSERT INTO `tbl_sys_flow_node` VALUES ('1', '47f3837a02744a61bed31021d4c26525', '01', 0, '起草', '00', 'start', '138', '30', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
-INSERT INTO `tbl_sys_flow_node` VALUES ('13c55654274641aaadce70edd3205c3a', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 2, '复审', '01', 'task', '138', '220', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:37', '系统管理员', '2020-01-22 21:55:21');
-INSERT INTO `tbl_sys_flow_node` VALUES ('2', '47f3837a02744a61bed31021d4c26525', '01', 1, '审批', '01', 'task', '138', '130', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
-INSERT INTO `tbl_sys_flow_node` VALUES ('229120748b7349e09c10bd08082f60e4', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 1, '初审', '01', 'task', '138', '120', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:28', '系统管理员', '2020-01-22 21:55:24');
-INSERT INTO `tbl_sys_flow_node` VALUES ('2ea477ac103a4225a5c4778dda63bacd', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 99, '完成', '99', 'end', '1180', '500', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:56', '系统管理员', '2020-01-22 21:54:56');
-INSERT INTO `tbl_sys_flow_node` VALUES ('3', '47f3837a02744a61bed31021d4c26525', '01', 99, '完成', '99', 'end', '138', '330', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
-INSERT INTO `tbl_sys_flow_node` VALUES ('54fffcec08be4efca9cf02640d921877', '47f3837a02744a61bed31021d4c26525', '01', 2, '报销', '02', 'node', '138', '230', '100', '24', NULL, '', '系统管理员', '2020-01-22 16:21:23', '系统管理员', '2020-01-22 16:21:23');
-INSERT INTO `tbl_sys_flow_node` VALUES ('6180c859b90e4d758387c2da6861fb1e', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 3, '归档', '02', 'node', '138', '320', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:50', '系统管理员', '2020-01-22 21:54:50');
-INSERT INTO `tbl_sys_flow_node` VALUES ('ba7ed00664fa44848601c3b8c2749403', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 0, '起草', '00', 'start', '138', '20', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:17', '系统管理员', '2020-01-22 21:54:17');
+INSERT INTO `tbl_sys_flow_node` VALUES ('1', '47f3837a02744a61bed31021d4c26525', '01', 0, '起草', '00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'start', '138', '30', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
+INSERT INTO `tbl_sys_flow_node` VALUES ('13c55654274641aaadce70edd3205c3a', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 2, '复审', '01', '', NULL, '', NULL, 'admin', '系统管理员', '', '', 'task', '138', '220', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:37', '系统管理员', '2020-09-17 03:07:21');
+INSERT INTO `tbl_sys_flow_node` VALUES ('2', '47f3837a02744a61bed31021d4c26525', '01', 1, '审批', '01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'task', '138', '130', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
+INSERT INTO `tbl_sys_flow_node` VALUES ('229120748b7349e09c10bd08082f60e4', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 1, '初审', '01', 'SYS-000000000000001', '测试角色0001', 'flowCreatorCode', 'flowCreatorName', 'admin', '系统管理员', '', '', 'task', '138', '120', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:28', '系统管理员', '2020-09-20 19:48:26');
+INSERT INTO `tbl_sys_flow_node` VALUES ('2ea477ac103a4225a5c4778dda63bacd', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 99, '完成', '99', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'end', '1180', '500', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:56', '系统管理员', '2020-01-22 21:54:56');
+INSERT INTO `tbl_sys_flow_node` VALUES ('3', '47f3837a02744a61bed31021d4c26525', '01', 99, '完成', '99', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'end', '138', '330', '100', '24', NULL, NULL, '系统管理员', '2020-01-22 02:29:57', '系统管理员', '2020-01-22 02:29:57');
+INSERT INTO `tbl_sys_flow_node` VALUES ('54fffcec08be4efca9cf02640d921877', '47f3837a02744a61bed31021d4c26525', '01', 2, '报销', '02', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'node', '138', '230', '100', '24', NULL, '', '系统管理员', '2020-01-22 16:21:23', '系统管理员', '2020-01-22 16:21:23');
+INSERT INTO `tbl_sys_flow_node` VALUES ('6180c859b90e4d758387c2da6861fb1e', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 3, '归档', '02', '办理角色	', NULL, '办理字段	', NULL, '', '', '编辑字段', '流向公式', 'node', '138', '320', '100', '24', NULL, '備註信息	', '系统管理员', '2020-01-22 21:54:50', '系统管理员', '2020-09-19 01:44:58');
+INSERT INTO `tbl_sys_flow_node` VALUES ('ba7ed00664fa44848601c3b8c2749403', 'cd458d4be53b4b1eaad4a1c5aa7f8ae2', '01', 0, '起草', '00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'start', '138', '20', '100', '24', NULL, '', '系统管理员', '2020-01-22 21:54:17', '系统管理员', '2020-09-02 01:12:24');
 
 -- ----------------------------
 -- Table structure for tbl_sys_info
@@ -502,7 +597,7 @@ CREATE TABLE `tbl_sys_log`  (
   `log_message` varchar(5000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `created_datetime` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 870 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1160 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tbl_sys_log
@@ -597,6 +692,296 @@ INSERT INTO `tbl_sys_log` VALUES (866, 'UserLoginController.java', 'com.xerp.cor
 INSERT INTO `tbl_sys_log` VALUES (867, 'CompanyController.java', 'com.xerp.core.controller.CompanyController', 'listData', '56', 'http-nio-8080-exec-3', 'INFO', 'com.xerp.core.controller.CompanyController-listData', '2020-08-25 01:55:08');
 INSERT INTO `tbl_sys_log` VALUES (868, 'BusinessController.java', 'com.xerp.core.controller.BusinessController', 'listData', '57', 'http-nio-8080-exec-3', 'INFO', 'com.xerp.core.controller.BusinessController-listData', '2020-08-25 01:55:10');
 INSERT INTO `tbl_sys_log` VALUES (869, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-25 01:56:07');
+INSERT INTO `tbl_sys_log` VALUES (870, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-26 16:35:42');
+INSERT INTO `tbl_sys_log` VALUES (871, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-26 17:52:17');
+INSERT INTO `tbl_sys_log` VALUES (872, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-26 17:52:17');
+INSERT INTO `tbl_sys_log` VALUES (873, 'CompanyController.java', 'com.xerp.core.controller.CompanyController', 'listData', '56', 'http-nio-8080-exec-9', 'INFO', 'com.xerp.core.controller.CompanyController-listData', '2020-08-26 17:52:41');
+INSERT INTO `tbl_sys_log` VALUES (874, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-26 23:02:38');
+INSERT INTO `tbl_sys_log` VALUES (875, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-26 23:08:44');
+INSERT INTO `tbl_sys_log` VALUES (876, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-26 23:36:46');
+INSERT INTO `tbl_sys_log` VALUES (877, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-26 23:41:31');
+INSERT INTO `tbl_sys_log` VALUES (878, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-26 23:58:56');
+INSERT INTO `tbl_sys_log` VALUES (879, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 00:08:44');
+INSERT INTO `tbl_sys_log` VALUES (880, 'BillNumberController.java', 'com.xerp.core.controller.BillNumberController', 'saveData', '214', 'http-nio-8080-exec-1', 'ERROR', 'XERP Exception:java.lang.NumberFormatException: null', '2020-08-27 00:22:50');
+INSERT INTO `tbl_sys_log` VALUES (881, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 00:27:57');
+INSERT INTO `tbl_sys_log` VALUES (882, 'BillNumberController.java', 'com.xerp.core.controller.BillNumberController', 'listData', '68', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception:org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: Could not set property \'currentRange\' of \'class com.xerp.core.entity.BillNumber\' with value \'\' Cause: org.apache.ibatis.reflection.ReflectionException: There is no setter for property named \'currentRange\' in \'class com.xerp.core.entity.BillNumber\'', '2020-08-27 00:28:07');
+INSERT INTO `tbl_sys_log` VALUES (883, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 00:28:59');
+INSERT INTO `tbl_sys_log` VALUES (884, 'BillNumberController.java', 'com.xerp.core.controller.BillNumberController', 'saveData', '206', 'http-nio-8080-exec-3', 'ERROR', 'XERP Exception:org.springframework.dao.DataIntegrityViolationException: \r\n### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1\r\n### The error may involve defaultParameterMap\r\n### The error occurred while setting parameters\r\n### SQL: insert into tbl_sys_config_number         (uuid,         module_code,         module_name,         pre_num_word,         increment_range,         default_length,         created_datetime,         updated_datetime)         values         (?,         ?,         ?,         ?,         ?,         ?,         ?,         ?)\r\n### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1\n; Data truncation: Data too long for column \'uuid\' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1', '2020-08-27 00:29:31');
+INSERT INTO `tbl_sys_log` VALUES (885, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 00:33:41');
+INSERT INTO `tbl_sys_log` VALUES (886, 'BillNumberController.java', 'com.xerp.core.controller.BillNumberController', 'saveData', '206', 'http-nio-8080-exec-7', 'ERROR', 'XERP Exception:org.springframework.dao.DataIntegrityViolationException: \r\n### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1\r\n### The error may involve defaultParameterMap\r\n### The error occurred while setting parameters\r\n### SQL: insert into tbl_sys_config_number         (uuid,         module_code,         module_name,         pre_num_word,         increment_range,         default_length,         created_datetime,         updated_datetime)         values         (?,         ?,         ?,         ?,         ?,         ?,         ?,         ?)\r\n### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1\n; Data truncation: Data too long for column \'uuid\' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1', '2020-08-27 00:34:20');
+INSERT INTO `tbl_sys_log` VALUES (887, 'BillNumberController.java', 'com.xerp.core.controller.BillNumberController', 'saveData', '206', 'http-nio-8080-exec-3', 'ERROR', 'XERP Exception:org.springframework.dao.DataIntegrityViolationException: \r\n### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1\r\n### The error may involve defaultParameterMap\r\n### The error occurred while setting parameters\r\n### SQL: insert into tbl_sys_config_number         (uuid,         module_code,         module_name,         pre_num_word,         increment_range,         default_length,         created_datetime,         updated_datetime)         values         (?,         ?,         ?,         ?,         ?,         ?,         ?,         ?)\r\n### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1\n; Data truncation: Data too long for column \'uuid\' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1', '2020-08-27 00:34:25');
+INSERT INTO `tbl_sys_log` VALUES (888, 'BillNumberController.java', 'com.xerp.core.controller.BillNumberController', 'saveData', '206', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception:org.springframework.dao.DataIntegrityViolationException: \r\n### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1\r\n### The error may involve defaultParameterMap\r\n### The error occurred while setting parameters\r\n### SQL: insert into tbl_sys_config_number         (uuid,         module_code,         module_name,         pre_num_word,         increment_range,         default_length,         created_datetime,         updated_datetime)         values         (?,         ?,         ?,         ?,         ?,         ?,         ?,         ?)\r\n### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1\n; Data truncation: Data too long for column \'uuid\' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'uuid\' at row 1', '2020-08-27 00:34:31');
+INSERT INTO `tbl_sys_log` VALUES (889, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 00:44:40');
+INSERT INTO `tbl_sys_log` VALUES (890, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 01:23:06');
+INSERT INTO `tbl_sys_log` VALUES (891, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 01:35:03');
+INSERT INTO `tbl_sys_log` VALUES (892, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-2', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-08-27 01:35:05');
+INSERT INTO `tbl_sys_log` VALUES (893, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 01:43:12');
+INSERT INTO `tbl_sys_log` VALUES (894, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 01:45:52');
+INSERT INTO `tbl_sys_log` VALUES (895, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-27 01:49:10');
+INSERT INTO `tbl_sys_log` VALUES (896, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 16:11:20');
+INSERT INTO `tbl_sys_log` VALUES (897, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 16:39:45');
+INSERT INTO `tbl_sys_log` VALUES (898, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 16:43:03');
+INSERT INTO `tbl_sys_log` VALUES (899, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 16:47:48');
+INSERT INTO `tbl_sys_log` VALUES (900, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 16:52:36');
+INSERT INTO `tbl_sys_log` VALUES (901, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 17:25:44');
+INSERT INTO `tbl_sys_log` VALUES (902, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 20:43:21');
+INSERT INTO `tbl_sys_log` VALUES (903, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 20:46:26');
+INSERT INTO `tbl_sys_log` VALUES (904, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 20:47:50');
+INSERT INTO `tbl_sys_log` VALUES (905, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 21:19:01');
+INSERT INTO `tbl_sys_log` VALUES (906, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 21:57:37');
+INSERT INTO `tbl_sys_log` VALUES (907, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 22:57:11');
+INSERT INTO `tbl_sys_log` VALUES (908, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-1', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 23:20:04');
+INSERT INTO `tbl_sys_log` VALUES (909, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-08-31 23:28:14');
+INSERT INTO `tbl_sys_log` VALUES (910, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-08-31 23:28:19');
+INSERT INTO `tbl_sys_log` VALUES (911, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 00:01:32');
+INSERT INTO `tbl_sys_log` VALUES (912, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 00:20:05');
+INSERT INTO `tbl_sys_log` VALUES (913, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 00:26:14');
+INSERT INTO `tbl_sys_log` VALUES (914, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 00:28:56');
+INSERT INTO `tbl_sys_log` VALUES (915, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-10', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 00:31:35');
+INSERT INTO `tbl_sys_log` VALUES (916, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 00:42:59');
+INSERT INTO `tbl_sys_log` VALUES (917, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 01:46:47');
+INSERT INTO `tbl_sys_log` VALUES (918, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 01:52:41');
+INSERT INTO `tbl_sys_log` VALUES (919, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 02:12:01');
+INSERT INTO `tbl_sys_log` VALUES (920, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 02:56:31');
+INSERT INTO `tbl_sys_log` VALUES (921, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-10', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 03:23:19');
+INSERT INTO `tbl_sys_log` VALUES (922, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-3', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 03:39:02');
+INSERT INTO `tbl_sys_log` VALUES (923, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 19:24:36');
+INSERT INTO `tbl_sys_log` VALUES (924, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 19:28:32');
+INSERT INTO `tbl_sys_log` VALUES (925, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 22:40:57');
+INSERT INTO `tbl_sys_log` VALUES (926, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 22:53:53');
+INSERT INTO `tbl_sys_log` VALUES (927, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 22:56:25');
+INSERT INTO `tbl_sys_log` VALUES (928, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-01 23:07:58');
+INSERT INTO `tbl_sys_log` VALUES (929, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-02 00:12:42');
+INSERT INTO `tbl_sys_log` VALUES (930, 'CompanyController.java', 'com.xerp.core.controller.CompanyController', 'listData', '56', 'http-nio-8080-exec-1', 'INFO', 'com.xerp.core.controller.CompanyController-listData', '2020-09-02 01:02:35');
+INSERT INTO `tbl_sys_log` VALUES (931, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-02 01:17:09');
+INSERT INTO `tbl_sys_log` VALUES (932, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-02 01:56:54');
+INSERT INTO `tbl_sys_log` VALUES (933, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-3', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-02 22:50:00');
+INSERT INTO `tbl_sys_log` VALUES (934, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '91', 'http-nio-8080-exec-9', 'ERROR', 'com.xerp.core.controller.UserLoginController-UnknownAccountException:org.apache.shiro.authc.UnknownAccountException', '2020-09-02 23:18:15');
+INSERT INTO `tbl_sys_log` VALUES (935, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-10', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-02 23:18:18');
+INSERT INTO `tbl_sys_log` VALUES (936, 'FlowDirectionController.java', 'com.xerp.core.controller.FlowDirectionController', 'saveData', '186', 'http-nio-8080-exec-9', 'ERROR', 'XERP Exception:org.springframework.dao.DataIntegrityViolationException: \r\n### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1\r\n### The error may involve defaultParameterMap\r\n### The error occurred while setting parameters\r\n### SQL: insert into tbl_sys_flow_direction         (uuid,         flow_uuid,         node_uuid,         direction_type,         direction_code,         direction_name,         target_node_uuid,         target_node_name,         comment,         gooflow_type,         gooflow_m,         gooflow_alt,         sort,         created_by,         created_datetime,         modified_by,         modified_datetime)         values         (?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?)\r\n### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1\n; Data truncation: Data too long for column \'gooflow_alt\' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1', '2020-09-02 23:29:41');
+INSERT INTO `tbl_sys_log` VALUES (937, 'FlowDirectionController.java', 'com.xerp.core.controller.FlowDirectionController', 'saveData', '186', 'http-nio-8080-exec-7', 'ERROR', 'XERP Exception:org.springframework.dao.DataIntegrityViolationException: \r\n### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1\r\n### The error may involve defaultParameterMap\r\n### The error occurred while setting parameters\r\n### SQL: insert into tbl_sys_flow_direction         (uuid,         flow_uuid,         node_uuid,         direction_type,         direction_code,         direction_name,         target_node_uuid,         target_node_name,         comment,         gooflow_type,         gooflow_m,         gooflow_alt,         sort,         created_by,         created_datetime,         modified_by,         modified_datetime)         values         (?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?)\r\n### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1\n; Data truncation: Data too long for column \'gooflow_alt\' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1', '2020-09-02 23:29:55');
+INSERT INTO `tbl_sys_log` VALUES (938, 'FlowDirectionController.java', 'com.xerp.core.controller.FlowDirectionController', 'saveData', '186', 'http-nio-8080-exec-1', 'ERROR', 'XERP Exception:org.springframework.dao.DataIntegrityViolationException: \r\n### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1\r\n### The error may involve defaultParameterMap\r\n### The error occurred while setting parameters\r\n### SQL: insert into tbl_sys_flow_direction         (uuid,         flow_uuid,         node_uuid,         direction_type,         direction_code,         direction_name,         target_node_uuid,         target_node_name,         comment,         gooflow_type,         gooflow_m,         gooflow_alt,         sort,         created_by,         created_datetime,         modified_by,         modified_datetime)         values         (?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?)\r\n### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1\n; Data truncation: Data too long for column \'gooflow_alt\' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1', '2020-09-02 23:30:03');
+INSERT INTO `tbl_sys_log` VALUES (939, 'FlowDirectionController.java', 'com.xerp.core.controller.FlowDirectionController', 'saveData', '186', 'http-nio-8080-exec-8', 'ERROR', 'XERP Exception:org.springframework.dao.DataIntegrityViolationException: \r\n### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1\r\n### The error may involve defaultParameterMap\r\n### The error occurred while setting parameters\r\n### SQL: insert into tbl_sys_flow_direction         (uuid,         flow_uuid,         node_uuid,         direction_type,         direction_code,         direction_name,         target_node_uuid,         target_node_name,         comment,         gooflow_type,         gooflow_m,         gooflow_alt,         sort,         created_by,         created_datetime,         modified_by,         modified_datetime)         values         (?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?,         ?)\r\n### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1\n; Data truncation: Data too long for column \'gooflow_alt\' at row 1; nested exception is com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column \'gooflow_alt\' at row 1', '2020-09-02 23:30:21');
+INSERT INTO `tbl_sys_log` VALUES (940, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 00:22:41');
+INSERT INTO `tbl_sys_log` VALUES (941, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '95', 'http-nio-8080-exec-6', 'ERROR', 'com.xerp.core.controller.UserLoginController-IncorrectCredentialsException:org.apache.shiro.authc.IncorrectCredentialsException: Submitted credentials for token [org.apache.shiro.authc.UsernamePasswordToken - admin, rememberMe=false] did not match the expected credentials.', '2020-09-03 01:04:47');
+INSERT INTO `tbl_sys_log` VALUES (942, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '95', 'http-nio-8080-exec-7', 'ERROR', 'com.xerp.core.controller.UserLoginController-IncorrectCredentialsException:org.apache.shiro.authc.IncorrectCredentialsException: Submitted credentials for token [org.apache.shiro.authc.UsernamePasswordToken - admin, rememberMe=false] did not match the expected credentials.', '2020-09-03 01:04:52');
+INSERT INTO `tbl_sys_log` VALUES (943, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 01:05:03');
+INSERT INTO `tbl_sys_log` VALUES (944, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 02:42:56');
+INSERT INTO `tbl_sys_log` VALUES (945, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 02:45:54');
+INSERT INTO `tbl_sys_log` VALUES (946, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 02:48:25');
+INSERT INTO `tbl_sys_log` VALUES (947, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 02:55:22');
+INSERT INTO `tbl_sys_log` VALUES (948, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-3', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-03 02:55:36');
+INSERT INTO `tbl_sys_log` VALUES (949, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-03 02:56:42');
+INSERT INTO `tbl_sys_log` VALUES (950, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 16:29:15');
+INSERT INTO `tbl_sys_log` VALUES (951, 'CompanyController.java', 'com.xerp.core.controller.CompanyController', 'listData', '56', 'http-nio-8080-exec-4', 'INFO', 'com.xerp.core.controller.CompanyController-listData', '2020-09-03 16:31:54');
+INSERT INTO `tbl_sys_log` VALUES (952, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 16:41:36');
+INSERT INTO `tbl_sys_log` VALUES (953, 'BusinessController.java', 'com.xerp.core.controller.BusinessController', 'listData', '57', 'http-nio-8080-exec-2', 'INFO', 'com.xerp.core.controller.BusinessController-listData', '2020-09-03 16:42:54');
+INSERT INTO `tbl_sys_log` VALUES (954, 'BusinessController.java', 'com.xerp.core.controller.BusinessController', 'listData', '57', 'http-nio-8080-exec-5', 'INFO', 'com.xerp.core.controller.BusinessController-listData', '2020-09-03 16:43:17');
+INSERT INTO `tbl_sys_log` VALUES (955, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 17:54:23');
+INSERT INTO `tbl_sys_log` VALUES (956, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 17:57:07');
+INSERT INTO `tbl_sys_log` VALUES (957, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 18:02:25');
+INSERT INTO `tbl_sys_log` VALUES (958, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-03 18:05:53');
+INSERT INTO `tbl_sys_log` VALUES (959, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 18:16:47');
+INSERT INTO `tbl_sys_log` VALUES (960, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 19:26:23');
+INSERT INTO `tbl_sys_log` VALUES (961, 'CompanyController.java', 'com.xerp.core.controller.CompanyController', 'getListZTreeByCmpUuid', '315', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception:org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.xerp.core.dao.ICompanyDAO.companyListZTreeByUuid', '2020-09-04 19:27:22');
+INSERT INTO `tbl_sys_log` VALUES (962, 'CompanyController.java', 'com.xerp.core.controller.CompanyController', 'getListZTreeByCmpUuid', '315', 'http-nio-8080-exec-6', 'ERROR', 'XERP Exception:org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.xerp.core.dao.ICompanyDAO.companyListZTreeByUuid', '2020-09-04 19:28:11');
+INSERT INTO `tbl_sys_log` VALUES (963, 'CompanyController.java', 'com.xerp.core.controller.CompanyController', 'getListZTreeByCmpUuid', '315', 'http-nio-8080-exec-5', 'ERROR', 'XERP Exception:org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.xerp.core.dao.ICompanyDAO.companyListZTreeByUuid', '2020-09-04 19:28:15');
+INSERT INTO `tbl_sys_log` VALUES (964, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 19:31:01');
+INSERT INTO `tbl_sys_log` VALUES (965, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 19:39:28');
+INSERT INTO `tbl_sys_log` VALUES (966, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 20:04:23');
+INSERT INTO `tbl_sys_log` VALUES (967, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 22:21:10');
+INSERT INTO `tbl_sys_log` VALUES (968, 'BusinessController.java', 'com.xerp.core.controller.BusinessController', 'listData', '57', 'http-nio-8080-exec-6', 'INFO', 'com.xerp.core.controller.BusinessController-listData', '2020-09-04 22:41:48');
+INSERT INTO `tbl_sys_log` VALUES (969, 'CompanyController.java', 'com.xerp.core.controller.CompanyController', 'listData', '56', 'http-nio-8080-exec-8', 'INFO', 'com.xerp.core.controller.CompanyController-listData', '2020-09-04 22:42:11');
+INSERT INTO `tbl_sys_log` VALUES (970, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 22:45:13');
+INSERT INTO `tbl_sys_log` VALUES (971, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 22:50:06');
+INSERT INTO `tbl_sys_log` VALUES (972, 'BusinessController.java', 'com.xerp.core.controller.BusinessController', 'listData', '57', 'http-nio-8080-exec-7', 'INFO', 'com.xerp.core.controller.BusinessController-listData', '2020-09-04 22:50:58');
+INSERT INTO `tbl_sys_log` VALUES (973, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 23:13:51');
+INSERT INTO `tbl_sys_log` VALUES (974, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-04 23:19:16');
+INSERT INTO `tbl_sys_log` VALUES (975, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-05 01:43:51');
+INSERT INTO `tbl_sys_log` VALUES (976, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-05 01:47:14');
+INSERT INTO `tbl_sys_log` VALUES (977, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-05 02:06:55');
+INSERT INTO `tbl_sys_log` VALUES (978, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-06 19:57:24');
+INSERT INTO `tbl_sys_log` VALUES (979, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-2', 'ERROR', 'java.lang.NullPointerException', '2020-09-06 19:58:04');
+INSERT INTO `tbl_sys_log` VALUES (980, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-08 16:56:32');
+INSERT INTO `tbl_sys_log` VALUES (981, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-1', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 17:37:23');
+INSERT INTO `tbl_sys_log` VALUES (982, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-1', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:38:42');
+INSERT INTO `tbl_sys_log` VALUES (983, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-7', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:38:44');
+INSERT INTO `tbl_sys_log` VALUES (984, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-5', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:42:51');
+INSERT INTO `tbl_sys_log` VALUES (985, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-9', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:43:00');
+INSERT INTO `tbl_sys_log` VALUES (986, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-4', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:43:19');
+INSERT INTO `tbl_sys_log` VALUES (987, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-8', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:43:33');
+INSERT INTO `tbl_sys_log` VALUES (988, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-8', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:45:16');
+INSERT INTO `tbl_sys_log` VALUES (989, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-10', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:56:30');
+INSERT INTO `tbl_sys_log` VALUES (990, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-1', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:56:40');
+INSERT INTO `tbl_sys_log` VALUES (991, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-11 17:56:43');
+INSERT INTO `tbl_sys_log` VALUES (992, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-7', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:56:44');
+INSERT INTO `tbl_sys_log` VALUES (993, 'PortalController.java', 'com.xerp.core.controller.PortalController', 'listByUuid', '94', 'http-nio-8080-exec-10', 'ERROR', 'java.lang.NullPointerException', '2020-09-11 17:56:44');
+INSERT INTO `tbl_sys_log` VALUES (994, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-2', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 18:02:36');
+INSERT INTO `tbl_sys_log` VALUES (995, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 22:29:11');
+INSERT INTO `tbl_sys_log` VALUES (996, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 22:45:30');
+INSERT INTO `tbl_sys_log` VALUES (997, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-3', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:09:34');
+INSERT INTO `tbl_sys_log` VALUES (998, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:15:45');
+INSERT INTO `tbl_sys_log` VALUES (999, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:22:40');
+INSERT INTO `tbl_sys_log` VALUES (1000, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:31:44');
+INSERT INTO `tbl_sys_log` VALUES (1001, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-11 23:49:35');
+INSERT INTO `tbl_sys_log` VALUES (1002, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-2', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 01:26:10');
+INSERT INTO `tbl_sys_log` VALUES (1003, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 01:55:07');
+INSERT INTO `tbl_sys_log` VALUES (1004, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 02:31:33');
+INSERT INTO `tbl_sys_log` VALUES (1005, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-12 02:35:11');
+INSERT INTO `tbl_sys_log` VALUES (1006, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:10:44');
+INSERT INTO `tbl_sys_log` VALUES (1007, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:16:46');
+INSERT INTO `tbl_sys_log` VALUES (1008, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-10', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:53');
+INSERT INTO `tbl_sys_log` VALUES (1009, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-1', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:54');
+INSERT INTO `tbl_sys_log` VALUES (1010, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-2', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:54');
+INSERT INTO `tbl_sys_log` VALUES (1011, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-3', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:54');
+INSERT INTO `tbl_sys_log` VALUES (1012, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:54');
+INSERT INTO `tbl_sys_log` VALUES (1013, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-5', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:55');
+INSERT INTO `tbl_sys_log` VALUES (1014, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-6', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:55');
+INSERT INTO `tbl_sys_log` VALUES (1015, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-7', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1016, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-8', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1017, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-9', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1018, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-10', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1019, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-1', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:56');
+INSERT INTO `tbl_sys_log` VALUES (1020, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-2', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:16:57');
+INSERT INTO `tbl_sys_log` VALUES (1021, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-3', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:17:02');
+INSERT INTO `tbl_sys_log` VALUES (1022, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:17:02');
+INSERT INTO `tbl_sys_log` VALUES (1023, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-5', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:17:03');
+INSERT INTO `tbl_sys_log` VALUES (1024, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '200', 'http-nio-8080-exec-6', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:17:03');
+INSERT INTO `tbl_sys_log` VALUES (1025, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:18:34');
+INSERT INTO `tbl_sys_log` VALUES (1026, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:19:39');
+INSERT INTO `tbl_sys_log` VALUES (1027, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:23:55');
+INSERT INTO `tbl_sys_log` VALUES (1028, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:50:47');
+INSERT INTO `tbl_sys_log` VALUES (1029, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:56:34');
+INSERT INTO `tbl_sys_log` VALUES (1030, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 16:58:15');
+INSERT INTO `tbl_sys_log` VALUES (1031, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '206', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:58:36');
+INSERT INTO `tbl_sys_log` VALUES (1032, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '206', 'http-nio-8080-exec-8', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:58:38');
+INSERT INTO `tbl_sys_log` VALUES (1033, 'FlowConfigurationController.java', 'com.xerp.module.controller.FlowConfigurationController', 'flowHandler', '206', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception：java.lang.NullPointerException', '2020-09-13 16:59:04');
+INSERT INTO `tbl_sys_log` VALUES (1034, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 17:01:04');
+INSERT INTO `tbl_sys_log` VALUES (1035, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 17:25:32');
+INSERT INTO `tbl_sys_log` VALUES (1036, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 17:29:41');
+INSERT INTO `tbl_sys_log` VALUES (1037, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-10', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 17:39:32');
+INSERT INTO `tbl_sys_log` VALUES (1038, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 18:17:10');
+INSERT INTO `tbl_sys_log` VALUES (1039, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 18:19:39');
+INSERT INTO `tbl_sys_log` VALUES (1040, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 18:24:00');
+INSERT INTO `tbl_sys_log` VALUES (1041, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '91', 'http-nio-8080-exec-9', 'ERROR', 'com.xerp.core.controller.UserLoginController-UnknownAccountException:org.apache.shiro.authc.UnknownAccountException', '2020-09-13 23:00:25');
+INSERT INTO `tbl_sys_log` VALUES (1042, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-1', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-13 23:00:28');
+INSERT INTO `tbl_sys_log` VALUES (1043, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '91', 'http-nio-8080-exec-4', 'ERROR', 'com.xerp.core.controller.UserLoginController-UnknownAccountException:org.apache.shiro.authc.UnknownAccountException', '2020-09-14 00:16:04');
+INSERT INTO `tbl_sys_log` VALUES (1044, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-3', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 00:16:06');
+INSERT INTO `tbl_sys_log` VALUES (1045, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-3', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-14 00:37:01');
+INSERT INTO `tbl_sys_log` VALUES (1046, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 01:46:25');
+INSERT INTO `tbl_sys_log` VALUES (1047, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 01:49:11');
+INSERT INTO `tbl_sys_log` VALUES (1048, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 01:51:50');
+INSERT INTO `tbl_sys_log` VALUES (1049, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 02:50:33');
+INSERT INTO `tbl_sys_log` VALUES (1050, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 02:53:44');
+INSERT INTO `tbl_sys_log` VALUES (1051, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 02:55:22');
+INSERT INTO `tbl_sys_log` VALUES (1052, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 02:57:16');
+INSERT INTO `tbl_sys_log` VALUES (1053, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 03:03:25');
+INSERT INTO `tbl_sys_log` VALUES (1054, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 03:04:53');
+INSERT INTO `tbl_sys_log` VALUES (1055, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 03:10:09');
+INSERT INTO `tbl_sys_log` VALUES (1056, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 16:35:16');
+INSERT INTO `tbl_sys_log` VALUES (1057, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 16:39:14');
+INSERT INTO `tbl_sys_log` VALUES (1058, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 22:37:33');
+INSERT INTO `tbl_sys_log` VALUES (1059, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 22:42:05');
+INSERT INTO `tbl_sys_log` VALUES (1060, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 22:43:36');
+INSERT INTO `tbl_sys_log` VALUES (1061, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 22:46:25');
+INSERT INTO `tbl_sys_log` VALUES (1062, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 22:48:39');
+INSERT INTO `tbl_sys_log` VALUES (1063, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 22:51:08');
+INSERT INTO `tbl_sys_log` VALUES (1064, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 22:53:05');
+INSERT INTO `tbl_sys_log` VALUES (1065, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-14 22:54:47');
+INSERT INTO `tbl_sys_log` VALUES (1066, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-15 16:13:27');
+INSERT INTO `tbl_sys_log` VALUES (1067, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 02:10:50');
+INSERT INTO `tbl_sys_log` VALUES (1068, 'DataKeyTypeController.java', 'com.xerp.core.controller.DataKeyTypeController', 'listByTypeCode', '92', 'http-nio-8080-exec-4', 'ERROR', 'XERP Exception:java.lang.NullPointerException', '2020-09-16 02:10:59');
+INSERT INTO `tbl_sys_log` VALUES (1069, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 03:09:11');
+INSERT INTO `tbl_sys_log` VALUES (1070, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 18:13:52');
+INSERT INTO `tbl_sys_log` VALUES (1071, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 18:20:53');
+INSERT INTO `tbl_sys_log` VALUES (1072, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 18:34:18');
+INSERT INTO `tbl_sys_log` VALUES (1073, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-16 18:50:32');
+INSERT INTO `tbl_sys_log` VALUES (1074, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 18:57:40');
+INSERT INTO `tbl_sys_log` VALUES (1075, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 19:30:47');
+INSERT INTO `tbl_sys_log` VALUES (1076, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 19:56:20');
+INSERT INTO `tbl_sys_log` VALUES (1077, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 20:00:24');
+INSERT INTO `tbl_sys_log` VALUES (1078, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 22:31:35');
+INSERT INTO `tbl_sys_log` VALUES (1079, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-16 22:37:11');
+INSERT INTO `tbl_sys_log` VALUES (1080, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 22:58:14');
+INSERT INTO `tbl_sys_log` VALUES (1081, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 23:15:51');
+INSERT INTO `tbl_sys_log` VALUES (1082, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 23:21:11');
+INSERT INTO `tbl_sys_log` VALUES (1083, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 23:27:16');
+INSERT INTO `tbl_sys_log` VALUES (1084, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-16 23:32:49');
+INSERT INTO `tbl_sys_log` VALUES (1085, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 02:28:38');
+INSERT INTO `tbl_sys_log` VALUES (1086, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 02:32:27');
+INSERT INTO `tbl_sys_log` VALUES (1087, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 03:06:07');
+INSERT INTO `tbl_sys_log` VALUES (1088, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 03:10:10');
+INSERT INTO `tbl_sys_log` VALUES (1089, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 03:11:28');
+INSERT INTO `tbl_sys_log` VALUES (1090, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 03:29:37');
+INSERT INTO `tbl_sys_log` VALUES (1091, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 03:32:42');
+INSERT INTO `tbl_sys_log` VALUES (1092, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 03:34:07');
+INSERT INTO `tbl_sys_log` VALUES (1093, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 03:35:26');
+INSERT INTO `tbl_sys_log` VALUES (1094, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 16:16:04');
+INSERT INTO `tbl_sys_log` VALUES (1095, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 16:19:48');
+INSERT INTO `tbl_sys_log` VALUES (1096, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 16:23:27');
+INSERT INTO `tbl_sys_log` VALUES (1097, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 16:48:29');
+INSERT INTO `tbl_sys_log` VALUES (1098, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 16:53:16');
+INSERT INTO `tbl_sys_log` VALUES (1099, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 16:56:02');
+INSERT INTO `tbl_sys_log` VALUES (1100, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 16:56:20');
+INSERT INTO `tbl_sys_log` VALUES (1101, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 17:02:26');
+INSERT INTO `tbl_sys_log` VALUES (1102, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 17:03:05');
+INSERT INTO `tbl_sys_log` VALUES (1103, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 17:03:36');
+INSERT INTO `tbl_sys_log` VALUES (1104, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-10', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 17:04:47');
+INSERT INTO `tbl_sys_log` VALUES (1105, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 17:04:52');
+INSERT INTO `tbl_sys_log` VALUES (1106, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 17:11:50');
+INSERT INTO `tbl_sys_log` VALUES (1107, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 18:39:43');
+INSERT INTO `tbl_sys_log` VALUES (1108, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 18:47:03');
+INSERT INTO `tbl_sys_log` VALUES (1109, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-17 18:48:35');
+INSERT INTO `tbl_sys_log` VALUES (1110, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 19:23:05');
+INSERT INTO `tbl_sys_log` VALUES (1111, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 19:44:01');
+INSERT INTO `tbl_sys_log` VALUES (1112, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 19:59:33');
+INSERT INTO `tbl_sys_log` VALUES (1113, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 20:15:27');
+INSERT INTO `tbl_sys_log` VALUES (1114, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 20:17:31');
+INSERT INTO `tbl_sys_log` VALUES (1115, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 20:19:34');
+INSERT INTO `tbl_sys_log` VALUES (1116, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 20:21:20');
+INSERT INTO `tbl_sys_log` VALUES (1117, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:19:49');
+INSERT INTO `tbl_sys_log` VALUES (1118, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:29:46');
+INSERT INTO `tbl_sys_log` VALUES (1119, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:36:32');
+INSERT INTO `tbl_sys_log` VALUES (1120, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:37:32');
+INSERT INTO `tbl_sys_log` VALUES (1121, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:42:59');
+INSERT INTO `tbl_sys_log` VALUES (1122, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:53:26');
+INSERT INTO `tbl_sys_log` VALUES (1123, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:55:51');
+INSERT INTO `tbl_sys_log` VALUES (1124, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:56:55');
+INSERT INTO `tbl_sys_log` VALUES (1125, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-17 23:59:24');
+INSERT INTO `tbl_sys_log` VALUES (1126, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:02:46');
+INSERT INTO `tbl_sys_log` VALUES (1127, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:06:43');
+INSERT INTO `tbl_sys_log` VALUES (1128, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:07:40');
+INSERT INTO `tbl_sys_log` VALUES (1129, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:36:07');
+INSERT INTO `tbl_sys_log` VALUES (1130, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:41:19');
+INSERT INTO `tbl_sys_log` VALUES (1131, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:48:58');
+INSERT INTO `tbl_sys_log` VALUES (1132, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:50:47');
+INSERT INTO `tbl_sys_log` VALUES (1133, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:54:36');
+INSERT INTO `tbl_sys_log` VALUES (1134, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:56:28');
+INSERT INTO `tbl_sys_log` VALUES (1135, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 00:58:53');
+INSERT INTO `tbl_sys_log` VALUES (1136, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-5', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 01:18:23');
+INSERT INTO `tbl_sys_log` VALUES (1137, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 01:25:28');
+INSERT INTO `tbl_sys_log` VALUES (1138, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 01:27:48');
+INSERT INTO `tbl_sys_log` VALUES (1139, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 01:30:02');
+INSERT INTO `tbl_sys_log` VALUES (1140, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-2', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 01:33:22');
+INSERT INTO `tbl_sys_log` VALUES (1141, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 01:36:34');
+INSERT INTO `tbl_sys_log` VALUES (1142, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 18:23:57');
+INSERT INTO `tbl_sys_log` VALUES (1143, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 19:52:51');
+INSERT INTO `tbl_sys_log` VALUES (1144, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 19:57:44');
+INSERT INTO `tbl_sys_log` VALUES (1145, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '91', 'http-nio-8080-exec-1', 'ERROR', 'com.xerp.core.controller.UserLoginController-UnknownAccountException:org.apache.shiro.authc.UnknownAccountException', '2020-09-18 22:04:12');
+INSERT INTO `tbl_sys_log` VALUES (1146, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 22:04:15');
+INSERT INTO `tbl_sys_log` VALUES (1147, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 22:27:12');
+INSERT INTO `tbl_sys_log` VALUES (1148, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-1', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-18 22:53:18');
+INSERT INTO `tbl_sys_log` VALUES (1149, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-7', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-18 23:17:11');
+INSERT INTO `tbl_sys_log` VALUES (1150, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-18 23:22:05');
+INSERT INTO `tbl_sys_log` VALUES (1151, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-19 01:40:28');
+INSERT INTO `tbl_sys_log` VALUES (1152, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-19 01:44:42');
+INSERT INTO `tbl_sys_log` VALUES (1153, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-20 18:51:22');
+INSERT INTO `tbl_sys_log` VALUES (1154, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-8', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-20 19:14:23');
+INSERT INTO `tbl_sys_log` VALUES (1155, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-4', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-20 19:15:16');
+INSERT INTO `tbl_sys_log` VALUES (1156, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '75', 'http-nio-8080-exec-9', 'INFO', 'User: 系统管理员 login system,From IP:0:0:0:0:0:0:0:1', '2020-09-20 19:16:16');
+INSERT INTO `tbl_sys_log` VALUES (1157, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-20 19:42:32');
+INSERT INTO `tbl_sys_log` VALUES (1158, 'FlowNodeController.java', 'com.xerp.core.controller.FlowNodeController', 'saveData', '195', 'http-nio-8080-exec-5', 'ERROR', 'XERP Exception:org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named \'handlerField\' in \'class com.xerp.core.entity.FlowNode\'', '2020-09-20 19:45:43');
+INSERT INTO `tbl_sys_log` VALUES (1159, 'UserLoginController.java', 'com.xerp.core.controller.UserLoginController', 'systemLogin', '87', 'http-nio-8080-exec-6', 'INFO', 'User: 系统管理员 login System From IP:0:0:0:0:0:0:0:1', '2020-09-20 19:47:53');
 
 -- ----------------------------
 -- Table structure for tbl_sys_menu_module
@@ -626,7 +1011,7 @@ INSERT INTO `tbl_sys_menu_module` VALUES ('89196ad0ea614797b9d0c3a0bac49c9a', '0
 INSERT INTO `tbl_sys_menu_module` VALUES ('91176812cc594218b790447066c3c243', '01', 'sys0007', 'IT 服務', '', '', 70, '系统管理员', '2019-11-03 18:19:58', '系统管理员', '2019-12-30 17:15:16');
 INSERT INTO `tbl_sys_menu_module` VALUES ('91c9fe4e33b344208e6b37da22e3b761', '01', 'sys0003', '行政管理', '', '', 30, '系统管理员', '2019-11-03 18:19:58', '系统管理员', '2019-12-20 15:23:52');
 INSERT INTO `tbl_sys_menu_module` VALUES ('9586c8a3c02040969e3ebe8ed9ee1d43', '01', 'sys0008', '財務管理', '', '', 80, '系统管理员', '2019-11-03 18:19:58', '系统管理员', '2019-12-20 15:24:11');
-INSERT INTO `tbl_sys_menu_module` VALUES ('959a60a0f9be43b8baf3decbb07a1472', '01', 'sys0001', '常规操作', '', '', 10, '系统管理员', '2019-11-03 18:19:58', '系统管理员', '2019-12-20 15:23:37');
+INSERT INTO `tbl_sys_menu_module` VALUES ('959a60a0f9be43b8baf3decbb07a1472', '99', 'sys0001', '常规操作', '', '', 10, '系统管理员', '2019-11-03 18:19:58', '系统管理员', '2020-09-02 01:04:37');
 INSERT INTO `tbl_sys_menu_module` VALUES ('a6a8adfed89c4a9c829a8924e022526b', '01', 'sys9999', '系統管理', '', '', 100, '系统管理员', '2019-10-29 03:29:53', '系统管理员', '2019-10-29 03:30:01');
 INSERT INTO `tbl_sys_menu_module` VALUES ('d9b10142026f44e5a5550361883eecd4', '01', 'sys0005', '採購管理', '', '', 50, '系统管理员', '2019-11-03 18:19:58', '系统管理员', '2019-12-20 15:23:59');
 
@@ -655,7 +1040,9 @@ CREATE TABLE `tbl_sys_menu_option`  (
 -- ----------------------------
 -- Records of tbl_sys_menu_option
 -- ----------------------------
+INSERT INTO `tbl_sys_menu_option` VALUES ('0d6dc45913bb404aa97d61317feb7806', '89196ad0ea614797b9d0c3a0bac49c9a', '01', 'M-00002', '人事管理', 'x', '', '', '人事管理', 2, '系统管理员', '2020-09-03 01:06:50', '系统管理员', '2020-09-03 01:06:50');
 INSERT INTO `tbl_sys_menu_option` VALUES ('5913a76adefe4b03812e53d38c09c814', '91176812cc594218b790447066c3c243', '01', 'test1', 'test2', 'x', 'test4', '', 'test3', 2, '系统管理员', '2019-11-03 19:17:23', '系统管理员', '2019-11-04 00:37:38');
+INSERT INTO `tbl_sys_menu_option` VALUES ('842a5cc63c4f4ea4937b5b8ab845de91', '89196ad0ea614797b9d0c3a0bac49c9a', '01', 'M-00005', '请假流程', 'x', 'flwLeftMenu/flwVacation/LeftMenu.action', '', '请假流程', 5, '系统管理员', '2020-08-27 01:35:36', '系统管理员', '2020-08-27 01:39:23');
 INSERT INTO `tbl_sys_menu_option` VALUES ('bbdb752801c642f6ba5a641685fdbce3', 'a6a8adfed89c4a9c829a8924e022526b', '01', 'M9996', '系統配置', 'x', 'sysConfig/configMenu.action', '', '', 1, '系统管理员', '2019-11-03 18:32:01', '系统管理员', '2019-11-04 00:37:34');
 INSERT INTO `tbl_sys_menu_option` VALUES ('f50e400a980c488c9d663fd02419cba4', '89196ad0ea614797b9d0c3a0bac49c9a', '01', 'M-00001', '组织架构', 'x', '', '', '', 1, '系统管理员', '2019-12-20 15:27:35', '系统管理员', '2019-12-20 15:27:35');
 
@@ -678,7 +1065,7 @@ CREATE TABLE `tbl_sys_permission`  (
 -- ----------------------------
 -- Records of tbl_sys_permission
 -- ----------------------------
-INSERT INTO `tbl_sys_permission` VALUES ('4252fa0f3b3c47519ca3e6833277ab34', 'SYS-000000000000002', 'TEST1', 'TEST1', '', '', '01', '');
+INSERT INTO `tbl_sys_permission` VALUES ('4252fa0f3b3c47519ca3e6833277ab34', 'SYS-000000000000002', 'TEST1', 'TEST1', '', '', '00', '');
 INSERT INTO `tbl_sys_permission` VALUES ('da1ae445921f482b86c16966464c0859', 'SYS-000000000000001', '系统管理员', 'admin:*', '', '', '01', '系统管理员');
 INSERT INTO `tbl_sys_permission` VALUES ('f35e3673dc04444bbeda667ac8afcd15', 'XXX-00000000000000X', 'TEST', NULL, '', NULL, '01', '');
 
@@ -745,6 +1132,7 @@ INSERT INTO `tbl_sys_portal_menu` VALUES ('629078be81c346f6bf38d890e6ed4202', ''
 INSERT INTO `tbl_sys_portal_menu` VALUES ('633390e9925e407c9b995720681f1945', '6f054a72f609444faca0c4e5aea19afd', '0e011133214a414da936b1f3fb1bdaf2', 'bbdb752801c642f6ba5a641685fdbce3', '01', 'M9996', '系統配置', 'sysConfig/configMenu.action', '', '', '', 1, '01', '系统管理员', '2019-12-30 18:50:57', '系统管理员', '2019-12-30 18:50:57');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('63f21d3d5cdc40808fa955b25a6e3169', '', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '91176812cc594218b790447066c3c243', '00', 'sys0007', 'IT 服務', '', '', '', '', 70, '01', '系统管理员', '2019-12-20 16:19:42', '系统管理员', '2019-12-20 16:19:42');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('66919fd610af43b1942882fb5c9b8780', '', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '2f649b23e2c147cb9dd944d5088f52c3', '00', 'sys0006', '貨倉管理', '', '', '', '', 60, '01', '系统管理员', '2019-12-20 16:19:42', '系统管理员', '2019-12-20 16:19:42');
+INSERT INTO `tbl_sys_portal_menu` VALUES ('6d0bdf4d9d8c4f0483190c85f2fb3e7d', '5e0adc15be3e464c841eb7a01065c1c8', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '', '01', 'M-00009', '请假申请', 'vacation/leftMenu.action', 'vacation/toHandleList.action', '', '', 9, '01', '系统管理员', '2020-08-27 01:45:14', '系统管理员', '2020-09-03 01:08:21');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('6f054a72f609444faca0c4e5aea19afd', '', '0e011133214a414da936b1f3fb1bdaf2', 'a6a8adfed89c4a9c829a8924e022526b', '00', 'sys9999', '系統管理', '', '', '', '', 100, '01', '系统管理员', '2019-12-30 18:50:57', '系统管理员', '2019-12-30 18:50:57');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('6f2affec37db4da9a6ac6c228b8773e4', '', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '9586c8a3c02040969e3ebe8ed9ee1d43', '00', 'sys0008', '財務管理', '', '', '', '', 80, '01', '系统管理员', '2019-12-20 16:19:42', '系统管理员', '2019-12-20 16:19:42');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('7d70b598f3694f5ba307e55f81272724', '15d20b41f30446078b6bd260914a84aa', '0e011133214a414da936b1f3fb1bdaf2', '5913a76adefe4b03812e53d38c09c814', '01', 'test1', 'test2', 'test4', '', '', '', 2, '01', '系统管理员', '2019-12-30 18:50:57', '系统管理员', '2019-12-30 18:50:57');
@@ -756,6 +1144,7 @@ INSERT INTO `tbl_sys_portal_menu` VALUES ('9e0e85cb51f242f2910c9bf2bc8db296', ''
 INSERT INTO `tbl_sys_portal_menu` VALUES ('a96832645a82400bafb23ad19f1b9d01', '', '0e011133214a414da936b1f3fb1bdaf2', '89196ad0ea614797b9d0c3a0bac49c9a', '00', 'sys0004', '人事管理', '', '', '', '', 40, '01', '系统管理员', '2019-12-30 18:50:56', '系统管理员', '2019-12-30 18:50:56');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('b6e7fc4a1eb249a6bf1d68120b8c149f', '', '0e011133214a414da936b1f3fb1bdaf2', '91c9fe4e33b344208e6b37da22e3b761', '00', 'sys0003', '行政管理', '', '', '', '', 30, '99', '系统管理员', '2019-12-30 18:50:56', '系统管理员', '2019-12-30 18:51:09');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('bb30a2666f3b46f39153ac1b15198ba6', '2224bdcea0b2454191c873d7d837c44b', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', 'bbdb752801c642f6ba5a641685fdbce3', '01', 'M9996', '系統配置', 'sysConfig/configMenu.action', '', '', '', 1, '01', '系统管理员', '2019-12-20 16:19:42', '系统管理员', '2019-12-20 16:19:42');
+INSERT INTO `tbl_sys_portal_menu` VALUES ('be573477a7014d348c332e61885460fb', '5e0adc15be3e464c841eb7a01065c1c8', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '', '01', 'M-00003', '档案管理', 'hrms/leftMenu.action', '', '', '', 2, '01', '系统管理员', '2020-09-03 01:08:11', '系统管理员', '2020-09-03 01:08:11');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('c0c083119c5645d484e5115008974c12', '', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '3f071f4c39df45c9ad4a1cc1390593ac', '00', 'sys0002', '銷售管理', '', '', '', '', 20, '01', '系统管理员', '2019-12-20 16:19:42', '系统管理员', '2019-12-20 16:19:42');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('d20d46891470453e89a827e5f0d1883a', '', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', 'd9b10142026f44e5a5550361883eecd4', '00', 'sys0005', '採購管理', '', '', '', '', 50, '01', '系统管理员', '2019-12-20 16:19:42', '系统管理员', '2019-12-20 16:19:42');
 INSERT INTO `tbl_sys_portal_menu` VALUES ('d7a5607f4a7d4d1588c4bf2142b56ac1', 'a96832645a82400bafb23ad19f1b9d01', '0e011133214a414da936b1f3fb1bdaf2', 'f50e400a980c488c9d663fd02419cba4', '01', 'M-00001', '组织架构', '', '', '', '', 1, '01', '系统管理员', '2019-12-30 18:50:56', '系统管理员', '2019-12-30 18:50:56');
@@ -834,6 +1223,10 @@ CREATE TABLE `tbl_sys_user`  (
   `status` varchar(2) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '01 02 03',
   `theme` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `portal_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `cmp_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `dep_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `bus_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `bus_unit_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `valid_from` date NULL DEFAULT NULL,
   `valid_to` date NULL DEFAULT NULL,
   `language` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
@@ -847,7 +1240,9 @@ CREATE TABLE `tbl_sys_user`  (
 -- ----------------------------
 -- Records of tbl_sys_user
 -- ----------------------------
-INSERT INTO `tbl_sys_user` VALUES ('c3456d81f63145eb88f30c38fd1093fd', NULL, 'admin', '系统管理员', '*', 'e35810d45d9cf78fc9fc8ae7d0284c9a', '134307707c22440db7674c43a09537b2', '01', 'cupertino', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '2016-12-31', '2999-12-30', 'zh_CN', '系统管理员', '2019-10-30 01:54:56', '系统管理员', '2020-01-05 23:32:09');
-INSERT INTO `tbl_sys_user` VALUES ('df39efd176754e3e8ffe1945aa981880', NULL, '000001', 'CEO-总经理', '00', 'a34fe9c57a82038546655f2602a9b0d2', '828addf8579b4df99c825044d5f0b216', '01', 'bootstrap', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '2017-01-01', '2999-12-31', 'en_US', '系统管理员', '2020-01-09 21:40:20', '系统管理员', '2020-01-09 21:40:20');
+INSERT INTO `tbl_sys_user` VALUES ('965272d24d6e43bca500db14997f2a73', NULL, '000002', '张三', '00', 'fe09f6c7abef3433e13af49cfd4a74a5', '7929cb8c15a3405ca0d25303c3c7fc13', '01', 'default', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', 'c858f352ec4642c98e4a192b7d72f632', '96e455b757a54414857dcc969618d885', '', '', '2017-01-01', '2999-12-31', 'zh_CN', '系统管理员', '2020-09-11 17:38:33', '系统管理员', '2020-09-11 17:38:33');
+INSERT INTO `tbl_sys_user` VALUES ('a3994967e31847c5a13797722e69b888', NULL, '000003', '李四', '00', 'd046156c4afd00f712b75098a0e84197', '665455c46e5243b9bde176c64dd3778f', '01', 'default', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', 'c858f352ec4642c98e4a192b7d72f632', '96568724d4d44df990db926b60ae5de9', '', '', '2017-01-01', '2999-12-31', 'en_US', '系统管理员', '2020-09-14 22:39:38', '系统管理员', '2020-09-14 22:39:38');
+INSERT INTO `tbl_sys_user` VALUES ('c3456d81f63145eb88f30c38fd1093fd', NULL, 'admin', '系统管理员', '*', 'a370744c3bec2286f4855b41e0d744f2', '3d665ec984a447d4abbb6db6cab3f988', '01', 'cupertino', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', 'ec8fa583237c459abbdd6c77cfc0a94f', '', '', '', '2017-01-01', '2999-12-31', 'zh_CN', '系统管理员', '2019-10-30 01:54:56', '系统管理员', '2020-09-11 17:56:40');
+INSERT INTO `tbl_sys_user` VALUES ('df39efd176754e3e8ffe1945aa981880', NULL, '000001', 'CEO-总经理', '00', 'a34fe9c57a82038546655f2602a9b0d2', '828addf8579b4df99c825044d5f0b216', '01', 'bootstrap', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', NULL, NULL, NULL, NULL, '2017-01-03', '2999-12-31', 'en_US', '系统管理员', '2020-01-09 21:40:20', '系统管理员', '2020-09-03 00:30:52');
 
 SET FOREIGN_KEY_CHECKS = 1;

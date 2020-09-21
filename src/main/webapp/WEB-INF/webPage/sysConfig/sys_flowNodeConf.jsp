@@ -93,7 +93,8 @@
                 办理角色
             </td>
             <td class="tblCell">
-                <input class="easyui-textbox" value="" name="handlerRole" type="text" id="handlerRole" style="width:350px"/>
+                <input class="easyui-textbox" value="" name="handlerRoleCode" type="text" id="handlerRoleCode" style="width:350px"/>
+                <input class="easyui-textbox" value="" name="handlerRoleName" type="text" id="handlerRoleName" style="width:350px"/>
             </td>
         </tr>
         <tr>
@@ -101,7 +102,8 @@
                 办理字段
             </td>
             <td class="tblCell">
-                <input class="easyui-textbox" value="" name="handlerField" type="text" id="handlerField" style="width:350px"/>
+                <input class="easyui-textbox" value="" name="handlerFieldCode" type="text" id="handlerFieldCode" style="width:350px"/>
+                <input class="easyui-textbox" value="" name="handlerFieldName" type="text" id="handlerFieldName" style="width:350px"/>
             </td>
         </tr>
         <tr>
@@ -175,8 +177,10 @@
                 $("#nodeCode").textbox('setValue', data[0].nodeCode);
                 $("#nodeName").textbox('setValue', data[0].nodeName);
                 $("#comment").textbox('setValue', data[0].comment);
-                $("#handlerRole").textbox('setValue', data[0].handlerRole);
-                $("#handlerField").textbox('setValue', data[0].handlerField);
+                $("#handlerRoleCode").textbox('setValue', data[0].handlerRoleCode);
+                $("#handlerRoleName").textbox('setValue', data[0].handlerRoleName);
+                $("#handlerFieldCode").textbox('setValue', data[0].handlerFieldCode);
+                $("#handlerFieldName").textbox('setValue', data[0].handlerFieldName);
                 $("#handlerCode").textbox('setValue', data[0].handlerCode);
                 $("#handlerName").textbox('setValue', data[0].handlerName);
                 $("#editField").textbox('setValue', data[0].editField);
@@ -224,8 +228,10 @@
             nodeCode: $("#nodeCode").val(),
             nodeName: $("#nodeName").val(),
             nodeType:  $('input[name="nodeType"]:checked').val(),
-            handlerRole: $("#handlerRole").val(),
-            handlerField: $("#handlerField").val(),
+            handlerRoleCode: $("#handlerRoleCode").val(),
+            handlerRoleName: $("#handlerRoleName").val(),
+            handlerFieldCode: $("#handlerFieldCode").val(),
+            handlerFieldName: $("#handlerFieldName").val(),
             handlerCode: $("#handlerCode").val(),
             handlerName: $("#handlerName").val(),
             editField: $("#editField").val(),

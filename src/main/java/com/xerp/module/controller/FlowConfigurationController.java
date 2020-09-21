@@ -205,11 +205,11 @@ public class FlowConfigurationController extends BaseController {
 
 
                 //指定页面办理人
-                if (flowNode.getHandlerField() != null && flowNode.getHandlerField() != "") {
+                if (flowNode.getHandlerFieldCode() != null && flowNode.getHandlerFieldCode() != "") {
 
                 }
                 //指定角色办理人
-                if (flowNode.getHandlerRole() != null && flowNode.getHandlerRole() != "") {
+                if (flowNode.getHandlerRoleCode() != null && flowNode.getHandlerRoleCode() != "") {
 
                 }
                 //指定办理人
