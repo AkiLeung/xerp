@@ -192,8 +192,8 @@
     //選擇
     function openFlowToNext() {
         //导入空数据
-        $('#nodeList').datagrid('loadData',{total:0,rows:[]});
-        $('#handlerList').datagrid('loadData',{total:0,rows:[]});
+        $('#nodeList').datagrid('loadData', {total: 0, rows: []});
+        $('#handlerList').datagrid('loadData', {total: 0, rows: []});
         $("#nodeList").datagrid("reload");
         $("#handlerList").datagrid("reload");
 
@@ -241,12 +241,11 @@
                             dataType: 'json',
                             success: function (data) {
                                 var intRows = data.length;
-                                for(var i = 0;i < intRows;i++){
-                                    // alert(data[i].handlerCode);
+                                for (var i = 0; i < intRows; i++) {
                                     // $(this).datagrid('appendRow', {
                                     //     uuid: uuid(),
-                                    //     handlerCode: data[i].handlerCode,
-                                    //     handlerName: data[i].handlerName
+                                    //     handlerCode: data[0].handlerCode,
+                                    //     handlerName: data[0].handlerName
                                     // });
                                 }
                             }
