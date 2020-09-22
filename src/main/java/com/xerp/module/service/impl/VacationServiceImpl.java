@@ -33,6 +33,11 @@ public class VacationServiceImpl implements IVacationService {
     }
 
     @Override
+    public List<Vacation> listDataAllList(PageModel pager) {
+        return daoObject.listDataAllList(pager);
+    }
+
+    @Override
     public int listCount() {
         return daoObject.listCount();
     }

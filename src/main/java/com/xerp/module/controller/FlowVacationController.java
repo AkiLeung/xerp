@@ -131,6 +131,27 @@ public class FlowVacationController extends BaseController {
     }
 
     /**
+     * 功能说明：请假流程-待处理
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20200826
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "allApplyList.action")
+    public ModelAndView allApplyList() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_ALL_APPLY_LIST);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+    /**
      * 功能说明：获取数据
      * 修改说明：
      *
@@ -159,6 +180,45 @@ public class FlowVacationController extends BaseController {
             pager.setCondition01(currentUser.getUserCode());
             //查詢數據
             List<Vacation> entityObject = vacationService.listDataToHandler(pager);
+            JSONObject result = new JSONObject();
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+            result.put("rows", jsonArray);
+            result.put("total", pager.getTotal());
+            StringUtils.write(response, result);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
+
+    /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_CONFIG_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "listDataAllList.action")
+    @ResponseBody
+    public String listDataAllList(HttpServletResponse response,
+                                    HttpServletRequest request) {
+        try {
+            User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
+            //獲取分頁情況
+            int page = Integer.parseInt(request.getParameter("page"));
+            int rows = Integer.parseInt(request.getParameter("rows"));
+            int startRow = 0;
+            if (page > 1) {
+                startRow = (page - 1) * rows;
+            }
+            PageModel pager = new PageModel();
+            pager.setStartRow(startRow);
+            pager.setRows(rows);
+            pager.setTotal(vacationService.listCount());
+            //查詢數據
+            List<Vacation> entityObject = vacationService.listDataAllList(pager);
             JSONObject result = new JSONObject();
             JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
             result.put("rows", jsonArray);

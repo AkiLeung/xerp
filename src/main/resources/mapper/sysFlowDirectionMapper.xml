@@ -40,7 +40,7 @@
 
     <!-- 查找指定-->
     <select id="listByUuid" parameterType="com.xerp.core.entity.FlowDirection"  resultMap="FlowDirectionResult">
-        select * from tbl_sys_flow_direction  where a.uuid = #{uuid}
+        select * from tbl_sys_flow_direction  where uuid = #{uuid}
     </select>
 
     <!-- 查找Flow下的流向-->

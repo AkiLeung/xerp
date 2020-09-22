@@ -18,7 +18,7 @@
                 <td bgColor="#F9FBFC"
                     style="COLOR: #000000;text-align:left;font-weight:bold; color:#195E8A; height:23px">
                     &nbsp;<img alt="list" src="<%=basePath%>static/image/info1.png"
-                               style="width: 16px; height: 16px"/>&nbsp;我的待办
+                               style="width: 16px; height: 16px"/>&nbsp;所有的申请
                 </td>
             </tr>
             <tr>
@@ -63,7 +63,7 @@
     //dataGrid basic Setting
     $(function () {
         $('#dataList').datagrid({
-            url: '<%=basePath%>vacation/listDataToHandler.action',
+            url: '<%=basePath%>vacation/listDataAllList.action',
             columns: [[
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
                 {field: 'billNumber', title: '单号', width: 150,

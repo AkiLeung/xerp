@@ -38,6 +38,14 @@
         </if>
     </select>
 
+    <!-- 所有列表-->
+    <select id="listDataAllList" resultMap="ResultSet">
+        select * from tbl_flw_vacation where 1 = 1 order by created_datetime desc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
     <!-- 統計個數-->
     <select id="listCount" resultType="Integer">
         select count(uuid) as total from tbl_flw_vacation where 1 = 1 order by created_datetime desc

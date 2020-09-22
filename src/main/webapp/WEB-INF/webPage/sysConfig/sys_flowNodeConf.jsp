@@ -115,6 +115,7 @@
                        style="width:173px" data-options="prompt:'user code filed'"/>
                 <input class="easyui-textbox" value="" name="handlerFieldName" type="text" id="handlerFieldName"
                        style="width:173px" data-options="prompt:'user name filed'"/>
+                起草人：flowCreatorCode ; flowCreatorName
             </td>
         </tr>
         <tr>

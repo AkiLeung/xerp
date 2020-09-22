@@ -25,11 +25,19 @@ public interface IVacationDAO {
 
     /**
      * 查询所有
-     * @param curHandlerNum
+     * @param pager
      * @param pager 分頁信息
      * @return List<Vacation>
      */
     List<Vacation> listDataToHandler(PageModel pager);
+
+    /**
+     * 查询所有
+     * @param pager
+     * @param pager 分頁信息
+     * @return List<Vacation>
+     */
+    List<Vacation> listDataAllList(PageModel pager);
 
     /**
      * 統計個數

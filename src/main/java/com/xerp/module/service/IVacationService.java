@@ -29,6 +29,14 @@ public interface IVacationService {
 
 
     /**
+     * 查询所有
+     * @param pager  分页信息
+     * @return List<Vacation>
+     */
+    List<Vacation> listDataAllList(PageModel pager);
+
+
+    /**
      * 統計個數
      * @return int 統計個數
      */

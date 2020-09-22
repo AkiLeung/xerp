@@ -23,7 +23,7 @@
     <iframe id="ifrWorkFlow" name="ifrWorkFlow" src="" width="100%" height="100%" frameborder="0"></iframe>
 </div>
 <table class="tbl" style="width:100%;height:50px;">
-    <tr style="display: none1">
+    <tr style="display: none">
         <td class="tblCell" style="width: 100%" colspan="2">
             docUuid:<input value="${docUuid}" type="Text" name="uuid" id="uuid"/><br/>
             flowModule:<input value="vacation" type="Text" name="flowModule" id="flowModule"/><br/>

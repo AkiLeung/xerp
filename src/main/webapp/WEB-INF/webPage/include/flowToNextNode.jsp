@@ -6,7 +6,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div style="display: none1">
+<div style="display: none">
     <%--当前记录信息--%>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
@@ -31,7 +31,7 @@
     targetHandlerNam:<input value="" type="Text" name="targetHandlerName" id="targetHandlerName"/><br/>
 </div>
 <div id="popuFlowToNextNode" class="easyui-dialog" title="Please select ....."
-     style="width:850px;height:450px;padding:1px"
+     style="width:550px;height:450px;padding:1px"
      data-options="
 				iconCls: 'icon-more',
 				closed:true,
@@ -71,7 +71,7 @@
                     <th data-options="field:'targetNodeType',width:80,hidden:true">目標環節-Type</th>
                     <th data-options="field:'targetNodeUuid',width:80,hidden:true">目標環節-Uuid</th>
                     <th data-options="field:'targetNodeCode',width:80,hidden:true">目標環節-Code</th>
-                    <th data-options="field:'targetNodeName',width:80,hidden:true">目標環節-Code</th>
+                    <th data-options="field:'targetNodeName',width:80,hidden:true">目標環節-name</th>
                     <th data-options="field:'directionCode',width:80,hidden:true">流向編碼</th>
                     <th data-options="field:'directionName',width:200,hidden:false">流向名稱</th>
                 </tr>
@@ -93,7 +93,7 @@
                 <tr>
                     <th data-options="field:'cb',width:30,checkbox: 'true'"></th>
                     <th data-options="field:'uuid',width:100,hidden:true">uuid</th>
-                    <th data-options="field:'handlerCode',width:80,hidden:false">办理人编号</th>
+                    <th data-options="field:'handlerCode',width:80,hidden:true">办理人编号</th>
                     <th data-options="field:'handlerName',width:200,hidden:false">办理人名称</th>
                 </tr>
                 </thead>
@@ -189,14 +189,8 @@
         $('#winWorkFlow').window('open');
     }
 
-    //選擇
+    //流向和办理人選擇
     function openFlowToNext() {
-        //导入空数据
-        $('#nodeList').datagrid('loadData', {total: 0, rows: []});
-        $('#handlerList').datagrid('loadData', {total: 0, rows: []});
-        $("#nodeList").datagrid("reload");
-        $("#handlerList").datagrid("reload");
-
         //dataGrid basic Setting:流向列表
         var urlPath1 = '<%=basePath%>flowData/flowDirection.action?flowUuid=' + $("#flowUuid").val() + '&nodeUuid=' + $("#flowNodeUuid").val();
         $('#nodeList').datagrid({
@@ -247,11 +241,13 @@
                             }
                         });
                         //添加会签人员
-                        $(this).datagrid('appendRow', {
-                            uuid: uuid(),
-                            handlerCode: lvHandlerCode,
-                            handlerName: lvHandlerName
-                        });
+                        if (lvHandlerCode != "" && lvHandlerName != "") {
+                            $(this).datagrid('appendRow', {
+                                uuid: uuid(),
+                                handlerCode: lvHandlerCode,
+                                handlerName: lvHandlerName
+                            });
+                        }
 
                         //读取节点维护的角色
                         var handlerRole;
@@ -266,14 +262,19 @@
                                     handlerRole = role;
                                 }
                             });
-                        };
-                        for (var i = 0; i < handlerRole.length; i++) {
-                            //添加角色人员
-                            $(this).datagrid('appendRow', {
-                                uuid: uuid(),
-                                handlerCode: handlerRole[i].handlerCode,
-                                handlerName: handlerRole[i].handlerName
-                            });
+                        }
+                        ;
+                        if (handlerRole != null) {
+                            for (var i = 0; i < handlerRole.length; i++) {
+                                //添加角色人员
+                                if (handlerRole[i].handlerCode != "") {
+                                    $(this).datagrid('appendRow', {
+                                        uuid: uuid(),
+                                        handlerCode: handlerRole[i].handlerCode,
+                                        handlerName: handlerRole[i].handlerName
+                                    });
+                                }
+                            }
                         }
 
                         //读取页面选定办理人

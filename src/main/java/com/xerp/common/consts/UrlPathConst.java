@@ -422,7 +422,7 @@ public class UrlPathConst {
     public final static String STR_FLOW_VACATION_MAIN_FORM = SYS_SERVER_PATH + "/flwVacation/flw_mainForm.jsp";
     public final static String STR_FLOW_VACATION_TO_HANDLE = SYS_SERVER_PATH + "/flwVacation/flw_toHandleList.jsp";
 
-
+    public final static String STR_FLOW_VACATION_ALL_APPLY_LIST= SYS_SERVER_PATH + "/flwVacation/flw_allApplyList.jsp";
 
     /********************************************End前台流程***************************************************/
 }
