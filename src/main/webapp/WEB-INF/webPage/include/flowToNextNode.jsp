@@ -6,7 +6,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div style="display: none">
+<div style="display: none11">
     <%--当前记录信息--%>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
@@ -15,6 +15,7 @@
     flowNodeType:<input value="" type="Text" name="flowNodeType" id="flowNodeType"/><br/>
     flowNodeCode:<input value="" type="Text" name="flowNodeCode" id="flowNodeCode"/><br/>
     flowNodeName:<input value="" type="Text" name="flowNodeName" id="flowNodeName"/><br/>
+    editField:<input value="" type="Text" name="editField" id="editField"/><br/>
     curHandlerCode:<input value="" type="Text" name="curHandlerCode" id="curHandlerCode"/><br/>
     curHandlerName:<input value="" type="Text" name="curHandlerName" id="curHandlerName"/><br/>
     <%--当前环节信息--%>
@@ -182,6 +183,25 @@
         }
     });
 
+    //04 获取当前节点：可编辑字段和必填字段
+    if ($("#flowNodeUuid").val() != '' && $("#flowNodeCode").val() != 'null') {
+        url = "<%=basePath %>flowData/getNodeByNodeUuid.action?nodeUuid=" + $("#flowNodeUuid").val();
+        $.ajax({
+            async: false,
+            type: 'get',
+            url: url,
+            dataType: 'json',
+            success: function (data) {
+                $("#editField").val(data[0].editField);
+
+                alert(11111111);
+            },
+            error: function (data) {
+                alert("【" + url + "】JSON数据获取失败，请联系管理员！");
+            }
+        });
+    }
+
     //99 預覽流程圖
     function showFlowGraph() {
         var urlPath = "<%=basePath %>sysPopu/gotoFlowGraphPage.action?flowUuid=" + $("#flowUuid").val();
@@ -324,6 +344,6 @@
         $('#popuFlowToNextNode').dialog('close');
 
         //保存文档
-        //documentFlowToNext();
+        documentFlowToNext();
     }
 </script>

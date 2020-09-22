@@ -57,7 +57,7 @@
         <td class="tblCell" style="width: 90%">
             <input class="easyui-textbox" value="" name="flowCreatorCode" type="text" id="flowCreatorCode"
                    style="width:150px;"/>
-            <input class="easyui-textbox"  value="" name="flowCreatorName" type="text" id="flowCreatorName"
+            <input class="easyui-textbox" value="" name="flowCreatorName" type="text" id="flowCreatorName"
                    style="width:150px;"/>
         </td>
     </tr>
@@ -95,6 +95,9 @@
             $("#flowCreatorName").textbox('setValue', data[0].flowCreatorName);
             //内容
             $("#message").textbox('setValue', data[0].message);
+            alert(222222222);
+            // $("#message").textbox("textbox").attr("readonly", true);
+            // $("#message").textbox("textbox").attr("'disabled", true);
         },
         error: function (data) {
             alert("JSON数据获取失败，请联系管理员！");
@@ -105,12 +108,13 @@
     function documentSave() {
 
     }
+
     //提交文档
     function documentFlowToNext() {
         //執行保存
         var objData = {
-            uuid:$("#uuid").val(),
-            billNumber:$("#billNumber").val(),
+            uuid: $("#uuid").val(),
+            billNumber: $("#billNumber").val(),
             message: $("#message").val(),
             flowNodeUuid: $("#targetNodeUuid").val(),
             flowNodeTypeC: $("#flowNodeType").val(),
