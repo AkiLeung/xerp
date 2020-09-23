@@ -103,7 +103,7 @@
             </table>
         </div>
         <div data-options="region:'south',split:true" style="height:130px;">
-            <input class="easyui-textbox" data-options="multiline:true" value="" name="opinions" type="text"
+            <input class="easyui-textbox" data-options="multiline:true,validType:'length[0,250]'" value="" name="opinions" type="text"
                    id="opinions" style="width:100%;height: 99%"/>
         </div>
     </div>

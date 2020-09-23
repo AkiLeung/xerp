@@ -26,11 +26,19 @@ function uuid() {
 
 
 /**设置控件只读显示状态******************/
-function setObjectStatus(objectId) {
+function setObjectStatusReadyonly(objectId) {
     if (objectId != "") {
         $('#' + objectId).textbox('textbox').attr('readonly', true);
         $('#' + objectId).textbox('textbox').css("color", "#1a46e2");
         $('#' + objectId).textbox('textbox').css('background', '#f4fdff');
+    }
+}
+/**设置控件可以编辑状态******************/
+function setObjectStatusEditable(objectId) {
+    if (objectId != "") {
+        $('#' + objectId).textbox('textbox').attr('readonly', false);
+        $('#' + objectId).textbox('textbox').css("color", "#090809");
+        $('#' + objectId).textbox('textbox').css('background', '#ffffff');
     }
 }
 

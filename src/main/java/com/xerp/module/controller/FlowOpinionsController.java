@@ -34,7 +34,6 @@ public class FlowOpinionsController extends BaseController {
     @Autowired
     private IOpinionsService opinionsService;
 
-
     /**
      * 功能说明：获取数据by uuid
      * 修改说明：
@@ -89,6 +88,7 @@ public class FlowOpinionsController extends BaseController {
             entityObject.setUserCode(user.getUserCode());
             entityObject.setUserName(user.getUserName());
             entityObject.setOpinions(jsonData.getString("opinions"));
+            entityObject.setCreatedDatetime(StringUtils.getDatetime());
             int intReturn = opinionsService.insertData(entityObject);
             JSONObject result = new JSONObject();
             //返回狀態
@@ -103,6 +103,5 @@ public class FlowOpinionsController extends BaseController {
         }
         return null;
     }
-
 
 }

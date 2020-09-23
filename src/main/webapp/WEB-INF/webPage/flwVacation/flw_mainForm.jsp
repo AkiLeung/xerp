@@ -89,6 +89,13 @@
 </body>
 </html>
 <script type="text/javascript">
+    $(function () {
+        //设置只读
+        setObjectStatusReadyonly("flowCreatorCode");
+        setObjectStatusReadyonly("flowCreatorName");
+        setObjectStatusReadyonly("message");
+    });
+
     var pathUrl = "";
     if ($("#flowNodeUuid").val() != '' && $("#flowNodeCode").val() != 'null') {
         //当前环节信息
@@ -127,7 +134,7 @@
                 if ($("#editableField").val() != "") {
                     var fields = $("#editableField").val().split(';');
                     for (var i = 0; i < fields.length; i++) {
-                        setObjectStatus(fields[i]);
+                        setObjectStatusEditable(fields[i]);
                     }
                 }
             },
@@ -167,8 +174,33 @@
             async: false,
             data: jsonData,
             success: function (data) {
+                //保存办理意见
+                saveDocuOpinions();
                 alert("Save Document");
                 window.location.href = '<%=basePath %>vacation/toHandleList.action';
+            },
+            error: function (data) {
+                alert("添加时出现异常");
+            },
+        });
+    }
+    
+    function  saveDocuOpinions() {
+        //執行保存
+        var objData = {
+            docUuid: $("#uuid").val(),
+            opinions: $("#opinions").val()
+        };
+        var jsonData = JSON.stringify(objData);
+        //执行保存
+        $.ajax({
+            type: "POST",
+            url: "<%=basePath %>opinions/saveOpinions.action",
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
+            async: false,
+            data: jsonData,
+            success: function (data) {
             },
             error: function (data) {
                 alert("添加时出现异常");
