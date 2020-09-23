@@ -18,6 +18,7 @@
     editableField:<input value="" type="Text" name="editableField" id="editableField"/><br/>
     requiredFieldCode:<input value="" type="Text" name="requiredFieldCode" id="requiredFieldCode"/><br/>
     requiredFieldName:<input value="" type="Text" name="requiredFieldName" id="requiredFieldName"/><br/>
+    curUserCode:<input value="<shiro:principal property="userCode"/>" type="Text" name="curUserCode" id="curUserCode"/><br/>
     curHandlerCode:<input value="" type="Text" name="curHandlerCode" id="curHandlerCode"/><br/>
     curHandlerName:<input value="" type="Text" name="curHandlerName" id="curHandlerName"/><br/>
     <%--当前环节信息--%>
@@ -329,6 +330,12 @@
             return;
         }
 
+        //办理意见不能为空
+        if($("#opinions").val().trim()==""){
+            $.messager.alert('Message', 'Opinions is required！');
+            return;
+        }
+
         //目标字段赋值
         $("#targetNodeUuid").val(selectedNodeRows[0].targetNodeUuid);
         $("#targetNodeType").val(selectedNodeRows[0].targetNodeType);
@@ -344,5 +351,29 @@
 
         //保存文档
         documentFlowToNext();
+    }
+
+    //保存办理人意见
+    function  saveDocuOpinions() {
+        //執行保存
+        var objData = {
+            docUuid: $("#uuid").val(),
+            opinions: $("#opinions").val()
+        };
+        var jsonData = JSON.stringify(objData);
+        //执行保存
+        $.ajax({
+            type: "POST",
+            url: "<%=basePath %>opinions/saveOpinions.action",
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
+            async: false,
+            data: jsonData,
+            success: function (data) {
+            },
+            error: function (data) {
+                alert("添加时出现异常");
+            },
+        });
     }
 </script>

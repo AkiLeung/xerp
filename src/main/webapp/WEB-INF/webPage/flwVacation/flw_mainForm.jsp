@@ -62,9 +62,9 @@
         </td>
         <td class="tblCell" style="width: 90%">
             <input class="easyui-textbox" value="" name="flowCreatorCode" type="text" id="flowCreatorCode"
-                   style="width:150px;"/>
+                   style="width:150px;" editable="false"/>
             <input class="easyui-textbox" value="" name="flowCreatorName" type="text" id="flowCreatorName"
-                   style="width:150px;"/>
+                   style="width:150px;" editable="false"/>
         </td>
     </tr>
     <tr>
@@ -77,11 +77,16 @@
         </td>
     </tr>
     <tr>
-        <td class="tblTitle" style="width: 100%;height: 45px;" colspan="2">
-            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" style="width:100px"
-               onclick="documentSave();">保存</a>
-            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" style="width:100px"
-               onclick="openFlowToNext();">提交</a>
+        <td class="tblCellContent" style="width: 100%;height: 45px;" colspan="2">
+            <div class="easyui-panel" style="padding:5px;text-align: right">
+                <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
+                <a href="#" class="easyui-linkbutton" data-options="plain:true,toggle:true,iconCls:'icon-save'" style="width:88px;font-weight:bolder"
+                   onclick="documentSave();">保 存</a>
+                <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
+                <a href="#" class="easyui-linkbutton" data-options="plain:true,toggle:true,iconCls:'icon-ok'" style="width:88px;font-weight:bolder"
+                   onclick="openFlowToNext();">提 交</a>
+                <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
+            </div>
         </td>
     </tr>
 </table>
@@ -90,15 +95,15 @@
 </html>
 <script type="text/javascript">
     $(function () {
-        //设置只读
-        setObjectStatusReadyonly("flowCreatorCode");
-        setObjectStatusReadyonly("flowCreatorName");
-        setObjectStatusReadyonly("message");
+        //设置默认只读
+        setObjectStatusReadonly("flowCreatorCode");
+        setObjectStatusReadonly("flowCreatorName");
+        setObjectStatusReadonly("message");
     });
 
     var pathUrl = "";
     if ($("#flowNodeUuid").val() != '' && $("#flowNodeCode").val() != 'null') {
-        //当前环节信息
+        //获取流程当前环节信息
         pathUrl = "<%=basePath %>flowData/getNodeByNodeUuid.action?nodeUuid=" + $("#flowNodeUuid").val();
         $.ajax({
             async: true,
@@ -115,7 +120,7 @@
             }
         });
 
-        //頁面加載時執行
+        //获取当前审批流程信息
         pathUrl = "<%=basePath %>vacation/getDataByUuid.action?uuid=${docUuid}";
         $.ajax({
             async: true,
@@ -133,8 +138,10 @@
                 //当前环节可以编辑字段
                 if ($("#editableField").val() != "") {
                     var fields = $("#editableField").val().split(';');
+                    var lvCurHandlerCode = $("#curHandlerCode").val();
+                    var lvCurUserCode = $("#curUserCode").val();
                     for (var i = 0; i < fields.length; i++) {
-                        setObjectStatusEditable(fields[i]);
+                        setObjectStatusEditable(lvCurHandlerCode,lvCurUserCode,fields[i]);
                     }
                 }
             },
@@ -178,29 +185,6 @@
                 saveDocuOpinions();
                 alert("Save Document");
                 window.location.href = '<%=basePath %>vacation/toHandleList.action';
-            },
-            error: function (data) {
-                alert("添加时出现异常");
-            },
-        });
-    }
-    
-    function  saveDocuOpinions() {
-        //執行保存
-        var objData = {
-            docUuid: $("#uuid").val(),
-            opinions: $("#opinions").val()
-        };
-        var jsonData = JSON.stringify(objData);
-        //执行保存
-        $.ajax({
-            type: "POST",
-            url: "<%=basePath %>opinions/saveOpinions.action",
-            dataType: "json",
-            contentType: 'application/json;charset=UTF-8',
-            async: false,
-            data: jsonData,
-            success: function (data) {
             },
             error: function (data) {
                 alert("添加时出现异常");
