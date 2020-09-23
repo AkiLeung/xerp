@@ -12,7 +12,7 @@
         <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
         <a href="#" class="easyui-linkbutton" data-options="plain:true,toggle:true,iconCls:'icon-ok'"
            style="width:88px;font-weight:bolder"
-           onclick="openFlowToNext();">提 交</a>
+           onclick="documentSubmit();">提 交</a>
         <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
     </div>
 </div>

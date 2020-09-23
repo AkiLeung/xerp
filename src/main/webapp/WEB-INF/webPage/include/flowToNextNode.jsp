@@ -199,7 +199,7 @@
     }
 
     //流向和办理人選擇
-    function openFlowToNext() {
+    function documentSubmit() {
         //当前环节必填字段
         if ($("#requiredFieldCode").val() != "") {
             var requiredCodes = $("#requiredFieldCode").val().split(";");

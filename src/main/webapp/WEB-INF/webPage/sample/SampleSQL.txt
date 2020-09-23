@@ -4,3 +4,33 @@ delete from tbl_sys_log;
 # 重置自增序列
 alter table tbl_sys_log auto_increment=1;
 
+
+
+# 重置自增序列
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+-- ----------------------------
+-- Table structure for tbl_flw_xxxxxxxx
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_flw_xxxxxxxx`;
+CREATE TABLE `tbl_flw_xxxxxxxx`  (
+  `uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `bill_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `subject` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `message` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_node_uuid` varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_node_type` varchar(2) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_node_code` int(4) NULL DEFAULT NULL,
+  `flow_node_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_creator_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `flow_creator_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `cur_handler_code` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `cur_handler_name` varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `created_datetime` datetime(0) NULL DEFAULT NULL,
+  `updated_datetime` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`uuid`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+SET FOREIGN_KEY_CHECKS = 1;
