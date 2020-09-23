@@ -110,7 +110,6 @@
         $('#flowCode').textbox('textbox').attr('maxlength', 20);
         $('#flowName').textbox('textbox').attr('maxlength', 50);
         $('#comment').textbox('textbox').attr('maxlength', 150);
-
         $('#moduleName').textbox('textbox').attr('readonly',true);
 
         //flow_code Check

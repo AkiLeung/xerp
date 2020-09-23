@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.module.dao.IVacationDAO">
+    <resultMap type="Vacation" id="ResultSet">
+        <result property="uuid" column="uuid"/>
+        <result property="docUuid" column="docUuid"/>
+        <result property="userCode" column="userCode"/>
+        <result property="userName" column="userName"/>
+        <result property="opinions" column="opinions"/>
+        <result property="createdDatetime" column="createdDatetime"/>
+
+    </resultMap>
+
+    <!-- 查找所有-->
+    <select id="listData" resultMap="ResultSet">
+        select * from tbl_flw_opinions where doc_uuid = #{docUuid}  order by created_datetime asc
+    </select>
+
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="Integer">
+        select count(uuid) as total from tbl_flw_opinions where doc_uuid = #{docUuid}  order by created_datetime asc
+    </select>
+
+    <!-- 新增-->
+    <insert id="insertData">
+        insert into tbl_flw_opinions
+        (uuid,
+        doc_uuid,
+        user_code,
+        user_name,
+        opinions,
+        created_datetime)
+        values
+        (#{uuid},
+        #{docUuid},
+        #{userCode},
+        #{userName},
+        #{opinions},
+        #{createdDatetime})
+    </insert>
+
+    <!-- 刪除 只有起草状态的流程才能够被删除 -->
+    <delete id="deleteData">
+        delete from tbl_flw_opinions where uuid = #{uuid}
+    </delete>
+
+</mapper>
