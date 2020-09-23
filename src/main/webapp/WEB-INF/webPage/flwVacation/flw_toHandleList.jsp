@@ -42,6 +42,8 @@
                pageList:[30,50,70],
                collapsible:true,
                method:'get',
+               striped:true,
+               fitColumns:true,
                rowStyler: function(index,row){
            },
            toolbar:toolbar">
@@ -66,7 +68,8 @@
             url: '<%=basePath%>vacation/listDataToHandler.action',
             columns: [[
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                {field: 'billNumber', title: '单号', width: 150,
+                {
+                    field: 'billNumber', title: '单号', width: 150,
                     formatter: function (value, row, index) {
                         return '<a style="color:blue" href="<%=basePath %>vacation/mainForm.action?uuid=' + row.uuid + '&flowCode=flow00002")>' + row.billNumber + '</a>';
                     }

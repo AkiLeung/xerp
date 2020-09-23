@@ -18,7 +18,8 @@
     editableField:<input value="" type="Text" name="editableField" id="editableField"/><br/>
     requiredFieldCode:<input value="" type="Text" name="requiredFieldCode" id="requiredFieldCode"/><br/>
     requiredFieldName:<input value="" type="Text" name="requiredFieldName" id="requiredFieldName"/><br/>
-    curUserCode:<input value="<shiro:principal property="userCode"/>" type="Text" name="curUserCode" id="curUserCode"/><br/>
+    curUserCode:<input value="<shiro:principal property="userCode"/>" type="Text" name="curUserCode"
+                       id="curUserCode"/><br/>
     curHandlerCode:<input value="" type="Text" name="curHandlerCode" id="curHandlerCode"/><br/>
     curHandlerName:<input value="" type="Text" name="curHandlerName" id="curHandlerName"/><br/>
     <%--当前环节信息--%>
@@ -104,7 +105,8 @@
             </table>
         </div>
         <div data-options="region:'south',split:true" style="height:130px;">
-            <input class="easyui-textbox" data-options="multiline:true,validType:'length[0,250]'" value="" name="opinions" type="text"
+            <input class="easyui-textbox" data-options="multiline:true,validType:'length[0,250]'" value=""
+                   name="opinions" type="text"
                    id="opinions" style="width:100%;height: 99%"/>
         </div>
     </div>
@@ -245,6 +247,8 @@
                     onLoadSuccess: function (data) {
                         var lvHandlerCode = "";
                         var lvHandlerName = "";
+                        var repeat = false;
+                        var rows = $(this).datagrid('getRows');
 
                         //读取独立办理人(会签人员)
                         urlPath2 = '<%=basePath%>flowData/flowMultipleHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
@@ -270,7 +274,7 @@
                         }
 
                         //读取节点维护的角色
-                        var handlerRole;
+                        var handlerRole = null;
                         if ($("#handlerRoleCode").val().trim() != "") {
                             urlPath2 = '<%=basePath%>flowData/flowRoleHandlerByCode.action?roleCode=' + $("#handlerRoleCode").val().trim();
                             $.ajax({
@@ -283,16 +287,25 @@
                                 }
                             });
                         }
-                        ;
                         if (handlerRole != null) {
                             for (var i = 0; i < handlerRole.length; i++) {
                                 //添加角色人员
                                 if (handlerRole[i].handlerCode != "") {
-                                    $(this).datagrid('appendRow', {
-                                        uuid: uuid(),
-                                        handlerCode: handlerRole[i].handlerCode,
-                                        handlerName: handlerRole[i].handlerName
-                                    });
+                                    //判断是否重复出现办理人员
+                                    repeat = false;
+                                    for (var j = 0; j < rows.length; j++) {
+                                        if (rows[j]['handlerCode'] == handlerRole[i].handlerCode ) {
+                                            repeat = true;
+                                        }
+                                    }
+                                    //不重复才添加数据 false
+                                    if (!repeat) {
+                                        $(this).datagrid('appendRow', {
+                                            uuid: uuid(),
+                                            handlerCode: handlerRole[i].handlerCode,
+                                            handlerName: handlerRole[i].handlerName
+                                        });
+                                    }
                                 }
                             }
                         }
@@ -302,11 +315,21 @@
                             lvHandlerCode = $('#' + $("#handlerFieldCode").val()).val().trim();
                             lvHandlerName = $('#' + $("#handlerFieldName").val()).val().trim();
                             if (lvHandlerCode != "" && lvHandlerName != "") {
-                                $(this).datagrid('appendRow', {
-                                    uuid: uuid(),
-                                    handlerCode: lvHandlerCode,
-                                    handlerName: lvHandlerName
-                                });
+                                //判断是否重复出现办理人员
+                                repeat = false;
+                                for (var i = 0; i < rows.length; i++) {
+                                    if (lvHandlerCode == rows[i]['handlerCode']) {
+                                        repeat = true;
+                                    }
+                                }
+                                //不重复才添加数据 false
+                                if (!repeat) {
+                                    $(this).datagrid('appendRow', {
+                                        uuid: uuid(),
+                                        handlerCode: lvHandlerCode,
+                                        handlerName: lvHandlerName
+                                    });
+                                }
                             }
                         }
                     }
@@ -331,7 +354,7 @@
         }
 
         //办理意见不能为空
-        if($("#opinions").val().trim()==""){
+        if ($("#opinions").val().trim() == "") {
             $.messager.alert('Message', 'Opinions is required！');
             return;
         }
@@ -354,7 +377,7 @@
     }
 
     //保存办理人意见
-    function  saveDocuOpinions() {
+    function saveDocuOpinions() {
         //執行保存
         var objData = {
             docUuid: $("#uuid").val(),
@@ -380,9 +403,9 @@
     //操作栏是否展示
     var lvCurHandlerCode = $("#curHandlerCode").val();
     var lvCurUserCode = $("#curUserCode").val();
-    if(lvCurHandlerCode == lvCurUserCode){
+    if (lvCurHandlerCode == lvCurUserCode) {
         $("#flowBtnTool").show();
-    }else{
+    } else {
         $("#flowBtnTool").hide();
     }
 </script>

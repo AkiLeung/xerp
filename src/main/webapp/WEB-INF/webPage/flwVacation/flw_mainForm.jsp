@@ -67,23 +67,11 @@
         </td>
         <td class="tblCell" style="width: 90%">
             <input class="easyui-textbox" data-options="multiline:true" value="" name="message" type="text" id="message"
-                   style="width:80%;height: 99%"/>
-        </td>
-    </tr>
-    <tr id="flowBtnTool">
-        <td class="tblCellContent" style="width: 100%;height: 45px;" colspan="2">
-            <div class="easyui-panel" style="padding:5px;text-align: right">
-                <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
-                <a href="#" class="easyui-linkbutton" data-options="plain:true,toggle:true,iconCls:'icon-save'" style="width:88px;font-weight:bolder"
-                   onclick="documentSave();">保 存</a>
-                <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
-                <a href="#" class="easyui-linkbutton" data-options="plain:true,toggle:true,iconCls:'icon-ok'" style="width:88px;font-weight:bolder"
-                   onclick="openFlowToNext();">提 交</a>
-                <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
-            </div>
+                   style="width:99.5%;height: 99.5%"/>
         </td>
     </tr>
 </table>
+<jsp:include page="../include/flowButtonTool.jsp" flush="true"/>
 <jsp:include page="../include/flowToNextNode.jsp" flush="true"/>
 </body>
 </html>
@@ -135,7 +123,7 @@
                     var lvCurHandlerCode = $("#curHandlerCode").val();
                     var lvCurUserCode = $("#curUserCode").val();
                     for (var i = 0; i < fields.length; i++) {
-                        setObjectStatusEditable(lvCurHandlerCode,lvCurUserCode,fields[i]);
+                        setObjectStatusEditable(lvCurHandlerCode, lvCurUserCode, fields[i]);
                     }
                 }
             },
