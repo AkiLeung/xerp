@@ -10,12 +10,6 @@
 <head>
     <title>Title</title>
     <jsp:include page="../include/common.jsp" flush="true"/>
-    <style>
-        .tbx {
-            border: 0px;
-            background-color: #ededed;
-        }
-    </style>
 </head>
 <body>
 <div id="winWorkFlow" class="easyui-window" title="Show Work Flow" style="width:1400px;height:700px;padding:1px;"
