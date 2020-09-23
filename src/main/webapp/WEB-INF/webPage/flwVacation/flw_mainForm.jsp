@@ -76,7 +76,7 @@
                    style="width:80%;height: 99%"/>
         </td>
     </tr>
-    <tr>
+    <tr id="flowBtnTool">
         <td class="tblCellContent" style="width: 100%;height: 45px;" colspan="2">
             <div class="easyui-panel" style="padding:5px;text-align: right">
                 <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>

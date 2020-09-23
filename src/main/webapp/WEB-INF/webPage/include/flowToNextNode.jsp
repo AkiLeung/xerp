@@ -6,7 +6,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div style="display: none11">
+<div style="display: none">
     <%--当前记录信息--%>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
@@ -375,5 +375,14 @@
                 alert("添加时出现异常");
             },
         });
+    }
+
+    //操作栏是否展示
+    var lvCurHandlerCode = $("#curHandlerCode").val();
+    var lvCurUserCode = $("#curUserCode").val();
+    if(lvCurHandlerCode == lvCurUserCode){
+        $("#flowBtnTool").show();
+    }else{
+        $("#flowBtnTool").hide();
     }
 </script>

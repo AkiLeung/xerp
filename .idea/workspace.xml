@@ -13,8 +13,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/image/flow/start.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/image/flow/start.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/javascript/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/javascript/common.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
-              <caret line="377" column="5" lean-forward="true" selection-start-line="377" selection-start-column="5" selection-end-line="377" selection-end-column="5" />
+            <state relative-caret-position="2144">
+              <caret line="385" column="33" lean-forward="true" selection-start-line="385" selection-start-column="33" selection-end-line="385" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -46,9 +44,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1283">
-              <caret line="177" column="64" lean-forward="true" selection-start-line="177" selection-start-column="64" selection-end-line="177" selection-end-column="64" />
+            <state relative-caret-position="433">
+              <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
               <folding>
+                <element signature="n#style#0;n#td#0;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -189,8 +188,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/mapper/flwOpinionsMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/javascript/common.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" />
       </list>
     </option>
   </component>
@@ -825,14 +824,7 @@
       <workItem from="1600247387685" duration="2155000" />
       <workItem from="1600301741874" duration="44647000" />
       <workItem from="1600474059967" duration="18698000" />
-      <workItem from="1600650209330" duration="62797000" />
-    </task>
-    <task id="LOCAL-00011" summary="update 20200901">
-      <created>1598956585789</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1598956585789</updated>
+      <workItem from="1600650209330" duration="64515000" />
     </task>
     <task id="LOCAL-00012" summary="update 20200901">
       <created>1598956712883</created>
@@ -1170,7 +1162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600840556417</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="update 20200923">
+      <created>1600844788209</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1600844788209</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1197,7 +1196,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="763520000" />
+    <option name="totallyTimeSpent" value="765238000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1212,7 +1211,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23240939" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23240939" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1222,7 +1221,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41458106" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.15125136" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.15125136" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.23503809" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1277,7 +1276,8 @@
     <MESSAGE value="update 20200920" />
     <MESSAGE value="update 20200921" />
     <MESSAGE value="update 20200922" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20200922" />
+    <MESSAGE value="update 20200923" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20200923" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1632,10 +1632,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/javascript/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="377" column="5" lean-forward="true" selection-start-line="377" selection-start-column="5" selection-end-line="377" selection-end-column="5" />
+        <state relative-caret-position="2144">
+          <caret line="385" column="33" lean-forward="true" selection-start-line="385" selection-start-column="33" selection-end-line="385" selection-end-column="33" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1644,18 +1651,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/javascript/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1283">
-          <caret line="177" column="64" lean-forward="true" selection-start-line="177" selection-start-column="64" selection-end-line="177" selection-end-column="64" />
+        <state relative-caret-position="433">
+          <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
           <folding>
+            <element signature="n#style#0;n#td#0;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#3;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
