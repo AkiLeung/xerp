@@ -41,7 +41,11 @@ public class FlowNode extends BaseEntity {
 
     private String handlerName;
 
-    private String editField;
+    private String editableField;
+
+    private String requiredFieldCode;
+
+    private String requiredFieldName;
 
     private String nodeFormula;
 

@@ -163,7 +163,7 @@
                 编辑字段
             </td>
             <td class="tblCell">
-                <input class="easyui-textbox" value="" name="editField" type="text" id="editField"
+                <input class="easyui-textbox" value="" name="editableField" type="text" id="editableField"
                        style="width:99%;height: 100px"
                        data-options="multiline:true"/></td>
         </tr>
@@ -173,6 +173,24 @@
             </td>
             <td class="tblCell">
                 <input class="easyui-textbox" value="" name="nodeFormula" type="text" id="nodeFormula"
+                       style="width:99%;height: 120px"
+                       data-options="multiline:true"/></td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                必填字段
+            </td>
+            <td class="tblCell">
+                <input class="easyui-textbox" value="" name="requiredFieldCode" type="text" id="requiredFieldCode"
+                       style="width:99%;height: 120px"
+                       data-options="multiline:true"/></td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
+                提示信息
+            </td>
+            <td class="tblCell">
+                <input class="easyui-textbox" value="" name="requiredFieldName" type="text" id="requiredFieldName"
                        style="width:99%;height: 120px"
                        data-options="multiline:true"/></td>
         </tr>
@@ -306,7 +324,9 @@
                 $("#handlerFieldName").textbox('setValue', data[0].handlerFieldName);
                 $("#handlerCode").textbox('setValue', data[0].handlerCode);
                 $("#handlerName").textbox('setValue', data[0].handlerName);
-                $("#editField").textbox('setValue', data[0].editField);
+                $("#editableField").textbox('setValue', data[0].editableField);
+                $("#requiredFieldCode").textbox('setValue', data[0].requiredFieldCode);
+                $("#requiredFieldName").textbox('setValue', data[0].requiredFieldName);
                 $("#nodeFormula").textbox('setValue', data[0].nodeFormula);
                 $("#gooflowType").textbox('setValue', data[0].gooflowType);
                 $("#gooflowLeft").textbox('setValue', data[0].gooflowLeft);
@@ -357,7 +377,9 @@
             handlerFieldName: $("#handlerFieldName").val(),
             handlerCode: $("#handlerCode").val(),
             handlerName: $("#handlerName").val(),
-            editField: $("#editField").val(),
+            editableField: $("#editableField").val(),
+            requiredFieldCode: $("#requiredFieldCode").val(),
+            requiredFieldName: $("#requiredFieldName").val(),
             nodeFormula: $("#nodeFormula").val(),
             gooflowType: $("#gooflowType").val(),
             gooflowLeft: $("#gooflowLeft").val(),

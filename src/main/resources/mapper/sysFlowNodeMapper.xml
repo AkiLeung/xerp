@@ -17,6 +17,8 @@
         <result property="handlerCode" column="handlerCode"/>
         <result property="handlerName" column="handlerName"/>
         <result property="editField" column="editField"/>
+        <result property="requiredFieldCode" column="requiredFieldCode"/>
+        <result property="requiredFieldName" column="requiredFieldName"/>
         <result property="nodeFormula" column="nodeFormula"/>
         <result property="gooflowType" column="gooflowType"/>
         <result property="gooflowLeft" column="gooflowLeft"/>
@@ -80,7 +82,9 @@
             handler_field_name,
             handler_code,
             handler_name,
-            edit_field,
+            editable_field,
+            required_field_code,
+            required_field_name,
             node_formula,
             gooflow_type,
             gooflow_left,
@@ -105,7 +109,9 @@
             #{handlerFieldName},
             #{handlerCode},
             #{handlerName},
-            #{editField},
+            #{editableField},
+            #{requiredFieldCode},
+            #{requiredFieldName},
             #{nodeFormula},
             #{gooflowType},
             #{gooflowLeft},
@@ -134,7 +140,9 @@
             handler_field_name = #{handlerFieldName},
             handler_code = #{handlerCode},
             handler_name = #{handlerName},
-            edit_field = #{editField},
+            editable_field = #{editableField},
+            required_field_code = #{requiredFieldCode},
+            required_field_name = #{requiredFieldName},
             node_formula = #{nodeFormula},
             gooflow_type = #{gooflowType},
             gooflow_left = #{gooflowLeft},

@@ -4,7 +4,7 @@ function jsLocation(obj) {
 }
 
 /**easyUI 弹出窗口******************/
-function showDialogWin(ifrName,dialogId, urlPath) {
+function showDialogWin(ifrName, dialogId, urlPath) {
     window.frames[ifrName].location.href = urlPath;
     $('#' + dialogId).dialog('open');
 }
@@ -22,6 +22,16 @@ function uuid() {
 
     var uuid = s.join("");
     return uuid;
+}
+
+
+/**设置控件只读显示状态******************/
+function setObjectStatus(objectId) {
+    if (objectId != "") {
+        $('#' + objectId).textbox('textbox').attr('readonly', true);
+        $('#' + objectId).textbox('textbox').css("color", "#1a46e2");
+        $('#' + objectId).textbox('textbox').css('background', '#f4fdff');
+    }
 }
 
 /**流程Tab撤换******************/
@@ -47,24 +57,26 @@ function uuid() {
 // }
 
 /**over write easyui datetime format**/
-function myformatter(date){
+function myformatter(date) {
     var y = date.getFullYear();
-    var m = date.getMonth()+1;
+    var m = date.getMonth() + 1;
     var d = date.getDate();
-    return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+    return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
 }
-function myparser(s){
+
+function myparser(s) {
     if (!s) return new Date();
     var ss = (s.split('-'));
-    var y = parseInt(ss[0],10);
-    var m = parseInt(ss[1],10);
-    var d = parseInt(ss[2],10);
-    if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
-        return new Date(y,m-1,d);
+    var y = parseInt(ss[0], 10);
+    var m = parseInt(ss[1], 10);
+    var d = parseInt(ss[2], 10);
+    if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+        return new Date(y, m - 1, d);
     } else {
         return new Date();
     }
 }
+
 /**over write Easyui textbox method onkeyup*/
 $.extend($.fn.textbox.methods, {
     addClearBtn: function (jq, iconCls) {

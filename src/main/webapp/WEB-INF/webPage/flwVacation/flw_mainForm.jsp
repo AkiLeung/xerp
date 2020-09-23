@@ -10,6 +10,12 @@
 <head>
     <title>Title</title>
     <jsp:include page="../include/common.jsp" flush="true"/>
+    <style>
+        .tbx {
+            border: 0px;
+            background-color: #ededed;
+        }
+    </style>
 </head>
 <body>
 <div id="winWorkFlow" class="easyui-window" title="Show Work Flow" style="width:1400px;height:700px;padding:1px;"
@@ -83,30 +89,57 @@
 </body>
 </html>
 <script type="text/javascript">
-    //頁面加載時執行
-    $.ajax({
-        async: true,
-        type: "get",//get是获取数据，post是带数据的向服务器发送请求
-        url: "<%=basePath %>vacation/getDataByUuid.action?uuid=${docUuid}",
-        dataType: 'json',
-        success: function (data) {
-            $("#billNumber").textbox('setValue', data[0].billNumber);
-            $("#flowCreatorCode").textbox('setValue', data[0].flowCreatorCode);
-            $("#flowCreatorName").textbox('setValue', data[0].flowCreatorName);
-            //内容
-            $("#message").textbox('setValue', data[0].message);
-            alert(222222222);
-            // $("#message").textbox("textbox").attr("readonly", true);
-            // $("#message").textbox("textbox").attr("'disabled", true);
-        },
-        error: function (data) {
-            alert("JSON数据获取失败，请联系管理员！");
-        }
-    });
+    var pathUrl = "";
+    if ($("#flowNodeUuid").val() != '' && $("#flowNodeCode").val() != 'null') {
+        //当前环节信息
+        pathUrl = "<%=basePath %>flowData/getNodeByNodeUuid.action?nodeUuid=" + $("#flowNodeUuid").val();
+        $.ajax({
+            async: true,
+            type: 'get',
+            url: pathUrl,
+            dataType: 'json',
+            success: function (data) {
+                $("#editableField").val(data[0].editableField);
+                $("#requiredFieldCode").val(data[0].requiredFieldCode);
+                $("#requiredFieldName").val(data[0].requiredFieldName);
+            },
+            error: function (data) {
+                alert("【" + url + "】JSON数据获取失败，请联系管理员！");
+            }
+        });
+
+        //頁面加載時執行
+        pathUrl = "<%=basePath %>vacation/getDataByUuid.action?uuid=${docUuid}";
+        $.ajax({
+            async: true,
+            type: "get",
+            url: pathUrl,
+            dataType: 'json',
+            success: function (data) {
+                //单据核心信息
+                $("#billNumber").textbox('setValue', data[0].billNumber);
+                $("#flowCreatorCode").textbox('setValue', data[0].flowCreatorCode);
+                $("#flowCreatorName").textbox('setValue', data[0].flowCreatorName);
+                //单据审批内容
+                $("#message").textbox('setValue', data[0].message);
+
+                //当前环节可以编辑字段
+                if ($("#editableField").val() != "") {
+                    var fields = $("#editableField").val().split(';');
+                    for (var i = 0; i < fields.length; i++) {
+                        setObjectStatus(fields[i]);
+                    }
+                }
+            },
+            error: function (data) {
+                alert("JSON数据获取失败，请联系管理员！");
+            }
+        });
+    }
 
     //保存文档
     function documentSave() {
-
+        alert("Document Save!!!!");
     }
 
     //提交文档

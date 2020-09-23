@@ -15,7 +15,9 @@
     flowNodeType:<input value="" type="Text" name="flowNodeType" id="flowNodeType"/><br/>
     flowNodeCode:<input value="" type="Text" name="flowNodeCode" id="flowNodeCode"/><br/>
     flowNodeName:<input value="" type="Text" name="flowNodeName" id="flowNodeName"/><br/>
-    editField:<input value="" type="Text" name="editField" id="editField"/><br/>
+    editableField:<input value="" type="Text" name="editableField" id="editableField"/><br/>
+    requiredFieldCode:<input value="" type="Text" name="requiredFieldCode" id="requiredFieldCode"/><br/>
+    requiredFieldName:<input value="" type="Text" name="requiredFieldName" id="requiredFieldName"/><br/>
     curHandlerCode:<input value="" type="Text" name="curHandlerCode" id="curHandlerCode"/><br/>
     curHandlerName:<input value="" type="Text" name="curHandlerName" id="curHandlerName"/><br/>
     <%--当前环节信息--%>
@@ -184,23 +186,7 @@
     });
 
     //04 获取当前节点：可编辑字段和必填字段
-    if ($("#flowNodeUuid").val() != '' && $("#flowNodeCode").val() != 'null') {
-        url = "<%=basePath %>flowData/getNodeByNodeUuid.action?nodeUuid=" + $("#flowNodeUuid").val();
-        $.ajax({
-            async: false,
-            type: 'get',
-            url: url,
-            dataType: 'json',
-            success: function (data) {
-                $("#editField").val(data[0].editField);
 
-                alert(11111111);
-            },
-            error: function (data) {
-                alert("【" + url + "】JSON数据获取失败，请联系管理员！");
-            }
-        });
-    }
 
     //99 預覽流程圖
     function showFlowGraph() {
@@ -211,6 +197,19 @@
 
     //流向和办理人選擇
     function openFlowToNext() {
+        //当前环节必填字段
+        if ($("#requiredFieldCode").val() != "") {
+            var requiredCodes = $("#requiredFieldCode").val().split(";");
+            var requiredNames = $("#requiredFieldName").val().split(";");
+            for (var i = 0; i < requiredCodes.length; i++) {
+                //保存前檢查
+                if ($("#" + requiredCodes[i]).val() == "") {
+                    $.messager.alert('Field Required', requiredNames[i] + ' must be entered!');
+                    return false;
+                }
+            }
+        }
+
         //dataGrid basic Setting:流向列表
         var urlPath1 = '<%=basePath%>flowData/flowDirection.action?flowUuid=' + $("#flowUuid").val() + '&nodeUuid=' + $("#flowNodeUuid").val();
         $('#nodeList').datagrid({
