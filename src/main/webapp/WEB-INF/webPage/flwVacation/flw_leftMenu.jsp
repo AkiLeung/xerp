@@ -9,88 +9,6 @@
 <head>
     <title>Title</title>
     <jsp:include page="../include/common.jsp" flush="true"/>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".navLeft_div2").click(function () {
-                $(this).next("div").slideToggle("slow")
-                    .siblings(".navLeft_div3:visible").slideUp("slow");
-            });
-        });
-    </script>
-    <style>
-        .navLeft {
-            width: 99.9%;
-            height: 100%;
-            border: 0px solid #CCCCCC;
-            color: #000000;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        .navLeft_top {
-            padding-top: 7px;
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
-            background-color: #eef3f3;
-            border-bottom: #ccc 1px dotted;
-        }
-
-        .navLeft_div1 {
-            text-align: center;
-            width: 100%;
-            padding-top: 0px;
-        }
-
-        .navLeft_div2 {
-            height: 35px;
-            line-height: 35px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: bold;
-            position: relative;
-            border-bottom: #ccc 1px dotted;
-            background-color: #ededed;
-        }
-
-        .navLeft_flowMenu {
-            position: absolute;
-            height: 20px;
-            width: 20px;
-            left: 35px;
-            top: 10px;
-            background: url('<%=basePath%>static/image/navmenu/1.png');
-        }
-
-        .navLeft_flowData {
-            position: absolute;
-            height: 20px;
-            width: 20px;
-            left: 35px;
-            top: 10px;
-            background: url('<%=basePath%>static/image/navmenu/2.png');
-        }
-
-        .navLeft_div3 {
-            display: block;
-            cursor: pointer;
-            font-size: 13px;
-
-        }
-
-        .navLeft_div3 ul {
-            margin: 0;
-            padding: 0;
-        }
-
-        .navLeft_div3 li a {
-            height: 30px;
-            line-height: 30px;
-            list-style: none;
-            border-bottom: #ccc 2px dotted;
-            text-align: center;
-        }
-    </style>
 </head>
 <body id="bg">
 <div class="navLeft">
@@ -143,23 +61,11 @@
 </div>
 </body>
 </html>
-<script>
-    /**流程Tab撤换******************/
-    function openFlowTabToUrl(tabName, ifrName, paraUrl) {
-        if (paraUrl != "" && paraUrl != "null") {
-            //判断选项卡是否重复打开
-            if (window.top.$('#workbench').tabs('exists', tabName)) {
-                window.top.$('#workbench').tabs('select', tabName);
-                window.top.frames[ifrName].location.href = paraUrl;
-            } else {
-                window.top.$('#workbench').tabs('add', {
-                    id: tabName,
-                    title: tabName,
-                    content: '<iframe id="' + ifrName + '" name="' + ifrName + '" scrolling="no" frameborder="0"  ' +
-                        'src="' + paraUrl + '" style="width:100%;height:100%;"></iframe>',
-                    closable: true
-                });
-            }
-        }
-    }
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".navLeft_div2").click(function () {
+            $(this).next("div").slideToggle("slow")
+                .siblings(".navLeft_div3:visible").slideUp("slow");
+        });
+    });
 </script>
