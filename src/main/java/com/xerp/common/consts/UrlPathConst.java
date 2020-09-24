@@ -48,7 +48,6 @@ public class UrlPathConst {
     public final static String STR_COMMON_404_PAGE = SYS_SERVER_PATH + "/common/404.jsp";
 
 
-
     /********************************************Start后台管理***************************************************/
     /**
      * 后台管理：配置菜单
@@ -59,194 +58,194 @@ public class UrlPathConst {
      */
     public final static String STR_SYSTEM_CONFIG_MAIN = SYS_SERVER_PATH + "/sysConfig/sys_configPanel.jsp";
     /**
-     *后台管理：用户-列表
+     * 后台管理：用户-列表
      */
     public final static String STR_SYSTEM_CONFIG_USER = SYS_SERVER_PATH + "/sysConfig/sys_userList.jsp";
     /**
-     *后台管理：用户-新增
+     * 后台管理：用户-新增
      */
     public final static String STR_SYSTEM_CONFIG_USER_ADD = SYS_SERVER_PATH + "/sysConfig/sys_userAdd.jsp";
     /**
-     *后台管理：用户-修改
+     * 后台管理：用户-修改
      */
     public final static String STR_SYSTEM_CONFIG_USER_UPT = SYS_SERVER_PATH + "/sysConfig/sys_userUpdate.jsp";
     /**
-     *后台管理：用户-修改密码
+     * 后台管理：用户-修改密码
      */
     public final static String STR_SYSTEM_CONFIG_USER_PSW = SYS_SERVER_PATH + "/sysConfig/sys_userUpdatePsw.jsp";
     /**
-     *后台管理：权限編碼
+     * 后台管理：权限編碼
      */
     public final static String STR_SYSTEM_CONFIG_USER_PERMISSION = SYS_SERVER_PATH + "/sysConfig/sys_permissionList.jsp";
     /**
-     *后台管理：权限編碼-配置
+     * 后台管理：权限編碼-配置
      */
     public final static String STR_SYSTEM_CONFIG_USER_PERMISSION_CONF = SYS_SERVER_PATH + "/sysConfig/sys_permissionConf.jsp";
     /**
-     *后台管理：角色列表
+     * 后台管理：角色列表
      */
     public final static String STR_SYSTEM_CONFIG_ROLE = SYS_SERVER_PATH + "/sysConfig/sys_roleList.jsp";
     /**
-     *后台管理：角色配置
+     * 后台管理：角色配置
      */
     public final static String STR_SYSTEM_CONFIG_ROLE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_roleConf.jsp";
     /**
-     *后台管理：角色配置-分配权限
+     * 后台管理：角色配置-分配权限
      */
     public final static String STR_SYSTEM_CONFIG_ROLE_PERMISSION_CONF = SYS_SERVER_PATH + "/sysConfig/sys_rolePermissionConf.jsp";
     /**
-     *后台管理：角色配置-分配权限
+     * 后台管理：角色配置-分配权限
      */
     public final static String STR_SYSTEM_CONFIG_ROLE_PERMISSION_ASSIGN = SYS_SERVER_PATH + "/sysConfig/sys_rolePermissionSelect.jsp";
     /**
-     *后台管理：角色配置-分配用户
+     * 后台管理：角色配置-分配用户
      */
     public final static String STR_SYSTEM_CONFIG_ROLE_USER_CONF = SYS_SERVER_PATH + "/sysConfig/sys_roleUserConf.jsp";
     /**
-     *后台管理：角色配置-分配权限
+     * 后台管理：角色配置-分配权限
      */
     public final static String STR_SYSTEM_CONFIG_ROLE_USER_ASSIGN = SYS_SERVER_PATH + "/sysConfig/sys_roleUserSelect.jsp";
     /**
-     *后台管理：门户配置-列表
+     * 后台管理：门户配置-列表
      */
     public final static String STR_SYSTEM_CONFIG_PORTAL = SYS_SERVER_PATH + "/sysConfig/sys_portalList.jsp";
     /**
-     *后台管理：门户配置-配置
+     * 后台管理：门户配置-配置
      */
     public final static String STR_SYSTEM_CONFIG_PORTAL_CONF = SYS_SERVER_PATH + "/sysConfig/sys_portalConf.jsp";
     /**
-     *后台管理：门户配置-菜單-列表
+     * 后台管理：门户配置-菜單-列表
      */
     public final static String STR_SYSTEM_CONFIG_PORTAL_MENU = SYS_SERVER_PATH + "/sysConfig/sys_portalMenuConf.jsp";
     /**
-     *后台管理：门户配置-菜單-更新
+     * 后台管理：门户配置-菜單-更新
      */
     public final static String STR_SYSTEM_CONFIG_PORTAL_MENU_UPT = SYS_SERVER_PATH + "/sysConfig/sys_portalMenuUpdate.jsp";
     /**
-     *后台管理：门户配置-菜單-TREE
+     * 后台管理：门户配置-菜單-TREE
      */
     public final static String STR_SYSTEM_CONFIG_PORTAL_MENU_TREE = SYS_SERVER_PATH + "/sysConfig/sys_portalMenuTree.jsp";
     /**
-     *后台管理：门户配置-菜單-模塊-配置
+     * 后台管理：门户配置-菜單-模塊-配置
      */
     public final static String STR_SYSTEM_CONFIG_PORTAL_MENU_MODULE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_portalModuleConf.jsp";
     /**
-     *后台管理：门户配置-菜單-操作-配置
+     * 后台管理：门户配置-菜單-操作-配置
      */
     public final static String STR_SYSTEM_CONFIG_PORTAL_MENU_OPTION_CONF = SYS_SERVER_PATH + "/sysConfig/sys_portalOptionConf.jsp";
     /**
-     *后台管理：流程模塊
+     * 后台管理：流程模塊
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_MODULE = SYS_SERVER_PATH + "/sysConfig/sys_flowModuleList.jsp";
     /**
-     *后台管理：流程模塊-配置
+     * 后台管理：流程模塊-配置
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_MODULE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_flowModuleConf.jsp";
 
     /**
-     *后台管理：流程名称
+     * 后台管理：流程名称
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_NAME = SYS_SERVER_PATH + "/sysConfig/sys_flowNameList.jsp";
     /**
-     *后台管理：流程名称-配置
+     * 后台管理：流程名称-配置
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_NAME_CONF = SYS_SERVER_PATH + "/sysConfig/sys_flowNameConf.jsp";
     /**
-     *后台管理：流程節點-列表
+     * 后台管理：流程節點-列表
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_NODE = SYS_SERVER_PATH + "/sysConfig/sys_flowNodeList.jsp";
     /**
-     *后台管理：流程節點-配置
+     * 后台管理：流程節點-配置
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_NODE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_flowNodeConf.jsp";
     /**
-     *后台管理：流程節點-办理人-配置
+     * 后台管理：流程節點-办理人-配置
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_NODE_HANDLER_CONF = SYS_SERVER_PATH + "/sysConfig/sys_flowNodeHandlerConf.jsp";
     /**
-     *后台管理：流程流向-列表
+     * 后台管理：流程流向-列表
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_DIRECTION = SYS_SERVER_PATH + "/sysConfig/sys_flowDirectionList.jsp";
     /**
-     *后台管理：流程流向-配置
+     * 后台管理：流程流向-配置
      */
     public final static String STR_SYSTEM_CONFIG_FLOW_DIRECTION_CONF = SYS_SERVER_PATH + "/sysConfig/sys_flowDirectionConf.jsp";
 
     /**
-     *后台管理：菜單模塊
+     * 后台管理：菜單模塊
      */
     public final static String STR_SYSTEM_CONFIG_MENU_MODULE = SYS_SERVER_PATH + "/sysConfig/sys_menuModuleList.jsp";
     /**
-     *后台管理：菜單模塊-配置
+     * 后台管理：菜單模塊-配置
      */
     public final static String STR_SYSTEM_CONFIG_MENU_MODULE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_menuModuleConf.jsp";
     /**
-     *后台管理：菜單配置-配置
+     * 后台管理：菜單配置-配置
      */
     public final static String STR_SYSTEM_CONFIG_MENU_OPTION_CONF = SYS_SERVER_PATH + "/sysConfig/sys_menuOptionConf.jsp";
     /**
-     *后台管理：菜單配置-TREE
+     * 后台管理：菜單配置-TREE
      */
     public final static String STR_SYSTEM_CONFIG_MENU_OPTION_TREE = SYS_SERVER_PATH + "/sysConfig/sys_menuOptionTree.jsp";
     /**
-     *后台管理：菜單配置-新增
+     * 后台管理：菜單配置-新增
      */
     public final static String STR_SYSTEM_CONFIG_MENU_OPTION_ADD = SYS_SERVER_PATH + "/sysConfig/sys_menuOptionAdd.jsp";
     /**
-     *后台管理：菜單配置-修改
+     * 后台管理：菜單配置-修改
      */
     public final static String STR_SYSTEM_CONFIG_MENU_OPTION_UPT = SYS_SERVER_PATH + "/sysConfig/sys_menuOptionUpdate.jsp";
 
     /**
-     *后台管理：數據字典-主页面
+     * 后台管理：數據字典-主页面
      */
     public final static String STR_SYSTEM_CONFIG_DATA_KEY_VALUE = SYS_SERVER_PATH + "/sysConfig/sys_dataKeyValueConf.jsp";
     /**
-     *后台管理：數據字典-TREE
+     * 后台管理：數據字典-TREE
      */
     public final static String STR_SYSTEM_CONFIG_DATA_KEY_VALUE_TREE = SYS_SERVER_PATH + "/sysConfig/sys_dataKeyValueTree.jsp";
     /**
-     *后台管理：數據類型-新增
+     * 后台管理：數據類型-新增
      */
     public final static String STR_SYSTEM_CONFIG_DATA_KEY_TYPE_ADD = SYS_SERVER_PATH + "/sysConfig/sys_dataKeyTypeAdd.jsp";
     /**
-     *后台管理：數據類型-修改
+     * 后台管理：數據類型-修改
      */
     public final static String STR_SYSTEM_CONFIG_DATA_KEY_TYPE_UPT = SYS_SERVER_PATH + "/sysConfig/sys_dataKeyTypeUpdate.jsp";
     /**
-     *后台管理：數據字典-新增
+     * 后台管理：數據字典-新增
      */
     public final static String STR_SYSTEM_CONFIG_DATA_KEY_VALUE_ADD = SYS_SERVER_PATH + "/sysConfig/sys_dataKeyValueAdd.jsp";
     /**
-     *后台管理：數據字典-修改
+     * 后台管理：數據字典-修改
      */
     public final static String STR_SYSTEM_CONFIG_DATA_KEY_VALUE_UPT = SYS_SERVER_PATH + "/sysConfig/sys_dataKeyValueUpdate.jsp";
     /**
-     *后台管理：单号配置-列表
+     * 后台管理：单号配置-列表
      */
     public final static String STR_SYSTEM_CONFIG_BILL_NUMBER = SYS_SERVER_PATH + "/sysConfig/sys_billNumberList.jsp";
     /**
-     *后台管理：单号配置-配置
+     * 后台管理：单号配置-配置
      */
     public final static String STR_SYSTEM_CONFIG_BILL_NUMBER_CONF = SYS_SERVER_PATH + "/sysConfig/sys_billNumberConf.jsp";
     /**
-     *后台管理：常用语-列表
+     * 后台管理：常用语-列表
      */
     public final static String STR_SYSTEM_CONFIG_COM_LANGUAGE = SYS_SERVER_PATH + "/sysConfig/sys_comLanguageList.jsp";
     /**
-     *后台管理：常用语-配置
+     * 后台管理：常用语-配置
      */
     public final static String STR_SYSTEM_CONFIG_COM_LANGUAGE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_comLanguageConf.jsp";
     /**
-     *后台管理：系统日志
+     * 后台管理：系统日志
      */
     public final static String STR_SYSTEM_CONFIG_SYSTEM_LOG = SYS_SERVER_PATH + "/sysConfig/sys_systemLogList.jsp";
     /**
-     *后台管理：系统日志
+     * 后台管理：系统日志
      */
     public final static String STR_SYSTEM_CONFIG_SYSTEM_DETAIL = SYS_SERVER_PATH + "/sysConfig/sys_systemLogDetail.jsp";
     /**
-     *后台管理：系统信息
+     * 后台管理：系统信息
      */
     public final static String STR_SYSTEM_CONFIG_SYSTEM_INFO = SYS_SERVER_PATH + "/sysConfig/sys_systemInfo.jsp";
     /********************************************End 后台管理***************************************************/
@@ -278,11 +277,11 @@ public class UrlPathConst {
      */
     public final static String STR_SYSTEM_ORG_DEPARTMENT_TREE = SYS_SERVER_PATH + "/sysOrg/sys_orgDepartmentTree.jsp";
     /**
-     *后台管理：部门結構-新增
+     * 后台管理：部门結構-新增
      */
     public final static String STR_SYSTEM_ORG_DEPARTMENT_ADD = SYS_SERVER_PATH + "/sysOrg/sys_orgDepartmentAdd.jsp";
     /**
-     *后台管理：部门結構-修改
+     * 后台管理：部门結構-修改
      */
     public final static String STR_SYSTEM_ORG_DEPARTMENT_UPT = SYS_SERVER_PATH + "/sysOrg/sys_orgDepartmentUpdate.jsp";
     /**
@@ -380,45 +379,43 @@ public class UrlPathConst {
 
     /********************************************Start弹窗管理***************************************************/
     /**
-     *弹窗管理：公司架构
+     * 弹窗管理：公司架构
      */
     public final static String STR_SYSTEM_POPU_COMPANY_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuCompanyTree.jsp";
     /**
-     *弹窗管理：部门架构
+     * 弹窗管理：部门架构
      */
     public final static String STR_SYSTEM_POPU_DEPARTMENT_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuDepartmentTree.jsp";
 
     /**
-     *弹窗管理：部门架构
+     * 弹窗管理：部门架构
      */
     public final static String STR_SYSTEM_POPU_BUSINESS_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuBusinessTree.jsp";
 
     /**
-     *弹窗管理：部门架构
+     * 弹窗管理：部门架构
      */
     public final static String STR_SYSTEM_POPU_BUSINESS_UNIT_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuBusinessUnitTree.jsp";
 
     /**
-     *弹窗管理：门户列表
+     * 弹窗管理：门户列表
      */
     public final static String STR_SYSTEM_POPU_PORTAL_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuPortalTree.jsp";
 
 
     /**
-     *弹窗管理：流程名称（可視化圖）
+     * 弹窗管理：流程名称（可視化圖）
      */
     public final static String STR_SYSTEM_POPU_FLOW_GRAPH = SYS_SERVER_PATH + "/sysPopu/sys_popuWorkFlow.jsp";
     /**
-     *弹窗管理：流程模塊
+     * 弹窗管理：流程模塊
      */
     public final static String STR_SYSTEM_POPU_FLOW_MODULE_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuFlowModuleTree.jsp";
     /**
-     *弹窗管理：流程節點
+     * 弹窗管理：流程節點
      */
     public final static String STR_SYSTEM_POPU_FLOW_NODE_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuFlowNodeTree.jsp";
     /********************************************End 弹窗管理***************************************************/
-
-
 
 
     /********************************************Start前台流程***************************************************/
@@ -427,9 +424,12 @@ public class UrlPathConst {
      */
     public final static String STR_FLOW_VACATION_LEFT_MENU = SYS_SERVER_PATH + "/flwVacation/flw_leftMenu.jsp";
     public final static String STR_FLOW_VACATION_MAIN_FORM = SYS_SERVER_PATH + "/flwVacation/flw_mainForm.jsp";
-    public final static String STR_FLOW_VACATION_TO_HANDLE = SYS_SERVER_PATH + "/flwVacation/flw_toHandleList.jsp";
 
-    public final static String STR_FLOW_VACATION_ALL_APPLY_LIST= SYS_SERVER_PATH + "/flwVacation/flw_allApplyList.jsp";
+    public final static String STR_FLOW_VACATION_TO_HANDLE_LIST = SYS_SERVER_PATH + "/flwVacation/flw_toHandleList.jsp";
+    public final static String STR_FLOW_VACATION_MY_APPLY_LIST = SYS_SERVER_PATH + "/flwVacation/flw_toMyApplyList.jsp";
+    public final static String STR_FLOW_VACATION_ALL_APPLY_LIST = SYS_SERVER_PATH + "/flwVacation/flw_toAllApplyList.jsp";
+    public final static String STR_FLOW_VACATION_UN_FINISH_LIST = SYS_SERVER_PATH + "/flwVacation/flw_toUnFinishList.jsp";
+    public final static String STR_FLOW_VACATION_IS_FINISH_LIST = SYS_SERVER_PATH + "/flwVacation/flw_toIsFinishList.jsp";
 
     /********************************************End前台流程***************************************************/
 }

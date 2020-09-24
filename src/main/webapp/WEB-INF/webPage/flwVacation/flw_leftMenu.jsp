@@ -95,10 +95,10 @@
 <div class="navLeft">
     <div class="div1">
         <div class="left_top">
-            <img src="<%=basePath%>static/image/navmenu/bbb_01.jpg" width="30px" height="30px">
-            <img src="<%=basePath%>static/image/navmenu/bbb_02.jpg" width="30px" height="30px">
-            <img src="<%=basePath%>static/image/navmenu/bbb_03.jpg" width="30px" height="30px">
-            <img src="<%=basePath%>static/image/navmenu/bbb_04.jpg" width="30px" height="30px">
+            <img src="<%=basePath%>static/image/navmenu/bbb_01.jpg" width="25px" height="25px">
+            <img src="<%=basePath%>static/image/navmenu/bbb_02.jpg" width="25px" height="25px">
+            <img src="<%=basePath%>static/image/navmenu/bbb_03.jpg" width="25px" height="25px">
+            <img src="<%=basePath%>static/image/navmenu/bbb_04.jpg" width="25px" height="25px">
         </div>
         <div class="div2">
             <div class="flowMenu"></div>
@@ -111,15 +111,15 @@
                         草 申 请</a></li>
                 <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toHandleList.action')">我 的 待
                     办</a></li>
-                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/myApplyList.action')">我 的 申
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toMyApplyList.action')">我 的 申
                     请</a></li>
                 <li>
-                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/allApplyList.action')">所有的申请</a>
+                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toAllApplyList.action')">所有的申请</a>
                 </li>
-                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/unFinishList.action')">
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toUnFinishList.action')">
                     未完成申请</a></li>
                 <li>
-                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/isFinishList.action')">已完成申请</a>
+                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toIsFinishList.action')">已完成申请</a>
                 </li>
             </ul>
         </div>

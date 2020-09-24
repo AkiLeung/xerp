@@ -110,7 +110,7 @@ public class FlowVacationController extends BaseController {
     }
 
     /**
-     * 功能说明：请假流程-待处理
+     * 功能说明：请假流程-待处理页面
      * 修改说明：
      *
      * @return ModelAndView 頁面跳轉
@@ -122,7 +122,7 @@ public class FlowVacationController extends BaseController {
     public ModelAndView toHandleList() {
         modelAndView = new ModelAndView();
         try {
-            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_TO_HANDLE);
+            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_TO_HANDLE_LIST);
         } catch (Exception ex) {
             modelAndView.addObject("errorMessage", ex.toString());
             modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
@@ -131,28 +131,7 @@ public class FlowVacationController extends BaseController {
     }
 
     /**
-     * 功能说明：请假流程-待处理
-     * 修改说明：
-     *
-     * @return ModelAndView 頁面跳轉
-     * @author Joseph
-     * @date 20200826
-     */
-    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
-    @RequestMapping(value = "allApplyList.action")
-    public ModelAndView allApplyList() {
-        modelAndView = new ModelAndView();
-        try {
-            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_ALL_APPLY_LIST);
-        } catch (Exception ex) {
-            modelAndView.addObject("errorMessage", ex.toString());
-            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
-        }
-        return modelAndView;
-    }
-
-    /**
-     * 功能说明：获取数据
+     * 功能说明：获取数据--待处理页面
      * 修改说明：
      *
      * @return String ajax
@@ -190,6 +169,93 @@ public class FlowVacationController extends BaseController {
         }
         return null;
     }
+
+    /**
+     * 功能说明：请假流程-我的申请
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20200826
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "toMyApplyList.action")
+    public ModelAndView toMyApplyList() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_MY_APPLY_LIST);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+    /**
+     * 功能说明：请假流程-所有申请
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20200826
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "toAllApplyList.action")
+    public ModelAndView toAllApplyList() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_ALL_APPLY_LIST);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+    /**
+     * 功能说明：请假流程-未完成
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20200826
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "toUnFinishList.action")
+    public ModelAndView toUnFinishList() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_UN_FINISH_LIST);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+    /**
+     * 功能说明：请假流程-已完成
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20200826
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "toIsFinishList.action")
+    public ModelAndView toIsFinishList() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_IS_FINISH_LIST);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+
+
 
     /**
      * 功能说明：获取数据
