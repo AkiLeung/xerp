@@ -138,6 +138,15 @@
             {
                 id: "node-08",
                 pId: "root-00",
+                name: "审批用语",
+                isParent: false,
+                iconSkin: "config",
+                ifrName: "configSysLog",
+                mainPath: "<%=basePath %>sysConfig/comLanguage/configuration.action"
+            },
+            {
+                id: "node-09",
+                pId: "root-00",
                 name: "系统日志",
                 isParent: false,
                 iconSkin: "config",
@@ -145,7 +154,7 @@
                 mainPath: "<%=basePath %>sysConfig/sysLog/configuration.action"
             },
             {
-                id: "node-09",
+                id: "node-10",
                 pId: "root-00",
                 name: "系统信息",
                 isParent: false,

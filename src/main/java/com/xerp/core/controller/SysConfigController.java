@@ -278,7 +278,28 @@ public class SysConfigController extends BaseController {
     }
 
     /**
-     * 功能说明：顯示頁面
+     * 功能说明：后台配置-常用语言
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20181108
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "comLanguage/configuration.action")
+    public ModelAndView configComLanguage() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_SYSTEM_CONFIG_COM_LANGUAGE);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+    /**
+     * 功能说明：后台配置-系统日志
      * 修改说明：
      *
      * @return ModelAndView 頁面跳轉
@@ -287,7 +308,7 @@ public class SysConfigController extends BaseController {
      */
     //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
     @RequestMapping(value = "sysLog/configuration.action")
-    public ModelAndView gotoConfPage() {
+    public ModelAndView configSysLog() {
         modelAndView = new ModelAndView();
         try {
             modelAndView.setViewName(UrlPathConst.STR_SYSTEM_CONFIG_SYSTEM_LOG);

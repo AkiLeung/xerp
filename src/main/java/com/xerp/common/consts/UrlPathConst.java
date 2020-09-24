@@ -229,7 +229,14 @@ public class UrlPathConst {
      *后台管理：单号配置-配置
      */
     public final static String STR_SYSTEM_CONFIG_BILL_NUMBER_CONF = SYS_SERVER_PATH + "/sysConfig/sys_billNumberConf.jsp";
-
+    /**
+     *后台管理：常用语-列表
+     */
+    public final static String STR_SYSTEM_CONFIG_COM_LANGUAGE = SYS_SERVER_PATH + "/sysConfig/sys_comLanguageList.jsp";
+    /**
+     *后台管理：常用语-配置
+     */
+    public final static String STR_SYSTEM_CONFIG_COM_LANGUAGE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_comLanguageConf.jsp";
     /**
      *后台管理：系统日志
      */
