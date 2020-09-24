@@ -19,10 +19,16 @@
         </if>
     </select>
 
-    <!-- 查找所有-->
+    <!-- 查找用户维护-->
     <select id="listDataByUserCode" resultMap="ResultSet">
         select * from tbl_sys_com_language where user_code = #{userCode} order by sort asc
     </select>
+
+    <!-- 查找所有-->
+    <select id="listDataToFlowSubmit" resultMap="ResultSet">
+        select * from tbl_sys_com_language where type = 'sys' or user_code = #{userCode} order by sort asc
+    </select>
+
 
     <!-- 統計個數-->
     <select id="listCount" resultType="Integer">

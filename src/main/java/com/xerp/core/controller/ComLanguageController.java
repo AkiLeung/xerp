@@ -74,6 +74,52 @@ public class ComLanguageController extends BaseController {
     }
 
     /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+//    @RequestMapping(value = "listDataTo.action")
+//    @ResponseBody
+//    public String listDataByUserCode(@RequestParam(value = "userCode") String userCode,
+//                                     HttpServletResponse response) {
+//        try {
+//            //獲取分頁情況
+//            List<ComLanguage> entityObject = serviceObject.listDataByUserCode(userCode);
+//            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+//            StringUtils.write(response, jsonArray);
+//        } catch (Exception ex) {
+//            log.error("XERP Exception:" + ex.toString());
+//        }
+//        return null;
+//    }
+
+    /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "listDataToFlowSubmit.action")
+    @ResponseBody
+    public String listDataToFlowSubmit(@RequestParam(value = "userCode") String userCode,
+            HttpServletResponse response) {
+        try {
+            //獲取分頁情況
+            List<ComLanguage> entityObject = serviceObject.listDataToFlowSubmit(userCode);
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+            StringUtils.write(response, jsonArray);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
+
+    /**
      * 功能说明：获取数据by uuid
      * 修改说明：
      *

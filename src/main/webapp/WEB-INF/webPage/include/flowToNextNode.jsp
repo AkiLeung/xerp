@@ -41,19 +41,7 @@
 				iconCls: 'icon-more',
 				closed:true,
 				modal:true,
-				buttons: [{
-					text:'Confirm',
-					iconCls:'icon-tip',
-					handler:function(){
-                        submitToNextNode();
-					}
-				},{
-					text:'Close',
-					iconCls:'icon-close',
-					handler:function(){
-						$('#popuFlowToNextNode').dialog('close');
-					}
-				}]">
+				buttons: '#flowToNext-buttons'">
     <div class="easyui-layout" style="width:100%;height:100%;">
         <div data-options="region:'center',title:'流向'" style="width:50%;">
             <table id="nodeList" class="easyui-datagrid" style="width:100%;" fit="true"
@@ -110,6 +98,55 @@
                    id="opinions" style="width:100%;height: 99%"/>
         </div>
     </div>
+</div>
+<div id="flowToNext-buttons">
+    <a href="javascript:void(0)" class="easyui-linkbutton" style="width: 120px"
+       data-options="iconCls:'icon-tip'" onclick="javascript:commonLanguage();">办理意见</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="javascript:void(0)" class="easyui-linkbutton" style="width: 80px"
+       data-options="iconCls:'icon-ok'" onclick="javascript:submitToNextNode();">提交</a>
+    <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
+    <a href="javascript:void(0)" class="easyui-linkbutton" style="width: 80px"
+       data-options="iconCls:'icon-close'" onclick="javascript:$('#popuFlowToNextNode').dialog('close');">关闭</a>
+</div>
+
+<div id="popuComLanguage" class="easyui-dialog" title="Please select ....."
+     style="width:500px;height:350px;padding:1px"
+     data-options="
+				iconCls: 'icon-more',
+				closed:true,
+				modal:true,
+				buttons: '#comLanguage-buttons'">
+    <table id="languageList" class="easyui-datagrid" style="width:100%;" fit="true"
+           data-options="
+                singleSelect:true,
+               rownumbers:true,
+               pagination:false,
+               idField:'uuid',
+               nowarp:false,
+               border:false,
+               collapsible:true,
+               method:'get'">
+        <thead>
+        <tr>
+            <th data-options="field:'cb',width:30,checkbox:'true',hidden:true"></th>
+            <th data-options="field:'uuid',width:100,hidden:true">uuid</th>
+            <th data-options="field:'type',width:80,hidden:true">type</th>
+            <th data-options="field:'opinions',width:550,hidden:false">办理意见</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<div id="comLanguage-buttons">
+    <a href="javascript:void(0)" class="easyui-linkbutton" style="width: 70px"
+       data-options="iconCls:'icon-ok'" onclick="javascript:setComLanguage();">确定</a>
+    <span class="datagrid-btn-separator" style="vertical-align: middle;display:inline-block;float:none"></span>
+    <a href="javascript:void(0)" class="easyui-linkbutton" style="width: 70px"
+       data-options="iconCls:'icon-close'" onclick="javascript:$('#popuComLanguage').dialog('close');">关闭</a>
 </div>
 <script type="text/javascript">
     //01 获取配置流程信息
@@ -187,9 +224,6 @@
             }
         }
     });
-
-    //04 获取当前节点：可编辑字段和必填字段
-
 
     //99 預覽流程圖
     function showFlowGraph() {
@@ -294,7 +328,7 @@
                                     //判断是否重复出现办理人员
                                     repeat = false;
                                     for (var j = 0; j < rows.length; j++) {
-                                        if (rows[j]['handlerCode'] == handlerRole[i].handlerCode ) {
+                                        if (rows[j]['handlerCode'] == handlerRole[i].handlerCode) {
                                             repeat = true;
                                         }
                                     }
@@ -408,4 +442,28 @@
     } else {
         $("#flowBtnTool").hide();
     }
+
+    //打开公用审批用语
+    function commonLanguage() {
+        //打开选择框
+        $('#popuComLanguage').dialog('open');
+        //加载数据
+        $('#languageList').datagrid({
+            url: '<%=basePath%>sysConfig/comLanguage/listDataToFlowSubmit.action?userCode='+lvCurUserCode,
+        });
+    }
+
+    //获取常用语言
+    function setComLanguage() {
+        var selectedRows = $("#languageList").datagrid('getSelections');
+        if (selectedRows.length == 0) {
+            $.messager.alert("Message", "Please Choose Data First！");
+            return;
+        }else{
+            $("#opinions").textbox('setValue',selectedRows[0].opinions);
+        }
+        //关闭选择框
+        $('#popuComLanguage').dialog('close');
+    }
+
 </script>

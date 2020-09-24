@@ -32,6 +32,12 @@ public class ComLanguageServiceImpl implements IComLanguageService {
     }
 
     @Override
+    public List<ComLanguage> listDataToFlowSubmit(String userCode) {
+        return daoObject.listDataToFlowSubmit(userCode);
+    }
+
+
+    @Override
     public int listCount() {
         return daoObject.listCount();
     }
