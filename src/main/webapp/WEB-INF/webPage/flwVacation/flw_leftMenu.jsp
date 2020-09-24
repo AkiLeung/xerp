@@ -11,9 +11,9 @@
     <jsp:include page="../include/common.jsp" flush="true"/>
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".div2").click(function () {
+            $(".navLeft_div2").click(function () {
                 $(this).next("div").slideToggle("slow")
-                    .siblings(".div3:visible").slideUp("slow");
+                    .siblings(".navLeft_div3:visible").slideUp("slow");
             });
         });
     </script>
@@ -27,23 +27,24 @@
             text-align: center;
         }
 
-        .left_top {
-            height: 40px;
-            line-height: 40px;
+        .navLeft_top {
+            padding-top: 7px;
+            height: 35px;
+            line-height: 35px;
             text-align: center;
-            background-color: #ededed;
+            background-color: #eef3f3;
             border-bottom: #ccc 1px dotted;
         }
 
-        .div1 {
+        .navLeft_div1 {
             text-align: center;
             width: 100%;
             padding-top: 0px;
         }
 
-        .div2 {
-            height: 40px;
-            line-height: 40px;
+        .navLeft_div2 {
+            height: 35px;
+            line-height: 35px;
             cursor: pointer;
             font-size: 13px;
             font-weight: bold;
@@ -52,37 +53,37 @@
             background-color: #ededed;
         }
 
-        .flowMenu {
+        .navLeft_flowMenu {
             position: absolute;
             height: 20px;
             width: 20px;
-            left: 40px;
+            left: 35px;
             top: 10px;
             background: url('<%=basePath%>static/image/navmenu/1.png');
         }
 
-        .flowData {
+        .navLeft_flowData {
             position: absolute;
             height: 20px;
             width: 20px;
-            left: 40px;
+            left: 35px;
             top: 10px;
             background: url('<%=basePath%>static/image/navmenu/2.png');
         }
 
-        .div3 {
+        .navLeft_div3 {
             display: block;
             cursor: pointer;
             font-size: 13px;
 
         }
 
-        .div3 ul {
+        .navLeft_div3 ul {
             margin: 0;
             padding: 0;
         }
 
-        .div3 li a {
+        .navLeft_div3 li a {
             height: 30px;
             line-height: 30px;
             list-style: none;
@@ -93,22 +94,23 @@
 </head>
 <body id="bg">
 <div class="navLeft">
-    <div class="div1">
-        <div class="left_top">
+    <div class="navLeft_div1">
+        <div class="navLeft_top">
             <img src="<%=basePath%>static/image/navmenu/bbb_01.jpg" width="25px" height="25px">
             <img src="<%=basePath%>static/image/navmenu/bbb_02.jpg" width="25px" height="25px">
             <img src="<%=basePath%>static/image/navmenu/bbb_03.jpg" width="25px" height="25px">
             <img src="<%=basePath%>static/image/navmenu/bbb_04.jpg" width="25px" height="25px">
         </div>
-        <div class="div2">
-            <div class="flowMenu"></div>
+        <div class="navLeft_div2">
+            <div class="navLeft_flowMenu"></div>
             请假申请
         </div>
-        <div class="div3">
+        <div class="navLeft_div3">
             <ul>
                 <li>
-                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/draftDocument.action?flowCode=flow00002&ws=<%=ConfigConst.STR_WS_CREATE%>')">起
-                        草 申 请</a></li>
+                    <a onclick="
+                            openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/draftDocument.action?flowCode=flow00002&ws=<%=ConfigConst.STR_WS_CREATE%>')">
+                        起 草 申 请</a></li>
                 <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toHandleList.action')">我 的 待
                     办</a></li>
                 <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toMyApplyList.action')">我 的 申
@@ -123,11 +125,11 @@
                 </li>
             </ul>
         </div>
-        <div class="div2">
-            <div class="flowData"></div>
+        <div class="navLeft_div2">
+            <div class="navLeft_flowData"></div>
             数据维护
         </div>
-        <div class="div3">
+        <div class="navLeft_div3">
             <ul>
                 <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护1</a>
                 </li>
@@ -154,7 +156,7 @@
                     id: tabName,
                     title: tabName,
                     content: '<iframe id="' + ifrName + '" name="' + ifrName + '" scrolling="no" frameborder="0"  ' +
-                        'src="' + url + '" style="width:100%;height:100%;"></iframe>',
+                        'src="' + paraUrl + '" style="width:100%;height:100%;"></iframe>',
                     closable: true
                 });
             }
