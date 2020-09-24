@@ -66,7 +66,7 @@
     //dataGrid basic Setting
     $(function () {
         $('#dataList').datagrid({
-            url: '<%=basePath%>vacation/listDataToHandler.action',
+            url: '<%=basePath%>vacation/listDataToMyApply.action',
             columns: [[
                 {field: 'cb', checkbox: 'true', width: 30},
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
@@ -99,6 +99,8 @@
                         }
                     }
                 }
+                //隐藏抬头全选Checkbox
+                $(".datagrid-header-check").children('input')[0].style.visibility="hidden";
             },
             onClickRow: function (rowIndex, rowData) {
                 //加载完毕后获取所有的checkbox遍历

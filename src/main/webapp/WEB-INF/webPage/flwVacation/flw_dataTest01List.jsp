@@ -18,7 +18,7 @@
                 <td bgColor="#F9FBFC"
                     style="COLOR: #000000;text-align:left;font-weight:bold; color:#195E8A; height:23px">
                     &nbsp;<img alt="list" src="<%=basePath%>static/image/info1.png"
-                               style="width: 16px; height: 16px"/>&nbsp;已完成申请
+                               style="width: 16px; height: 16px"/>&nbsp;数据维护01
                 </td>
             </tr>
             <tr>
@@ -41,9 +41,9 @@
                pageSize:30,
                pageList:[30,50,70],
                collapsible:true,
-               fitColumns:true,
-               striped:true,
                method:'get',
+               striped:true,
+               fitColumns:true,
                rowStyler: function(index,row){
            },
            toolbar:toolbar">
@@ -55,7 +55,7 @@
 <script type="text/javascript">
     //Toolbar
     var toolbar = [{
-        text: 'Refresh',
+        text: '刷新',
         iconCls: 'icon-reload',
         handler: function () {
             $("#dataList").datagrid("reload");
@@ -65,10 +65,11 @@
     //dataGrid basic Setting
     $(function () {
         $('#dataList').datagrid({
-            url: '<%=basePath%>vacation/listDataToIsFinish.action',
+            url: '<%=basePath%>vacation/listDataToHandler.action',
             columns: [[
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
-                {field: 'billNumber', title: '单号', width: 150,
+                {
+                    field: 'billNumber', title: '单号', width: 150,
                     formatter: function (value, row, index) {
                         return '<a style="color:blue" href="<%=basePath %>vacation/mainForm.action?uuid=' + row.uuid + '&flowCode=flow00002")>' + row.billNumber + '</a>';
                     }

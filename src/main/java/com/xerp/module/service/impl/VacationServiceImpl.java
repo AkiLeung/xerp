@@ -33,8 +33,23 @@ public class VacationServiceImpl implements IVacationService {
     }
 
     @Override
-    public List<Vacation> listDataAllList(PageModel pager) {
-        return daoObject.listDataAllList(pager);
+    public List<Vacation> listDataToMyApply(PageModel pager) {
+        return daoObject.listDataToMyApply(pager);
+    }
+
+    @Override
+    public List<Vacation> listDataToAllApply(PageModel pager) {
+        return daoObject.listDataToAllApply(pager);
+    }
+
+    @Override
+    public List<Vacation> listDataToUnFinish(PageModel pager) {
+        return daoObject.listDataToUnFinish(pager);
+    }
+
+    @Override
+    public List<Vacation> listDataToIsFinish(PageModel pager) {
+        return daoObject.listDataToIsFinish(pager);
     }
 
     @Override
@@ -43,18 +58,33 @@ public class VacationServiceImpl implements IVacationService {
     }
 
     @Override
-    public int listCountToHandler(String curHandlerNum) {
-        return daoObject.listCountToHandler(curHandlerNum);
+    public int listCountToHandler(String curUserCode) {
+        return daoObject.listCountToHandler(curUserCode);
+    }
+
+    @Override
+    public int listCountToMyApply(String curUserCode) {
+        return daoObject.listCountToMyApply(curUserCode);
+    }
+
+    @Override
+    public int listCountToAllApply() {
+        return daoObject.listCountToAllApply();
+    }
+
+    @Override
+    public int listCountToUnFinish() {
+        return daoObject.listCountToUnFinish();
+    }
+
+    @Override
+    public int listCountToIsFinish() {
+        return daoObject.listCountToIsFinish();
     }
 
     @Override
     public List<Vacation> listByUuid(String uuid) {
         return daoObject.listByUuid(uuid);
-    }
-
-    @Override
-    public List<Vacation> listByCode(String code) {
-        return daoObject.listByCode(code);
     }
 
     @Override

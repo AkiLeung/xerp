@@ -431,5 +431,6 @@ public class UrlPathConst {
     public final static String STR_FLOW_VACATION_UN_FINISH_LIST = SYS_SERVER_PATH + "/flwVacation/flw_toUnFinishList.jsp";
     public final static String STR_FLOW_VACATION_IS_FINISH_LIST = SYS_SERVER_PATH + "/flwVacation/flw_toIsFinishList.jsp";
 
+    public final static String STR_FLOW_VACATION_DATA_TEST01_LIST = SYS_SERVER_PATH + "/flwVacation/flw_dataTest01List.jsp";
     /********************************************End前台流程***************************************************/
 }

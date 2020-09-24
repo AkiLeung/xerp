@@ -27,14 +27,33 @@ public interface IVacationService {
      */
     List<Vacation> listDataToHandler(PageModel pager);
 
+    /**
+     * 查询所有
+     * @param pager  分页信息
+     * @return List<Vacation>
+     */
+    List<Vacation> listDataToMyApply(PageModel pager);
 
     /**
      * 查询所有
      * @param pager  分页信息
      * @return List<Vacation>
      */
-    List<Vacation> listDataAllList(PageModel pager);
+    List<Vacation> listDataToAllApply(PageModel pager);
 
+    /**
+     * 查询所有
+     * @param pager  分页信息
+     * @return List<Vacation>
+     */
+    List<Vacation> listDataToUnFinish(PageModel pager);
+
+    /**
+     * 查询所有
+     * @param pager  分页信息
+     * @return List<Vacation>
+     */
+    List<Vacation> listDataToIsFinish(PageModel pager);
 
     /**
      * 統計個數
@@ -44,10 +63,35 @@ public interface IVacationService {
 
     /**
      * 統計個數
-     * @param curHandlerNum
+     * @param curUserCode
      * @return int 統計個數
      */
-    int listCountToHandler(String curHandlerNum);
+    int listCountToHandler(String curUserCode);
+
+    /**
+     * 統計個數
+     * @param curUserCode
+     * @return int 統計個數
+     */
+    int listCountToMyApply(String curUserCode);
+
+    /**
+     * 統計個數
+     * @return int 統計個數
+     */
+    int listCountToAllApply();
+
+    /**
+     * 統計個數
+     * @return int 統計個數
+     */
+    int listCountToUnFinish();
+
+    /**
+     * 統計個數
+     * @return int 統計個數
+     */
+    int listCountToIsFinish();
 
     /**
      * 只查询一个，常用于修改
@@ -55,13 +99,6 @@ public interface IVacationService {
      * @return Vacation
      */
     List<Vacation> listByUuid(String uuid);
-
-    /**
-     * 只查询一个，常用于校驗
-     * @param code
-     * @return List<Vacation>
-     */
-    List<Vacation> listByCode(String code);
 
     /**
      * 增加，用实体作为参数

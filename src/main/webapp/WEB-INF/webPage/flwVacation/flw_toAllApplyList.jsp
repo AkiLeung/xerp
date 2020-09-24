@@ -41,6 +41,8 @@
                pageSize:30,
                pageList:[30,50,70],
                collapsible:true,
+               fitColumns:true,
+               striped:true,
                method:'get',
                rowStyler: function(index,row){
            },
@@ -63,7 +65,7 @@
     //dataGrid basic Setting
     $(function () {
         $('#dataList').datagrid({
-            url: '<%=basePath%>vacation/listDataAllList.action',
+            url: '<%=basePath%>vacation/listDataToAllApply.action',
             columns: [[
                 {field: 'uuid', title: 'uuid', width: 100, hidden: true},
                 {field: 'billNumber', title: '单号', width: 150,

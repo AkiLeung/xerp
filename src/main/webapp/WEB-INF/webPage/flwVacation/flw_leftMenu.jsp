@@ -129,11 +129,11 @@
         </div>
         <div class="div3">
             <ul>
-                <li><a onclick="openFlowTabToUrl('请假申请','vacation','<%=basePath%>vacation/mainForm.action')">数据维护1</a>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护1</a>
                 </li>
-                <li><a onclick="openFlowTabToUrl('请假申请','vacation','<%=basePath%>vacation/xxxxxxxxx.action')">数据维护2</a>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护2</a>
                 </li>
-                <li><a onclick="openFlowTabToUrl('请假申请','vacation','<%=basePath%>vacation/xxxxxxxxx.action')">数据维护3</a>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护3</a>
                 </li>
             </ul>
         </div>
