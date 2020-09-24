@@ -72,6 +72,7 @@
     </tr>
 </table>
 <jsp:include page="../include/flowButtonTool.jsp" flush="true"/>
+<jsp:include page="../include/flowOpinionsShow.jsp" flush="true"/>
 <jsp:include page="../include/flowToNextNode.jsp" flush="true"/>
 </body>
 </html>

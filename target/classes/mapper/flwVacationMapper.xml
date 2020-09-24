@@ -30,7 +30,7 @@
         </if>
     </select>
 
-    <!-- 待办列表-->
+    <!-- 我的待办-->
     <select id="listDataToHandler" resultMap="ResultSet">
         select * from tbl_flw_vacation where cur_handler_Code = #{condition01} order by created_datetime desc
         <if test="startRow != null and  rows!= null">
@@ -38,9 +38,33 @@
         </if>
     </select>
 
+    <!-- 我的申请-->
+    <select id="listDataToMyApply" resultMap="ResultSet">
+        select * from tbl_flw_vacation where flow_creator_code = #{condition01} order by created_datetime desc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
     <!-- 所有列表-->
-    <select id="listDataAllList" resultMap="ResultSet">
+    <select id="listDataToAllApply" resultMap="ResultSet">
         select * from tbl_flw_vacation where 1 = 1 order by created_datetime desc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 未完成-->
+    <select id="listDataToUnFinish" resultMap="ResultSet">
+        select * from tbl_flw_vacation where flow_node_type != '99' order by created_datetime desc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 已完成-->
+    <select id="listDataToIsFinish" resultMap="ResultSet">
+        select * from tbl_flw_vacation where flow_node_type = '99' order by created_datetime desc
         <if test="startRow != null and  rows!= null">
             limit #{startRow},#{rows}
         </if>
@@ -51,19 +75,34 @@
         select count(uuid) as total from tbl_flw_vacation where 1 = 1 order by created_datetime desc
     </select>
 
-    <!-- 統計個數-->
+    <!-- 統計個數：我的待办-->
     <select id="listCountToHandler" resultType="Integer">
-        select count(uuid) as total from tbl_flw_vacation where cur_handler_Code = #{curHandlerCode} order by created_datetime desc
+        select count(uuid) as total from tbl_flw_vacation where cur_handler_Code = #{curUserCode} order by created_datetime desc
+    </select>
+
+    <!-- 統計個數：我的申请-->
+    <select id="listCountToMyApply" resultType="Integer">
+        select count(uuid) as total from tbl_flw_vacation where flow_creator_code = #{curUserCode} order by created_datetime desc
+    </select>
+
+    <!-- 統計個數: 所有申请-->
+    <select id="listCountToAllApply" resultType="Integer">
+        select count(uuid) as total from tbl_flw_vacation where 1 = 1 order by created_datetime desc
+    </select>
+
+    <!-- 統計個數: 未完成-->
+    <select id="listCountToUnFinish" resultType="Integer">
+        select count(uuid) as total from tbl_flw_vacation where flow_node_type != '99'order by created_datetime desc
+    </select>
+
+    <!-- 統計個數: 已完成-->
+    <select id="listCountToIsFinish" resultType="Integer">
+        select count(uuid) as total from tbl_flw_vacation where flow_node_type = '99'order by created_datetime desc
     </select>
 
     <!-- 查找指定-->
     <select id="listByUuid" resultType="com.xerp.module.entity.Vacation" resultMap="ResultSet">
         select * from tbl_flw_vacation where uuid = #{uuid}
-    </select>
-
-    <!-- 查找指定-->
-    <select id="listByCode" resultType="com.xerp.module.entity.Vacation" resultMap="ResultSet">
-        select * from tbl_flw_vacation where bill_number = #{code}
     </select>
 
     <!-- 新增-->
