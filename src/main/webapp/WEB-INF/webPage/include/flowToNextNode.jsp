@@ -253,10 +253,9 @@
         $('#nodeList').datagrid({
             url: urlPath1,
             onLoadSuccess: function (data) {
-                var rows = $(this).datagrid('getRows');
-                var data = JSON.stringify(rows);
-                alert(data);
+                //根据后台维护的流程公式控制流向显示
                 //easyuiDG_hideRow("nodeList", 0);
+                $("#flowNodeFormula").html($("#nodeFormula").val());
             },
             onClickRow: function (rowIndex, rowData) {
                 //单击时：读取办理人信息

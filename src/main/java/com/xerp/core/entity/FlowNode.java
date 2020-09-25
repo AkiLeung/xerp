@@ -49,6 +49,8 @@ public class FlowNode extends BaseEntity {
 
     private String nodeFormula;
 
+    private String nodeFormulaDesc;
+
     private String gooflowType;
 
     private String gooflowLeft;

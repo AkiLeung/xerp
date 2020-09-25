@@ -178,6 +178,15 @@
         </tr>
         <tr>
             <td class="tblTitle">
+                公式说明
+            </td>
+            <td class="tblCell">
+                <input class="easyui-textbox" value="" name="nodeFormulaDesc" type="text" id="nodeFormulaDesc"
+                       style="width:99%;height: 60px"
+                       data-options="multiline:true"/></td>
+        </tr>
+        <tr>
+            <td class="tblTitle">
                 必填字段
             </td>
             <td class="tblCell">
@@ -328,6 +337,7 @@
                 $("#requiredFieldCode").textbox('setValue', data[0].requiredFieldCode);
                 $("#requiredFieldName").textbox('setValue', data[0].requiredFieldName);
                 $("#nodeFormula").textbox('setValue', data[0].nodeFormula);
+                $("#nodeFormulaDesc").textbox('setValue', data[0].nodeFormulaDesc);
                 $("#gooflowType").textbox('setValue', data[0].gooflowType);
                 $("#gooflowLeft").textbox('setValue', data[0].gooflowLeft);
                 $("#gooflowTop").textbox('setValue', data[0].gooflowTop);
@@ -381,6 +391,7 @@
             requiredFieldCode: $("#requiredFieldCode").val(),
             requiredFieldName: $("#requiredFieldName").val(),
             nodeFormula: $("#nodeFormula").val(),
+            nodeFormulaDesc: $("#nodeFormulaDesc").val(),
             gooflowType: $("#gooflowType").val(),
             gooflowLeft: $("#gooflowLeft").val(),
             gooflowTop: $("#gooflowTop").val(),
