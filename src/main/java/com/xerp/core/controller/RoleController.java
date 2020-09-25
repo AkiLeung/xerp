@@ -76,6 +76,30 @@ public class RoleController extends BaseController {
     }
 
     /**
+     * 功能说明：获取数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "listDataAll.action")
+    @ResponseBody
+    public String listDataAll(HttpServletResponse response) {
+        try {
+            //獲取分頁情況
+            PageModel pager = new PageModel();
+            //查詢數據
+            List<Role> entityObject = serviceObject.listData(pager);
+            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
+            StringUtils.write(response, jsonArray);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
+
+    /**
      * 功能说明：获取数据by uuid
      * 修改说明：
      *

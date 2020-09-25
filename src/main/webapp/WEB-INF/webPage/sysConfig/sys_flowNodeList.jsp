@@ -85,7 +85,7 @@
          draggable:true,
          resizable:false,
          buttons: [{
-					text:'Save',
+					text:'保存',
 					iconCls:'icon-save',
 					handler:function(){
                         $('#ifrFlowNodeConfig')[0].contentWindow.saveData();
@@ -93,7 +93,7 @@
                         $('#dataList').datagrid('reload');
 					}
 				},{
-					text:'Close',
+					text:'关闭',
 					iconCls:'icon-close',
 					handler:function(){
 						$('#flowNodeConfig').dialog('close');

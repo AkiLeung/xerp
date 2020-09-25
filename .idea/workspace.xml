@@ -10,11 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_toMyApplyList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_toMyApplyList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/css/baseSheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/baseSheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/module/controller/FlowVacationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/module/controller/FlowVacationController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/roleSelect01.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/JOSEPH_L.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/JOSEPH_L.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeList.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,49 +32,51 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_toMyApplyList.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="70" column="21" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="598" column="47" lean-forward="true" selection-start-line="598" selection-start-column="41" selection-end-line="598" selection-end-column="56" />
+            <state relative-caret-position="403">
+              <caret line="411" column="73" selection-start-line="411" selection-start-column="73" selection-end-line="411" selection-end-column="73" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#2;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#1;n#tr#1;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#3;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/service/IVacationService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNameConf.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="128" column="8" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/flwVacationMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="163" column="26" selection-start-line="163" selection-start-column="16" selection-end-line="163" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="125" column="6" selection-start-line="97" selection-start-column="5" selection-end-line="125" selection-end-column="6" />
+            <state relative-caret-position="567">
+              <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
             </state>
           </provider>
         </entry>
@@ -91,11 +95,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>businessListZTree</find>
-      <find>openBusinessUnitSelect</find>
-      <find>password</find>
-      <find>getPortalName</find>
-      <find>portalName</find>
       <find>flowDirection</find>
       <find>submitCheck</find>
       <find>flowNodeUuid</find>
@@ -121,6 +120,11 @@
       <find>openFlowToNext</find>
       <find>popuFlowToNextNode</find>
       <find>rows</find>
+      <find>languageList</find>
+      <find>select</find>
+      <find>openRoleSelect</find>
+      <find>gooflowType</find>
+      <find>saveData()</find>
     </findStrings>
     <dirStrings>
       <dir>C:\JOSEPH\JavaDev\xerp\src</dir>
@@ -135,10 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/RoleUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/dao/IRoleUserDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/sysRoleUserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowConfigurationController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_allApplyListt.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/sysFlowDirectionMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/FlowDirectionController.java" />
@@ -175,8 +175,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowFormulaController.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/FlowNodeController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/entity/Opinions.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" />
@@ -186,6 +184,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_toMyApplyList.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuRoleTree.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/RoleController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/roleSelect01.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp" />
       </list>
     </option>
   </component>
@@ -272,26 +276,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="xerp" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xerp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xerp" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xerp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xerp" type="462c0819:PsiDirectoryNode" />
-              <item name="module" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
@@ -388,6 +372,16 @@
               <item name="webPage" type="462c0819:PsiDirectoryNode" />
               <item name="sysConfig" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="webPage" type="462c0819:PsiDirectoryNode" />
+              <item name="sysPopu" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -422,11 +416,11 @@
       <recent name="com.xerp.core.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\webapp\WEB-INF\webPage\sysPopu" />
       <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\webapp\WEB-INF\webPage\include" />
       <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\webapp\WEB-INF\webPage\flwVacation" />
       <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\resources\mapper" />
       <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\webapp\static\image\flow" />
-      <recent name="D:\JOSEPH\MyGitHub\xerp\src\main\webapp\WEB-INF\webPage\sysConfig" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -732,21 +726,7 @@
       <workItem from="1600301741874" duration="44647000" />
       <workItem from="1600474059967" duration="18698000" />
       <workItem from="1600650209330" duration="75943000" />
-      <workItem from="1600906510620" duration="40855000" />
-    </task>
-    <task id="LOCAL-00026" summary="update 20200910">
-      <created>1599778809351</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1599778809351</updated>
-    </task>
-    <task id="LOCAL-00027" summary="update 20200911">
-      <created>1599888982401</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1599888982401</updated>
+      <workItem from="1600906510620" duration="47998000" />
     </task>
     <task id="LOCAL-00028" summary="update 20200911">
       <created>1599892911203</created>
@@ -1077,7 +1057,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601025050795</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="update 20200925">
+      <created>1601029154889</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1601029154889</updated>
+    </task>
+    <task id="LOCAL-00076" summary="update 20200925">
+      <created>1601029208897</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1601029208897</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1104,7 +1098,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="817521000" />
+    <option name="totallyTimeSpent" value="824664000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1119,7 +1113,7 @@
     <frame x="1912" y="2" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18496802" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2468017" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1129,7 +1123,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41458106" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.23068553" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.2437432" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.23503809" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1207,52 +1201,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowNodeSelect01.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-750" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowModuleSelect01.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-675" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgCompanyConf.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgCompanyList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1025">
-          <caret line="76" column="19" lean-forward="true" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysOrg/sys_orgBusinessUnitConf.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2025" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowButtonTool.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/ComLanguageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/service/IComLanguageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/service/impl/ComLanguageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1461,23 +1409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1149">
-          <caret line="149" column="49" selection-start-line="149" selection-start-column="49" selection-end-line="149" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1864">
-          <caret line="398" column="53" lean-forward="true" selection-start-line="398" selection-start-column="53" selection-end-line="398" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/entity/Opinions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -1492,28 +1423,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowOpinionsShow.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/flwOpinionsMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="18" column="46" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="423" column="27" selection-start-line="423" selection-start-column="12" selection-end-line="423" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1528,38 +1441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
           <caret line="108" column="1" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="51" column="9" lean-forward="true" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#0;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#td#1;n#tr#1;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="125" column="6" selection-start-line="97" selection-start-column="5" selection-end-line="125" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1594,10 +1475,151 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_billNumberList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="125" column="6" selection-start-line="97" selection-start-column="5" selection-end-line="125" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/portalSelect01.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuRoleTree.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="46" column="50" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowOpinionsShow.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuPortalTree.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="77" selection-start-line="77" selection-end-line="82" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="117" column="68" selection-start-line="117" selection-start-column="68" selection-end-line="117" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/core/controller/RoleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="87" column="29" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_toMyApplyList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="70" column="21" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="21" />
+        <state relative-caret-position="227">
+          <caret line="62" column="12" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="65" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/roleSelect01.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_userAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="259" column="67" lean-forward="true" selection-start-line="259" selection-start-column="7" selection-end-line="259" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#9;n#table#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="64" column="72" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="89" column="30" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNameConf.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="90" column="68" lean-forward="true" selection-start-line="90" selection-start-column="68" selection-end-line="90" selection-end-column="68" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="411" column="73" selection-start-line="411" selection-start-column="73" selection-end-line="411" selection-end-column="73" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#2;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#1;n#tr#1;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#3;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#div#3;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
