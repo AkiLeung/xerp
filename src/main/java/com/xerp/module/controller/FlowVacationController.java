@@ -534,7 +534,6 @@ public class FlowVacationController extends BaseController {
     @ResponseBody
     public String submitFlowData(@RequestBody String strJson,
                                  HttpServletResponse response) {
-        User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         try {
             //獲取頁面傳輸的String Json
             JSONObject jsonData = JSONObject.parseObject(strJson);
@@ -581,4 +580,33 @@ public class FlowVacationController extends BaseController {
     }
 
 
+    /**
+     * 功能说明：刪除数据
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "deleteData.action", method = RequestMethod.POST)
+    @ResponseBody
+    public String deleteData(@RequestParam(value = "uuids") String uuids,
+                             HttpServletResponse response) {
+        JSONObject result = new JSONObject();
+        int int_return;
+        try {
+            String[] strUuids = uuids.split(",");
+            int_return = vacationService.deleteDataBatch(strUuids);
+            //返回狀態
+            if (int_return > 0) {
+                result.put(ConfigConst.STR_AJAX_SUCCESS, true);
+            } else {
+                result.put(ConfigConst.STR_AJAX_ERROR, false);
+            }
+            StringUtils.write(response, result);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
 }

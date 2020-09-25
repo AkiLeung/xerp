@@ -55,7 +55,35 @@
 </html>
 <script type="text/javascript">
     //Toolbar
-    var toolbar = [{
+    var toolbar = [ {
+        text: 'Remove',
+        iconCls: 'icon-remove',
+        handler: function () {
+            var selectedRows = $("#dataList").datagrid('getSelections');
+            if (selectedRows.length == 0) {
+                $.messager.alert("Message", "Please Choose Data First！");
+                return;
+            }
+            var arrayIds = [];
+            for (var i = 0; i < selectedRows.length; i++) {
+                arrayIds.push(selectedRows[i].uuid);
+            }
+            var uuids = arrayIds.join(",");
+            $.messager.confirm("Message", "Are Sure to this option?", function (r) {
+                if (r) {
+                    $.post("<%=basePath%>vacation/deleteData.action", {
+                        uuids: uuids
+                    }, function (result) {
+                        if (result.success) {
+                            $("#dataList").datagrid("reload");
+                        } else {
+                            $.messager.error("Error", "Please contact system administrator！");
+                        }
+                    }, "json");
+                }
+            });
+        }
+    },'-', {
         text: 'Refresh',
         iconCls: 'icon-reload',
         handler: function () {

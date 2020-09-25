@@ -46,28 +46,33 @@
 </table>
 <table class="tbl" style="width:100%;height:200px;">
     <tr>
-        <td class="tblCell" style="width: 100%;height: 60px;text-align: center" colspan="2">
-            XXXXXX申请
+        <td class="tblCell" style="width: 100%;height: 50px;text-align: center" colspan="2">
+            请假申请流程（Test 1.0）
+        </td>
+    </tr>
+    <tr>
+        <td class="tblCellBillNumber" style="width: 100%;height: 20px;" colspan="2">
+            <span id="billNumberShow" style="font-weight: bolder;"></span>
         </td>
     </tr>
     <tr>
         <td class="tblTitle" style="width: 10%">
-            创建人
+            创建人员
         </td>
         <td class="tblCell" style="width: 90%">
             <input class="easyui-textbox" value="" name="flowCreatorCode" type="text" id="flowCreatorCode"
-                   style="width:150px;" editable="false"/>
+                   style="width:20%;" editable="false"/>
             <input class="easyui-textbox" value="" name="flowCreatorName" type="text" id="flowCreatorName"
-                   style="width:150px;" editable="false"/>
+                   style="width:20%;" editable="false"/>
         </td>
     </tr>
     <tr>
         <td class="tblTitle" style="width: 10%">
-            备注
+            备注信息
         </td>
         <td class="tblCell" style="width: 90%">
             <input class="easyui-textbox" data-options="multiline:true" value="" name="message" type="text" id="message"
-                   style="width:99.5%;height: 99.5%"/>
+                   style="width:99.5%;height: 99.5%" editable="false"/>
         </td>
     </tr>
 </table>
@@ -118,6 +123,7 @@
             success: function (data) {
                 //单据核心信息
                 $("#billNumber").textbox('setValue', data[0].billNumber);
+                $("#billNumberShow").text(" (NO."+data[0].billNumber+")");
                 $("#flowCreatorCode").textbox('setValue', data[0].flowCreatorCode);
                 $("#flowCreatorName").textbox('setValue', data[0].flowCreatorName);
                 //单据审批内容
