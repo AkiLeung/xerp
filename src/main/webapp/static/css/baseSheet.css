@@ -190,7 +190,7 @@ a:active {
     width: 20px;
     left: 35px;
     top: 10px;
-    background: url('/static/image/navmenu/1.png');
+    background: url('../image/navmenu/1.png');
 }
 
 .navLeft_flowData {
@@ -199,7 +199,7 @@ a:active {
     width: 20px;
     left: 35px;
     top: 10px;
-    background: url('/static/image/navmenu/2.png');
+    background: url('../image/navmenu/2.png');
 }
 
 .navLeft_div3 {

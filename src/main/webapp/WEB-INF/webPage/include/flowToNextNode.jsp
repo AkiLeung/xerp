@@ -6,7 +6,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div style="display: none">
+<div style="display: none1">
     <%--当前记录信息--%>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
@@ -18,6 +18,7 @@
     editableField:<input value="" type="Text" name="editableField" id="editableField"/><br/>
     requiredFieldCode:<input value="" type="Text" name="requiredFieldCode" id="requiredFieldCode"/><br/>
     requiredFieldName:<input value="" type="Text" name="requiredFieldName" id="requiredFieldName"/><br/>
+    flowNodeFormula:<input value="" type="Text" name="nodeFormula" id="nodeFormula"/><br/>
     curUserCode:<input value="<shiro:principal property="userCode"/>" type="Text" name="curUserCode"
                        id="curUserCode"/><br/>
     curHandlerCode:<input value="" type="Text" name="curHandlerCode" id="curHandlerCode"/><br/>
@@ -251,8 +252,14 @@
         var urlPath1 = '<%=basePath%>flowData/flowDirection.action?flowUuid=' + $("#flowUuid").val() + '&nodeUuid=' + $("#flowNodeUuid").val();
         $('#nodeList').datagrid({
             url: urlPath1,
-            //单击时：读取办理人信息
+            onLoadSuccess: function (data) {
+                var rows = $(this).datagrid('getRows');
+                var data = JSON.stringify(rows);
+                alert(data);
+                //easyuiDG_hideRow("nodeList", 0);
+            },
             onClickRow: function (rowIndex, rowData) {
+                //单击时：读取办理人信息
                 var urlPath2;
                 //读取节点指定页面办理人
                 urlPath2 = '<%=basePath%>flowData/getNodeByNodeUuid.action?nodeUuid=' + rowData.targetNodeUuid;
@@ -449,7 +456,7 @@
         $('#popuComLanguage').dialog('open');
         //加载数据
         $('#languageList').datagrid({
-            url: '<%=basePath%>sysConfig/comLanguage/listDataToFlowSubmit.action?userCode='+lvCurUserCode,
+            url: '<%=basePath%>sysConfig/comLanguage/listDataToFlowSubmit.action?userCode=' + lvCurUserCode,
         });
     }
 
@@ -459,11 +466,51 @@
         if (selectedRows.length == 0) {
             $.messager.alert("Message", "Please Choose Data First！");
             return;
-        }else{
-            $("#opinions").textbox('setValue',selectedRows[0].opinions);
+        } else {
+            $("#opinions").textbox('setValue', selectedRows[0].opinions);
         }
         //关闭选择框
         $('#popuComLanguage').dialog('close');
     }
 
+    /***********************************************************************************************************/
+    //隐藏指定行
+    function easyuiDG_hideRow(tableId, index) {
+        //获取 easyui-datagrid 数据存储所在表格
+        var tbody = easyuiDG_getTBody(tableId).children('tbody');
+        tbody.children().eq(index).hide(); //隐藏指定行
+        //如果显示行号的话 则隐藏行号
+        if ($('#' + tableId).prevAll('div.datagrid-view1')) {
+            var numbers = $('#' + tableId).prevAll('div.datagrid-view1')
+                .children('div.datagrid-body')
+                .children('div.datagrid-body-inner')
+                .children('table.datagrid-btable')
+                .children('tbody');
+            numbers.children().eq(index).hide();//隐藏行号
+        }
+    }
+
+
+    //显示指定行
+    function easyuiDG_ShowRow(tableId, index) {
+        //获取 easyui-datagrid 数据存储所在表格
+        var tbody = easyuiDG_getTBody(tableId).children('tbody');
+        tbody.children().eq(index).show(); //显示指定行
+        //如果显示行号的话 则隐藏行号
+        if ($('#' + tableId).prevAll('div.datagrid-view1')) {
+            var numbers = $('#' + tableId).prevAll('div.datagrid-view1')
+                .children('div.datagrid-body')
+                .children('div.datagrid-body-inner')
+                .children('table.datagrid-btable')
+                .children('tbody');
+            numbers.children().eq(index).show();//显示行号
+        }
+    }
+
+    //获取 easyui-datagrid 数据存储所在表格
+    function easyuiDG_getTBody(tableId) {
+        var view2 = $('#' + tableId).prevAll('div.datagrid-view2');
+        var table = view2.children('div.datagrid-body').children('table.datagrid-btable');
+        return table;
+    }
 </script>

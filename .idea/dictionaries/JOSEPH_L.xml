@@ -3,7 +3,9 @@
     <words>
       <w>authc</w>
       <w>authz</w>
+      <w>btable</w>
       <w>consts</w>
+      <w>datagrid</w>
       <w>easyui</w>
       <w>hrms</w>
       <w>popu</w>

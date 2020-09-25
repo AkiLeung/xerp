@@ -72,7 +72,7 @@
     </tr>
 </table>
 <jsp:include page="../include/flowButtonTool.jsp" flush="true"/>
-<jsp:include page="../include/flowOpinionsShow.jsp" flush="true"/>
+<%--<jsp:include page="../include/flowOpinionsShow.jsp" flush="true"/>--%>
 <jsp:include page="../include/flowToNextNode.jsp" flush="true"/>
 </body>
 </html>
@@ -94,9 +94,13 @@
             url: pathUrl,
             dataType: 'json',
             success: function (data) {
+                //可编辑字段
                 $("#editableField").val(data[0].editableField);
+                //必填字段
                 $("#requiredFieldCode").val(data[0].requiredFieldCode);
                 $("#requiredFieldName").val(data[0].requiredFieldName);
+                //流程控制公式
+                $("#nodeFormula").val(data[0].nodeFormula);
             },
             error: function (data) {
                 alert("【" + url + "】JSON数据获取失败，请联系管理员！");
