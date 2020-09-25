@@ -8,6 +8,8 @@
         <result property="docUuid" column="docUuid"/>
         <result property="userCode" column="userCode"/>
         <result property="userName" column="userName"/>
+        <result property="flowFrmNodeName" column="flowFrmNodeName"/>
+        <result property="flowTgtNodeName" column="flowTgtNodeName"/>
         <result property="opinions" column="opinions"/>
         <result property="createdDatetime" column="createdDatetime"/>
 
@@ -31,6 +33,8 @@
         doc_uuid,
         user_code,
         user_name,
+        flow_frm_node_name,
+        flow_tgt_node_name,
         opinions,
         created_datetime)
         values
@@ -38,6 +42,8 @@
         #{docUuid},
         #{userCode},
         #{userName},
+        #{flowFrmNodeName},
+        #{flowTgtNodeName},
         #{opinions},
         #{createdDatetime})
     </insert>

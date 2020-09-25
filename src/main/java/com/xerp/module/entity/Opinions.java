@@ -25,6 +25,10 @@ public class Opinions extends BaseEntity {
 
     private String userName;
 
+    private String flowFrmNodeName;
+
+    private String flowTgtNodeName;
+
     private String opinions;
 
     private String createdDatetime;

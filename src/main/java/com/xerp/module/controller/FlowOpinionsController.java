@@ -87,6 +87,8 @@ public class FlowOpinionsController extends BaseController {
             entityObject.setDocUuid(jsonData.getString("docUuid"));
             entityObject.setUserCode(user.getUserCode());
             entityObject.setUserName(user.getUserName());
+            entityObject.setFlowFrmNodeName(jsonData.getString("flowFrmNodeName"));
+            entityObject.setFlowTgtNodeName(jsonData.getString("flowTgtNodeName"));
             entityObject.setOpinions(jsonData.getString("opinions"));
             entityObject.setCreatedDatetime(StringUtils.getDatetime());
             int intReturn = opinionsService.insertData(entityObject);

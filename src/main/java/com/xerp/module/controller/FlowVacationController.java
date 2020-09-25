@@ -485,7 +485,7 @@ public class FlowVacationController extends BaseController {
             Vacation entityObject = new Vacation();
             if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
                 entityObject.setUuid(StringUtils.createUUID());
-                entityObject.setBillNumber("草稿");
+                entityObject.setBillNumber("");
                 FlowName flowName = arrFList.get(0);
                 entityObject.setFlowUuid(flowName.getUuid());
                 entityObject.setFlowName(flowName.getFlowName());
@@ -544,14 +544,16 @@ public class FlowVacationController extends BaseController {
             entityObject.setUuid(jsonData.getString("uuid"));
             String curFlowNodeType = jsonData.getString("flowNodeTypeC");
             String tagFlowNodeType = jsonData.getString("flowNodeTypeN");
-            if (!tagFlowNodeType.equals(curFlowNodeType) ) {
+            String billNumber = jsonData.getString("billNumber");
+            if (!tagFlowNodeType.equals(curFlowNodeType) && StringUtils.isEmpty(billNumber) ) {
+                //当前是起草环节提高，并且单号为空才创建新单号，反之
                 if (tagFlowNodeType.equals(ConfigConst.STR_FLOW_TASK_NUM)
                         ||  tagFlowNodeType.equals(ConfigConst.STR_FLOW_NODE_NUM)) {
-                    String billNumber = billNumberService.generateBillNumber("HR-FLW-000001");
+                    billNumber = billNumberService.generateBillNumber("HR-FLW-000001");
                     entityObject.setBillNumber(billNumber);
                 }
             } else {
-                entityObject.setMessage(jsonData.getString("billNumber"));
+                entityObject.setMessage(billNumber);
             }
             entityObject.setMessage(jsonData.getString("message"));
             //流程控制参数

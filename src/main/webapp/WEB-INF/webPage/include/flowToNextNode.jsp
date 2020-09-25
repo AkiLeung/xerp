@@ -6,7 +6,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div style="display: none1">
+<div style="display: none">
     <%--当前记录信息--%>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
@@ -421,6 +421,8 @@
         //執行保存
         var objData = {
             docUuid: $("#uuid").val(),
+            flowFrmNodeName: $("#flowNodeName").val(),
+            flowTgtNodeName: $("#targetNodeName").val(),
             opinions: $("#opinions").val()
         };
         var jsonData = JSON.stringify(objData);
@@ -435,7 +437,7 @@
             success: function (data) {
             },
             error: function (data) {
-                alert("添加时出现异常");
+                alert("添加办理意见时出现异常");
             },
         });
     }

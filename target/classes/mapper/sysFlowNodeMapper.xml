@@ -20,6 +20,7 @@
         <result property="requiredFieldCode" column="requiredFieldCode"/>
         <result property="requiredFieldName" column="requiredFieldName"/>
         <result property="nodeFormula" column="nodeFormula"/>
+        <result property="nodeFormulaDesc" column="nodeFormulaDesc"/>
         <result property="gooflowType" column="gooflowType"/>
         <result property="gooflowLeft" column="gooflowLeft"/>
         <result property="gooflowTop" column="gooflowTop"/>
@@ -86,6 +87,7 @@
             required_field_code,
             required_field_name,
             node_formula,
+            node_formula_desc
             gooflow_type,
             gooflow_left,
             gooflow_top,
@@ -113,6 +115,7 @@
             #{requiredFieldCode},
             #{requiredFieldName},
             #{nodeFormula},
+            #{nodeFormulaDesc},
             #{gooflowType},
             #{gooflowLeft},
             #{gooflowTop},
@@ -144,6 +147,7 @@
             required_field_code = #{requiredFieldCode},
             required_field_name = #{requiredFieldName},
             node_formula = #{nodeFormula},
+            node_formula_desc = #{nodeFormulaDesc},
             gooflow_type = #{gooflowType},
             gooflow_left = #{gooflowLeft},
             gooflow_top = #{gooflowTop},

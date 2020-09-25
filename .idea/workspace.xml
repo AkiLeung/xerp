@@ -10,14 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23a56a4d-71ca-4239-b64c-cdfe2552377b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowFormulaController.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/FlowNodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/FlowNodeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xerp/module/entity/Opinions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xerp/module/entity/Opinions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/flwOpinionsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/flwOpinionsMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowOpinionsShow.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowOpinionsShow.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/FlowNodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/controller/FlowNodeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/FlowNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xerp/core/entity/FlowNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/sysFlowNodeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/sysFlowNodeMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,13 +35,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="393" column="48" selection-start-line="393" selection-start-column="48" selection-end-line="393" selection-end-column="48" />
+            <state relative-caret-position="439">
+              <caret line="93" column="49" lean-forward="true" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="548" column="43" selection-start-line="548" selection-start-column="43" selection-end-line="548" selection-end-column="43" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,12 +123,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/FlowDirectionController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowDirectionConf.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNameConf.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/entity/Opinions.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/dao/IOpinionsDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/service/IOpinionsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/service/impl/OpinionsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/flwOpinionsMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_toHandleList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowButtonTool.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sample/SampleSQL.txt" />
@@ -139,20 +148,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/dao/IVacationDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/service/IVacationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/service/impl/VacationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_toIsFinishList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_toUnFinishList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowOpinionsShow.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_leftMenu.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/javascript/common.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/css/baseSheet.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowFormulaController.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/entity/FlowNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xerp/core/controller/FlowNodeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/sysFlowNodeMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/entity/Opinions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/flwOpinionsMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowOpinionsShow.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java" />
       </list>
     </option>
   </component>
@@ -238,7 +250,26 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="xerp" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xerp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xerp" type="462c0819:PsiDirectoryNode" />
+              <item name="module" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -680,14 +711,7 @@
       <workItem from="1600301741874" duration="44647000" />
       <workItem from="1600474059967" duration="18698000" />
       <workItem from="1600650209330" duration="75943000" />
-      <workItem from="1600906510620" duration="34471000" />
-    </task>
-    <task id="LOCAL-00024" summary="update 20200906">
-      <created>1599456081048</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1599456081048</updated>
+      <workItem from="1600906510620" duration="37709000" />
     </task>
     <task id="LOCAL-00025" summary="update 20200908">
       <created>1599609927443</created>
@@ -1025,7 +1049,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601015394625</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="update 20200925">
+      <created>1601021964274</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1601021964275</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1052,7 +1083,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="811137000" />
+    <option name="totallyTimeSpent" value="814375000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1077,7 +1108,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.41458106" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.073993474" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.27203482" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.23503809" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1109,7 +1140,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update pom.xml 20200826" />
     <MESSAGE value="update webPages 20200826" />
     <MESSAGE value="update 20200827" />
     <MESSAGE value="update 20200831" />
@@ -1134,7 +1164,8 @@
     <MESSAGE value="update 20200922" />
     <MESSAGE value="update 20200923" />
     <MESSAGE value="update 20200924" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20200924" />
+    <MESSAGE value="update 20200925" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20200925" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1145,26 +1176,16 @@
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java</url>
+          <line>93</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_comLanguageConf.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="52" column="49" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#5;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuFlowToNext.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysPopu/sys_popuWorkFlow.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowProcessShow.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1366,34 +1387,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="382" column="47" selection-start-line="382" selection-start-column="29" selection-end-line="382" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sample/SampleSQL.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
           <caret line="18" column="78" lean-forward="true" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="46" column="66" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowOpinionsShow.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret column="68" selection-start-column="68" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -1464,16 +1461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3569">
-          <caret line="255" column="35" selection-start-line="255" selection-start-column="35" selection-end-line="255" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowFormulaController.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -1502,19 +1489,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+        <state relative-caret-position="1864">
+          <caret line="398" column="53" lean-forward="true" selection-start-line="398" selection-start-column="53" selection-end-line="398" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/sysConfig/sys_flowNodeConf.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/entity/Opinions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="393" column="48" selection-start-line="393" selection-start-column="48" selection-end-line="393" selection-end-column="48" />
+        <state relative-caret-position="567">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/service/IOpinionsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowOpinionsShow.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/flwOpinionsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/include/flowToNextNode.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="423" column="27" selection-start-line="423" selection-start-column="12" selection-end-line="423" selection-end-column="27" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#13;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/webPage/flwVacation/flw_mainForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="75" column="15" lean-forward="true" selection-start-line="75" selection-start-column="15" selection-end-line="75" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowOpinionsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="93" column="49" lean-forward="true" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xerp/module/controller/FlowVacationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="548" column="43" selection-start-line="548" selection-start-column="43" selection-end-line="548" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
