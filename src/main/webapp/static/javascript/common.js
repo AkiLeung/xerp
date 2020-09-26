@@ -117,7 +117,44 @@ $.extend($.fn.textbox.methods, {
     }
 });
 
+/***EasyUI dataGrid隐藏指定行*****************************/
+function easyuiDG_hideRow(tableId, index) {
+    //获取 easyui-datagrid 数据存储所在表格
+    var tbody = easyuiDG_getTBody(tableId).children('tbody');
+    tbody.children().eq(index).hide(); //隐藏指定行
+    //如果显示行号的话 则隐藏行号
+    if ($('#' + tableId).prevAll('div.datagrid-view1')) {
+        var numbers = $('#' + tableId).prevAll('div.datagrid-view1')
+            .children('div.datagrid-body')
+            .children('div.datagrid-body-inner')
+            .children('table.datagrid-btable')
+            .children('tbody');
+        numbers.children().eq(index).hide();//隐藏行号
+    }
+}
 
+/***EasyUI dataGrid 显示指定行*****************************/
+function easyuiDG_showRow(tableId, index) {
+    //获取 easyui-datagrid 数据存储所在表格
+    var tbody = easyuiDG_getTBody(tableId).children('tbody');
+    tbody.children().eq(index).show(); //显示指定行
+    //如果显示行号的话 则隐藏行号
+    if ($('#' + tableId).prevAll('div.datagrid-view1')) {
+        var numbers = $('#' + tableId).prevAll('div.datagrid-view1')
+            .children('div.datagrid-body')
+            .children('div.datagrid-body-inner')
+            .children('table.datagrid-btable')
+            .children('tbody');
+        numbers.children().eq(index).show();//显示行号
+    }
+}
+
+/***获取 easyui-datagrid 数据存储所在表格*****************************/
+function easyuiDG_getTBody(tableId) {
+    var view = $('#' + tableId).prevAll('div.datagrid-view2');
+    var table = view.children('div.datagrid-body').children('table.datagrid-btable');
+    return table;
+}
 
 
 

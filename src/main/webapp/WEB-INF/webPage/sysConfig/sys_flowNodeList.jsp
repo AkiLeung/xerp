@@ -89,8 +89,6 @@
 					iconCls:'icon-save',
 					handler:function(){
                         $('#ifrFlowNodeConfig')[0].contentWindow.saveData();
-                        $('#flowNodeConfig').dialog('close');
-                        $('#dataList').datagrid('reload');
 					}
 				},{
 					text:'关闭',

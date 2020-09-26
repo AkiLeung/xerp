@@ -87,7 +87,7 @@
             required_field_code,
             required_field_name,
             node_formula,
-            node_formula_desc
+            node_formula_desc,
             gooflow_type,
             gooflow_left,
             gooflow_top,

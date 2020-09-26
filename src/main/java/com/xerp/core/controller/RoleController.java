@@ -85,10 +85,12 @@ public class RoleController extends BaseController {
      */
     @RequestMapping(value = "listDataAll.action")
     @ResponseBody
-    public String listDataAll(HttpServletResponse response) {
+    public String listDataAll(@RequestParam(value = "search") String search,
+                              HttpServletResponse response) {
         try {
             //獲取分頁情況
             PageModel pager = new PageModel();
+            pager.setCondition01(search);
             //查詢數據
             List<Role> entityObject = serviceObject.listData(pager);
             JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));

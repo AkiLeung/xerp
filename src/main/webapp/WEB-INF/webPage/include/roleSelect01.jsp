@@ -53,6 +53,7 @@
 				}]">
     <table id="dataList" class="easyui-datagrid" style="width:100%;" fit="true"
            data-options="
+                   toolbar:'#toolbar',
                    singleSelect:true,
                    rownumbers:true,
                    pagination:false,
@@ -71,6 +72,12 @@
         </thead>
     </table>
 </div>
+<div id="toolbar" style="padding:10px;height:auto">
+    <div>
+        &nbsp;&nbsp;条件: &nbsp;<input id="search" name="search" class="easyui-textbox" style="width:360px">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="javascript:bandData()">查询</a>
+    </div>
+</div>
 <span style="display: none">
         selectValue:<input type="text" value="" id="selectValue" name="selectValue"><br>
         fieldCode:<input type="text" value="" id="fieldCode" name="fieldCode"><br>
@@ -85,8 +92,13 @@
         $("#fieldName").val(returnName);
         $("#type").val(single);
         //加载数据
+        bandData();
+    }
+
+    //绑定数据
+    function bandData() {
         $('#dataList').datagrid({
-            url: '<%=basePath%>sysConfig/role/listDataAll.action',
+            url: '<%=basePath%>sysConfig/role/listDataAll.action?search='+$('#search').val(),
         });
     }
 </script>

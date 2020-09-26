@@ -241,10 +241,13 @@
                         流向公式
                     </td>
                     <td class="tblCell" style="height: 100px">
-                        eg:当起草人等于管理员的时候，隐藏排序为0的流向！
+                        eg:<br>
+                        1.当起草人等于管理员的时候，隐藏排序为0的流向！<br>
+                        2.当起草人等于管理员的时候，显示排序为0的流向！
                         <input class="easyui-textbox" name="formulaExample" type="text" id="formulaExample"
                                style="width:99%;height: 120px"
-                               value = "<script>if($('#flowCreatorCode').val()=='admin'){ easyuiDG_hideRow('nodeList', 0); }</script>"
+                               value = "<script>if($('#flowCreatorCode').val()=='admin'){ easyuiDG_hideRow('nodeList', 0); }</script>
+                                        <script>if($('#flowCreatorCode').val()=='admin'){ easyuiDG_showRow('nodeList', 1); }</script>"
                                data-options="multiline:true"/>
                     </td>
                 </tr>
@@ -402,21 +405,15 @@
 
     //保存提交時執行
     function saveData() {
-        alert($("#nodeCode").val());
         //保存前檢查
         if ($("#nodeCode").val() == "") {
-            alert("code empty");
-            $.messager.alert('Field Required', 'Node code must be entered!');
-            return false;
+            $.messager.alert('提示', 'Node code must be entered!');
+            return ;
         }
-        $.messager.alert('Field Required', 'Node name must be entered!');
-        alert($("#nodeName").val() );
         if ($("#nodeName").val() == "") {
-            alert("name empty");
-            $.messager.alert('Field Required', 'Node name must be entered!');
+            $.messager.alert('提示', 'Node name must be entered!','error');
             return false;
         }
-        alert("pass empty check");
         //設置環節top位置
         var positionLeft = 0;
         parseInt($("#nodeCode").val()) < 90 ? positionLeft = 138 : positionLeft = 1180;
