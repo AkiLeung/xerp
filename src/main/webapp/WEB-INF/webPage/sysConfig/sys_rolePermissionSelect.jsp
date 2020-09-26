@@ -111,5 +111,6 @@
         var url='<%=basePath%>sysConfig/permission/listData.action?search='+$("#search").val();
         $('#dataList').datagrid('options').url = url;
         $("#dataList").datagrid('reload');
+        $('#dataList').datagrid('clearSelections');
     }
 </script>

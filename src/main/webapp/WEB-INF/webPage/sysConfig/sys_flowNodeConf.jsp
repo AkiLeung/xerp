@@ -336,6 +336,7 @@
                     }, function (result) {
                         if (result.success) {
                             $("#handlerList").datagrid("reload");
+                            $('#dataList').datagrid('clearSelections');
                         } else {
                             $.messager.error("Error", "Please contact system administrator！");
                         }

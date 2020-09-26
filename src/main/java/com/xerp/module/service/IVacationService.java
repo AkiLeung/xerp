@@ -115,6 +115,13 @@ public interface IVacationService {
     int updateData(Vacation entity);
 
     /**
+     * 修改，用实体作为参数
+     * @param entity of Vacation
+     * @return int 影響行數
+     */
+    int saveData(Vacation entity);
+
+    /**
      * 按uuid删除
      * @param uuid
      * @return int 影響行數

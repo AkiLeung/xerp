@@ -551,6 +551,7 @@ public class FlowVacationController extends BaseController {
             } else {
                 entityObject.setMessage(billNumber);
             }
+            //表单内容
             entityObject.setMessage(jsonData.getString("message"));
             //流程控制参数
             entityObject.setFlowNodeUuid(jsonData.getString("flowNodeUuid"));
@@ -576,6 +577,44 @@ public class FlowVacationController extends BaseController {
         return null;
     }
 
+
+    /**
+     * 功能说明：提交流程
+     * 修改说明：
+     *
+     * @return String ajax
+     * @author Joseph
+     * @date 20181108
+     */
+    @RequestMapping(value = "saveFlowData.action", method = RequestMethod.POST)
+    @ResponseBody
+    public String saveFlowData(@RequestBody String strJson,
+                                 HttpServletResponse response) {
+        try {
+            //獲取頁面傳輸的String Json
+            JSONObject jsonData = JSONObject.parseObject(strJson);
+            //操作對象
+            Vacation entityObject = new Vacation();
+            //uuid
+            entityObject.setUuid(jsonData.getString("uuid"));
+            //表单内容
+            entityObject.setMessage(jsonData.getString("message"));
+            entityObject.setUpdatedDatetime(StringUtils.getDatetime());
+
+            int intReturn = vacationService.saveData(entityObject);
+            JSONObject result = new JSONObject();
+            //返回狀態
+            if (intReturn > 0) {
+                result.put(ConfigConst.STR_AJAX_SUCCESS, true);
+            } else {
+                result.put(ConfigConst.STR_AJAX_ERROR, false);
+            }
+            StringUtils.write(response, result);
+        } catch (Exception ex) {
+            log.error("XERP Exception:" + ex.toString());
+        }
+        return null;
+    }
 
     /**
      * 功能说明：刪除数据

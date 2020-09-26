@@ -118,6 +118,7 @@
                         if (result.success) {
                             //$.messager.alert("系统提示", "操作成功！");
                             $("#dataList").datagrid("reload");
+                            $('#dataList').datagrid('clearSelections');
                         } else {
                             $.messager.error("Error", "Please contact system administrator！");
                         }

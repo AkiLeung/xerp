@@ -77,7 +77,7 @@
     </tr>
 </table>
 <jsp:include page="../include/flowButtonTool.jsp" flush="true"/>
-<jsp:include page="../include/flowOpinionsShow.jsp" flush="true"/>
+<%--<jsp:include page="../include/flowOpinionsShow.jsp" flush="true"/>--%>
 <jsp:include page="../include/flowToNextNode.jsp" flush="true"/>
 <jsp:include page="../include/flowFormulaController.jsp" flush="true"/>
 </body>
@@ -147,12 +147,33 @@
 
     //保存文档
     function documentSave() {
-        alert("Document Save!!!!");
+        //執行保存
+        var objData = {
+            uuid: $("#uuid").val(),
+            message: $("#message").val()
+        };
+        var jsonData = JSON.stringify(objData);
+        //执行保存
+        $.ajax({
+            type: "POST",
+            url: "<%=basePath %>vacation/saveFlowData.action",
+            dataType: "json",
+            contentType: 'application/json;charset=UTF-8',
+            async: false,
+            data: jsonData,
+            success: function (data) {
+                alert("Save Document");
+                window.location.href = '<%=basePath %>vacation/toHandleList.action';
+            },
+            error: function (data) {
+                alert("添加时出现异常");
+            },
+        });
     }
 
     //提交文档
     function documentFlowToNext() {
-        //執行保存
+        //執行提交
         var objData = {
             uuid: $("#uuid").val(),
             billNumber: $("#billNumber").val(),
@@ -166,7 +187,7 @@
             curHandlerName: $("#targetHandlerName").val()
         };
         var jsonData = JSON.stringify(objData);
-        //执行保存
+        //執行提交
         $.ajax({
             type: "POST",
             url: "<%=basePath %>vacation/submitFlowData.action",
@@ -177,7 +198,7 @@
             success: function (data) {
                 //保存办理意见
                 saveDocuOpinions();
-                alert("Save Document");
+                alert("Submit Document");
                 window.location.href = '<%=basePath %>vacation/toHandleList.action';
             },
             error: function (data) {

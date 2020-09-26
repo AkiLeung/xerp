@@ -98,6 +98,11 @@ public class VacationServiceImpl implements IVacationService {
     }
 
     @Override
+    public int saveData(Vacation entity) {
+        return daoObject.saveData(entity);
+    }
+
+    @Override
     public int deleteData(String uuid) {
         return daoObject.deleteData(uuid);
     }

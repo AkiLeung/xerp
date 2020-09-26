@@ -6,7 +6,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div style="display: none">
+<div style="display: none123">
     <%--当前记录信息--%>
     flowUuid:<input value="" type="Text" name="flowUuid" id="flowUuid"/><br/>
     flowName:<input value="" type="Text" name="flowName" id="flowName"/><br/>
@@ -33,8 +33,8 @@
     targetNodeType:<input value="" type="Text" name="flowNodeType" id="targetNodeType"/><br/>
     targetNodeCode:<input value="" type="Text" name="targetNodeCode" id="targetNodeCode"/><br/>
     targetNodeName:<input value="" type="Text" name="targetNodeName" id="targetNodeName"/><br/>
-    targetHandlerNum:<input value="" type="Text" name="targetHandlerCode" id="targetHandlerCode"/><br/>
-    targetHandlerNam:<input value="" type="Text" name="targetHandlerName" id="targetHandlerName"/><br/>
+    targetHandlerCode:<input value="" type="Text" name="targetHandlerCode" id="targetHandlerCode"/><br/>
+    targetHandlerName:<input value="" type="Text" name="targetHandlerName" id="targetHandlerName"/><br/>
 </div>
 <div id="popuFlowToNextNode" class="easyui-dialog" title="Please select ....."
      style="width:550px;height:450px;padding:1px"
@@ -248,6 +248,7 @@
         }
 
         //dataGrid basic Setting:流向列表
+        $('#nodeList').datagrid('clearSelections');
         var urlPath1 = '<%=basePath%>flowData/flowDirection.action?flowUuid=' + $("#flowUuid").val() + '&nodeUuid=' + $("#flowNodeUuid").val();
         $('#nodeList').datagrid({
             url: urlPath1,
@@ -280,6 +281,7 @@
                 });
 
                 //读取节点维护的办理人（独立办理人）
+                $('#handlerList').datagrid('clearSelections');
                 urlPath2 = '<%=basePath%>flowData/flowSingleHandlerByNode.action?nodeUuid=' + rowData.targetNodeUuid;
                 $('#handlerList').datagrid({
                     url: urlPath2,
