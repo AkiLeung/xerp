@@ -57,7 +57,7 @@
                    method:'get'">
                 <thead>
                 <tr>
-                    <th data-options="field:'cb',width:30,checkbox: 'true'"></th>
+                    <th data-options="field:'cb',width:30,checkbox: 'true',hidden:true"></th>
                     <th data-options="field:'uuid',width:100,hidden:true">uuid</th>
                     <th data-options="field:'flowUuid',width:80,hidden:true">flowUuid</th>
                     <th data-options="field:'nodeUuid',width:80,hidden:true">nodeUuid</th>
@@ -85,7 +85,7 @@
                    method:'get'">
                 <thead>
                 <tr>
-                    <th data-options="field:'cb',width:30,checkbox: 'true'"></th>
+                    <th data-options="field:'cb',width:30,checkbox: 'true',hidden:true"></th>
                     <th data-options="field:'uuid',width:100,hidden:true">uuid</th>
                     <th data-options="field:'handlerCode',width:80,hidden:true">办理人编号</th>
                     <th data-options="field:'handlerName',width:200,hidden:false">办理人名称</th>
@@ -102,7 +102,7 @@
 </div>
 <div id="flowToNext-buttons">
     <a href="javascript:void(0)" class="easyui-linkbutton" style="width: 120px"
-       data-options="iconCls:'icon-tip'" onclick="javascript:commonLanguage();">办理意见</a>
+       data-options="iconCls:'icon-tip'" onclick="javascript:openComLanguage();">办理意见</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -114,7 +114,6 @@
     <a href="javascript:void(0)" class="easyui-linkbutton" style="width: 80px"
        data-options="iconCls:'icon-close'" onclick="javascript:$('#popuFlowToNextNode').dialog('close');">关闭</a>
 </div>
-
 <div id="popuComLanguage" class="easyui-dialog" title="Please select ....."
      style="width:500px;height:350px;padding:1px"
      data-options="
@@ -452,7 +451,7 @@
     }
 
     //打开公用审批用语
-    function commonLanguage() {
+    function openComLanguage() {
         //打开选择框
         $('#popuComLanguage').dialog('open');
         //加载数据
@@ -473,7 +472,4 @@
         //关闭选择框
         $('#popuComLanguage').dialog('close');
     }
-
-    /***********************************************************************************************************/
-
 </script>

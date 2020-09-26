@@ -13,7 +13,11 @@
 
     <!-- 查找所有-->
     <select id="listData" resultMap="RoleResult">
-        select * from tbl_sys_role where 1 = 1 order by role_code asc
+        select * from tbl_sys_role where 1 = 1
+        <if test="condition01 != '' ">
+            and ( role_code like concat('%',#{condition01},'%') or role_name like concat('%',#{condition01},'%') )
+        </if>
+        order by role_code asc
         <if test="startRow != null and  rows!= null">
             limit #{startRow},#{rows}
         </if>
