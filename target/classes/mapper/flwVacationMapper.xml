@@ -160,6 +160,14 @@
         where uuid = #{uuid}
 	</update>
 
+    <!-- 保存 仅限表单数据 -->
+    <update id="saveData">
+        update tbl_flw_vacation set
+        message = #{message},
+        updated_datetime = #{updatedDatetime}
+        where uuid = #{uuid}
+    </update>
+
     <!-- 刪除 只有起草状态的流程才能够被删除 -->
     <delete id="deleteData">
         delete from tbl_flw_vacation where uuid=#{uuid} and flow_node_type = '00'
