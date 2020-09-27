@@ -416,7 +416,18 @@ public class UrlPathConst {
      */
     public final static String STR_SYSTEM_POPU_FLOW_NODE_TREE = SYS_SERVER_PATH + "/sysPopu/sys_popuFlowNodeTree.jsp";
     /********************************************End 弹窗管理***************************************************/
+    /**
+     * 后台管理：常用语-列表
+     */
+    public final static String STR_SYSTEM_PUBLIC_COM_LANGUAGE = SYS_SERVER_PATH + "/sysPublic/sys_comLanguageList.jsp";
+    /**
+     * 后台管理：常用语-配置
+     */
+    public final static String STR_SYSTEM_PUBLIC_COM_LANGUAGE_CONF = SYS_SERVER_PATH + "/sysPublic/sys_comLanguageConf.jsp";
+    /********************************************Start前台公共***************************************************/
 
+
+    /********************************************Start前台公共***************************************************/
 
     /********************************************Start前台流程***************************************************/
     /**

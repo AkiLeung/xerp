@@ -110,7 +110,6 @@ public class FlowNodeHandlerController extends BaseController {
     @ResponseBody
     public String saveData(@RequestBody String strJson,
                            HttpServletResponse response) {
-        User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         int returnRow = 0;
         try {
             //獲取頁面傳輸的String Json

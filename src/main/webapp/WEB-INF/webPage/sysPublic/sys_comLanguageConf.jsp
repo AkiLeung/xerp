@@ -1,5 +1,6 @@
 <%@ page import="com.xerp.common.consts.ConfigConst" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -26,31 +27,31 @@
                 &nbsp;<img alt="info" src="<%=basePath%>static/image/info3.png"/>&nbsp;基础信息
             </td>
         </tr>
-        <tr>
+        <tr style="display: none">
             <td class="tblTitle" style="width: 25%">
                 类型
             </td>
             <td class="tblCell" style="width: 75%">
                 <label style="cursor: pointer"><input type="radio" name="type" value="sys" checked>系统</label>
-                <label style="cursor: pointer"><input type="radio" name="type" value="user">用户</label>
+                <label style="cursor: pointer"><input type="radio" name="type" value="user" checked>用户</label>
             </td>
         </tr>
-        <tr>
+        <tr style="display: none">
             <td class="tblTitle">
                 用户编号
             </td>
             <td class="tblCell">
-                <input class="easyui-textbox" value="" name="userCode" type="text" id="userCode"
+                <input class="easyui-textbox" value="<shiro:principal property="userCode"/>" name="userCode" type="text" id="userCode"
                        style="width:250px"
                        data-options="prompt:'Enter module code.',required:true,validType:'length[1,20]'"/>
                 (系统共用，填写：*)
             </td>
         </tr>
         <tr>
-            <td class="tblTitle">
+            <td class="tblTitle"  style="width: 15%">
                 审批内容
             </td>
-            <td class="tblCell" style="height: 240px">
+            <td class="tblCell" style="width: 85%;height: 305px">
                 <input class="easyui-textbox" data-options="multiline:true,validType:'length[0,250]'" value=""
                        name="opinions" type="text"
                        id="opinions" style="width:100%;height: 99%"/>

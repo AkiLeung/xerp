@@ -13,20 +13,19 @@
 
     <!-- 查找所有-->
     <select id="listData" resultMap="ResultSet">
-        select * from tbl_sys_com_language where 1 = 1 order by sort asc
+        select * from tbl_sys_com_language where 1 = 1
+        <if test="condition01 != null">
+          and  user_code = #{condition01}
+        </if>
+        order by type, sort asc
         <if test="startRow != null and  rows!= null">
             limit #{startRow},#{rows}
         </if>
     </select>
 
-    <!-- 查找用户维护-->
-    <select id="listDataByUserCode" resultMap="ResultSet">
-        select * from tbl_sys_com_language where user_code = #{userCode} order by sort asc
-    </select>
-
     <!-- 查找所有-->
     <select id="listDataToFlowSubmit" resultMap="ResultSet">
-        select * from tbl_sys_com_language where type = 'sys' or user_code = #{userCode} order by sort asc
+        select * from tbl_sys_com_language where type = 'sys' or user_code = #{userCode} order by type, sort asc
     </select>
 
 

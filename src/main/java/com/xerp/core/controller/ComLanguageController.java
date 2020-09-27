@@ -10,9 +10,11 @@ import com.xerp.common.utils.StringUtils;
 import com.xerp.core.entity.BillNumber;
 import com.xerp.core.entity.ComLanguage;
 import com.xerp.core.entity.PageModel;
+import com.xerp.core.entity.User;
 import com.xerp.core.service.IBillNumberService;
 import com.xerp.core.service.IComLanguageService;
 import lombok.extern.log4j.Log4j2;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -50,6 +52,7 @@ public class ComLanguageController extends BaseController {
     @ResponseBody
     public String listData(HttpServletResponse response, HttpServletRequest request) {
         try {
+            User user =  (User) SecurityUtils.getSubject().getPrincipal();
             //獲取分頁情況
             int page = Integer.parseInt(request.getParameter("page"));
             int rows = Integer.parseInt(request.getParameter("rows"));
@@ -60,6 +63,7 @@ public class ComLanguageController extends BaseController {
             PageModel pager = new PageModel();
             pager.setStartRow(startRow);
             pager.setRows(rows);
+            pager.setCondition01(user.getUserCode());
             pager.setTotal(serviceObject.listCount());
             List<ComLanguage> entityObject = serviceObject.listData(pager);
             JSONObject result = new JSONObject();
@@ -81,13 +85,13 @@ public class ComLanguageController extends BaseController {
      * @author Joseph
      * @date 20181108
      */
-//    @RequestMapping(value = "listDataTo.action")
+//    @RequestMapping(value = "listDataByUserCode.action")
 //    @ResponseBody
-//    public String listDataByUserCode(@RequestParam(value = "userCode") String userCode,
-//                                     HttpServletResponse response) {
+//    public String listDataByUserCode(HttpServletResponse response) {
 //        try {
+//            User user =  (User) SecurityUtils.getSubject().getPrincipal();
 //            //獲取分頁情況
-//            List<ComLanguage> entityObject = serviceObject.listDataByUserCode(userCode);
+//            List<ComLanguage> entityObject = serviceObject.listDataByUserCode(user.getUserCode());
 //            JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
 //            StringUtils.write(response, jsonArray);
 //        } catch (Exception ex) {

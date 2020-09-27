@@ -26,13 +26,6 @@ public interface IComLanguageService {
      * @param userCode 用户账号
      * @return List<ComLanguage>
      */
-    List<ComLanguage> listDataByUserCode(String userCode);
-
-    /**
-     * 查询所有
-     * @param userCode 用户账号
-     * @return List<ComLanguage>
-     */
     List<ComLanguage> listDataToFlowSubmit(String userCode);
 
     /**
