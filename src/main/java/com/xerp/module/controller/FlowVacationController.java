@@ -472,8 +472,8 @@ public class FlowVacationController extends BaseController {
     public ModelAndView draftDocument(HttpServletRequest request) {
         User currentUser = (User) SecurityUtils.getSubject().getPrincipal();
         try {
-            //獲取網頁狀態
-            String webStatus = request.getParameter("ws");
+            //獲取網頁狀態 request.getParameter("ws");
+            String webStatus = ConfigConst.STR_WS_CREATE;
             //流程编码
             String flowCode = request.getParameter("flowCode");
             List<FlowName> arrFList = flowNameService.listByCode(flowCode);
@@ -509,8 +509,6 @@ public class FlowVacationController extends BaseController {
             if (intReturn > 0) {
                 modelAndView = new ModelAndView();
                 modelAndView.addObject("docUuid", entityObject.getUuid());
-                modelAndView.addObject("flowCode", flowCode);
-                modelAndView.addObject("ws", ConfigConst.STR_WS_UPDATE);
                 modelAndView.setViewName(UrlPathConst.STR_FLOW_VACATION_MAIN_FORM);
             }
         } catch (Exception ex) {

@@ -25,22 +25,12 @@
         </div>
         <div class="navLeft_div3">
             <ul>
-                <li>
-                    <a onclick="
-                            openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/draftDocument.action?flowCode=flow00002&ws=<%=ConfigConst.STR_WS_CREATE%>')">
-                        起 草 申 请</a></li>
-                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toHandleList.action')">我 的 待
-                    办</a></li>
-                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toMyApplyList.action')">我 的 申
-                    请</a></li>
-                <li>
-                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toAllApplyList.action')">所有的申请</a>
-                </li>
-                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toUnFinishList.action')">
-                    未完成申请</a></li>
-                <li>
-                    <a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toIsFinishList.action')">已完成申请</a>
-                </li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/draftDocument.action?flowCode=flow00002')">起 草 申 请</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toHandleList.action')">我 的 待 办</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toMyApplyList.action')">我 的 申 请</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toAllApplyList.action')">所有的申请</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toUnFinishList.action')">未完成申请</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/toIsFinishList.action')">已完成申请</a></li>
             </ul>
         </div>
         <div class="navLeft_div2">
@@ -49,12 +39,9 @@
         </div>
         <div class="navLeft_div3">
             <ul>
-                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护1</a>
-                </li>
-                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护2</a>
-                </li>
-                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护3</a>
-                </li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护1</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护2</a></li>
+                <li><a onclick="openFlowTabToUrl('请假申请','请假申请','<%=basePath%>vacation/dataTest01.action')">数据维护3</a></li>
             </ul>
         </div>
     </div>

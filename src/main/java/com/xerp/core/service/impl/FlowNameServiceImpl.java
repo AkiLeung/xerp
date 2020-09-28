@@ -1,5 +1,6 @@
 package com.xerp.core.service.impl;
 
+import com.xerp.common.utils.StringUtils;
 import com.xerp.core.dao.IFlowNameDAO;
 import com.xerp.core.entity.FlowName;
 import com.xerp.core.entity.PageModel;
@@ -33,11 +34,17 @@ public class FlowNameServiceImpl implements IFlowNameService {
 
     @Override
     public List<FlowName> listByUuid(String uuid) {
+        if (StringUtils.isEmpty(uuid)) {
+            return null;
+        }
         return daoObject.listByUuid(uuid);
     }
 
     @Override
     public List<FlowName> listByCode(String code) {
+        if (StringUtils.isEmpty(code)) {
+            return null;
+        }
         return daoObject.listByCode(code);
     }
 
@@ -53,15 +60,18 @@ public class FlowNameServiceImpl implements IFlowNameService {
 
     @Override
     public int deleteData(String uuid) {
+        if (StringUtils.isEmpty(uuid)) {
+            return 0;
+        }
         return daoObject.deleteData(uuid);
     }
 
     @Override
     public int deleteDataBatch(String[] uuids) {
-        int int_delete = 0;
+        int delete = 0;
         for (int i = 0; i < uuids.length; i++) {
-            int_delete = int_delete + daoObject.deleteData(uuids[i]);
+            delete = delete + daoObject.deleteData(uuids[i]);
         }
-        return int_delete;
+        return delete;
     }
 }

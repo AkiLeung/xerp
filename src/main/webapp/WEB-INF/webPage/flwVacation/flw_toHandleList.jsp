@@ -71,13 +71,13 @@
                 {
                     field: 'billNumber', title: '单号', width: 150,
                     formatter: function (value, row, index) {
-                        return '<a style="color:blue" href="<%=basePath %>vacation/mainForm.action?uuid=' + row.uuid + '&flowCode=flow00002")>' + row.billNumber + '</a>';
+                        return '<a style="color:blue" href="<%=basePath %>vacation/mainForm.action?uuid=' + row.uuid + '")>' + row.billNumber + '</a>';
                     }
                 },
                 {
                     field: 'subject', title: '待办项目', width: 80,
                     formatter: function (value, row, index) {
-                        return '<a style="color:blue" href="<%=basePath %>vacation/mainForm.action?uuid=' + row.uuid + '&flowCode=flow00002")>' + row.subject + '</a>';
+                        return '<a style="color:blue" href="<%=basePath %>vacation/mainForm.action?uuid=' + row.uuid + '")>' + row.subject + '</a>';
                     }
                 },
                 {field: 'flowName', title: '待办流程', width: 150},

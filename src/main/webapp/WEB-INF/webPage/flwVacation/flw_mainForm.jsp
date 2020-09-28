@@ -27,7 +27,7 @@
         <td class="tblCell" style="width: 100%" colspan="2">
             docUuid:<input value="${docUuid}" type="Text" name="uuid" id="uuid"/><br/>
             flowModule:<input value="vacation" type="Text" name="flowModule" id="flowModule"/><br/>
-            flowCode:<input value="${flowCode}" type="Text" name="flowCode" id="flowCode"/><br/>
+            flowCode:<input value="flow00002" type="Text" name="flowCode" id="flowCode"/><br/>
             billNumber:<input class="easyui-textbox" value="" type="Text" name="billNumber" id="billNumber"/><br/>
         </td>
     </tr>

@@ -122,11 +122,11 @@ public class ConfigConst {
      */
     public static final String STR_SYS_KEY_VALUE_LANGUAGE = "language";
     /**
-     * 系统同KeyValue国家
+     * 系统同KeyValue：国家
      */
     public static final String STR_SYS_KEY_VALUE_COUNTRY = "country";
     /**
-     * 系统同KeyValue權限分類
+     * 系统同KeyValue：權限分類
      */
     public static final String STR_SYS_KEY_VALUE_AUTHORITY = "authority";
 }
