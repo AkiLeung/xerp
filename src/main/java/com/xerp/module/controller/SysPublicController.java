@@ -40,7 +40,7 @@ public class SysPublicController extends BaseController {
 
 
     /**
-     * 功能说明：前提操作-常用语言
+     * 功能说明：前台操作-常用语言
      * 修改说明：
      *
      * @return ModelAndView 頁面跳轉
@@ -61,7 +61,7 @@ public class SysPublicController extends BaseController {
     }
 
     /**
-     * 功能说明：前提操作-常用语言
+     * 功能说明：前台操作-常用语言
      * 修改说明：
      *
      * @return ModelAndView 頁面跳轉
@@ -81,4 +81,24 @@ public class SysPublicController extends BaseController {
         return modelAndView;
     }
 
+    /**
+     * 功能说明：前台操作-修改密码
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20181108
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "userUptPsw.action")
+    public ModelAndView userUptPsw() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_SYSTEM_PUBLIC_USER_PSW);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
 }
