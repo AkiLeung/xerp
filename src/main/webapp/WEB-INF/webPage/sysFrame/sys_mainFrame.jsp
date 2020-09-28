@@ -36,8 +36,12 @@
                 <a class="pulldown-nav" href=""><em class="f-icon"></em>办公1</a>
                 <div class="pulldown app-url" style="z-index:99999;">
                     <div class="content">
-                        <a class="li disk" href=""><span class="icon"></span><span class="text">功能11</span></a>
-                        <a class="li tongxunlu" href=""><span class="icon"></span><span class="text">功能12</span></a>
+                        <a class="li disk" href="JavaScript:void(0);"
+                           onclick="openFlowTabToUrl('日常用语','日常用语','<%=basePath%>sysPublic/comLanguageList.action')">
+                            <span class="icon"></span><span class="text">常用语</span></a>
+                        <a class="li tongxunlu" href="JavaScript:void(0);"
+                           onclick="openFlowTabToUrl('修改密码','修改密码','<%=basePath%>sysPublic/userUptPsw.action')">
+                            <span class="icon"></span><span class="text">修改密码</span></a>
                         <a class="li xiangce" href=""><span class="icon"></span><span class="text">功能13</span></a>
                         <a class="li wenzhang" href=""><span class="icon"></span><span class="text">功能14</span></a>
                         <a class="li note" href=""> <span class="icon"></span><span class="text">功能15</span></a>
