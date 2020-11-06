@@ -16,7 +16,7 @@ import java.util.Date;
  */
 @Log4j2
 @Component
-public class TestJob implements Job {
+public class TestJob02 implements Job {
 
     @Override
     public void execute(JobExecutionContext arg0) throws JobExecutionException {
