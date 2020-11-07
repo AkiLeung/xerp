@@ -311,7 +311,7 @@ public class SysConfigController extends BaseController {
     public ModelAndView configScheduler() {
         modelAndView = new ModelAndView();
         try {
-            modelAndView.setViewName(UrlPathConst.STR_SYSTEM_CONFIG_JOB_SCHEDULER);
+            modelAndView.setViewName(UrlPathConst.STR_SYSTEM_CONFIG_JOB_SCHEDULE_JOB);
         } catch (Exception ex) {
             modelAndView.addObject("errorMessage", ex.toString());
             modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);

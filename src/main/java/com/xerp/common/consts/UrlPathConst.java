@@ -239,11 +239,11 @@ public class UrlPathConst {
     /**
      * 后台管理：常用语-列表
      */
-    public final static String STR_SYSTEM_CONFIG_JOB_SCHEDULER = SYS_SERVER_PATH + "/sysConfig/sys_schedulerList.jsp";
+    public final static String STR_SYSTEM_CONFIG_JOB_SCHEDULE_JOB = SYS_SERVER_PATH + "/sysConfig/sys_scheduleJobList.jsp";
     /**
      * 后台管理：常用语-配置
      */
-    public final static String STR_SYSTEM_CONFIG_JOB_SCHEDULER_CONF = SYS_SERVER_PATH + "/sysConfig/sys_schedulerConf.jsp";
+    public final static String STR_SYSTEM_CONFIG_JOB_SCHEDULE_JOB_CONF = SYS_SERVER_PATH + "/sysConfig/sys_scheduleJobConf.jsp";
 
     /**
      * 后台管理：系统日志
