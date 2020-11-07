@@ -147,6 +147,15 @@
             {
                 id: "node-09",
                 pId: "root-00",
+                name: "定时任务",
+                isParent: false,
+                iconSkin: "config",
+                ifrName: "configScheduler",
+                mainPath: "<%=basePath %>sysConfig/configScheduler/configuration.action"
+            },
+            {
+                id: "node-10",
+                pId: "root-00",
                 name: "系统日志",
                 isParent: false,
                 iconSkin: "config",
@@ -154,7 +163,7 @@
                 mainPath: "<%=basePath %>sysConfig/sysLog/configuration.action"
             },
             {
-                id: "node-10",
+                id: "node-11",
                 pId: "root-00",
                 name: "系统信息",
                 isParent: false,

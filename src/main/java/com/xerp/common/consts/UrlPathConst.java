@@ -237,6 +237,15 @@ public class UrlPathConst {
      */
     public final static String STR_SYSTEM_CONFIG_COM_LANGUAGE_CONF = SYS_SERVER_PATH + "/sysConfig/sys_comLanguageConf.jsp";
     /**
+     * 后台管理：常用语-列表
+     */
+    public final static String STR_SYSTEM_CONFIG_JOB_SCHEDULER = SYS_SERVER_PATH + "/sysConfig/sys_schedulerList.jsp";
+    /**
+     * 后台管理：常用语-配置
+     */
+    public final static String STR_SYSTEM_CONFIG_JOB_SCHEDULER_CONF = SYS_SERVER_PATH + "/sysConfig/sys_schedulerConf.jsp";
+
+    /**
      * 后台管理：系统日志
      */
     public final static String STR_SYSTEM_CONFIG_SYSTEM_LOG = SYS_SERVER_PATH + "/sysConfig/sys_systemLogList.jsp";

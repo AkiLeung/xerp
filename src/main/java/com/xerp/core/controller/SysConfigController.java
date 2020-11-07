@@ -299,6 +299,27 @@ public class SysConfigController extends BaseController {
     }
 
     /**
+     * 功能说明：后台配置-定时任务
+     * 修改说明：
+     *
+     * @return ModelAndView 頁面跳轉
+     * @author Joseph
+     * @date 20181108
+     */
+    //@RequiresPermissions(value = {AuthCodeConst.SYS_USER_TYPE_ADMIN + AuthCodeConst.SYS_AUTH_ALL})
+    @RequestMapping(value = "configScheduler/configuration.action")
+    public ModelAndView configScheduler() {
+        modelAndView = new ModelAndView();
+        try {
+            modelAndView.setViewName(UrlPathConst.STR_SYSTEM_CONFIG_JOB_SCHEDULER);
+        } catch (Exception ex) {
+            modelAndView.addObject("errorMessage", ex.toString());
+            modelAndView.setViewName(UrlPathConst.STR_COMMON_ERROR_PAGE);
+        }
+        return modelAndView;
+    }
+
+    /**
      * 功能说明：后台配置-系统日志
      * 修改说明：
      *

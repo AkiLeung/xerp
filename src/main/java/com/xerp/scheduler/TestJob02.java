@@ -20,7 +20,7 @@ public class TestJob02 implements Job {
 
     @Override
     public void execute(JobExecutionContext arg0) throws JobExecutionException {
-        log.info("Welcome to Quartz World!" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        log.info("Test 02 Welcome to Quartz World!" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
     }
 
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xerp.core.dao.ISchedulerDAO">
+    <resultMap type="Scheduler" id="ResultSet">
+        <result property="jobId" column="job_id"/>
+        <result property="jobClass" column="job_class"/>
+        <result property="jobGroup" column="job_group"/>
+        <result property="jobName" column="job_name"/>
+        <result property="triggerName" column="trigger_name"/>
+        <result property="triggerGroup" column="trigger_group"/>
+        <result property="cronExpr" column="cron_expr"/>
+        <result property="status" column="status"/>
+        <result property="deleteFlag" column="delete_flag"/>
+        <result property="startTime" column="start_time"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="updatedTime" column="updated_time"/>
+    </resultMap>
+
+    <!-- 查找所有-->
+    <select id="listData" resultMap="ResultSet">
+        select * from tbl_sys_schedule where 1 = 1
+        order by type, sort asc
+        <if test="startRow != null and  rows!= null">
+            limit #{startRow},#{rows}
+        </if>
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="Integer">
+        select count(job_id) as total from tbl_sys_schedule where 1 = 1 order by job_class asc
+    </select>
+
+    <!-- 查找指定-->
+    <select id="listByUuid" resultType="com.xerp.core.entity.Scheduler" resultMap="ResultSet">
+        select * from tbl_sys_schedule where job_id = #{jobId}
+    </select>
+
+    <!-- 新增-->
+    <insert id="insertData">
+        insert into tbl_sys_schedule
+        (job_class,
+        job_group,
+        job_name,
+        trigger_name,
+        trigger_group,
+        cron_expr,
+        status,
+        delete_flag,
+        start_time,
+        created_time)
+        values
+        (#{jobClass},
+        #{jobGroup},
+        #{jobName},
+        #{triggerName},
+        #{triggerGroup},
+        #{cronExpr},
+        #{status},
+        #{deleteFlag},
+        #{startTime},
+        #{createdTime})
+    </insert>
+
+    <!-- 更新-->
+    <update id="updateData">
+        update tbl_sys_schedule set
+             job_class= #{jobClass},
+             job_group= #{jobGroup},
+             job_name = #{jobName},
+             trigger_name = #{triggerName},
+             trigger_group= #{triggerGroup},
+             cron_expr = #{cronExpr},
+             status= #{status},
+             delete_flag = #{deleteFlag},
+             start_time= #{startTime},
+             updated_time= #{updatedTime}
+        where job_id = #{jobId}
+	</update>
+
+    <!-- 刪除-->
+    <delete id="deleteData">
+        delete from tbl_sys_schedule where job_id = #{jobId}
+    </delete>
+
+</mapper>

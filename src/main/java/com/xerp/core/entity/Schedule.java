@@ -14,14 +14,14 @@ import javax.persistence.Entity;
 @Entity
 @Data
 @Cacheable
-public class QuartzTask extends BaseEntity {
+public class Schedule extends BaseEntity {
 
     private static final long serialVersionUID = 6794278233339581395L;
 
     /**
      * 这个类用于展示定时的任务，同时作用于定时任务的恢复、删除、中止；
      **/
-    private Long jobId;
+    private Integer jobId;
 
     /**
      * 任务类的全限定类名
@@ -46,7 +46,7 @@ public class QuartzTask extends BaseEntity {
     /**
      * 任务触发器组名
      */
-    private String triggerGroupName;
+    private String triggerGroup;
 
     /**
      * 时间表达式
@@ -56,10 +56,25 @@ public class QuartzTask extends BaseEntity {
     /**
      * 任务状态
      */
-    private Integer jobStatus;
+    private Integer status;
+
+    /**
+     * 删除标识
+     */
+    private Integer deleteFlag;
 
     /**
      * 任务开始时间
      */
     private String startTime;
+
+    /**
+     * 创建时间
+     */
+    private String createdTime;
+
+    /**
+     * 修改时间
+     */
+    private String updatedTime;
 }
