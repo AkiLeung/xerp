@@ -130,23 +130,23 @@
             columns: [[
                 {field: 'cb', checkbox: 'true', width: 30},
                 {
-                    field: 'jobClass', title: '类型', width: 250,
+                    field: 'jobClass', title: '执行类', width: 250,
                     formatter: function (value, row, index) {
                         return '<a style="color:blue" href="#" onclick=showDialogWin("ifrSchedulerConfig","schedulerConfig",' +
-                            '"<%=basePath %>sysConfig/scheduler/gotoConfPage.action?ws=update&uuid=' + row.jobId + '");>'
+                            '"<%=basePath %>sysConfig/scheduler/gotoConfPage.action?ws=update&jobId=' + row.jobId + '");>'
                             + row.jobClass + '</a>';
                     }
                 },
                 {
-                    field: 'jobGroup', title: '所属用户', width: 250,
+                    field: 'jobGroup', title: '所属组', width: 150,
                     formatter: function (value, row, index) {
                         return '<a style="color:blue" href="#" onclick=showDialogWin("ifrSchedulerConfig","schedulerConfig",' +
-                            '"<%=basePath %>sysConfig/scheduler/gotoConfPage.action?ws=update&uuid=' + row.jobId + '");>'
+                            '"<%=basePath %>sysConfig/scheduler/gotoConfPage.action?ws=update&jobId=' + row.jobId + '");>'
                             + row.jobGroup + '</a>';
                     }
                 },
-                {field: 'status', title: '排序', width: 80},
-                {field: 'startTime', title: '常用语句', width: 100}
+                {field: 'status', title: '状态', width: 80},
+                {field: 'startTime', title: '开始时间', width: 150}
             ]],
             onClickRow: function (rowIndex, rowData) {
                 //加载完毕后获取所有的checkbox遍历

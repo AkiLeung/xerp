@@ -79,9 +79,9 @@ public class ScheduleJobController extends BaseController {
      * @author Joseph
      * @date 20181108
      */
-    @RequestMapping(value = "listByUuid.action")
+    @RequestMapping(value = "listByJobId.action")
     @ResponseBody
-    public String listByUuid(@RequestParam(value = "jobId") String jobId,
+    public String listByJobId(@RequestParam(value = "jobId") String jobId,
                              HttpServletResponse response) {
         JSONArray jsonArray = null;
         try {
