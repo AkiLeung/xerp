@@ -79,14 +79,14 @@ public class ScheduleJobController extends BaseController {
      * @author Joseph
      * @date 20181108
      */
-    @RequestMapping(value = "listByJobId.action")
+    @RequestMapping(value = "listByUuid.action")
     @ResponseBody
-    public String listByJobId(@RequestParam(value = "jobId") String jobId,
+    public String listByUuid(@RequestParam(value = "uuid") String uuid,
                              HttpServletResponse response) {
         JSONArray jsonArray = null;
         try {
             //獲取指定的數據對象到JSON
-            List<ScheduleJob> entityObject = serviceObject.listByJobId(jobId);
+            List<ScheduleJob> entityObject = serviceObject.listByUuid(uuid);
             jsonArray = JSONArray.parseArray(JSON.toJSONString(entityObject));
             StringUtils.write(response, jsonArray);
         } catch (Exception ex) {
@@ -100,7 +100,6 @@ public class ScheduleJobController extends BaseController {
             return ConfigConst.STR_AJAX_ERROR;
         }
     }
-
 
 
     /**
@@ -125,20 +124,27 @@ public class ScheduleJobController extends BaseController {
             //操作對象
             ScheduleJob entityObject = new ScheduleJob();
             //uuid
-            if (webStatus.equals(ConfigConst.STR_WS_UPDATE)) {
-                entityObject.setJobId(Integer.parseInt(jsonData.getString("jobId")));
+            if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
+                entityObject.setUuid(StringUtils.createUUID());
+                entityObject.setCreatedTime(StringUtils.getDatetime());
+            } else if (webStatus.equals(ConfigConst.STR_WS_UPDATE)) {
+                entityObject.setUuid(jsonData.getString("uuid"));
+                entityObject.setUpdatedTime(StringUtils.getDatetime());
             }
-//            entityObject.setType(jsonData.getString("type"));
-//            entityObject.setUserCode(jsonData.getString("userCode"));
-//            entityObject.setOpinions(jsonData.getString("opinions"));
-//            entityObject.setSort(Integer.parseInt(jsonData.getString("sort")));
+            entityObject.setStatus(Integer.parseInt(jsonData.getString("status")));
+            entityObject.setJobClass(jsonData.getString("jobClass"));
+            entityObject.setJobGroup(jsonData.getString("jobGroup"));
+            entityObject.setJobName(jsonData.getString("jobName"));
+            entityObject.setTriggerName(jsonData.getString("triggerName"));
+            entityObject.setTriggerGroup(jsonData.getString("triggerGroup"));
+            entityObject.setCronExpr(jsonData.getString("cronExpr"));
+            entityObject.setStartTime(jsonData.getString("startTime"));
             //判斷網頁狀態執行不同的方法
             if (webStatus.equals(ConfigConst.STR_WS_CREATE)) {
                 returnRow = serviceObject.insertData(entityObject);
             } else if (webStatus.equals(ConfigConst.STR_WS_UPDATE)) {
                 returnRow = serviceObject.updateData(entityObject);
             }
-
             //返回狀態
             JSONObject result = new JSONObject();
             if (returnRow > 0) {

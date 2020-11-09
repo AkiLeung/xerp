@@ -43,6 +43,8 @@
                collapsible:true,
                method:'get',
                rowStyler: function(index,row){
+                if(row.status=='0'){row.statusTxt= 'Stop';}
+                if(row.status=='1'){row.statusTxt = '<b>Running<b>';}
                 },
                toolbar:toolbar">
         </table>
@@ -133,7 +135,7 @@
                     field: 'jobClass', title: '执行类', width: 250,
                     formatter: function (value, row, index) {
                         return '<a style="color:blue" href="#" onclick=showDialogWin("ifrSchedulerConfig","schedulerConfig",' +
-                            '"<%=basePath %>sysConfig/scheduler/gotoConfPage.action?ws=update&jobId=' + row.jobId + '");>'
+                            '"<%=basePath %>sysConfig/scheduler/gotoConfPage.action?ws=update&uuid=' + row.uuid + '");>'
                             + row.jobClass + '</a>';
                     }
                 },
@@ -141,12 +143,38 @@
                     field: 'jobGroup', title: '所属组', width: 150,
                     formatter: function (value, row, index) {
                         return '<a style="color:blue" href="#" onclick=showDialogWin("ifrSchedulerConfig","schedulerConfig",' +
-                            '"<%=basePath %>sysConfig/scheduler/gotoConfPage.action?ws=update&jobId=' + row.jobId + '");>'
+                            '"<%=basePath %>sysConfig/scheduler/gotoConfPage.action?ws=update&uuid=' + row.uuid + '");>'
                             + row.jobGroup + '</a>';
                     }
                 },
-                {field: 'status', title: '状态', width: 80},
-                {field: 'startTime', title: '开始时间', width: 150}
+                {field: 'jobName', title: '任务名称', width: 100},
+                {field: 'triggerName', title: '触发名', width: 100},
+                {field: 'triggerGroup', title: '触发组', width: 100},
+                {field: 'status', title: '状态', width: 50, hidden: true},
+                {field: 'statusTxt', title: '状态', width: 100},
+                {field: 'cronExpr', title: '定时计划', width: 150},
+                {field: 'startTime', title: '开始时间', width: 150},
+                {
+                    field: 'option1', title: '操作', width: 90, align: 'center',
+                    formatter: function (value, row, index) {
+                        var btn01 = '<span style="color:grey">启用</span>';
+                        if(row.status == '0') {
+                            btn01 = '<input id="sb" class="easyui-switchbutton" checked style="width:100px;height:30px">';
+                            //btn01 = '<a style="color:blue;font-weight: bold"  onclick="updatePassword(\'' + row.jobId + '\')" href="javascript:void(0)">启用</a>';
+                        }
+                        return btn01;
+                    }
+                },
+                {
+                    field: 'option2', title: '操作', width: 90, align: 'center',
+                    formatter: function (value, row, index) {
+                        var btn02 = '<span style="color:grey">停用</span>';
+                        if(row.status == '1') {
+                            btn02 = '<a style="color:blue;font-weight: bold"  onclick="updatePassword(\'' + row.jobId + '\')" href="javascript:void(0)">停用</a>';
+                        }
+                        return btn02;
+                    }
+                }
             ]],
             onClickRow: function (rowIndex, rowData) {
                 //加载完毕后获取所有的checkbox遍历

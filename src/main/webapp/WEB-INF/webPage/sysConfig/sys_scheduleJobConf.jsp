@@ -19,7 +19,7 @@
             </td>
             <td class="tblCell">
                 <input value="<%=request.getParameter("ws")%>" name="ws" type="hidden" id="ws"/>
-                <input value="<%=request.getParameter("jobId")%>" name="jobId" type="hidden" id="jobId"/></td>
+                <input value="<%=request.getParameter("uuid")%>" name="uuid" type="hidden" id="uuid"/></td>
         </tr>
         <tr>
             <td colspan="2" class="tblInfo">
@@ -47,7 +47,7 @@
         </tr>
         <tr>
             <td class="tblTitle">
-                执行组名
+                所属组
             </td>
             <td class="tblCell">
                 <input class="easyui-textbox" value="" name="jobGroup" type="text" id="jobGroup"
@@ -100,9 +100,10 @@
                 开始时间
             </td>
             <td class="tblCell">
-                <input class="easyui-textbox" data-options="validType:'length[0,250]'" value=""
+                <input class="easyui-datetimebox" data-options="" value=""
                        name="startTime" type="text"
                        id="startTime" style="width:450px"/>
+                (yyyy-MM-dd hh:mm:ss)
             </td>
         </tr>
     </table>
@@ -116,13 +117,17 @@
         $.ajax({
             async: true,
             type: 'get',//get是获取数据，post是带数据的向服务器发送请求
-            url: "<%=basePath %>sysConfig/scheduler/listByJobId.action?ws=" + webStatus + "&jobId=" + $("#jobId").val(),
+            url: "<%=basePath %>sysConfig/scheduler/listByUuid.action?ws=" + webStatus + "&uuid=" + $("#uuid").val(),
             dataType: 'json',
             success: function (data) {
-                // $("input[name='status'][value ='" + data[0].type + "']").attr("checked", "checked").parent().addClass('checked');
+                $("input[name='status'][value ='" + data[0].status + "']").attr("checked", "checked").parent().addClass('checked');
                 $("#jobClass").textbox('setValue', data[0].jobClass);
-                // $("#opinions").textbox('setValue', data[0].opinions);
-                // $("#sort").textbox('setValue', data[0].sort);
+                $("#jobGroup").textbox('setValue', data[0].jobGroup);
+                $("#jobName").textbox('setValue', data[0].jobName);
+                $("#triggerName").textbox('setValue', data[0].triggerName);
+                $("#triggerGroup").textbox('setValue', data[0].triggerGroup);
+                $("#cronExpr").textbox('setValue', data[0].cronExpr);
+                $("#startTime").textbox('setValue', data[0].startTime);
             },
             error: function (data) {
                 alert("JSON数据获取失败，请联系管理员！");
@@ -133,12 +138,37 @@
     //保存提交時執行
     function saveData() {
         //保存前檢查
-        if ($("#userCode").val() == "") {
-            $.messager.alert('Field Required', 'User code must be entered!');
+        if ($("#jobClass").val() == "") {
+            $.messager.alert('Field Required', 'Job Class must be entered!');
             return false;
         }
-        if ($("#opinions").val() == "") {
-            $.messager.alert('Field Required', 'Opinions must be entered!');
+        if ($("#jobGroup").val() == "") {
+            $.messager.alert('Field Required', 'Job Group must be entered!');
+            return false;
+        }
+
+        if ($("#jobName").val() == "") {
+            $.messager.alert('Field Required', 'Job Name must be entered!');
+            return false;
+        }
+
+        if ($("#triggerName").val() == "") {
+            $.messager.alert('Field Required', 'Trigger Name must be entered!');
+            return false;
+        }
+
+        if ($("#triggerGroup").val() == "") {
+            $.messager.alert('Field Required', 'Trigger Group must be entered!');
+            return false;
+        }
+
+        if ($("#cronExpr").val() == "") {
+            $.messager.alert('Field Required', 'Cron Expr must be entered!');
+            return false;
+        }
+
+        if ($("#startTime").val() == "") {
+            $.messager.alert('Field Required', 'Start Time must be entered!');
             return false;
         }
 
@@ -146,10 +176,14 @@
         var objData = {
             ws: $("#ws").val(),
             uuid: $("#uuid").val(),
-            type: $('input[name="type"]:checked').val(),
-            userCode: $("#userCode").val(),
-            opinions: $("#opinions").val(),
-            sort: $("#sort").val(),
+            status: $('input[name="status"]:checked').val(),
+            jobClass: $("#jobClass").val(),
+            jobGroup: $("#jobGroup").val(),
+            jobName: $("#jobName").val(),
+            triggerName: $("#triggerName").val(),
+            triggerGroup: $("#triggerGroup").val(),
+            cronExpr: $("#cronExpr").val(),
+            startTime: $("#startTime").val(),
         };
         var jsonData = JSON.stringify(objData);
         //执行保存
@@ -161,7 +195,7 @@
             async: false,
             data: jsonData,
             success: function (data) {
-                parent.$('#comLanguageConfig').dialog('close');
+                parent.$('#schedulerConfig').dialog('close');
                 parent.$('#dataList').datagrid('reload');
             },
             error: function (data) {

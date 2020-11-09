@@ -32,10 +32,10 @@ public interface IScheduleJobDAO {
     /**
      * 只查询一个，常用于修改
      *
-     * @param jobId
+     * @param uuids
      * @return ScheduleJob
      */
-    List<ScheduleJob> listByJobId(String jobId);
+    List<ScheduleJob> listByUuid(String uuids);
 
     /**
      * 增加，用实体作为参数

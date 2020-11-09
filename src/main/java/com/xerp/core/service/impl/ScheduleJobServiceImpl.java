@@ -32,8 +32,8 @@ public class ScheduleJobServiceImpl implements IScheduleJobService {
     }
 
     @Override
-    public List<ScheduleJob> listByJobId(String jobId) {
-        return daoObject.listByJobId(jobId);
+    public List<ScheduleJob> listByUuid(String uuid) {
+        return daoObject.listByUuid(uuid);
     }
 
 
@@ -53,10 +53,10 @@ public class ScheduleJobServiceImpl implements IScheduleJobService {
     }
 
     @Override
-    public int deleteDataBatch(String[] jobIds) {
+    public int deleteDataBatch(String[] uuids) {
         int int_delete = 0;
-        for (int i = 0; i < jobIds.length; i++) {
-            int_delete = int_delete + daoObject.deleteData(jobIds[i]);
+        for (int i = 0; i < uuids.length; i++) {
+            int_delete = int_delete + daoObject.deleteData(uuids[i]);
         }
         return int_delete;
     }

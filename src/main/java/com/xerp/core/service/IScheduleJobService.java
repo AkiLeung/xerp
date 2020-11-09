@@ -28,10 +28,10 @@ public interface IScheduleJobService {
 
     /**
      * 只查询一个，常用于修改
-     * @param jobId
+     * @param uuid
      * @return ScheduleJob
      */
-    List<ScheduleJob> listByJobId(String jobId);
+    List<ScheduleJob> listByUuid(String uuid);
 
     /**
      * 增加，用实体作为参数
@@ -49,15 +49,15 @@ public interface IScheduleJobService {
 
     /**
      * 按uuid删除
-     * @param jobId
+     * @param uuid
      * @return int 影響行數
      */
-    int deleteData(String jobId);
+    int deleteData(String uuid);
 
     /**
      * 批量删除
-     * @param jobIds
+     * @param Uuids
      * @return int 影響行數
      */
-    int deleteDataBatch(String[] jobIds);
+    int deleteDataBatch(String[] Uuids);
 }

@@ -21,7 +21,7 @@ public class ScheduleJob extends BaseEntity {
     /**
      * 这个类用于展示定时的任务，同时作用于定时任务的恢复、删除、中止；
      **/
-    private Integer jobId;
+    private String uuid;
 
     /**
      * 任务类的全限定类名

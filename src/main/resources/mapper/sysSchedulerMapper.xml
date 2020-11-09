@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xerp.core.dao.IScheduleJobDAO">
     <resultMap type="ScheduleJob" id="ResultSet">
-        <result property="jobId" column="job_id"/>
+        <result property="uuid" column="uuid"/>
         <result property="jobClass" column="job_class"/>
         <result property="jobGroup" column="job_group"/>
         <result property="jobName" column="job_name"/>
@@ -29,18 +29,19 @@
 
     <!-- 統計個數-->
     <select id="listCount" resultType="Integer">
-        select count(job_id) as total from tbl_sys_schedule_job where 1 = 1 order by job_class asc
+        select count(uuid) as total from tbl_sys_schedule_job where 1 = 1 order by job_class asc
     </select>
 
     <!-- 查找指定-->
-    <select id="listByJobId" resultType="com.xerp.core.entity.ScheduleJob" resultMap="ResultSet">
-        select * from tbl_sys_schedule_job where job_id = #{jobId}
+    <select id="listByUuid" resultType="com.xerp.core.entity.ScheduleJob" resultMap="ResultSet">
+        select * from tbl_sys_schedule_job where uuid = #{uuid}
     </select>
 
     <!-- 新增-->
     <insert id="insertData">
         insert into tbl_sys_schedule_job
-        (job_class,
+        (uuid,
+        job_class,
         job_group,
         job_name,
         trigger_name,
@@ -51,7 +52,8 @@
         start_time,
         created_time)
         values
-        (#{jobClass},
+        (#{uuid},
+        #{jobClass},
         #{jobGroup},
         #{jobName},
         #{triggerName},
@@ -76,12 +78,12 @@
              delete_flag = #{deleteFlag},
              start_time= #{startTime},
              updated_time= #{updatedTime}
-        where job_id = #{jobId}
+        where uuid = #{uuid}
 	</update>
 
     <!-- 刪除-->
     <delete id="deleteData">
-        delete from tbl_sys_schedule where job_id = #{jobId}
+        delete from tbl_sys_schedule where uuid = #{uuid}
     </delete>
 
 </mapper>
