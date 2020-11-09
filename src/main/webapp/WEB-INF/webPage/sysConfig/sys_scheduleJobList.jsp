@@ -159,8 +159,8 @@
                     formatter: function (value, row, index) {
                         var btn01 = '<span style="color:grey">启用</span>';
                         if(row.status == '0') {
-                            btn01 = '<input id="sb" class="easyui-switchbutton" checked style="width:100px;height:30px">';
-                            //btn01 = '<a style="color:blue;font-weight: bold"  onclick="updatePassword(\'' + row.jobId + '\')" href="javascript:void(0)">启用</a>';
+                            //btn01 = '<input id="sb" class="easyui-switchbutton" checked style="width:100px;height:30px">';
+                            btn01 = '<a style="color:blue;font-weight: bold"  onclick="updatePassword(\'' + row.jobId + '\')" href="javascript:void(0)">启用</a>';
                         }
                         return btn01;
                     }

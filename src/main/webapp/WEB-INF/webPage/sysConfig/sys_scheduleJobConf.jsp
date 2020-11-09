@@ -26,13 +26,13 @@
                 &nbsp;<img alt="info" src="<%=basePath%>static/image/info3.png"/>&nbsp;基础信息
             </td>
         </tr>
-        <tr>
+        <tr style="display: none">
             <td class="tblTitle" style="width: 20%">
                 状态
             </td>
             <td class="tblCell" style="width: 80%">
-                <label style="cursor: pointer"><input type="radio" name="status" value="1" checked>启用</label>
-                <label style="cursor: pointer"><input type="radio" name="status" value="0">暂停</label>
+                <label style="cursor: pointer"><input type="radio" name="status" value="1">启用</label>
+                <label style="cursor: pointer"><input type="radio" name="status" value="0" checked>暂停</label>
             </td>
         </tr>
         <tr>
