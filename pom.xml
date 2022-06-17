@@ -41,7 +41,7 @@
         <!-- druid持久化 -->
         <alibaba.druid.version>1.1.10</alibaba.druid.version>
         <!-- xml & json -->
-        <alibaba.fastjson.version>1.2.58</alibaba.fastjson.version>
+        <alibaba.fastjson.version>1.2.83</alibaba.fastjson.version>
         <!-- shiro安全框架 -->
         <shiro.version>1.2.4</shiro.version>
         <!-- lombok快速注解 -->
